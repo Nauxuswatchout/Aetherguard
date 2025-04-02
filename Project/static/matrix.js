@@ -4,6 +4,10 @@ const ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
+// 初始填充黑色背景
+ctx.fillStyle = 'black';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 const letters = 'アァイィウエエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const matrix = letters.split('');
 
@@ -29,4 +33,7 @@ function draw() {
   }
 }
 
-setInterval(draw, 33);
+// 延迟1.5秒后启动动画
+setTimeout(() => {
+  setInterval(draw, 33);
+}, 1500);

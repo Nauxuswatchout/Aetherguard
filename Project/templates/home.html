@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Aetherguard - Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<style>
+			.top-header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				padding: 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				z-index: 1000;
+			}
+
+			.logo-container {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.logo-image {
+				width: 40px;
+				height: 40px;
+				object-fit: contain;
+			}
+
+			.logo-text {
+				color: #ffffff;
+				font-size: 1.5em;
+				font-weight: bold;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+			}
+
+			.menu-button {
+				color: #ffffff;
+				text-decoration: none;
+				font-size: 1.2em;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				padding: 10px 20px;
+				border: 1px solid #ffffff;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				position: relative;
+			}
+
+			.menu-button:hover {
+				background-color: #ffffff;
+				color: #000000;
+			}
+
+			.menu-dropdown {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				background-color: white;
+				min-width: 200px;
+				padding: 15px;
+				margin-top: 10px;
+				border-radius: 5px;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-10px);
+				transition: all 0.3s ease;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+			}
+
+			.menu-dropdown.active {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+
+			.menu-dropdown::before {
+				content: '';
+				position: absolute;
+				top: -5px;
+				right: 20px;
+				width: 10px;
+				height: 10px;
+				background-color: white;
+				transform: rotate(45deg);
+			}
+
+			.menu-dropdown a {
+				display: block;
+				color: #000000;
+				text-decoration: none;
+				padding: 10px 15px;
+				font-size: 1.1em;
+				transition: all 0.3s ease;
+				text-align: center;
+				border-bottom: 1px solid rgba(0,0,0,0.1);
+			}
+
+			.menu-dropdown a:last-child {
+				border-bottom: none;
+			}
+
+			.menu-dropdown a:hover {
+				background-color: rgba(0,0,0,0.05);
+				transform: translateX(5px);
+			}
+
+			.hero-section {
+				height: 50vh;
+				width: 100%;
+				background-image: url("{{ url_for('static', filename='images/sky.png') }}");
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+			}
+
+			.hero-section::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.3);
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 1;
+				text-align: center;
+				color: #ffffff;
+			}
+
+			.hero-title {
+				font-size: 4em;
+				margin-bottom: 20px;
+				font-weight: bold;
+			}
+
+			.feature-buttons {
+				display: flex;
+				flex-wrap: nowrap;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			.feature-button {
+				width: 50%;
+				height: 40vh;
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				color: #ffffff;
+				overflow: hidden;
+				transition: all 0.5s ease;
+			}
+
+			.feature-button::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.4);
+				transition: all 0.5s ease;
+			}
+
+			.feature-button:hover {
+				width: 65%;
+			}
+
+			.feature-button:hover + .feature-button {
+				width: 35%;
+			}
+
+			.feature-button:hover::before {
+				background: rgba(0, 0, 0, 0.2);
+			}
+
+			.feature-content {
+				position: relative;
+				z-index: 1;
+				text-align: center;
+				transition: all 0.5s ease;
+			}
+
+			.feature-button:hover .feature-content {
+				transform: scale(1.1);
+			}
+
+			.feature-title {
+				font-size: 2.5em;
+				font-weight: bold;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+				transition: all 0.5s ease;
+				position: relative;
+				padding-bottom: 15px;
+			}
+
+			.feature-title::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 60px;
+				height: 2px;
+				background-color: #ffffff;
+				transition: all 0.5s ease;
+			}
+
+			.feature-button:hover .feature-title::after {
+				width: 80px;
+			}
+
+			.feature-subtitle {
+				font-size: 1.2em;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				transition: all 0.5s ease;
+				margin-top: 15px;
+			}
+
+			#Parents {
+				background-image: url("{{ url_for('static', filename='images/heihei.jpg') }}");
+				background-size: cover;
+				background-position: center;
+			}
+
+			#Children{
+				background-image: url("{{ url_for('static', filename='images/Hehe.jpg') }}");
+				background-size: cover;
+				background-position: center;
+			}
+
+			/* Add white */
+			.white-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: white;
+				z-index: 9999;
+				opacity: 1;
+				transition: opacity 1s ease-out;
+			}
+
+			/* hide inthe start */
+			.page-content {
+				opacity: 0;
+				transition: opacity 1s ease-in;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- white in the start -->
+		<div class="white-overlay"></div>
+
+	
+		<div class="page-content">
+			<!-- top menu -->
+			<header class="top-header">
+				<div class="logo-container">
+					<img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-image">
+					<div class="logo-text">Aetherguard</div>
+				</div>
+				<div style="position: relative;">
+					<a class="menu-button">MENU</a>
+					<div class="menu-dropdown">
+						<a href="#">？？？</a>
+						<a href="#">！！！</a>
+						<a href="#">KKK</a>
+					</div>
+				</div>
+			</header>
+
+			<!-- Stupid AI think Aetherguard is name of hero -->
+			<section class="hero-section">
+				<div class="hero-content">
+					<h1 class="hero-title">Hi, my name is Aetherguard</h1>
+				</div>
+			</section>
+
+			<!-- big button -->
+			<div class="feature-buttons">
+				<a href="{{ url_for('parents') }}" class="feature-button" id="Parents">
+					<div class="feature-content">
+						<h2 class="feature-title">Parents</h2>
+						<p class="feature-subtitle">FEUGIAT AMET TEMPUS</p>
+					</div>
+				</a>
+				<a href="#" class="feature-button" id="Children">
+					<div class="feature-content">
+						<h2 class="feature-title">Children</h2>
+						<p class="feature-subtitle">FEUGIAT AMET TEMPUS</p>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+		<script>
+			// slow get in page
+			window.addEventListener('load', function() {
+				setTimeout(function() {
+					document.querySelector('.white-overlay').style.opacity = '0';
+					document.querySelector('.page-content').style.opacity = '1';
+					
+					// delete after disply
+					setTimeout(function() {
+						document.querySelector('.white-overlay').remove();
+					}, 1000);
+				}, 100);
+			});
+
+			// Menu dropdown control
+			document.querySelector('.menu-button').addEventListener('click', function(e) {
+				e.preventDefault();
+				document.querySelector('.menu-dropdown').classList.toggle('active');
+			});
+
+			// Close dropdown when clicking outside
+			document.addEventListener('click', function(e) {
+				if (!e.target.closest('.menu-button') && !e.target.closest('.menu-dropdown')) {
+					document.querySelector('.menu-dropdown').classList.remove('active');
+				}
+			});
+		</script>
+	</body>
+</html> 

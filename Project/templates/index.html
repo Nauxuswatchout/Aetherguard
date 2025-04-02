@@ -9,12 +9,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
 		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
-	</head>
+	
+<style>
+    .button:hover {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgb(250, 248, 248);
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+    }
+</style>
+</head>
+
 	<body class="is-preload">
-		<canvas id="matrix" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: black;"></canvas>
+		<canvas id="matrix" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: black;"></canvas>
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+			<div id="wrapper" style="position: relative; z-index: 2;">
 
 				<!-- Header -->
 					<header id="header">
@@ -55,7 +64,7 @@
 										display: flex;
 										align-items: center;
 									">
-										<a href="#" class="button primary large" onclick="alert('🚧 Under construction 🚧'); return false;" style="
+										<a id="getStartBtn" href="#" class="button primary large" onclick="handleGetStart(); return false;" style="
 											font-size: 1.5em;
 											padding: 0.8em 2em;
 											background-color: #fdfdfd;
@@ -410,6 +419,40 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
 			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 			<script src="{{ url_for('static', filename='matrix.js') }}"></script>
+			<script>
+				function handleGetStart() {
+					expandEffect();
+				}
+			</script>
 
-	</body>
+	
+<script>
+function expandEffect() {
+    const btnText = document.getElementById('getStartBtn').innerText;
+    document.getElementById('getStartBtn').innerHTML = `<span id='btnText' style='opacity: 1; transition: opacity 1s;'>${btnText}</span>`;
+    const btn = document.getElementById('getStartBtn');
+    btn.style.transition = 'all 2.5s ease-out';
+    btn.style.position = 'fixed';
+    btn.style.top = '50%';
+    btn.style.left = '50%';
+    btn.style.transform = 'translate(-50%, -50%) scale(40)';
+    btn.style.zIndex = '9999';
+    btn.style.borderRadius = '0px';
+    document.getElementById('btnText').style.opacity = '0';
+    btn.style.backgroundColor = 'white';
+
+    setTimeout(() => {
+        window.location.href = "{{ url_for('home') }}";
+    }, 2500);
+}
+</script>
+
+		<!-- Play initial animations on page load. -->
+			$window.on('load', function() {
+				window.setTimeout(function() {
+					$body.removeClass('is-preload');
+				}, 1);
+			});
+</body>
+
 </html>
