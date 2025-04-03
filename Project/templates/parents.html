@@ -6,6 +6,218 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
 		<style>
+			/* Page background style */
+			body {
+				background-image: url("{{ url_for('static', filename='images/sky.png') }}");
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				margin: 0;
+				padding: 0;
+				min-height: 100vh;
+				height: 100%;
+			}
+
+			html {
+				height: 100%;
+			}
+
+			/* Page title style */
+			.page-title {
+				text-align: center;
+				color: white;
+				font-size: 3em;
+				margin-top: 120px;
+				margin-bottom: 50px;
+				text-transform: uppercase;
+				letter-spacing: 5px;
+			}
+
+			/* Content box style */
+			.content-box {
+				background-color: rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(10px);
+				border-radius: 20px;
+				padding: 30px;
+				margin: 0 auto;
+				max-width: 800px;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+			}
+
+			/* Button group style */
+			.button-group {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 30px;
+				position: relative;
+			}
+
+			.button-group button {
+				background-color: rgba(255, 255, 255, 0.2);
+				border: 2px solid white;
+				color: white;
+				padding: 15px 30px;
+				font-size: 1.2em;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				border-radius: 10px;
+				width: 18%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+
+			.button-group button:hover {
+				background-color: rgba(255, 255, 255, 0.3);
+				transform: translateY(-5px);
+			}
+
+			/* A1 expand box style */
+			.expand-box {
+				position: relative;
+				width: 100%;
+				background-color: white;
+				border-radius: 15px;
+				padding: 0;
+				margin: 0;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease, padding 0.5s ease, margin 0.5s ease;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+				visibility: hidden;
+			}
+
+			.expand-box.active {
+				max-height: 500px;
+				padding: 30px;
+				margin-top: 20px;
+				visibility: visible;
+			}
+
+			.expand-content {
+				color: black;
+				text-align: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.expand-box.active .expand-content {
+				opacity: 1;
+			}
+
+			/* Carousel style */
+			.carousel-container {
+				position: relative;
+				width: 100%;
+				height: 200px;
+				overflow: hidden;
+				border-radius: 15px;
+				transition: margin-top 0.5s ease;
+			}
+
+			.carousel-track {
+				display: flex;
+				transition: transform 0.5s ease;
+				height: 100%;
+			}
+
+			.carousel-slide {
+				min-width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 20px;
+				position: relative;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				object-fit: cover;
+			}
+
+			.carousel-slide:nth-child(1) {
+				background-image: url("{{ url_for('static', filename='images/learning.png') }}");
+				background-position: 50% 25%;
+			}
+
+			.carousel-slide:nth-child(2) {
+				background-image: url("{{ url_for('static', filename='images/Hehe.jpg') }}");
+			}
+
+			.carousel-slide:nth-child(3) {
+				background-image: url("{{ url_for('static', filename='images/sky.png') }}");
+			}
+
+			.carousel-content {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				width: 100%;
+			}
+
+			.carousel-text {
+				flex: 1;
+				color: white;
+			}
+
+			.carousel-title {
+				font-size: 1.8em;
+				font-weight: bold;
+				margin-bottom: 10px;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+			}
+
+			.carousel-subtitle {
+				font-size: 1.2em;
+				opacity: 0.9;
+			}
+
+			.carousel-image {
+				width: 120px;
+				height: 120px;
+				object-fit: contain;
+				filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+			}
+
+			.sale-sticker {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				background-color: #ff4757;
+				color: white;
+				padding: 5px 10px;
+				border-radius: 20px;
+				font-weight: bold;
+				font-size: 0.9em;
+				transform: rotate(15deg);
+			}
+
+			.carousel-dots {
+				position: absolute;
+				bottom: 15px;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				gap: 10px;
+			}
+
+			.carousel-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background-color: rgba(255,255,255,0.5);
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.carousel-dot.active {
+				background-color: white;
+				transform: scale(1.2);
+			}
+
+			/* Top header style */
 			.top-header {
 				position: fixed;
 				top: 0;
@@ -47,23 +259,211 @@
 				padding: 10px 20px;
 				border: 1px solid #ffffff;
 				transition: all 0.3s ease;
+				cursor: pointer;
+				position: relative;
 			}
 
 			.menu-button:hover {
 				background-color: #ffffff;
-				color: #ffffff;
+				color: #000000;
+			}
+
+			.menu-dropdown {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				background-color: white;
+				min-width: 200px;
+				padding: 15px;
+				margin-top: 10px;
+				border-radius: 5px;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-10px);
+				transition: all 0.3s ease;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+			}
+
+			.menu-dropdown.active {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+
+			.menu-dropdown::before {
+				content: '';
+				position: absolute;
+				top: -5px;
+				right: 20px;
+				width: 10px;
+				height: 10px;
+				background-color: white;
+				transform: rotate(45deg);
+			}
+
+			.menu-dropdown a {
+				display: block;
+				color: #000000;
+				text-decoration: none;
+				padding: 10px 15px;
+				font-size: 1.1em;
+				transition: all 0.3s ease;
+				text-align: center;
+				border-bottom: 1px solid rgba(0,0,0,0.1);
+			}
+
+			.menu-dropdown a:last-child {
+				border-bottom: none;
+			}
+
+			.menu-dropdown a:hover {
+				background-color: rgba(0,0,0,0.05);
+				transform: translateX(5px);
+			}
+
+			/* Carousel container transition effect */
+			.expand-box.active + .carousel-container {
+				margin-top: 30px;
+			}
+
+			/* Expand box content style */
+			.article-row {
+				display: flex;
+				align-items: center;
+				padding: 15px;
+				margin-bottom: 15px;
+				background-color: #f5f5f5;
+				border-radius: 10px;
+				transition: all 0.3s ease;
+			}
+
+			.article-row:hover {
+				background-color: #e0e0e0;
+				transform: translateX(5px);
+			}
+
+			.article-image {
+				width: 80px;
+				height: 80px;
+				object-fit: cover;
+				border-radius: 8px;
+				margin-right: 20px;
+			}
+
+			.article-title {
+				flex: 1;
+				color: #333;
+				font-size: 1.2em;
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+
+			.article-title:hover {
+				color: #4facfe;
+			}
+
+			.favorite-button {
+				background: none;
+				border: none;
+				color: #333;
+				font-size: 1.5em;
+				cursor: pointer;
+				padding: 5px 10px;
+				transition: all 0.3s ease;
+			}
+
+			.favorite-button:hover {
+				transform: scale(1.2);
+				color: #ff4757;
 			}
 		</style>
 	</head>
 	<body>
-		<!-- 顶部导航 -->
+		<!-- Top menu -->
 		<header class="top-header">
 			<div class="logo-container">
 				<img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-image">
 				<div class="logo-text">Aetherguard</div>
 			</div>
-			<a href="#" class="menu-button">MENU</a>
+			<div style="position: relative;">
+				<a class="menu-button">MENU</a>
+				<div class="menu-dropdown">
+					<a href="#">？？？</a>
+					<a href="#">！！！</a>
+					<a href="#">KKK</a>
+				</div>
+			</div>
 		</header>
+
+		<!-- Page title -->
+		<h1 class="page-title">Parent education</h1>
+
+		<!-- Content box -->
+		<div class="content-box">
+			<!-- Button group -->
+			<div class="button-group">
+				<button id="A1">A1</button>
+				<button>A2</button>
+				<button>A3</button>
+				<button>A4</button>
+				<button>A5</button>
+			</div>
+			<div class="expand-box">
+				<div class="expand-content">
+					<h3>Education Articles</h3>
+					<div class="article-row">
+						<img src="{{ url_for('static', filename='images/Heihei.jpg') }}" alt="Article 1" class="article-image">
+						<a href="#" class="article-title">How to happy like a dog</a>
+						<button class="favorite-button">★</button>
+					</div>
+					<div class="article-row">
+						<img src="{{ url_for('static', filename='images/Hehe.jpg') }}" alt="Article 2" class="article-image">
+						<a href="#" class="article-title">Cry baby keep crying</a>
+						<button class="favorite-button">★</button>
+					</div>
+					<div class="article-row">
+						<img src="{{ url_for('static', filename='images/learning.png') }}" alt="Article 3" class="article-image">
+						<a href="#" class="article-title">Patient learning</a>
+						<button class="favorite-button">★</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Carousel -->
+			<div class="carousel-container">
+				<div class="carousel-track">
+					<div class="carousel-slide">
+						<div class="carousel-content">
+							<div class="carousel-text">
+								<div class="carousel-title">Flash Sale 50% OFF</div>
+								<div class="carousel-subtitle">Limited Time Only</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-slide">
+						<div class="carousel-content">
+							<div class="carousel-text">
+								<div class="carousel-title">Special Offer 30% OFF</div>
+								<div class="carousel-subtitle">Don't Miss Out</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-slide">
+						<div class="carousel-content">
+							<div class="carousel-text">
+								<div class="carousel-title">New Arrivals 20% OFF</div>
+								<div class="carousel-subtitle">Check It Out</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-dots">
+					<div class="carousel-dot active"></div>
+					<div class="carousel-dot"></div>
+					<div class="carousel-dot"></div>
+				</div>
+			</div>
+		</div>
 
 		<!-- Scripts -->
 		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
@@ -71,5 +471,64 @@
 		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
 		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
 		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+		<script>
+			// Menu dropdown control
+			document.querySelector('.menu-button').addEventListener('click', function(e) {
+				e.preventDefault();
+				document.querySelector('.menu-dropdown').classList.toggle('active');
+			});
+
+			// Close dropdown when clicking outside
+			document.addEventListener('click', function(e) {
+				if (!e.target.closest('.menu-button') && !e.target.closest('.menu-dropdown')) {
+					document.querySelector('.menu-dropdown').classList.remove('active');
+				}
+			});
+
+			// Carousel control
+			const track = document.querySelector('.carousel-track');
+			const slides = document.querySelectorAll('.carousel-slide');
+			const dots = document.querySelectorAll('.carousel-dot');
+			let currentSlide = 0;
+			const slideCount = slides.length;
+
+			function updateCarousel() {
+				track.style.transform = `translateX(-${currentSlide * 100}%)`;
+				dots.forEach((dot, index) => {
+					dot.classList.toggle('active', index === currentSlide);
+				});
+			}
+
+			function nextSlide() {
+				currentSlide = (currentSlide + 1) % slideCount;
+				updateCarousel();
+			}
+
+			// Auto carousel
+			setInterval(nextSlide, 6000);
+
+			// Click dot to switch slide
+			dots.forEach((dot, index) => {
+				dot.addEventListener('click', () => {
+					currentSlide = index;
+					updateCarousel();
+				});
+			});
+
+			// A1 button expand function
+			document.getElementById('A1').addEventListener('click', function() {
+				const expandBox = document.querySelector('.expand-box');
+				expandBox.classList.toggle('active');
+			});
+
+			// Close expand box when clicking outside
+			document.addEventListener('click', function(e) {
+				const expandBox = document.querySelector('.expand-box');
+				const A1Button = document.getElementById('A1');
+				if (!e.target.closest('.button-group')) {
+					expandBox.classList.remove('active');
+				}
+			});
+		</script>
 	</body>
 </html> 
