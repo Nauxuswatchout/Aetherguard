@@ -85,7 +85,8 @@
 				justify-content: space-between;
 				align-items: center;
 				z-index: 1000;
-				background: transparent;
+				background: rgba(0, 0, 0, 0.8);
+				backdrop-filter: blur(5px);
 			}
 
 			.logo-container {
@@ -180,7 +181,7 @@
 			}
 
 			.hero-section {
-				height: 50vh;
+				height: 100vh;
 				width: 100%;
 				background-image: url("{{ url_for('static', filename='images/sky.png') }}");
 				background-size: cover;
@@ -193,16 +194,20 @@
 			}
 
 			.hero-content {
-				position: relative;
+				position: absolute;
+				top: 20%;
+				left: 10%;
+				transform: none;
 				z-index: 1;
-				text-align: center;
+				text-align: left;
 				color: #ffffff;
 			}
 
 			.hero-title {
-				font-size: 4em;
+				font-size: 3em;
 				margin-bottom: 20px;
 				font-weight: bold;
+				max-width: 600px;
 			}
 
 			.feature-buttons {
@@ -212,8 +217,10 @@
 				overflow: hidden;
 				padding: 0 20px;
 				box-sizing: border-box;
-				margin-top: -20px;
-				position: relative;
+				position: absolute;
+				top: 60%;
+				left: 50%;
+				transform: translate(-50%, -50%);
 				z-index: 1;
 			}
 
@@ -261,6 +268,7 @@
 			.feature-button:hover::before {
 				background: rgba(0, 0, 0, 0.2);
 				border-radius: 40px;
+				backdrop-filter: none;
 			}
 
 			.feature-content {
@@ -309,12 +317,12 @@
 			}
 
 			#Parents {
-				background-image: url("{{ url_for('static', filename='images/learning.png') }}");
+				background-image: url("{{ url_for('static', filename='images/parent.png') }}");
 				background-position: 50% 25%;
 			}
 
 			#Children{
-				background-image: url("{{ url_for('static', filename='images/Hehe.jpg') }}");
+				background-image: url("{{ url_for('static', filename='images/Children.png') }}");
 				background-position: 50% 25%;
 			}
 
@@ -363,7 +371,7 @@
 			<!-- Stupid AI think Aetherguard is name of hero -->
 			<section class="hero-section">
 				<div class="hero-content">
-					<h1 class="hero-title">Hi, my name is Aetherguard</h1>
+					<h1 class="hero-title">Are you Parents or Children?</h1>
 				</div>
 			</section>
 
@@ -381,6 +389,14 @@
 						<p class="feature-subtitle">Children come this place</p>
 					</div>
 				</a>
+			</div>
+
+			<div class="button-group">
+				<button id="A1" onclick="window.location.href='/article'">A1</button>
+				<button id="A2" onclick="window.location.href='/article2'">A2</button>
+				<button>A3</button>
+				<button>A4</button>
+				<button>A5</button>
 			</div>
 		</div>
 

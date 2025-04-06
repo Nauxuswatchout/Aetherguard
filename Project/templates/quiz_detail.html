@@ -1,0 +1,2046 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Aetherguard - Quiz</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<style>
+			
+			body, html {
+				font-family: 'Arial', sans-serif;
+				margin: 0;
+				padding: 0;
+				color: #333;
+				height: 100%;
+			}
+
+			body {
+				background-image: url("{{ url_for('static', filename='images/sky.png') }}");
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				min-height: 100vh;
+			}
+
+			
+			.container-card {
+				background: rgba(255, 255, 255, 0.9);
+				border-radius: 10px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				padding: 20px;
+				margin-bottom: 20px;
+			}
+
+			
+			.text-center { text-align: center; }
+			.font-bold { font-weight: bold; }
+			.text-success { color: #28a745; }
+			.text-danger { color: #dc3545; }
+			.text-neutral { color: #495057; }
+			.text-primary { color: #212529; }
+
+			
+			.btn {
+				padding: 10px 20px;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				font-size: 1.1em;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: none;
+			}
+
+			.btn-primary {
+				background-color: #4CAF50;
+				color: white;
+			}
+
+			.btn-primary:hover {
+				background-color: #3e8e41;
+				transform: translateY(-3px);
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			}
+
+			.top-header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				padding: 15px 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				z-index: 1000;
+				background: rgba(0, 0, 0, 0.8);
+				backdrop-filter: blur(5px);
+				height: auto;
+			}
+
+			.top-header-row {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 15px;
+			}
+
+			.logo-container {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.logo-image {
+				width: 40px;
+				height: 40px;
+				object-fit: contain;
+			}
+
+			.logo-text {
+				color: #ffffff;
+				font-size: 1.5em;
+				font-weight: bold;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+			}
+
+			.menu-container {
+				position: relative;
+			}
+
+			.menu-button {
+				color: #ffffff;
+				text-decoration: none;
+				font-size: 1.2em;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				padding: 10px 20px;
+				border: 1px solid #ffffff;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				gap: 8px;
+			}
+
+			.menu-button:hover {
+				background-color: #ffffff;
+				color: #000000;
+			}
+
+			/* Button group style */
+			.button-group {
+				display: flex;
+				justify-content: flex-start;
+				gap: 10px;
+				width: auto;
+				margin: 0;
+			}
+
+			.button-group button {
+				background-color: rgba(255, 255, 255, 0.2);
+				border: 2px solid white;
+				color: white;
+				padding: 8px 30px;
+				font-size: 1em;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				border-radius: 10px;
+				width: auto;
+				min-width: 120px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				position: relative;
+			}
+
+			.button-group button:hover {
+				background-color: rgba(255, 255, 255, 0.3);
+				transform: translateY(-5px);
+			}
+
+			.button-group button::after {
+				content: attr(data-tooltip);
+				position: absolute;
+				top: 100%; 
+				left: 50%;
+				transform: translateX(-50%);
+				background: rgba(0, 0, 0, 0.8);
+				color: white;
+				padding: 10px 15px;
+				border-radius: 5px;
+				font-size: 0.9em;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease;
+				width: 240px;
+				text-align: left;
+				line-height: 1.6;
+				font-family: 'Arial', sans-serif;
+				white-space: normal;
+				word-wrap: break-word;
+				z-index: 1001;
+				pointer-events: none;
+				margin-top: 10px; 
+			}
+
+			.button-group button:hover::after {
+				opacity: 1;
+				visibility: visible;
+				transform: translateX(-50%) translateY(0); 
+			}
+
+			.menu-dropdown {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				background-color: white;
+				min-width: 200px;
+				padding: 15px;
+				margin-top: 10px;
+				border-radius: 5px;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-10px);
+				transition: all 0.3s ease;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+			}
+
+			.menu-dropdown.active {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+
+			.menu-dropdown::before {
+				content: '';
+				position: absolute;
+				top: -5px;
+				right: 20px;
+				width: 10px;
+				height: 10px;
+				background-color: white;
+				transform: rotate(45deg);
+			}
+
+			.menu-dropdown a {
+				display: block;
+				color: #000000;
+				text-decoration: none;
+				padding: 10px 15px;
+				font-size: 1.1em;
+				transition: all 0.3s ease;
+				text-align: center;
+				border-bottom: 1px solid rgba(0,0,0,0.1);
+			}
+
+			.menu-dropdown a:last-child {
+				border-bottom: none;
+			}
+
+			.menu-dropdown a:hover {
+				background-color: rgba(0,0,0,0.05);
+				transform: translateX(5px);
+			}
+
+			/* Quiz container styles */
+			.quiz-container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 120px auto 50px;
+				max-width: 1200px;
+				padding: 0 20px;
+			}
+
+			.quiz-header {
+				display: flex;
+				width: 100%;
+				margin-bottom: 30px;
+				background: rgba(255, 255, 255, 0.9);
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			}
+
+			.quiz-image-container {
+				flex: 1;
+				max-width: 50%;
+			}
+
+			.quiz-image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.quiz-info {
+				flex: 1;
+				padding: 30px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			.quiz-title {
+				font-size: 2.2em;
+				margin-bottom: 15px;
+				color: #333;
+			}
+
+			.quiz-description {
+				font-size: 1.1em;
+				line-height: 1.6;
+				color: #555;
+				margin-bottom: 20px;
+			}
+
+			.start-button {
+				align-self: flex-start;
+				background-color: #4CAF50;
+				color: white;
+				padding: 12px 30px;
+				border: none;
+				border-radius: 5px;
+				font-size: 1.1em;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.start-button:hover {
+				background-color: #3e8e41;
+				transform: translateY(-3px);
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			}
+
+			/* Question box styles */
+			.question-container {
+				width: 100%;
+				background: rgba(255, 255, 255, 0.9);
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				margin-bottom: 30px;
+				position: relative;
+			}
+
+			.progress-display {
+				text-align: center;
+				margin: 20px 0;
+				font-size: 1.1em;
+				color: #333;
+				font-weight: 500;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.progress-text {
+				margin-bottom: 5px;
+			}
+
+			.progress-bar-container {
+				width: 100%;
+				max-width: 600px;
+				height: 20px;
+				background-color: #e0e0e0;
+				border-radius: 10px;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.progress-bar {
+				height: 100%;
+				background: linear-gradient(90deg, #4CAF50, #45a049);
+				width: 0;
+				transition: width 0.5s ease;
+				position: relative;
+			}
+
+			.progress-bar::after {
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				height: 100%;
+				width: 5px;
+				background-color: #fff;
+				box-shadow: 0 0 5px rgba(0,0,0,0.2);
+			}
+
+			.question-box {
+				padding: 30px;
+				display: none;
+				position: relative;
+			}
+
+			.question-box.active {
+				display: block;
+				animation: slideIn 0.5s forwards;
+			}
+
+			.question-text {
+				font-size: 1.5em;
+				margin-bottom: 20px;
+				color: #333;
+				font-weight: 600;
+				line-height: 1.4;
+			}
+
+			.options-list {
+				list-style: none;
+				padding: 0;
+				margin-right: 120px; 
+			}
+
+			.option-item {
+				padding: 15px 20px;
+				margin-bottom: 10px;
+				background-color: #f5f5f5;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				color: #333;
+				font-weight: 500;
+				text-align: center;
+				position: relative;
+			}
+
+			.option-item:hover {
+				background-color: #e9e9e9;
+				transform: translateY(-2px);
+				box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+			}
+
+			.option-item.selected {
+				background-color: #d1e7dd;
+				border: 1px solid #4CAF50;
+			}
+
+			/* Results container styles */
+			.results-container {
+				width: 100%;
+				background: rgba(255, 255, 255, 0.9);
+				border-radius: 10px;
+				padding: 30px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				display: none;
+			}
+
+			.results-title {
+				font-size: 2em;
+				margin-bottom: 20px;
+				color: #333;
+				text-align: center;
+				font-weight: bold;
+			}
+
+			.score-display {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				margin-bottom: 30px;
+			}
+
+			.score-box {
+				text-align: center;
+				margin: 10px 15px;
+				min-width: 120px;
+			}
+
+			.score-label {
+				font-size: 1.1em;
+				color: #333;
+				margin-bottom: 10px;
+				font-weight: 600;
+			}
+
+			.score-value {
+				font-size: 2em;
+				font-weight: bold;
+				color: #333;
+			}
+
+			.score-value.positive {
+				color: #28a745;
+			}
+
+			.score-value.negative {
+				color: #dc3545;
+			}
+
+			.score-value.neutral {
+				color: #6c757d;
+			}
+
+			.restart-button {
+				display: block;
+				margin: 30px auto 0;
+				background-color: #4CAF50;
+				color: white;
+				padding: 12px 30px;
+				border: none;
+				border-radius: 5px;
+				font-size: 1.1em;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.restart-button:hover {
+				background-color: #3e8e41;
+				transform: translateY(-3px);
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			}
+
+			/* Hint card styles */
+			.hint-card {
+				width: 100%;
+				perspective: 1000px;
+				margin-bottom: 20px;
+				display: none; /* Initially hidden */
+			}
+
+			.hint-card.active {
+				display: block;
+			}
+
+			.hint-card-inner {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				transition: transform 0.6s;
+				transform-style: preserve-3d;
+				min-height: 100px;
+			}
+
+			.hint-card.flipped .hint-card-inner {
+				transform: rotateY(180deg);
+			}
+
+			.hint-front, .hint-back {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				backface-visibility: hidden;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				padding: 20px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100px;
+			}
+
+			.hint-front {
+				background-color: #f8d7da;
+				color: #721c24;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+			}
+
+			.hint-back {
+				background-color: #d1e7dd;
+				color: #0f5132;
+				transform: rotateY(180deg);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.hint-text {
+				font-size: 1.1em;
+				padding: 20px;
+			}
+
+			/* Animation */
+			@keyframes slideIn {
+				from {
+					opacity: 0;
+					transform: translateX(50px);
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			@keyframes slideOut {
+				from {
+					opacity: 1;
+					transform: translateX(0);
+				}
+				to {
+					opacity: 0;
+					transform: translateX(-50px);
+				}
+			}
+
+			.slide-out {
+				animation: slideOut 0.5s forwards;
+			}
+
+			.slide-in {
+				animation: slideIn 0.5s forwards;
+			}
+
+			/* Responsive styles */
+			@media (max-width: 768px) {
+				.quiz-header {
+					flex-direction: column;
+				}
+
+				.quiz-image-container {
+					max-width: 100%;
+				}
+
+				.quiz-title {
+					font-size: 1.8em;
+				}
+
+				.question-text {
+					font-size: 1.3em;
+				}
+			}
+
+			/* Hint button styles */
+			.get-hint-button {
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 100px;
+				height: 100px;
+				perspective: 1000px;
+				cursor: pointer;
+			}
+
+			.hint-button-inner {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				transition: transform 0.6s;
+				transform-style: preserve-3d;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			}
+
+			.get-hint-button.flipped .hint-button-inner {
+				transform: rotateY(180deg);
+			}
+
+			.hint-button-front, .hint-button-back {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 10px;
+				padding: 10px;
+			}
+
+			.hint-button-front {
+				background-color: #f8d7da;
+				color: #721c24;
+			}
+
+			.hint-button-front:hover {
+				background-color: #f1b0b7;
+			}
+
+			.hint-button-back {
+				background-color: #d1e7dd;
+				color: #0f5132;
+				transform: rotateY(180deg);
+				font-size: 0.9em;
+			}
+
+			/* Button text centering */
+			.start-button, .restart-button, .get-hint-button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+
+			/* Radar Chart styles */
+			.radar-chart-container {
+				width: 100%;
+				max-width: 600px;
+				height: 400px;
+				margin: 30px auto;
+				position: relative;
+			}
+
+			.missed-questions {
+				margin-top: 30px;
+				padding: 20px;
+				background-color: #f8f9fa;
+				border-radius: 10px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			}
+
+			.missed-question-item {
+				margin-bottom: 20px;
+				padding: 15px;
+				border-left: 4px solid #dc3545;
+				background-color: #fff;
+				border-radius: 0 5px 5px 0;
+			}
+
+			.missed-question-text {
+				font-weight: 600;
+				margin-bottom: 10px;
+				color: #333;
+			}
+
+			.correct-answer {
+				color: #28a745;
+				font-weight: 500;
+				margin-bottom: 5px;
+			}
+
+			.question-description {
+				font-style: italic;
+				color: #666;
+				margin-top: 10px;
+			}
+
+			/* Score explanation styles */
+			.score-explanation {
+				margin-top: 30px;
+				padding: 20px;
+				background-color: #f8f9fa;
+				border-radius: 10px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			}
+
+			.score-explanation h3 {
+				margin-bottom: 15px;
+				color: #333;
+				text-align: center;
+			}
+
+			.score-explanation-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 15px;
+			}
+
+			.score-explanation-table th, 
+			.score-explanation-table td {
+				padding: 12px 15px;
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+			}
+
+			/* 修改评分详情表头字体颜色 */
+			.score-explanation-table th {
+				background-color: #f1f1f1;
+				font-weight: bold;
+				color: #000000;
+			}
+
+			.score-explanation-table tr:hover {
+				background-color: #f5f5f5;
+			}
+
+			.score-category {
+				font-weight: bold;
+				color: #333;
+			}
+
+			.score-description {
+				color: #555;
+			}
+
+			.user-score {
+				font-weight: bold;
+				text-align: center;
+			}
+
+			.positive-score {
+				color: #28a745;
+			}
+
+			.negative-score {
+				color: #dc3545;
+			}
+
+			.neutral-score {
+				color: #6c757d;
+			}
+
+			.improvement-areas {
+				margin-top: 30px;
+				padding: 20px;
+				background-color: #f8f9fa;
+				border-radius: 10px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			}
+
+			.improvement-areas h3 {
+				color: #333;
+				margin-bottom: 15px;
+				font-weight: 600;
+			}
+
+			.improvement-areas li {
+				color: #333;
+				margin-bottom: 8px;
+				line-height: 1.5;
+			}
+			
+			
+			.history-item {
+				padding: 12px 15px;
+				cursor: pointer;
+				border-bottom: 1px solid #ddd;
+				transition: background-color 0.3s;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 300px;
+				color: #212529;
+				font-weight: 500;
+			}
+			
+			.history-item:hover {
+				background-color: #f0f0f0;
+				color: #000;
+			}
+			
+			.history-item:last-child {
+				border-bottom: none;
+			}
+			
+			#historyDropdown {
+				width: 350px;
+				max-height: 400px;
+				overflow-y: auto;
+				background-color: #fff;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+			
+			.empty-history {
+				padding: 15px;
+				text-align: center;
+				color: #333;
+				font-weight: 500;
+			}
+			
+			.dropdown-section h3 {
+				margin: 0 0 10px;
+				padding: 0 15px;
+				font-size: 16px;
+				color: #333;
+				font-weight: 600;
+			}
+			
+			
+			.history-modal {
+				display: none;
+				position: fixed;
+				z-index: 2000;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				background-color: rgba(0, 0, 0, 0.6);
+			}
+			
+			.history-modal-content {
+				background-color: #f9f9f9;
+				margin: 5% auto;
+				padding: 20px;
+				border-radius: 10px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+				width: 80%;
+				max-width: 900px;
+				max-height: 80vh;
+				overflow-y: auto;
+				position: relative;
+				animation: modalAnimation 0.4s;
+			}
+			
+			@keyframes modalAnimation {
+				from {opacity: 0; transform: translateY(-50px);}
+				to {opacity: 1; transform: translateY(0);}
+			}
+			
+			.close-modal {
+				position: absolute;
+				top: 15px;
+				right: 20px;
+				font-size: 28px;
+				font-weight: bold;
+				color: #666;
+				cursor: pointer;
+				transition: color 0.3s;
+			}
+			
+			.close-modal:hover {
+				color: #000;
+			}
+			
+			.history-title {
+				font-size: 1.8em;
+				margin-bottom: 15px;
+				border-bottom: 2px solid #ddd;
+				padding-bottom: 10px;
+				color: #212529;
+				font-weight: bold;
+			}
+			
+			.history-date {
+				color: #333;
+				margin-bottom: 20px;
+				font-style: italic;
+				font-weight: 500;
+			}
+			
+			#historyScoreTableBody td {
+				color: #333;
+				font-weight: 500;
+			}
+			
+			#historyImprovementList li {
+				color: #333;
+				font-weight: 500;
+				margin-bottom: 8px;
+			}
+
+			
+			.missed-questions h3 {
+				color: #212529;
+				font-weight: 600;
+				margin-bottom: 15px;
+			}
+
+			
+			#historyScoreTable th {
+				background-color: #f1f1f1;
+				font-weight: bold;
+				color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Top menu -->
+		<header class="top-header">
+			<div class="top-header-row">
+				<div class="logo-container">
+					<img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-image">
+					<div class="logo-text">Aetherguard</div>
+				</div>
+				<div class="menu-container">
+					<div class="dropdown">
+						<button class="menu-button" id="historyButton">
+							<i class="fas fa-history"></i> History
+						</button>
+						<div class="menu-dropdown">
+							<div class="dropdown-section">
+								<h3>History</h3>
+								<div id="historyDropdown">
+									<div id="historyList">
+										<div class="empty-history">No history records</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="button-group">
+				<button id="A1" onclick="window.location.href='/article'" data-tooltip="Explore safe internet practices and responsible digital use techniques.">Guidelines</button>
+				<button id="A2" onclick="window.location.href='/article2'" data-tooltip="Learn about common online threats and how to protect your family.">Dangers</button>
+				<button id="A3" onclick="window.location.href='/question'" data-tooltip="Test your knowledge through interactive quizzes.">Quiz</button>
+				<button id="A4" data-tooltip="More features coming soon">Feature 4</button>
+				<button id="A5" data-tooltip="More features coming soon">Feature 5</button>
+			</div>
+		</header>
+
+		<!-- Quiz container -->
+		<div class="quiz-container">
+			<!-- Quiz header -->
+			<div class="quiz-header">
+				<div class="quiz-image-container">
+					<img src="{{ url_for('static', filename=quiz.image) }}" alt="{{ quiz.title }}" class="quiz-image">
+				</div>
+				<div class="quiz-info">
+					<h1 class="quiz-title">{{ quiz.title }}</h1>
+					<p class="quiz-description">
+						{% if quiz.description %}
+							{{ quiz.description }}
+						{% else %}
+							Test your knowledge with this interactive quiz about internet safety and online threats.
+						{% endif %}
+					</p>
+					<button class="start-button" id="startQuiz">Start Quiz</button>
+				</div>
+			</div>
+
+			<!-- Question container -->
+			<div class="question-container" id="questionContainer" style="display: none;">
+				<div class="progress-display">
+					<div class="progress-text">Question <span id="currentQuestionNumber">1</span> of <span id="totalQuestions">{{ quiz.questions|length }}</span></div>
+					<div class="progress-bar-container">
+						<div class="progress-bar" id="progressBar"></div>
+					</div>
+					<div class="progress-text">Progress: <span id="progressPercentage">0</span>%</div>
+				</div>
+
+				{% for question in quiz.questions %}
+				<div class="question-box" id="question{{ loop.index }}">
+					<h2 class="question-text">{{ question.text }}</h2>
+					
+					<ul class="options-list">
+						{% for option in question.options %}
+						<li class="option-item" data-question="{{ loop.index0 }}" data-option="{{ loop.index }}">
+							{{ option.text }}
+						</li>
+						{% endfor %}
+					</ul>
+					
+					<div class="get-hint-button" data-question="{{ loop.index }}">
+						<div class="hint-button-inner">
+							<div class="hint-button-front">Hint</div>
+							<div class="hint-button-back">
+								{% if question.hint %}
+									{{ question.hint }}
+								{% else %}
+									Think about best practices for online safety.
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+			<!-- Results container -->
+			<div class="results-container" id="resultsContainer">
+				<h2 class="results-title">Quiz Results</h2>
+				
+				<!-- Radar Chart -->
+				<div class="radar-chart-container">
+					<canvas id="radarChart"></canvas>
+				</div>
+				
+				<div class="score-display">
+					<div class="score-box">
+						<p class="score-label">Awareness</p>
+						<p class="score-value" id="awarenessScore">0</p>
+					</div>
+					<div class="score-box">
+						<p class="score-label">Confidence</p>
+						<p class="score-value" id="confidenceScore">0</p>
+					</div>
+					<div class="score-box">
+						<p class="score-label">Habits</p>
+						<p class="score-value" id="habitsScore">0</p>
+					</div>
+					<div class="score-box">
+						<p class="score-label">Support</p>
+						<p class="score-value" id="supportScore">0</p>
+					</div>
+					<div class="score-box">
+						<p class="score-label">Trust</p>
+						<p class="score-value" id="trustScore">0</p>
+					</div>
+					<div class="score-box">
+						<p class="score-label">Preparedness</p>
+						<p class="score-value" id="preparednessScore">0</p>
+					</div>
+				</div>
+				
+				<!-- Score Explanation Section -->
+				<div class="score-explanation">
+					<h3>Score Explanation</h3>
+					<table class="score-explanation-table">
+						<thead>
+							<tr>
+								<th>Score Category</th>
+								<th>Description</th>
+								<th>Your Score</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="score-category">Awareness</td>
+								<td class="score-description">Overall understanding and awareness of online risks</td>
+								<td class="user-score" id="awarenessScoreExplanation">0</td>
+							</tr>
+							<tr>
+								<td class="score-category">Confidence</td>
+								<td class="score-description">Confidence in your online behavior</td>
+								<td class="user-score" id="confidenceScoreExplanation">0</td>
+							</tr>
+							<tr>
+								<td class="score-category">Habits</td>
+								<td class="score-description">Safe habits and behaviors when using the internet</td>
+								<td class="user-score" id="habitsScoreExplanation">0</td>
+							</tr>
+							<tr>
+								<td class="score-category">Support</td>
+								<td class="score-description">Helping children use the internet wisely</td>
+								<td class="user-score" id="supportScoreExplanation">0</td>
+							</tr>
+							<tr>
+								<td class="score-category">Trust</td>
+								<td class="score-description">Judging when not to trust what you see</td>
+								<td class="user-score" id="trustScoreExplanation">0</td>
+							</tr>
+							<tr>
+								<td class="score-category">Preparedness</td>
+								<td class="score-description">Preparation and response to issues like scams or hacking</td>
+								<td class="user-score" id="preparednessScoreExplanation">0</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<!-- Debug info - temporary section -->
+				<div class="debug-info" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; display: none;">
+					<h4 style="margin-bottom: 10px;">Score Total (Debug Information)</h4>
+					<div id="scoreDebugInfo"></div>
+				</div>
+				
+				<div class="improvement-areas" id="improvementAreas">
+					<h3>Areas for Improvement:</h3>
+					<ul id="improvementList"></ul>
+				</div>
+				
+				<!-- Missed Questions Section -->
+				<div class="missed-questions">
+					<h3>Questions to Review:</h3>
+					<div id="missedQuestionsList"></div>
+				</div>
+				
+				<button class="restart-button" id="restartQuiz">Restart Quiz</button>
+			</div>
+		</div>
+
+		<!-- 历史记录模态框 -->
+		<div id="historyModal" class="history-modal">
+			<div class="history-modal-content">
+				<span class="close-modal" id="closeModal">&times;</span>
+				<h2 class="history-title" id="historyModalTitle">Quiz Results</h2>
+				<div class="history-date" id="historyModalDate"></div>
+				
+				
+				<div class="radar-chart-container">
+					<canvas id="historyRadarChart"></canvas>
+				</div>
+				
+				
+				<div class="score-display" id="historyScoreDisplay"></div>
+				
+				
+				<div class="score-explanation">
+					<h3>Score Details</h3>
+					<table class="score-explanation-table" id="historyScoreTable">
+						<thead>
+							<tr>
+								<th>Score Category</th>
+								<th>Your Score</th>
+								<th>Maximum Score</th>
+								<th>Normalized Score (0-10)</th>
+							</tr>
+						</thead>
+						<tbody id="historyScoreTableBody">
+						</tbody>
+					</table>
+				</div>
+
+				<div class="improvement-areas" id="historyImprovementAreas">
+					<h3>Areas for Improvement:</h3>
+					<ul id="historyImprovementList" style="color: #333; font-weight: 500;"></ul>
+				</div>
+				
+				
+				<div class="missed-questions">
+					<h3>Questions to Review:</h3>
+					<div id="historyMissedQuestionsList"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+		<script>
+			// Menu dropdown control
+			document.querySelector('.menu-button').addEventListener('click', function(e) {
+				e.preventDefault();
+				document.querySelector('.menu-dropdown').classList.toggle('active');
+				
+				// Update history dropdown menu
+				updateHistoryDropdown();
+			});
+
+			// Close dropdown when clicking outside
+			document.addEventListener('click', function(e) {
+				if (!e.target.closest('.menu-button') && !e.target.closest('.menu-dropdown')) {
+					document.querySelector('.menu-dropdown').classList.remove('active');
+				}
+			});
+			
+			// Initialize history function
+			function initializeHistory() {
+				// Get history button and modal elements
+				var historyButton = document.getElementById('historyButton');
+				var historyDropdown = document.getElementById('historyDropdown');
+				var historyModal = document.getElementById('historyModal');
+				var closeModal = document.getElementById('closeModal');
+				
+				// Update history dropdown menu
+				updateHistoryDropdown();
+				
+				// Close modal event
+				closeModal.addEventListener('click', function() {
+					historyModal.style.display = 'none';
+				});
+				
+				// Close modal when clicking outside
+				window.addEventListener('click', function(event) {
+					if (event.target == historyModal) {
+						historyModal.style.display = 'none';
+					}
+				});
+			}
+			
+			// Update history dropdown menu
+			function updateHistoryDropdown() {
+				var historyList = document.getElementById('historyList');
+				historyList.innerHTML = '';
+				
+				// Get history from localStorage
+				var history = localStorage.getItem('quizHistory');
+				var historyArray = history ? JSON.parse(history) : [];
+				
+				if (historyArray.length > 0) {
+					// Sort by timestamp in descending order
+					historyArray.sort(function(a, b) {
+						return b.timestamp - a.timestamp;
+					});
+					
+					historyArray.forEach(function(result) {
+						var listItem = document.createElement('div');
+						listItem.className = 'history-item';
+						listItem.textContent = result.title + ' - ' + result.date;
+						listItem.addEventListener('click', function() {
+							loadHistoryItem(result);
+						});
+						historyList.appendChild(listItem);
+					});
+				} else {
+					historyList.innerHTML = '<div class="empty-history">No history records</div>';
+				}
+			}
+			
+			// Load history item and display in modal
+			function loadHistoryItem(result) {
+				console.log('Loading history item:', result);
+				
+				// Set modal title and date
+				document.getElementById('historyModalTitle').textContent = result.title;
+				document.getElementById('historyModalDate').textContent = 'Completed on: ' + result.date;
+				
+				// Generate radar chart
+				createHistoryRadarChart(result.finalScores);
+				
+				// Fill score table
+				var tableBody = document.getElementById('historyScoreTableBody');
+				tableBody.innerHTML = '';
+				
+				var categories = {
+					awareness: 'Awareness',
+					confidence: 'Confidence',
+					habits: 'Habits',
+					support: 'Support',
+					trust: 'Trust',
+					preparedness: 'Preparedness'
+				};
+				
+				for (var category in categories) {
+					if (result.finalScores.hasOwnProperty(category)) {
+						var row = document.createElement('tr');
+						
+						var categoryCell = document.createElement('td');
+						categoryCell.className = 'score-category';
+						categoryCell.textContent = categories[category];
+						categoryCell.style.fontWeight = '600';
+						categoryCell.style.color = '#212529';
+						
+						var rawScoreCell = document.createElement('td');
+						rawScoreCell.textContent = result.rawScores[category];
+						rawScoreCell.style.color = '#333';
+						
+						var maxScoreCell = document.createElement('td');
+						maxScoreCell.textContent = result.maxScores[category];
+						maxScoreCell.style.color = '#333';
+						
+						var finalScoreCell = document.createElement('td');
+						finalScoreCell.textContent = result.finalScores[category].toFixed(1);
+						
+						// Set color based on score
+						if (result.finalScores[category] >= 7) {
+							finalScoreCell.style.color = '#28a745';
+							finalScoreCell.style.fontWeight = 'bold';
+						} else if (result.finalScores[category] >= 4) {
+							finalScoreCell.style.color = '#414141';
+							finalScoreCell.style.fontWeight = 'bold';
+						} else {
+							finalScoreCell.style.color = '#dc3545';
+							finalScoreCell.style.fontWeight = 'bold';
+						}
+						
+						row.appendChild(categoryCell);
+						row.appendChild(rawScoreCell);
+						row.appendChild(maxScoreCell);
+						row.appendChild(finalScoreCell);
+						
+						tableBody.appendChild(row);
+					}
+				}
+				
+				// Show areas that need improvement
+				var improvementList = document.getElementById('historyImprovementList');
+				improvementList.innerHTML = '';
+				
+				var scoreTypes = {
+					awareness: 'Understanding of online threats',
+					confidence: 'Confidence in handling online situations',
+					habits: 'Safe online habits',
+					support: 'Helping your child use the internet wisely',
+					trust: 'Critical evaluation of online content',
+					preparedness: 'Preparedness for online challenges'
+				};
+				
+				// Determine areas for improvement based on final score (scores below 5)
+				var hasImprovementAreas = false;
+				for (var scoreType in result.finalScores) {
+					if (result.finalScores.hasOwnProperty(scoreType) && result.finalScores[scoreType] < 5) {
+						hasImprovementAreas = true;
+						var listItem = document.createElement('li');
+						listItem.textContent = scoreTypes[scoreType];
+						listItem.style.color = '#333'; // Dark text for better readability
+						listItem.style.marginBottom = '8px';
+						improvementList.appendChild(listItem);
+					}
+				}
+				
+				if (!hasImprovementAreas) {
+					var listItem = document.createElement('li');
+					listItem.innerHTML = '<h4 style="color: #28a745; font-weight: bold;">Great job!</h4><p>You are performing excellently in all security areas. Continue maintaining these good habits, and consider:</p><ul><li>Sharing your cybersecurity knowledge with family and friends</li><li>Staying updated on the latest security trends</li><li>Exploring advanced security technologies and methods</li><li>Participating in cybersecurity communities and discussions</li></ul>';
+					improvementList.appendChild(listItem);
+				}
+				
+				// Show questions to review
+				if (result.missedQuestions && result.missedQuestions.length > 0) {
+					var missedQuestionsContainer = document.getElementById('historyMissedQuestionsList');
+					missedQuestionsContainer.innerHTML = '';
+					
+					result.missedQuestions.forEach(function(missedQuestion) {
+						var questionItem = document.createElement('div');
+						questionItem.className = 'missed-question-item';
+						questionItem.style.marginBottom = '20px';
+						questionItem.style.padding = '15px';
+						questionItem.style.backgroundColor = '#f8f9fa';
+						questionItem.style.borderRadius = '5px';
+						questionItem.style.border = '1px solid #ddd';
+						
+						var questionText = document.createElement('div');
+						questionText.className = 'missed-question-text';
+						questionText.textContent = missedQuestion.text;
+						questionText.style.fontWeight = 'bold';
+						questionText.style.marginBottom = '10px';
+						questionText.style.color = '#212529'; // Dark text
+						
+						var userChoice = document.createElement('div');
+						userChoice.style.color = '#dc3545'; // Red but ensure readability
+						userChoice.style.marginBottom = '5px';
+						userChoice.innerHTML = '<strong>Your choice:</strong> ' + missedQuestion.userChoice + 
+							(missedQuestion.userChoiceScore ? ' (Total score: ' + missedQuestion.userChoiceScore + ')' : '');
+						
+						var betterChoice = document.createElement('div');
+						betterChoice.className = 'correct-answer';
+						betterChoice.style.color = '#28a745'; // Green but ensure readability
+						betterChoice.style.marginBottom = '5px';
+						betterChoice.innerHTML = '<strong>Better choice:</strong> ' + missedQuestion.betterChoice + 
+							(missedQuestion.betterChoiceScore ? ' (Total score: ' + missedQuestion.betterChoiceScore + ')' : '');
+						
+						var description = document.createElement('div');
+						description.className = 'question-description';
+						description.textContent = missedQuestion.description || 'No additional description';
+						description.style.marginTop = '10px';
+						description.style.color = '#495057'; // Medium-depth gray
+						description.style.fontStyle = 'italic';
+						
+						questionItem.appendChild(questionText);
+						questionItem.appendChild(userChoice);
+						questionItem.appendChild(betterChoice);
+						questionItem.appendChild(description);
+						
+						missedQuestionsContainer.appendChild(questionItem);
+					});
+				} else {
+					var emptyMissed = document.createElement('div');
+					emptyMissed.textContent = 'Congratulations! You chose the highest scoring option in all questions.';
+					emptyMissed.style.textAlign = 'center';
+					emptyMissed.style.padding = '20px';
+					emptyMissed.style.fontWeight = 'bold';
+					emptyMissed.style.color = '#28a745'; // Green but ensure readability
+					document.getElementById('historyMissedQuestionsList').appendChild(emptyMissed);
+				}
+				
+				// Show modal
+				document.getElementById('historyModal').style.display = 'block';
+				
+				// Close dropdown menu
+				document.querySelector('.menu-dropdown').classList.remove('active');
+			}
+			
+			// Create history radar chart
+			function createHistoryRadarChart(finalScores) {
+				createRadarChart(finalScores, 'historyRadarChart', 'historyChart');
+			}
+			
+			// Create radar chart (general function)
+			function createRadarChart(scores, chartId, chartInstanceName) {
+				var ctx = document.getElementById(chartId).getContext('2d');
+				
+				// Check if chart instance already exists, if so, destroy it
+				if (window[chartInstanceName]) {
+					window[chartInstanceName].destroy();
+				}
+				
+				window[chartInstanceName] = new Chart(ctx, {
+					type: 'radar',
+					data: {
+						labels: ['Awareness', 'Confidence', 'Habits', 'Support', 'Trust', 'Preparedness'],
+						datasets: [
+							{
+								label: 'Scores',
+								data: [
+									scores.awareness,
+									scores.confidence, 
+									scores.habits,
+									scores.support,
+									scores.trust,
+									scores.preparedness
+								],
+								backgroundColor: 'rgba(54, 162, 235, 0.2)',
+								borderColor: 'rgba(54, 162, 235, 1)',
+								pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+								pointBorderColor: '#fff',
+								pointHoverBackgroundColor: '#fff',
+								pointHoverBorderColor: 'rgba(54, 162, 235, 1)',
+								fill: true
+							}
+						]
+					},
+					options: {
+						elements: {
+							line: {
+								borderWidth: 3
+							}
+						},
+						scales: {
+							r: {
+								angleLines: {
+									display: true,
+									color: 'rgba(0, 0, 0, 0.1)',
+									lineWidth: 1
+								},
+								grid: {
+									color: 'rgba(0, 0, 0, 0.1)',
+									circular: true
+								},
+								pointLabels: {
+									font: {
+										size: 14,
+										weight: 'bold'
+									},
+									color: '#333'
+								},
+								suggestedMin: 0,
+								suggestedMax: 10,
+								ticks: {
+									stepSize: 2,
+									backdropColor: 'transparent',
+									color: '#333',
+									font: {
+										weight: 'bold'
+									}
+								}
+							}
+						},
+						plugins: {
+							legend: {
+								display: chartId === 'radarChart', // Only show legend on main radar chart
+								position: 'bottom',
+								labels: {
+									boxWidth: 15,
+									padding: 15,
+									font: {
+										size: 14,
+										weight: 'bold'
+									},
+									color: '#333'
+								}
+							},
+							tooltip: {
+								backgroundColor: 'rgba(0, 0, 0, 0.7)',
+								titleFont: {
+									size: 14
+								},
+								bodyFont: {
+									size: 13
+								}
+							}
+						},
+						layout: {
+							padding: 20
+						},
+						responsive: true,
+						maintainAspectRatio: false
+					}
+				});
+			}
+			
+			// Initialize history function when page loads
+			document.addEventListener('DOMContentLoaded', function() {
+				initializeHistory();
+			});
+
+			// Quiz data initialization
+			var quizData = {
+				questions: [
+					{% for question in quiz.questions %}
+					{
+						id: {{ loop.index }},
+						text: "{{ question.text }}",
+						description: "{{ question.description if question.description else 'No description available' }}",
+						correctOption: {{ question.correct_option if question.correct_option is defined else 0 }},
+						options: [
+							{% for option in question.options %}
+							{
+								text: "{{ option.text }}",
+								scores: {
+									awareness: {{ option.scores.awareness if option.scores and option.scores.awareness is defined else 0 }},
+									confidence: {{ option.scores.confidence if option.scores and option.scores.confidence is defined else 0 }},
+									habits: {{ option.scores.habits if option.scores and option.scores.habits is defined else 0 }},
+									support: {{ option.scores.support if option.scores and option.scores.support is defined else 0 }},
+									trust: {{ option.scores.trust if option.scores and option.scores.trust is defined else 0 }},
+									preparedness: {{ option.scores.preparedness if option.scores and option.scores.preparedness is defined else 0 }}
+								}
+							}{% if not loop.last %},{% endif %}
+							{% endfor %}
+						]
+					}{% if not loop.last %},{% endif %}
+					{% endfor %}
+				]
+			};
+
+			var totalQuestions = quizData.questions.length;
+			var currentQuestion = 1;
+			var userScores = {
+				awareness: 0,
+				confidence: 0,
+				habits: 0,
+				support: 0,
+				trust: 0,
+				preparedness: 0
+			};
+			var userAnswers = [];
+
+			// Start quiz
+			document.getElementById('startQuiz').addEventListener('click', function() {
+				document.querySelector('.quiz-header').style.display = 'none';
+				document.getElementById('questionContainer').style.display = 'block';
+				showQuestion(1);
+				updateProgressBar();
+			});
+
+			// Show current question
+			function showQuestion(questionNumber) {
+				// Hide all questions first
+				var questionBoxes = document.querySelectorAll('.question-box');
+				for (var i = 0; i < questionBoxes.length; i++) {
+					questionBoxes[i].classList.remove('active');
+				}
+				
+				// Show current question
+				var currentQuestionBox = document.getElementById('question' + questionNumber);
+				if (currentQuestionBox) {
+					currentQuestionBox.classList.add('active');
+				}
+			}
+
+			// Update progress bar and display
+			function updateProgressBar() {
+				var progressBar = document.getElementById('progressBar');
+				var progressPercentage = ((currentQuestion - 1) / totalQuestions) * 100;
+				progressBar.style.width = progressPercentage + '%';
+				
+				// Update progress display
+				document.getElementById('currentQuestionNumber').textContent = currentQuestion;
+				document.getElementById('progressPercentage').textContent = Math.round(progressPercentage);
+			}
+
+			// Handle option selection
+			var optionItems = document.querySelectorAll('.option-item');
+			for (var i = 0; i < optionItems.length; i++) {
+				optionItems[i].addEventListener('click', function() {
+					var questionIndex = parseInt(this.getAttribute('data-question'));
+					var optionIndex = parseInt(this.getAttribute('data-option')) - 1;
+					
+					// Get all options for this question
+					var questionOptions = document.querySelectorAll('.option-item[data-question="' + questionIndex + '"]');
+					
+					// Remove selected class from all options
+					for (var j = 0; j < questionOptions.length; j++) {
+						questionOptions[j].classList.remove('selected');
+					}
+					
+					// Add selected class to clicked option
+					this.classList.add('selected');
+					
+					// Update user scores
+					var optionScores = quizData.questions[questionIndex].options[optionIndex].scores;
+					for (var scoreType in optionScores) {
+						if (optionScores.hasOwnProperty(scoreType)) {
+							userScores[scoreType] += optionScores[scoreType];
+						}
+					}
+					
+					// Store user answer
+					userAnswers[questionIndex] = optionIndex;
+					
+					// Move to next question after a short delay
+					setTimeout(function() {
+						currentQuestion++;
+						if (currentQuestion <= totalQuestions) {
+							showQuestion(currentQuestion);
+							updateProgressBar();
+						} else {
+							showResults();
+						}
+					}, 500);
+				});
+			}
+
+			// Get hint buttons
+			var hintButtons = document.querySelectorAll('.get-hint-button');
+			for (var i = 0; i < hintButtons.length; i++) {
+				hintButtons[i].addEventListener('click', function() {
+					this.classList.toggle('flipped');
+				});
+			}
+
+			// Calculate final score
+			function calculateFinalScore(actualScore, maxPossibleScore) {
+				// For negative scores, return 0
+				if (actualScore < 0) {
+					return 0;
+				}
+				
+				// Calculate score ratio
+				var scoreRatio = actualScore / maxPossibleScore;
+				
+				// For 0.5 ratio, return 5
+				if (Math.abs(scoreRatio - 0.5) < 0.01) {
+					return 5;
+				}
+				
+				// Map ratio to 0-10 range, ensuring it doesn't exceed 10
+				return Math.min(scoreRatio * 10, 10);
+			}
+
+			// Show results
+			function showResults() {
+				document.getElementById('questionContainer').style.display = 'none';
+				document.getElementById('resultsContainer').style.display = 'block';
+				
+				// Calculate maximum possible scores for each category
+				var categoryMaxScores = calculateCategoryMaxScores();
+				
+				// Calculate final score
+				var finalScores = {
+					awareness: calculateFinalScore(userScores.awareness, categoryMaxScores.awareness),
+					confidence: calculateFinalScore(userScores.confidence, categoryMaxScores.confidence),
+					habits: calculateFinalScore(userScores.habits, categoryMaxScores.habits),
+					support: calculateFinalScore(userScores.support, categoryMaxScores.support),
+					trust: calculateFinalScore(userScores.trust, categoryMaxScores.trust),
+					preparedness: calculateFinalScore(userScores.preparedness, categoryMaxScores.preparedness)
+				};
+				
+				// Update score display
+				updateScoreDisplay(finalScores);
+				
+				// Update score explanation table
+				updateScoreExplanation(userScores, categoryMaxScores);
+				
+				// Fill debug information
+				updateDebugInfo(userScores, categoryMaxScores);
+				
+				// Create radar chart
+				createRadarChart(finalScores, 'radarChart', 'mainChart');
+				
+				// Show questions not scored full points
+				showMissedQuestions();
+				
+				// Determine areas that need improvement
+				showImprovementAreas(finalScores);
+				
+				// Save result to localStorage
+				saveQuizResult(quizData, userScores, finalScores, categoryMaxScores);
+			}
+
+			// Update score display
+			function updateScoreDisplay(finalScores) {
+				Object.keys(finalScores).forEach(function(category) {
+					var score = finalScores[category];
+					var element = document.getElementById(category + 'Score');
+					element.textContent = score.toFixed(1);
+					
+					// Set color based on score range
+					if (score >= 7) {
+						element.className = 'score-value positive';
+					} else if (score >= 4) {
+						element.className = 'score-value neutral';
+					} else {
+						element.className = 'score-value negative';
+					}
+				});
+			}
+
+			// Update score explanation table
+			function updateScoreExplanation(scores, maxScores) {
+				Object.keys(scores).forEach(function(category) {
+					var element = document.getElementById(category + 'ScoreExplanation');
+					element.textContent = scores[category] + " / " + maxScores[category];
+					
+					// Set score color
+					if (scores[category] > 0) {
+						element.className = 'user-score positive-score';
+					} else if (scores[category] < 0) {
+						element.className = 'user-score negative-score';
+					} else {
+						element.className = 'user-score neutral-score';
+					}
+				});
+			}
+
+			// Update debug information
+			function updateDebugInfo(scores, maxScores) {
+				var debugInfo = document.getElementById('scoreDebugInfo');
+				var html = '';
+				
+				Object.keys(scores).forEach(function(category) {
+					var categoryName = '';
+					switch(category) {
+						case 'awareness': categoryName = 'Awareness'; break;
+						case 'confidence': categoryName = 'Confidence'; break;
+						case 'habits': categoryName = 'Habits'; break;
+						case 'support': categoryName = 'Support'; break;
+						case 'trust': categoryName = 'Trust'; break;
+						case 'preparedness': categoryName = 'Preparedness'; break;
+					}
+					
+					html += '<p><strong>' + categoryName + ':</strong> ' + scores[category] + ' / ' + maxScores[category] + '</p>';
+				});
+				
+				debugInfo.innerHTML = html;
+			}
+
+			// Show areas that need improvement
+			function showImprovementAreas(finalScores) {
+				var improvementList = document.getElementById('improvementList');
+				
+				var scoreTypes = {
+					awareness: 'Understanding of online threats',
+					confidence: 'Confidence in handling online situations',
+					habits: 'Safe online habits',
+					support: 'Helping your child use the internet wisely',
+					trust: 'Critical evaluation of online content',
+					preparedness: 'Preparedness for online challenges'
+				};
+				
+				// Determine areas for improvement based on final score (scores below 7)
+				var hasImprovementAreas = false;
+				for (var scoreType in finalScores) {
+					if (finalScores.hasOwnProperty(scoreType) && finalScores[scoreType] < 7) {
+						hasImprovementAreas = true;
+						createImprovementItem(scoreType, finalScores[scoreType], scoreTypes[scoreType], improvementList);
+					}
+				}
+				
+				if (!hasImprovementAreas) {
+					var listItem = document.createElement('li');
+					listItem.innerHTML = '<h4 style="color: #28a745; font-weight: bold;">Great job!</h4><p>You are performing excellently in all security areas. Continue maintaining these good habits, and consider:</p><ul><li>Sharing your cybersecurity knowledge with family and friends</li><li>Staying updated on the latest security trends</li><li>Exploring advanced security technologies and methods</li><li>Participating in cybersecurity communities and discussions</li></ul>';
+					improvementList.appendChild(listItem);
+				}
+			}
+
+			// Create improvement item
+			function createImprovementItem(scoreType, score, title, container) {
+				var improvementSuggestions = getImprovementSuggestions();
+				var listItem = document.createElement('li');
+				var categoryTitle = document.createElement('h4');
+				categoryTitle.style.fontWeight = 'bold';
+				categoryTitle.style.color = '#212529';
+				categoryTitle.textContent = title;
+				
+				var suggestionDiv = document.createElement('div');
+				if (score < 3) {
+					suggestionDiv.innerHTML = improvementSuggestions[scoreType].low;
+				} else if (score < 7) {
+					suggestionDiv.innerHTML = improvementSuggestions[scoreType].medium;
+				} else {
+					suggestionDiv.innerHTML = improvementSuggestions[scoreType].high;
+				}
+				
+				listItem.appendChild(categoryTitle);
+				listItem.appendChild(suggestionDiv);
+				container.appendChild(listItem);
+			}
+
+			function getImprovementSuggestions() {
+				return {
+					awareness: {
+						low: 'Your awareness of online threats needs improvement. Suggestions: <ul><li>Learn about common phishing techniques and social engineering attacks</li><li>Learn to identify signs of malware and ransomware</li><li>Stay updated on the latest cybersecurity threat trends</li><li>Participate in basic network security courses or seminars</li></ul>',
+						medium: 'You have a basic understanding of online threats, but there\'s room for improvement. Suggestions: <ul><li>Learn more about advanced phishing techniques</li><li>Learn how to identify fake websites and applications</li><li>Understand the risks and impacts of data breaches</li></ul>',
+						high: 'You have a good understanding of online threats. Stay vigilant and: <ul><li>Regularly update your security knowledge</li><li>Learn about threats that emerging technologies might bring</li><li>Consider sharing your knowledge with family</li></ul>'
+					},
+					confidence: {
+						low: 'You lack confidence in handling online situations. Suggestions: <ul><li>Start with simple security practices like updating passwords and enabling two-factor authentication</li><li>Gradually learn basic privacy setting adjustment methods</li><li>Seek help from trusted individuals to resolve questions</li><li>Use security check tools to assess your online accounts</li></ul>',
+						medium: 'You have some confidence in handling online situations. Continue to strengthen: <ul><li>Try handling more complex security settings</li><li>Learn how to safely recover compromised accounts</li><li>Develop the ability to solve common security issues</li></ul>',
+						high: 'You are confident in handling online situations. Continue to: <ul><li>Challenge yourself with more complex security scenarios</li><li>Help others improve their online confidence</li><li>Regularly test your security response capabilities</li></ul>'
+					},
+					habits: {
+						low: 'Your online safety habits need improvement. Suggestions: <ul><li>Develop habits of regularly updating software and applications</li><li>Use password managers to create and store strong passwords</li><li>Enable two-factor authentication for important accounts</li><li>Use VPN when using public Wi-Fi</li><li>Regularly backup important data</li></ul>',
+						medium: 'You have some good security habits, but can further improve: <ul><li>Establish personal security check routines</li><li>Increase password complexity and change them regularly</li><li>Value privacy settings and check them regularly</li></ul>',
+						high: 'You have excellent security habits. Keep it up and: <ul><li>Automate certain security processes, such as automatic updates and backups</li><li>Regularly review your digital footprint</li><li>Develop sensitivity to abnormal activities</li></ul>'
+					},
+					support: {
+						low: 'You need to improve in helping children use the internet safely. Suggestions: <ul><li>Learn the basics of online safety for children</li><li>Learn to set up parental controls and content filters</li><li>Establish open communication channels with children to discuss online experiences</li><li>Set clear family internet usage rules</li></ul>',
+						medium: 'You\'re doing well in supporting children\'s online safety. Continue to strengthen: <ul><li>Explore new applications and websites with your children</li><li>Discuss the importance of privacy settings and data sharing</li><li>Teach the ability to identify inappropriate content and contacts</li></ul>',
+						high: 'You excel in supporting children\'s online safety. Continue to: <ul><li>Regularly update your guidance methods to adapt to new online trends</li><li>Develop children\'s digital literacy and critical thinking</li><li>Establish a family digital well-being plan</li></ul>'
+					},
+					trust: {
+						low: 'You need to improve in evaluating the credibility of online content. Suggestions: <ul><li>Learn basic skills to identify fake news and misleading information</li><li>Understand common manipulation and propaganda techniques</li><li>Check multiple reliable sources before verifying information</li><li>Be wary of emotional and extreme content</li></ul>',
+						medium: 'You have some critical evaluation abilities for online content. Continue to improve: <ul><li>Learn more about confirmation bias and its effects</li><li>Learn advanced methods for evaluating source reliability</li><li>Develop the ability to identify subtle misleading information</li></ul>',
+						high: 'You have strong critical thinking in evaluating online content. Continue to: <ul><li>Share your analytical skills with others</li><li>Explore more complex information manipulation strategies</li><li>Regularly check your own information consumption habits</li></ul>'
+					},
+					preparedness: {
+						low: 'You are underprepared for cyber security challenges. Suggestions: <ul><li>Create a security incident response plan</li><li>Learn how to identify signs of account compromise</li><li>Learn how to safely reset compromised accounts</li><li>Save important contacts and resources for use in security issues</li></ul>',
+						medium: 'You have some preparation for security challenges. Continue to strengthen: <ul><li>Regularly test and update your response plan</li><li>Learn more complex security recovery processes</li><li>Establish data recovery strategies</li></ul>',
+						high: 'You are well-prepared for cyber security challenges. Continue to: <ul><li>Explore advanced security measures and recovery strategies</li><li>Consider conducting security drills to test your preparedness</li><li>Develop personalized risk assessment methods</li></ul>'
+					}
+				};
+			}
+
+			// Show missed questions
+			function showMissedQuestions() {
+				var missedQuestionsList = document.getElementById('missedQuestionsList');
+				missedQuestionsList.innerHTML = '';
+				
+				var hasSuboptimalAnswers = false;
+				
+				// Loop through all questions
+				for (var i = 0; i < quizData.questions.length; i++) {
+					var question = quizData.questions[i];
+					var userAnswer = userAnswers[i];
+					
+					if (userAnswer !== undefined) {
+						// Calculate total score for user's chosen option
+						var userOptionTotalScore = 0;
+						var userOption = question.options[userAnswer];
+						for (var category in userOption.scores) {
+							if (userOption.scores.hasOwnProperty(category)) {
+								userOptionTotalScore += userOption.scores[category];
+							}
+						}
+						
+						// Find the highest scoring option for this question
+						var maxTotalScore = userOptionTotalScore;
+						var bestOptionIndex = userAnswer;
+						
+						for (var j = 0; j < question.options.length; j++) {
+							if (j !== userAnswer) { // Check other options
+								var option = question.options[j];
+								var optionTotalScore = 0;
+								
+								for (var category in option.scores) {
+									if (option.scores.hasOwnProperty(category)) {
+										optionTotalScore += option.scores[category];
+									}
+								}
+								
+								if (optionTotalScore > maxTotalScore) {
+									maxTotalScore = optionTotalScore;
+									bestOptionIndex = j;
+								}
+							}
+						}
+						
+						
+						if (bestOptionIndex !== userAnswer) {
+							hasSuboptimalAnswers = true;
+							var missedQuestionItem = document.createElement('div');
+							missedQuestionItem.className = 'missed-question-item';
+							
+							var questionText = document.createElement('div');
+							questionText.className = 'missed-question-text';
+							questionText.textContent = question.text;
+							
+							var userAnswerText = document.createElement('div');
+							userAnswerText.style.color = '#dc3545';
+							userAnswerText.innerHTML = '<strong>Your choice:</strong> ' + question.options[userAnswer].text + ' (Total score: ' + userOptionTotalScore + ')';
+							
+							var betterAnswerText = document.createElement('div');
+							betterAnswerText.className = 'correct-answer';
+							betterAnswerText.innerHTML = '<strong>Better choice:</strong> ' + question.options[bestOptionIndex].text + ' (Total score: ' + maxTotalScore + ')';
+							
+							var questionDescription = document.createElement('div');
+							questionDescription.className = 'question-description';
+							
+							missedQuestionItem.appendChild(questionText);
+							missedQuestionItem.appendChild(userAnswerText);
+							missedQuestionItem.appendChild(betterAnswerText);
+							missedQuestionItem.appendChild(questionDescription);
+							
+							missedQuestionsList.appendChild(missedQuestionItem);
+						}
+					}
+				}
+				
+				// If all user choices are the best option
+				if (!hasSuboptimalAnswers) {
+					var perfectScore = document.createElement('div');
+					perfectScore.textContent = 'Congratulations! You chose the highest scoring option in all questions.';
+					perfectScore.style.textAlign = 'center';
+					perfectScore.style.padding = '20px';
+					perfectScore.style.fontWeight = 'bold';
+					perfectScore.style.color = '#28a745';
+					missedQuestionsList.appendChild(perfectScore);
+				}
+			}
+
+			// Restart quiz
+			document.getElementById('restartQuiz').addEventListener('click', function() {
+				// Reset scores
+				for (var scoreType in userScores) {
+					if (userScores.hasOwnProperty(scoreType)) {
+						userScores[scoreType] = 0;
+					}
+				}
+				
+				// Reset answers
+				userAnswers = [];
+				
+				// Reset selected options
+				var selectedOptions = document.querySelectorAll('.option-item.selected');
+				for (var i = 0; i < selectedOptions.length; i++) {
+					selectedOptions[i].classList.remove('selected');
+				}
+				
+				// Reset question number
+				currentQuestion = 1;
+				
+				// Hide results and show quiz header
+				document.getElementById('resultsContainer').style.display = 'none';
+				document.querySelector('.quiz-header').style.display = 'flex';
+				document.getElementById('questionContainer').style.display = 'none';
+				
+				// Reset progress bar
+				updateProgressBar();
+			});
+
+			// Calculate maximum possible score for each category
+			function calculateCategoryMaxScores() {
+				var maxScores = {
+					awareness: totalQuestions * 5,
+					confidence: totalQuestions * 5,
+					habits: totalQuestions * 5,
+					support: totalQuestions * 5,
+					trust: totalQuestions * 5,
+					preparedness: totalQuestions * 5
+				};
+				
+				return maxScores;
+			}
+
+			// Set score color
+			function setScoreColor(elementId, score) {
+				var element = document.getElementById(elementId);
+				if (score > 0) {
+						element.className = 'user-score positive-score';
+				} else if (score < 0) {
+						element.className = 'user-score negative-score';
+				} else {
+						element.className = 'user-score neutral-score';
+				}
+			}
+
+			// Save quiz result to localStorage
+			function saveQuizResult(quizData, userScores, finalScores, maxScores) {
+				// Collect questions to review
+				var missedQuestionsList = document.getElementById('missedQuestionsList');
+				var missedQuestions = collectMissedQuestions(quizData, userAnswers);
+				
+				// Create result object
+				var result = {
+					id: quizId,
+					title: quizTitle,
+					date: date.toLocaleString(),
+					timestamp: date.getTime(),
+					rawScores: JSON.parse(JSON.stringify(userScores)), // Deep copy
+					finalScores: JSON.parse(JSON.stringify(finalScores)), // Deep copy
+					maxScores: JSON.parse(JSON.stringify(maxScores)), // Deep copy
+					missedQuestions: missedQuestions // Add questions to review
+				};
+				
+				// Get history from localStorage
+				var history = localStorage.getItem('quizHistory');
+				var historyArray = history ? JSON.parse(history) : [];
+				
+				// Add new result to history
+				historyArray.push(result);
+				
+				// Limit history size (keep most recent 20)
+				if (historyArray.length > 20) {
+					historyArray = historyArray.slice(historyArray.length - 20);
+				}
+				
+				// Save history to localStorage
+				localStorage.setItem('quizHistory', JSON.stringify(historyArray));
+				
+				// Update history dropdown menu
+				updateHistoryDropdown();
+			}
+		</script>
+	</body>
+</html> 

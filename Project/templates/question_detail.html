@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ question.title }}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome-all.min.css') }}">
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f5;
+			color: #333;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		.question-card {
+			background-color: #fff;
+			border-radius: 8px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+			padding: 20px;
+		}
+
+		.question-title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 15px;
+			color: #333;
+		}
+
+		.question-text {
+			font-size: 18px;
+			margin-bottom: 15px;
+			line-height: 1.5;
+		}
+
+		.options-list {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		.option-item {
+			background-color: #f9f9f9;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			margin-bottom: 10px;
+			padding: 12px 15px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.option-item:hover {
+			background-color: #e9e9e9;
+			transform: translateY(-2px);
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		.option-item.selected {
+			background-color: #4CAF50;
+			color: white;
+			border-color: #4CAF50;
+		}
+
+		.action-buttons {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 20px;
+		}
+
+		.btn {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			margin-left: 10px;
+		}
+
+		.btn:hover {
+			background-color: #45a049;
+			transform: translateY(-2px);
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		.btn-secondary {
+			background-color: #6c757d;
+		}
+
+		.btn-secondary:hover {
+			background-color: #5a6268;
+		}
+		
+		/* Navigation button styles */
+		.button-group {
+			display: flex;
+			justify-content: flex-start;
+			gap: 10px;
+			width: auto;
+			margin: 0;
+			margin-top: 10px;
+		}
+
+		.button-group button {
+			background-color: rgba(255, 255, 255, 0.2);
+			border: 2px solid white;
+			color: white;
+			padding: 8px 30px;
+			font-size: 1em;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			border-radius: 10px;
+			width: auto;
+			min-width: 120px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			position: relative;
+		}
+
+		.button-group button:hover {
+			background-color: rgba(255, 255, 255, 0.3);
+			transform: translateY(-5px);
+		}
+
+		.button-group button::after {
+			content: attr(data-tooltip);
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(0, 0, 0, 0.8);
+			color: white;
+			padding: 10px 15px;
+			border-radius: 5px;
+			font-size: 0.9em;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease;
+			width: 240px;
+			text-align: left;
+			line-height: 1.6;
+			font-family: 'Arial', sans-serif;
+			white-space: normal;
+			word-wrap: break-word;
+			z-index: 1001;
+			pointer-events: none;
+			margin-top: 10px;
+		}
+
+		.button-group button:hover::after {
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(-50%) translateY(0);
+		}
+		
+		/* History dropdown menu styles */
+		.history-item {
+			padding: 12px 15px;
+			cursor: pointer;
+			border-bottom: 1px solid #ddd;
+			transition: background-color 0.3s;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 300px;
+			color: #212529;
+			font-weight: 500;
+		}
+		
+		.history-item:hover {
+			background-color: #f0f0f0;
+			color: #000;
+		}
+		
+		.history-item:last-child {
+			border-bottom: none;
+		}
+		
+		#historyDropdown {
+			width: 350px;
+			max-height: 400px;
+			overflow-y: auto;
+			background-color: #fff;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.empty-history {
+			padding: 15px;
+			text-align: center;
+			color: #333;
+			font-weight: 500;
+		}
+		
+		/* History button styles */
+		.menu-button {
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 1.2em;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			padding: 10px 20px;
+			border: 2px solid #ffffff;
+			transition: all 0.3s ease;
+			cursor: pointer;
+			background-color: rgba(255, 255, 255, 0.1);
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		
+		.menu-button:hover {
+			background-color: #ffffff;
+			color: #000000;
+		}
+		
+		.menu-button i {
+			font-size: 1.1em;
+		}
+		
+		/* History details modal styles */
+		.history-modal {
+			display: none;
+			position: fixed;
+			z-index: 2000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+		
+		.history-modal-content {
+			background-color: #f9f9f9;
+			margin: 5% auto;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+			width: 80%;
+			max-width: 900px;
+			max-height: 80vh;
+			overflow-y: auto;
+			position: relative;
+		}
+		
+		.history-title {
+			font-size: 1.8em;
+			margin-bottom: 15px;
+			border-bottom: 2px solid #ddd;
+			padding-bottom: 10px;
+			color: #212529;
+			font-weight: bold;
+		}
+		
+		.history-date {
+			color: #333;
+			margin-bottom: 20px;
+			font-style: italic;
+			font-weight: 500;
+		}
+		
+		.score-category {
+			color: #212529;
+			font-weight: 600;
+		}
+		
+		.score-description {
+			color: #333;
+		}
+		
+		.user-score {
+			font-weight: bold;
+			text-align: center;
+			color: #212529;
+		}
+		
+		.positive-score {
+			color: #28a745;
+		}
+		
+		.negative-score {
+			color: #dc3545;
+		}
+		
+		.neutral-score {
+			color: #495057;
+		}
+	</style>
+</head>
+<body>
+	<!-- Header with Logo and User Menu -->
+	<header class="home-header">
+		<div class="header-left">
+			<a href="/"><img src="{{ url_for('static', filename='img/logo2.png') }}" alt="Logo" class="logo"></a>
+		</div>
+		<div class="header-right">
+			<!-- 添加历史记录按钮 -->
+			<div class="menu-container">
+				<div class="dropdown">
+					<button class="menu-button" id="historyButton">
+						<i class="fas fa-history"></i> History
+					</button>
+					<div class="menu-dropdown">
+						<div class="dropdown-section">
+							<h3>History</h3>
+							<div id="historyDropdown">
+								<div id="historyList">
+									<div class="empty-history">No history records</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- 添加导航按钮组 -->
+	<div class="button-group">
+		<button id="A1" onclick="window.location.href='/article'" data-tooltip="Explore safe internet practices and responsible digital use techniques.">Guidelines</button>
+		<button id="A2" onclick="window.location.href='/article2'" data-tooltip="Learn about common online threats and how to protect your family.">Dangers</button>
+		<button id="A3" onclick="window.location.href='/question'" data-tooltip="Test your knowledge through interactive quizzes.">Quiz</button>
+		<button id="A4" data-tooltip="More features coming soon">Feature 4</button>
+		<button id="A5" data-tooltip="More features coming soon">Feature 5</button>
+	</div>
+
+	<!-- 历史记录模态框 -->
+	<div id="historyModal" class="history-modal">
+		<div class="history-modal-content">
+			<span class="close-modal" id="closeModal">&times;</span>
+			<h2 class="history-title" id="historyModalTitle">Quiz Result</h2>
+			<div class="history-date" id="historyModalDate"></div>
+			
+			<!-- 雷达图 -->
+			<div class="radar-chart-container">
+				<canvas id="historyRadarChart"></canvas>
+			</div>
+			
+			<!-- 分数显示 -->
+			<div class="score-display" id="historyScoreDisplay"></div>
+			
+			<!-- 分数解释表格 -->
+			<div class="score-explanation">
+				<h3>Score Details</h3>
+				<table class="score-explanation-table" id="historyScoreTable">
+					<thead>
+						<tr>
+							<th>Score Category</th>
+							<th>Your Score</th>
+							<th>Maximum Possible Score</th>
+							<th>Normalized Score (0-10)</th>
+						</tr>
+					</thead>
+					<tbody id="historyScoreTableBody">
+						<!-- 这里将动态填充分数数据 -->
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- 添加改进区域部分 -->
+			<div class="improvement-areas" id="historyImprovementAreas">
+				<h3>Areas for Improvement:</h3>
+				<ul id="historyImprovementList" style="color: #333; font-weight: 500;"></ul>
+			</div>
+			
+			<!-- 添加待复习问题部分 -->
+			<div class="missed-questions">
+				<h3>Missed Questions:</h3>
+				<div id="historyMissedQuestionsList"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		// Menu dropdown control
+		var historyButton = document.getElementById('historyButton');
+		var menuDropdown = document.querySelector('.menu-dropdown');
+		
+		historyButton.addEventListener('click', function(e) {
+			e.preventDefault();
+			menuDropdown.classList.toggle('active');
+			
+			// 更新历史记录下拉菜单
+			updateHistoryDropdown();
+		});
+		
+		// Close dropdown when clicking outside
+		document.addEventListener('click', function(e) {
+			if (!e.target.closest('.menu-button') && !e.target.closest('.menu-dropdown')) {
+				menuDropdown.classList.remove('active');
+			}
+		});
+		
+		// 初始化历史记录功能
+		function initializeHistory() {
+			var historyButton = document.getElementById('historyButton');
+			var historyDropdown = document.getElementById('historyDropdown');
+			var historyModal = document.getElementById('historyModal');
+			var closeModal = document.getElementById('closeModal');
+			
+			// 更新历史记录下拉菜单
+			updateHistoryDropdown();
+			
+			// 关闭模态框事件
+			closeModal.addEventListener('click', function() {
+				historyModal.style.display = 'none';
+			});
+			
+			// 点击模态框外部关闭
+			window.addEventListener('click', function(event) {
+				if (event.target == historyModal) {
+					historyModal.style.display = 'none';
+				}
+			});
+		}
+		
+		// 更新历史记录下拉菜单
+		function updateHistoryDropdown() {
+			var historyList = document.getElementById('historyList');
+			historyList.innerHTML = '<div class="empty-history">No history records</div>';
+			
+			// 从localStorage获取历史记录
+			var history = localStorage.getItem('quizHistory');
+			if (history) {
+				var historyArray = JSON.parse(history);
+				
+				// 按时间戳倒序排列
+				historyArray.sort(function(a, b) {
+					return b.timestamp - a.timestamp;
+				});
+				
+				if (historyArray.length > 0) {
+					historyArray.forEach(function(result) {
+						var listItem = document.createElement('div');
+						listItem.className = 'history-item';
+						listItem.textContent = result.title + ' - ' + result.date;
+						listItem.addEventListener('click', function() {
+							loadHistoryItem(result);
+						});
+						historyList.appendChild(listItem);
+					});
+				} else {
+					var emptyMessage = document.createElement('div');
+					emptyMessage.className = 'empty-history';
+					emptyMessage.textContent = 'No history records';
+					historyList.appendChild(emptyMessage);
+				}
+			} else {
+				var emptyMessage = document.createElement('div');
+				emptyMessage.className = 'empty-history';
+				emptyMessage.textContent = 'No history records';
+				historyList.appendChild(emptyMessage);
+			}
+		}
+		
+		// 加载历史记录项并显示在模态框中
+		function loadHistoryItem(result) {
+			console.log('Loading history item:', result);
+			
+			// 设置模态框标题和日期
+			document.getElementById('historyModalTitle').textContent = result.title;
+			document.getElementById('historyModalDate').textContent = 'Completed on: ' + result.date;
+			
+			// 生成雷达图
+			createHistoryRadarChart(result.finalScores);
+			
+			// 填充分数表格
+			var tableBody = document.getElementById('historyScoreTableBody');
+			tableBody.innerHTML = '';
+			
+			var categories = {
+				awareness: 'Awareness',
+				confidence: 'Confidence',
+				habits: 'Habits',
+				support: 'Support',
+				trust: 'Trust',
+				preparedness: 'Preparedness'
+			};
+			
+			for (var category in categories) {
+				if (result.finalScores.hasOwnProperty(category)) {
+					var row = document.createElement('tr');
+					
+					var categoryCell = document.createElement('td');
+					categoryCell.className = 'score-category';
+					categoryCell.textContent = categories[category];
+					
+					var rawScoreCell = document.createElement('td');
+					rawScoreCell.textContent = result.rawScores[category];
+					
+					var maxScoreCell = document.createElement('td');
+					maxScoreCell.textContent = result.maxScores[category];
+					
+					var finalScoreCell = document.createElement('td');
+					finalScoreCell.textContent = result.finalScores[category].toFixed(1);
+					
+					// 根据分数设置颜色
+					if (result.finalScores[category] >= 7) {
+						finalScoreCell.style.color = '#28a745';
+					} else if (result.finalScores[category] >= 4) {
+						finalScoreCell.style.color = '#6c757d';
+					} else {
+						finalScoreCell.style.color = '#dc3545';
+					}
+					
+					row.appendChild(categoryCell);
+					row.appendChild(rawScoreCell);
+					row.appendChild(maxScoreCell);
+					row.appendChild(finalScoreCell);
+					
+					tableBody.appendChild(row);
+				}
+			}
+			
+			// 显示需要改进的领域
+			var improvementList = document.getElementById('historyImprovementList');
+			improvementList.innerHTML = '';
+			
+			var scoreTypes = {
+				awareness: 'Understanding Network Threats',
+				confidence: 'Confidence in Handling Online Situations',
+				habits: 'Safe Online Habits',
+				support: 'Helping Children Use the Internet Wisely',
+				trust: 'Critical Evaluation of Online Content',
+				preparedness: 'Preparing for Online Challenges'
+			};
+			
+			// 根据最终得分确定需要改进的领域（得分低于5分的）
+			var hasImprovementAreas = false;
+			for (var scoreType in result.finalScores) {
+				if (result.finalScores.hasOwnProperty(scoreType) && result.finalScores[scoreType] < 5) {
+					hasImprovementAreas = true;
+					var listItem = document.createElement('li');
+					listItem.textContent = scoreTypes[scoreType];
+					listItem.style.color = '#333'; // 深色文本，提高可读性
+					listItem.style.marginBottom = '8px';
+					improvementList.appendChild(listItem);
+				}
+			}
+			
+			if (!hasImprovementAreas) {
+				var listItem = document.createElement('li');
+				listItem.textContent = 'Good job! Keep up the good cybersecurity habits.';
+				listItem.style.color = '#28a745'; // 使用绿色，但确保足够深
+				listItem.style.fontWeight = 'bold';
+				improvementList.appendChild(listItem);
+			}
+			
+			// 显示需要复习的问题
+			if (result.missedQuestions && result.missedQuestions.length > 0) {
+				var missedQuestionsContainer = document.getElementById('historyMissedQuestionsList');
+				missedQuestionsContainer.innerHTML = '';
+				
+				result.missedQuestions.forEach(function(missedQuestion) {
+					var questionItem = document.createElement('div');
+					questionItem.className = 'missed-question-item';
+					questionItem.style.marginBottom = '20px';
+					questionItem.style.padding = '15px';
+					questionItem.style.backgroundColor = '#f8f9fa';
+					questionItem.style.borderRadius = '5px';
+					questionItem.style.border = '1px solid #ddd';
+					
+					var questionText = document.createElement('div');
+					questionText.className = 'missed-question-text';
+					questionText.textContent = missedQuestion.text;
+					questionText.style.fontWeight = 'bold';
+					questionText.style.marginBottom = '10px';
+					questionText.style.color = '#212529'; // 深色文本
+					
+					var userChoice = document.createElement('div');
+					userChoice.style.color = '#dc3545'; // 红色但确保可读性
+					userChoice.style.marginBottom = '5px';
+					userChoice.innerHTML = '<strong>Your Choice:</strong> ' + missedQuestion.userChoice;
+					
+					var betterChoice = document.createElement('div');
+					betterChoice.className = 'correct-answer';
+					betterChoice.style.color = '#28a745'; // 绿色但确保可读性
+					betterChoice.style.marginBottom = '5px';
+					betterChoice.innerHTML = '<strong>Better Choice:</strong> ' + missedQuestion.betterChoice;
+					
+					var description = document.createElement('div');
+					description.className = 'question-description';
+					description.textContent = missedQuestion.description || 'No additional description';
+					description.style.marginTop = '10px';
+					description.style.color = '#495057'; // 中等深度的灰色
+					description.style.fontStyle = 'italic';
+					
+					questionItem.appendChild(questionText);
+					questionItem.appendChild(userChoice);
+					questionItem.appendChild(betterChoice);
+					questionItem.appendChild(description);
+					
+					missedQuestionsContainer.appendChild(questionItem);
+				});
+			} else {
+				var emptyMissed = document.createElement('div');
+				emptyMissed.textContent = 'Congratulations! You selected the option with the highest score in all questions.';
+				emptyMissed.style.textAlign = 'center';
+				emptyMissed.style.padding = '20px';
+				emptyMissed.style.fontWeight = 'bold';
+				emptyMissed.style.color = '#28a745'; // 绿色但确保可读性
+				document.getElementById('historyMissedQuestionsList').appendChild(emptyMissed);
+			}
+			
+			// 显示模态框
+			document.getElementById('historyModal').style.display = 'block';
+			
+			// 关闭下拉菜单
+			menuDropdown.classList.remove('active');
+		}
+		
+		// 创建历史记录雷达图
+		function createHistoryRadarChart(finalScores) {
+			var ctx = document.getElementById('historyRadarChart').getContext('2d');
+			
+			// 检查是否已存在图表实例，如果有则销毁
+			if (window.historyChart) {
+				window.historyChart.destroy();
+			}
+			
+			window.historyChart = new Chart(ctx, {
+				type: 'radar',
+				data: {
+					labels: ['Awareness', 'Confidence', 'Habits', 'Support', 'Trust', 'Preparedness'],
+					datasets: [
+						{
+							label: 'Score',
+							data: [
+								finalScores.awareness,
+								finalScores.confidence, 
+								finalScores.habits,
+								finalScores.support,
+								finalScores.trust,
+								finalScores.preparedness
+							],
+							backgroundColor: 'rgba(54, 162, 235, 0.2)',
+							borderColor: 'rgba(54, 162, 235, 1)',
+							pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+							pointBorderColor: '#fff',
+							pointHoverBackgroundColor: '#fff',
+							pointHoverBorderColor: 'rgba(54, 162, 235, 1)',
+							fill: true
+						}
+					]
+				},
+				options: {
+					elements: {
+						line: {
+							borderWidth: 3
+						}
+					},
+					scales: {
+						r: {
+							angleLines: {
+								display: true,
+								color: 'rgba(0, 0, 0, 0.1)',
+								lineWidth: 1
+							},
+							grid: {
+								color: 'rgba(0, 0, 0, 0.1)',
+								circular: true
+							},
+							pointLabels: {
+								font: {
+									size: 14,
+									weight: 'bold'
+								},
+								color: '#333'
+							},
+							suggestedMin: 0,
+							suggestedMax: 10,
+							ticks: {
+								stepSize: 2,
+								backdropColor: 'transparent',
+								color: '#333',
+								font: {
+									weight: 'bold'
+								}
+							}
+						}
+					},
+					plugins: {
+						legend: {
+							display: false
+						},
+						tooltip: {
+							backgroundColor: 'rgba(0, 0, 0, 0.7)',
+							titleFont: {
+								size: 14
+							},
+							bodyFont: {
+								size: 13
+							}
+						}
+					},
+					layout: {
+						padding: 20
+					},
+					responsive: true,
+					maintainAspectRatio: false
+				}
+			});
+		}
+		
+		// 页面加载时初始化历史记录功能
+		document.addEventListener('DOMContentLoaded', function() {
+			initializeHistory();
+		});
+	</script>
+</body>
+</html> 
