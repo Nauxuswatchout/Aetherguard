@@ -233,7 +233,7 @@
         font-weight: 600;
     }
 
-    /* 解决页面内容位置问题的额外空间 */
+    /* Navbar spacer for content positioning */
     .navbar-spacer {
         width: 100%;
         display: block;
@@ -254,7 +254,7 @@
                 </button>
                 <div class="menu-dropdown">
                     <div class="dropdown-section">
-                        <h3>Recent Results</h3>
+                        <h3>History</h3>
                         <div id="historyDropdown">
                             <div id="historyList">
                                 <div class="empty-history">No history records</div>
@@ -266,46 +266,46 @@
         </div>
     </div>
     <div class="button-group">
-        <button onclick="window.location.href='/'" data-tooltip="返回主页，查看所有可用测验">Home</button>
-        <button onclick="window.location.href='/question'" data-tooltip="查看和参与所有可用的测验">Question</button>
-        <button onclick="window.location.href='/questionadmin'" data-tooltip="创建和管理测验，只有管理员可以访问">Admin</button>
-        <button onclick="window.location.href='/leaderboard'" data-tooltip="查看排行榜上的高分玩家">Leaderboard</button>
-        <button onclick="window.location.href='/about'" data-tooltip="了解更多关于我们和这个平台的信息">About</button>
+        <button id="A1" onclick="window.location.href='/article'" data-tooltip="Explore safe internet practices and responsible digital use techniques.">Guidelines</button>
+        <button id="A2" onclick="window.location.href='/article2'" data-tooltip="Learn about common online threats and how to protect your family.">Dangers</button>
+        <button id="A3" onclick="window.location.href='/question'" data-tooltip="Test your knowledge through interactive quizzes.">Quiz</button>
+        <button id="A4" data-tooltip="More features coming soon">Feature 4</button>
+        <button id="A5" data-tooltip="More features coming soon">Feature 5</button>
     </div>
 </header>
 
-<!-- 用于防止内容被导航栏遮挡的占位元素 -->
+<!-- Spacer element to prevent content from being hidden under the navbar -->
 <div class="navbar-spacer" id="navbarSpacer"></div>
 
 <script>
-    // 动态调整内容区域，避免被导航栏遮挡
+    // Dynamically adjust content area to prevent navbar overlap
     function adjustContentPadding() {
-        // 获取导航栏高度
+        // Get navbar height
         const navbar = document.getElementById('navbarHeader');
         const navbarHeight = navbar.offsetHeight;
         
-        // 设置占位元素高度
+        // Set spacer element height
         const spacer = document.getElementById('navbarSpacer');
         spacer.style.height = navbarHeight + 'px';
         
-        // 查找所有带 container 或 admin-container 类的元素
+        // Find all content containers
         const contentContainers = document.querySelectorAll('.container, .admin-container');
         
-        // 设置所有内容容器的顶部边距为0，因为我们已经用占位元素解决了问题
+        // Set content container top margin to a small value
         contentContainers.forEach(container => {
-            container.style.marginTop = '20px'; // 保留一个小的边距，使页面美观
+            container.style.marginTop = '20px';
         });
     }
     
-    // 页面加载完成后调整
+    // Run adjustment after page loads
     document.addEventListener('DOMContentLoaded', function() {
-        // 调整内容区域
+        // Adjust content area
         adjustContentPadding();
         
-        // 窗口大小改变时也要调整
+        // Re-adjust on window resize
         window.addEventListener('resize', adjustContentPadding);
         
-        // 确保historyButton按钮可以正常工作
+        // History button functionality
         var historyButton = document.getElementById('historyButton');
         if (historyButton) {
             historyButton.addEventListener('click', function(e) {
@@ -314,7 +314,7 @@
                 if (menuDropdown) {
                     menuDropdown.classList.toggle('active');
                     
-                    // 如果存在updateHistoryDropdown函数，调用它
+                    // Call updateHistoryDropdown if it exists
                     if (typeof updateHistoryDropdown === 'function') {
                         updateHistoryDropdown();
                     }
@@ -322,7 +322,7 @@
             });
         }
         
-        // 点击页面其他地方关闭下拉菜单
+        // Close dropdown when clicking outside
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.menu-button') && !e.target.closest('.menu-dropdown')) {
                 var menuDropdown = document.querySelector('.menu-dropdown');
