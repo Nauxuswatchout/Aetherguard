@@ -670,7 +670,7 @@
 					}
 				});
 			}
-
+			
 			// Update history dropdown menu
 			function updateHistoryDropdown() {
 				var historyList = document.getElementById('historyList');
@@ -699,7 +699,7 @@
 					historyList.innerHTML = '<div class="empty-history">No history records</div>';
 				}
 			}
-
+			
 			// Load history item and display in modal
 			function loadHistoryItem(result) {
 				console.log('Loading history item:', result);
@@ -820,15 +820,13 @@
 						questionText.style.color = '#212529'; // Dark text
 						
 						var userChoice = document.createElement('div');
-						userChoice.style.color = '#dc3545'; // Red but ensure readability
-						userChoice.style.marginBottom = '5px';
+						userChoice.setAttribute('style', 'color: #212529 !important; margin-bottom: 5px;');
 						userChoice.innerHTML = '<strong>Your choice:</strong> ' + missedQuestion.userChoice + 
 							(missedQuestion.userChoiceScore ? ' (Total score: ' + missedQuestion.userChoiceScore + ')' : '');
 						
 						var betterChoice = document.createElement('div');
 						betterChoice.className = 'correct-answer';
-						betterChoice.style.color = '#28a745'; // Green but ensure readability
-						betterChoice.style.marginBottom = '5px';
+						betterChoice.setAttribute('style', 'color: #212529 !important; margin-bottom: 5px;');
 						betterChoice.innerHTML = '<strong>Better choice:</strong> ' + missedQuestion.betterChoice + 
 							(missedQuestion.betterChoiceScore ? ' (Total score: ' + missedQuestion.betterChoiceScore + ')' : '');
 						
@@ -862,7 +860,7 @@
 				// Close dropdown menu
 				document.querySelector('.menu-dropdown').classList.remove('active');
 			}
-
+			
 			// Create history radar chart
 			function createHistoryRadarChart(finalScores) {
 				createRadarChart(finalScores, 'historyRadarChart', 'historyChart');

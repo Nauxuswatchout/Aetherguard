@@ -483,7 +483,6 @@
 		<!-- Articles grid -->
 		<div class="articles-grid">
 			{% for article in articles %}
-			{% if article.category == "learn_dangers" %}
 			<div class="article-card">
 				<a href="{{ url_for('article_detail', article_id=article.id) }}">
 					<img src="{{ url_for('static', filename=article.image) }}" alt="{{ article.title }}" class="article-image">
@@ -494,7 +493,6 @@
 					</div>
 				</a>
 			</div>
-			{% endif %}
 			{% endfor %}
 		</div>
 

@@ -5,492 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
-		<style>
-			/* Page background style */
-			body {
-				background-image: url("{{ url_for('static', filename='images/sky.png') }}");
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-attachment: fixed;
-				margin: 0;
-				padding: 0;
-				min-height: 100vh;
-				height: 100%;
-			}
-
-			html {
-				height: 100%;
-			}
-
-			/* Top header style */
-			.top-header {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				padding: 20px;
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				z-index: 1002;
-				background: rgba(0, 0, 0, 0.8);
-				backdrop-filter: blur(5px);
-				height: auto;
-			}
-
-			.top-header-row {
-				width: 100%;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				margin-bottom: 20px;
-			}
-
-			.logo-container {
-				display: flex;
-				align-items: center;
-				gap: 10px;
-			}
-
-			.logo-image {
-				width: 40px;
-				height: 40px;
-				object-fit: contain;
-			}
-
-			.logo-text {
-				color: #ffffff;
-				font-size: 1.5em;
-				font-weight: bold;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-			}
-
-			.menu-container {
-				position: relative;
-			}
-
-			.menu-button {
-				color: #ffffff;
-				text-decoration: none;
-				font-size: 1.2em;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				padding: 10px 20px;
-				border: 1px solid #ffffff;
-				transition: all 0.3s ease;
-				cursor: pointer;
-			}
-
-			.menu-button:hover {
-				background-color: #ffffff;
-				color: #000000;
-			}
-
-			/* Button group style */
-			.button-group {
-				display: flex;
-				justify-content: flex-start;
-				gap: 10px;
-				width: auto;
-				margin: 0;
-			}
-
-			.button-group button {
-				background-color: rgba(255, 255, 255, 0.2);
-				border: 2px solid white;
-				color: white;
-				padding: 8px 30px;
-				font-size: 1em;
-				cursor: pointer;
-				transition: all 0.3s ease;
-				border-radius: 10px;
-				width: auto;
-				min-width: 120px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
-			}
-
-			.button-group button:hover {
-				background-color: rgba(255, 255, 255, 0.3);
-				transform: translateY(-5px);
-			}
-
-			/* Admin form style */
-			.admin-form {
-				background-color: rgba(255, 255, 255, 0.9);
-				border-radius: 10px;
-				padding: 30px;
-				margin: 180px 20px 20px;
-				width: calc(100% - 40px);
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-			}
-
-			.form-group {
-				margin-bottom: 20px;
-			}
-
-			.form-group label {
-				display: block;
-				margin-bottom: 8px;
-				color: #333;
-				font-weight: bold;
-			}
-
-			.form-group input[type="text"],
-			.form-group input[type="url"],
-			.form-group textarea {
-				width: 100%;
-				padding: 10px;
-				border: 1px solid #ddd;
-				border-radius: 5px;
-				background-color: white;
-				color: #333;
-			}
-
-			.form-group textarea {
-				min-height: 100px;
-				resize: vertical;
-			}
-
-			.link-group {
-				margin-bottom: 10px;
-			}
-
-			.add-link-button {
-				background-color: #4CAF50;
-				color: white;
-				border: none;
-				padding: 8px 15px;
-				border-radius: 5px;
-				cursor: pointer;
-				margin-top: 10px;
-			}
-
-			.add-link-button:hover {
-				background-color: #45a049;
-			}
-
-			.checkbox-group {
-				display: flex;
-				align-items: center;
-				margin: 15px 0;
-			}
-
-			.checkbox-group input[type="checkbox"] {
-				margin-right: 10px;
-			}
-
-			.checkbox-group label {
-				margin: 0;
-				font-weight: normal;
-			}
-
-			.submit-button {
-				background-color: #4facfe;
-				color: white;
-				padding: 12px 30px;
-				border: none;
-				border-radius: 5px;
-				font-size: 1.1em;
-				cursor: pointer;
-				transition: all 0.3s ease;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				margin: 0 auto;
-				min-width: 120px;
-			}
-
-			.submit-button:hover {
-				background-color: #3a8fd9;
-				transform: translateY(-2px);
-			}
-
-			/* Responsive design */
-			@media (max-width: 768px) {
-				.admin-form {
-					margin: 160px 10px 10px;
-					padding: 20px;
-					width: calc(100% - 20px);
-				}
-
-				.form-group input[type="text"],
-				.form-group input[type="url"],
-				.form-group textarea {
-					padding: 10px;
-					font-size: 0.9em;
-				}
-
-				.submit-button {
-					padding: 10px 20px;
-					font-size: 1em;
-				}
-			}
-
-			/* Articles list style */
-			.articles-list {
-				background-color: rgba(255, 255, 255, 0.9);
-				border-radius: 10px;
-				padding: 20px;
-				margin: 20px;
-				width: calc(100% - 40px);
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-			}
-
-			.articles-list h2 {
-				color: #333;
-				margin-bottom: 20px;
-				text-align: center;
-			}
-
-			.article-item {
-				display: flex;
-				flex-wrap: wrap;
-				background-color: white;
-				border-radius: 5px;
-				overflow: hidden;
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-				margin-bottom: 20px;
-				align-items: stretch;
-			}
-
-			.article-item:last-child {
-				border-bottom: none;
-				margin-bottom: 0;
-			}
-
-			.article-preview {
-				width: 150px;
-				height: 150px;
-				object-fit: cover;
-				margin-right: 20px;
-				flex-shrink: 0;
-			}
-
-			.article-info {
-				flex: 1;
-				min-width: 200px;
-				padding: 20px 20px 20px 0;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				flex-basis: 60%;
-			}
-
-			.article-title {
-				font-size: 1.5em;
-				color: #333;
-				font-weight: bold;
-				margin-bottom: 10px;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				max-width: calc(100% - 20px);
-			}
-
-			.article-content-preview {
-				color: #666;
-				margin-bottom: 10px;
-				overflow: hidden;
-				display: -webkit-box;
-				-webkit-line-clamp: 3;
-				-webkit-box-orient: vertical;
-				max-height: 4.5em;
-				line-height: 1.5em;
-			}
-
-			.delete-button {
-				background-color: #ff4757;
-				color: white;
-				border: none;
-				padding: 10px 20px;
-				border-radius: 5px;
-				cursor: pointer;
-				transition: all 0.3s ease;
-				margin: 20px;
-				align-self: center;
-				flex-shrink: 0;
-			}
-
-			.delete-button:hover {
-				background-color: #ff2e43;
-				transform: translateY(-2px);
-			}
-
-			/* Responsive design for articles list */
-			@media (max-width: 768px) {
-				.article-item {
-					flex-direction: column;
-					align-items: flex-start;
-				}
-
-				.article-preview {
-					width: 100%;
-					height: 150px;
-					margin-right: 0;
-					margin-bottom: 10px;
-				}
-
-				.article-info {
-					width: 100%;
-				}
-
-				.delete-button {
-					width: 100%;
-					margin-top: 10px;
-				}
-			}
-
-			.form-group select {
-				width: 100%;
-				padding: 12px;
-				border: 2px solid #4facfe;
-				border-radius: 5px;
-				background-color: white;
-				color: #333;
-				font-size: 1.1em;
-				font-weight: bold;
-				cursor: pointer;
-				transition: all 0.3s ease;
-			}
-
-			.form-group select:hover {
-				border-color: #3a8fd9;
-				background-color: #f8f9fa;
-			}
-
-			.form-group select:focus {
-				outline: none;
-				border-color: #4facfe;
-				box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
-			}
-
-			.form-group select option {
-				padding: 12px;
-				font-size: 1.1em;
-				font-weight: bold;
-			}
-
-			.switch-buttons {
-				display: flex;
-				margin: 180px 20px 20px;
-				border-bottom: 2px solid #ddd;
-				background-color: rgba(255, 255, 255, 0.95);
-				padding: 20px;
-				border-radius: 10px;
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-				position: relative;
-				z-index: 1001;
-			}
-
-			.switch-button {
-				padding: 15px 30px;
-				cursor: pointer;
-				background: none;
-				border: none;
-				font-size: 18px;
-				color: #666;
-				font-weight: bold;
-				transition: all 0.3s ease;
-				margin: 0 10px;
-				position: relative;
-			}
-
-			.switch-button:hover {
-				color: #4CAF50;
-				transform: translateY(-2px);
-			}
-
-			.switch-button.active {
-				color: #4CAF50;
-				border-bottom: 2px solid #4CAF50;
-				margin-bottom: -2px;
-			}
-
-			.content-section {
-				display: none;
-				background-color: rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				padding: 30px;
-				margin: 20px;
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-				position: relative;
-				z-index: 1000;
-			}
-
-			.content-section.active {
-				display: block;
-			}
-
-			.question-form {
-				border: 1px solid #ddd;
-				padding: 20px;
-				margin-bottom: 20px;
-				border-radius: 5px;
-			}
-
-			.option-group {
-				margin-bottom: 10px;
-				display: flex;
-				align-items: center;
-				gap: 10px;
-			}
-
-			.option-group input[type="text"] {
-				flex: 1;
-			}
-
-			.option-group select {
-				width: 100px;
-				padding: 8px;
-				border: 1px solid #ddd;
-				border-radius: 4px;
-			}
-
-			.add-option {
-				background-color: #2196F3;
-				color: white;
-				padding: 5px 10px;
-				border: none;
-				border-radius: 4px;
-				cursor: pointer;
-				margin-bottom: 10px;
-			}
-
-			.add-option:hover {
-				background-color: #0b7dda;
-			}
-
-			.add-question {
-				background-color: #FF9800;
-				color: white;
-				padding: 10px 20px;
-				border: none;
-				border-radius: 4px;
-				cursor: pointer;
-				margin-top: 20px;
-			}
-
-			.add-question:hover {
-				background-color: #f57c00;
-			}
-
-			/* Ensure top navigation bar doesn't block content */
-			.top-header {
-				z-index: 1002;
-			}
-
-			/* Adjust container position */
-			.container {
-				margin-top: 20px;
-				position: relative;
-				z-index: 999;
-			}
-		</style>
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/articleadmin.css') }}" />
 	</head>
 	<body>
 		<!-- Top menu -->
@@ -526,7 +41,7 @@
 
 			<!-- Article Section -->
 			<div id="article-section" class="content-section active">
-				<form action="/upload" method="post" enctype="multipart/form-data">
+				<form id="article-form" action="/upload" method="post" enctype="multipart/form-data" onsubmit="return submitArticleForm()">
 					<div class="form-group">
 						<label for="title">Title:</label>
 						<input type="text" id="title" name="title" required>
@@ -544,16 +59,41 @@
 						<textarea id="content" name="content" required></textarea>
 					</div>
 					<div class="form-group">
-						<label for="links">Links (one per line):</label>
-						<textarea id="links" name="links"></textarea>
+						<label for="video">Video Embed Code (from YouTube):</label>
+						<textarea id="video" name="video" placeholder="<iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/...&quot;></iframe>"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="chart">Chart Image:</label>
+						<input type="file" id="chart" name="chart" accept="image/*">
+					</div>
+					<div class="form-group">
+						<label for="chart_description">Chart Description:</label>
+						<textarea id="chart_description" name="chart_description"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="links">Links:</label>
+						<div id="links-container">
+							<div class="link-group">
+								<input type="text" name="links[]" placeholder="https://example.com">
+							</div>
+						</div>
+						<button type="button" class="add-link-button" onclick="addLinkField()">Add More Link</button>
+					</div>
+					<div class="form-group">
+						<label for="category">Category:</label>
+						<select id="category" name="category">
+							<option value="internet_guidelines">Safe Guidelines</option>
+							<option value="learn_dangers">Learn Dangers</option>
+						</select>
 					</div>
 					<button type="submit">Upload Article</button>
 				</form>
+				<div id="submit-status" style="margin-top: 20px; text-align: center; display: none;"></div>
 			</div>
 
 			<!-- Question Section -->
 			<div id="question-section" class="content-section">
-				<form action="/upload_quiz" method="post" enctype="multipart/form-data">
+				<form id="quiz-form" action="/upload_quiz" method="post" enctype="multipart/form-data" onsubmit="return submitQuizForm()">
 					<div class="form-group">
 						<label for="quiz_title">Quiz Title:</label>
 						<input type="text" id="quiz_title" name="quiz_title" required>
@@ -610,6 +150,7 @@
 					<button type="button" class="add-question" onclick="addQuestion()">Add More Question</button>
 					<button type="submit">Upload Quiz</button>
 				</form>
+				<div id="quiz-submit-status" style="margin-top: 20px; text-align: center; display: none;"></div>
 			</div>
 		</div>
 
@@ -636,97 +177,6 @@
 		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
 		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
 		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
-		<script>
-			// Menu dropdown control
-			document.querySelector('.menu-button').addEventListener('click', function(e) {
-				e.preventDefault();
-				document.querySelector('.menu-dropdown').classList.toggle('active');
-			});
-
-			// Close dropdown when clicking outside
-			document.addEventListener('click', function(e) {
-				if (!e.target.closest('.menu-button') && !e.target.closest('.menu-dropdown')) {
-					document.querySelector('.menu-dropdown').classList.remove('active');
-				}
-			});
-
-			function switchContent(section) {
-				document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-				document.querySelectorAll('.switch-button').forEach(b => b.classList.remove('active'));
-				document.getElementById(section + '-section').classList.add('active');
-				document.querySelector(`.switch-button[onclick="switchContent('${section}')"]`).classList.add('active');
-			}
-
-			function addOption(button) {
-				const optionGroup = button.parentElement;
-				const newOptionGroup = document.createElement('div');
-				newOptionGroup.className = 'option-group';
-				newOptionGroup.innerHTML = `
-					<input type="text" name="options[]" placeholder="Option text" required>
-					<select name="option_scores[]">
-						<option value="-5">-5</option>
-						<option value="-4">-4</option>
-						<option value="-3">-3</option>
-						<option value="-2">-2</option>
-						<option value="-1">-1</option>
-						<option value="0">0</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select>
-				`;
-				optionGroup.insertBefore(newOptionGroup, button);
-			}
-
-			function addQuestion() {
-				const questionsContainer = document.getElementById('questions-container');
-				const newQuestionForm = document.createElement('div');
-				newQuestionForm.className = 'question-form';
-				newQuestionForm.innerHTML = `
-					<div class="form-group">
-						<label for="question">Question:</label>
-						<input type="text" name="questions[]" required>
-					</div>
-					<div class="form-group">
-						<label for="question_type">Question Type:</label>
-						<select name="question_types[]" required>
-							<option value="single">Single Choice</option>
-							<option value="multiple">Multiple Choice</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="question_image">Question Image:</label>
-						<input type="file" name="question_images[]" accept="image/*">
-					</div>
-					<div class="form-group">
-						<label>Options:</label>
-						<div class="option-group">
-							<input type="text" name="options[]" placeholder="Option text" required>
-							<select name="option_scores[]">
-								<option value="-5">-5</option>
-								<option value="-4">-4</option>
-								<option value="-3">-3</option>
-								<option value="-2">-2</option>
-								<option value="-1">-1</option>
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</div>
-						<button type="button" class="add-option" onclick="addOption(this)">Add Option</button>
-					</div>
-					<div class="form-group">
-						<label for="correct_answer">Correct Answer:</label>
-						<input type="text" name="correct_answers[]" required>
-					</div>
-				`;
-				questionsContainer.appendChild(newQuestionForm);
-			}
-		</script>
+		<script src="{{ url_for('static', filename='assets/js/articleadmin.js') }}"></script>
 	</body>
 </html> 

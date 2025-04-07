@@ -708,7 +708,7 @@
 			}
 
 			.correct-answer {
-				color: #28a745;
+				color: #212529 !important; /* 使用!important确保覆盖其他样式 */
 				font-weight: 500;
 				margin-bottom: 5px;
 			}
@@ -1378,15 +1378,14 @@
 						questionText.style.color = '#212529'; // Dark text
 						
 						var userChoice = document.createElement('div');
-						userChoice.style.color = '#dc3545'; // Red but ensure readability
-						userChoice.style.marginBottom = '5px';
+						userChoice.style.color = '#212529 !important'; // 黑色 + !important
+						userChoice.setAttribute('style', 'color: #212529 !important; margin-bottom: 5px;');
 						userChoice.innerHTML = '<strong>Your choice:</strong> ' + missedQuestion.userChoice + 
 							(missedQuestion.userChoiceScore ? ' (Total score: ' + missedQuestion.userChoiceScore + ')' : '');
 						
 						var betterChoice = document.createElement('div');
 						betterChoice.className = 'correct-answer';
-						betterChoice.style.color = '#28a745'; // Green but ensure readability
-						betterChoice.style.marginBottom = '5px';
+						betterChoice.setAttribute('style', 'color: #212529 !important; margin-bottom: 5px;');
 						betterChoice.innerHTML = '<strong>Better choice:</strong> ' + missedQuestion.betterChoice + 
 							(missedQuestion.betterChoiceScore ? ' (Total score: ' + missedQuestion.betterChoiceScore + ')' : '');
 						
@@ -1885,47 +1884,45 @@
 						}
 						
 						// Find the highest scoring option for this question
-						var maxTotalScore = userOptionTotalScore;
-						var bestOptionIndex = userAnswer;
+						var maxTotalScore = -Infinity;
+						var bestOptionIndex = -1;
 						
 						for (var j = 0; j < question.options.length; j++) {
-							if (j !== userAnswer) { // Check other options
-								var option = question.options[j];
-								var optionTotalScore = 0;
-								
-								for (var category in option.scores) {
-									if (option.scores.hasOwnProperty(category)) {
-										optionTotalScore += option.scores[category];
-									}
-								}
-								
-								if (optionTotalScore > maxTotalScore) {
-									maxTotalScore = optionTotalScore;
-									bestOptionIndex = j;
+							var option = question.options[j];
+							var optionTotalScore = 0;
+							
+							for (var category in option.scores) {
+								if (option.scores.hasOwnProperty(category)) {
+									optionTotalScore += option.scores[category];
 								}
 							}
+							
+							if (optionTotalScore > maxTotalScore) {
+								maxTotalScore = optionTotalScore;
+								bestOptionIndex = j;
+							}
 						}
-						
 						
 						if (bestOptionIndex !== userAnswer) {
 							hasSuboptimalAnswers = true;
 							var missedQuestionItem = document.createElement('div');
-							missedQuestionItem.className = 'missed-question-item';
 							
 							var questionText = document.createElement('div');
 							questionText.className = 'missed-question-text';
 							questionText.textContent = question.text;
 							
 							var userAnswerText = document.createElement('div');
-							userAnswerText.style.color = '#dc3545';
+							userAnswerText.setAttribute('style', 'color: #212529 !important; margin-bottom: 5px;');
 							userAnswerText.innerHTML = '<strong>Your choice:</strong> ' + question.options[userAnswer].text + ' (Total score: ' + userOptionTotalScore + ')';
 							
 							var betterAnswerText = document.createElement('div');
 							betterAnswerText.className = 'correct-answer';
+							betterAnswerText.setAttribute('style', 'color: #212529 !important; margin-bottom: 5px;');
 							betterAnswerText.innerHTML = '<strong>Better choice:</strong> ' + question.options[bestOptionIndex].text + ' (Total score: ' + maxTotalScore + ')';
 							
 							var questionDescription = document.createElement('div');
 							questionDescription.className = 'question-description';
+							questionDescription.textContent = question.description || "No description available";
 							
 							missedQuestionItem.appendChild(questionText);
 							missedQuestionItem.appendChild(userAnswerText);
@@ -2003,6 +2000,62 @@
 				} else {
 						element.className = 'user-score neutral-score';
 				}
+			}
+
+			// Collect missed questions function
+			function collectMissedQuestions(quizData, userAnswers) {
+				var missedQuestions = [];
+				
+				// Loop through all questions
+				for (var i = 0; i < quizData.questions.length; i++) {
+					var question = quizData.questions[i];
+					var userAnswer = userAnswers[i];
+					
+					if (userAnswer !== undefined) {
+						// 找到用户选择的选项总分
+						var userOptionTotalScore = 0;
+						var userOption = question.options[userAnswer];
+						for (var category in userOption.scores) {
+							if (userOption.scores.hasOwnProperty(category)) {
+								userOptionTotalScore += userOption.scores[category];
+							}
+						}
+						
+						// 找到真正的最高分选项
+						var maxTotalScore = -Infinity;
+						var bestOptionIndex = -1;
+						
+						for (var j = 0; j < question.options.length; j++) {
+							var option = question.options[j];
+							var optionTotalScore = 0;
+							
+							for (var category in option.scores) {
+								if (option.scores.hasOwnProperty(category)) {
+									optionTotalScore += option.scores[category];
+								}
+							}
+							
+							if (optionTotalScore > maxTotalScore) {
+								maxTotalScore = optionTotalScore;
+								bestOptionIndex = j;
+							}
+						}
+						
+						// 如果用户没有选择最高分选项，添加到遗漏问题列表
+						if (bestOptionIndex !== userAnswer) {
+							missedQuestions.push({
+								text: question.text,
+								userChoice: question.options[userAnswer].text,
+								userChoiceScore: userOptionTotalScore,
+								betterChoice: question.options[bestOptionIndex].text,
+								betterChoiceScore: maxTotalScore,
+								description: question.description || "No description available"
+							});
+						}
+					}
+				}
+				
+				return missedQuestions;
 			}
 
 			// Save quiz result to localStorage

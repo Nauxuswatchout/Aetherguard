@@ -8,6 +8,8 @@
             {
                 "id": "3654852e-736d-4bad-a571-e52b6dcb5fc9",
                 "text": "Dog or Cat?",
+                "hint": "Guess",
+                "description": "What?",
                 "options": [
                     {
                         "text": "Dog",
@@ -36,6 +38,8 @@
             {
                 "id": "4cdb27a4-724c-4b17-af31-8be6b59c3015",
                 "text": "Game or Study",
+                "hint": "I am hign GPA student",
+                "description": "Noone loves study",
                 "options": [
                     {
                         "text": "Game",
@@ -64,6 +68,8 @@
             {
                 "id": "54ded73e-161f-4183-9317-2dc4e59de97a",
                 "text": "What means 8080?????",
+                "hint": "8080!!",
+                "description": "Loooking carefully in the hits next time",
                 "options": [
                     {
                         "text": "80 + 80",

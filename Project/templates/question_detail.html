@@ -582,14 +582,12 @@
 					questionText.style.color = '#212529'; // 深色文本
 					
 					var userChoice = document.createElement('div');
-					userChoice.style.color = '#dc3545'; // 红色但确保可读性
-					userChoice.style.marginBottom = '5px';
+					userChoice.setAttribute('style', 'color: #212529 !important; margin-bottom: 5px;');
 					userChoice.innerHTML = '<strong>Your Choice:</strong> ' + missedQuestion.userChoice;
 					
 					var betterChoice = document.createElement('div');
 					betterChoice.className = 'correct-answer';
-					betterChoice.style.color = '#28a745'; // 绿色但确保可读性
-					betterChoice.style.marginBottom = '5px';
+					betterChoice.setAttribute('style', 'color: #212529 !important; margin-bottom: 5px;');
 					betterChoice.innerHTML = '<strong>Better Choice:</strong> ' + missedQuestion.betterChoice;
 					
 					var description = document.createElement('div');
