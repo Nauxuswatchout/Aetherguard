@@ -19,6 +19,7 @@
 			max-width: 1200px;
 			margin: 0 auto;
 			padding: 20px;
+			/* 删除固定的顶部边距，改为使用导航栏的占位元素 */
 		}
 
 		.question-card {
@@ -301,42 +302,28 @@
 	</style>
 </head>
 <body>
-	<!-- Header with Logo and User Menu -->
-	<header class="home-header">
-		<div class="header-left">
-			<a href="/"><img src="{{ url_for('static', filename='img/logo2.png') }}" alt="Logo" class="logo"></a>
-		</div>
-		<div class="header-right">
-			<!-- 添加历史记录按钮 -->
-			<div class="menu-container">
-				<div class="dropdown">
-					<button class="menu-button" id="historyButton">
-						<i class="fas fa-history"></i> History
-					</button>
-					<div class="menu-dropdown">
-						<div class="dropdown-section">
-							<h3>History</h3>
-							<div id="historyDropdown">
-								<div id="historyList">
-									<div class="empty-history">No history records</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+	<!-- 引入共通导航栏 -->
+	{% include 'navbar.html' %}
+
+	<div class="container">
+		<div class="question-card">
+			<h1 class="question-title">{{ question.title }}</h1>
+			<p class="question-text">{{ question.text }}</p>
+			
+			<ul class="options-list">
+				{% for option in question.options %}
+				<li class="option-item" data-option="{{ option.id }}">
+					{{ option.text }}
+				</li>
+				{% endfor %}
+			</ul>
+			
+			<div class="action-buttons">
+				<button class="btn btn-secondary" onclick="window.location.href='/question'">Back</button>
 			</div>
 		</div>
-	</header>
-
-	<!-- 添加导航按钮组 -->
-	<div class="button-group">
-		<button id="A1" onclick="window.location.href='/article'" data-tooltip="Explore safe internet practices and responsible digital use techniques.">Guidelines</button>
-		<button id="A2" onclick="window.location.href='/article2'" data-tooltip="Learn about common online threats and how to protect your family.">Dangers</button>
-		<button id="A3" onclick="window.location.href='/question'" data-tooltip="Test your knowledge through interactive quizzes.">Quiz</button>
-		<button id="A4" data-tooltip="More features coming soon">Feature 4</button>
-		<button id="A5" data-tooltip="More features coming soon">Feature 5</button>
 	</div>
-
+	
 	<!-- 历史记录模态框 -->
 	<div id="historyModal" class="history-modal">
 		<div class="history-modal-content">
@@ -386,6 +373,43 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
+		// 选项点击处理
+		document.querySelectorAll('.option-item').forEach(option => {
+			option.addEventListener('click', function() {
+				// 移除之前选中的选项
+				document.querySelectorAll('.option-item').forEach(item => {
+					item.classList.remove('selected');
+				});
+				
+				// 添加选中状态
+				this.classList.add('selected');
+				
+				// 可以在这里添加代码将选择发送到服务器
+				const optionId = this.getAttribute('data-option');
+				console.log('Selected option ID:', optionId);
+				
+				// 示例：发送选择到服务器
+				fetch('/select_option', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						question_id: '{{ question.id }}',
+						option_id: optionId
+					})
+				})
+				.then(response => response.json())
+				.then(data => {
+					console.log('Success:', data);
+					// 可以在这里处理服务器响应
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+			});
+		});
+		
 		// Menu dropdown control
 		var historyButton = document.getElementById('historyButton');
 		var menuDropdown = document.querySelector('.menu-dropdown');

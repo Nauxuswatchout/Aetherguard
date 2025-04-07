@@ -85,7 +85,7 @@
 
         .admin-container {
             max-width: 1200px;
-            margin: 100px auto 50px;
+            margin: 0 auto 50px;
             padding: 2rem;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
@@ -309,29 +309,8 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <img src="{{ url_for('static', filename='assets/images/logo.png') }}" alt="Aetherguard Logo" style="height: 40px;">
-        </div>
-        <div class="menu-buttons">
-            <button class="menu-button" onclick="window.location.href='/'">
-                Home
-                <span class="tooltip">Return to the main page</span>
-            </button>
-            <button class="menu-button" onclick="window.location.href='/article'">
-                Article
-                <span class="tooltip">View and read articles</span>
-            </button>
-            <button class="menu-button" onclick="window.location.href='/articleadmin'">
-                Article Admin
-                <span class="tooltip">Manage article content</span>
-            </button>
-            <button class="menu-button" onclick="window.location.href='/question'">
-                Question
-                <span class="tooltip">View and answer questions</span>
-            </button>
-        </div>
-    </header>
+    <!-- 引入共通导航栏 -->
+    {% include 'navbar.html' %}
 
     <div class="admin-container">
         <h1>Question Admin</h1>

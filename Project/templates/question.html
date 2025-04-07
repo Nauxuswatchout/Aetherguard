@@ -519,39 +519,8 @@
 		</style>
 	</head>
 	<body>
-		<!-- Top menu -->
-		<header class="top-header">
-			<div class="top-header-row">
-				<div class="logo-container">
-					<img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-image">
-					<div class="logo-text">Aetherguard</div>
-				</div>
-				<div class="menu-container">
-					<div class="dropdown">
-						<button class="menu-button" id="historyButton">
-							<i class="fas fa-history"></i> History
-						</button>
-						<div class="menu-dropdown">
-							<div class="dropdown-section">
-								<h3>History</h3>
-								<div id="historyDropdown">
-									<div id="historyList">
-										<div class="empty-history">No history records</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="button-group">
-				<button id="A1" onclick="window.location.href='/article'" data-tooltip="Explore safe internet practices and tips for responsible digital use.">Guidelines</button>
-				<button id="A2" onclick="window.location.href='/article2'" data-tooltip="Learn about common online threats and how to protect your family.">Dangers</button>
-				<button id="A3" onclick="window.location.href='/question'" data-tooltip="Test your knowledge with interactive quizzes.">Quiz</button>
-				<button>A4</button>
-				<button>A5</button>
-			</div>
-		</header>
+		<!-- 引入共通导航栏 -->
+		{% include 'navbar.html' %}
 
 		<!-- Hero section -->
 		<div class="hero-section">
