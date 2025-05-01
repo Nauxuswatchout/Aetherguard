@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Matrix Test</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("Matrix loading...");
+      
+      // Get canvas element
+      const canvas = document.getElementById('matrix');
+      if (!canvas) {
+        console.error("Canvas not found");
+        return;
+      }
+      
+      // Get canvas context
+      const ctx = canvas.getContext('2d');
+      if (!ctx) {
+        console.error("Could not get canvas context");
+        return;
+      }
+      
+      // Setup canvas size
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      
+      // Initial size and add resize listener
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      
+      // Fill black background
+      ctx.fillStyle = 'black';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Character set
+      const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      const matrix = letters.split('');
+      
+      // Setup columns
+      const fontSize = 14;
+      const columns = Math.ceil(canvas.width / fontSize);
+      const drops = Array(columns).fill(1);
+      
+      // Drawing function
+      function draw() {
+        // Add semi-transparent black for fade effect
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Loop through drops
+        for (let i = 0; i < drops.length; i++) {
+          // Random character
+          const text = matrix[Math.floor(Math.random() * matrix.length)];
+          
+          // Vary character brightness
+          if (Math.random() > 0.8) {
+            ctx.fillStyle = 'rgba(0, 255, 0, 0.7)'; // Brighter
+          } else {
+            ctx.fillStyle = 'rgba(0, 180, 0, 0.4)'; // Dimmer
+          }
+          
+          // Draw character
+          ctx.font = `${fontSize}px monospace`;
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          
+          // Reset drop position if it's off-screen
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          
+          // Move drop down
+          drops[i]++;
+        }
+      }
+      
+      // Start animation with delay
+      setTimeout(function() {
+        console.log("Matrix animation started");
+        setInterval(draw, 33); // ~30 fps
+      }, 500);
+    });
+  </script>
+</body>
+</html> 
