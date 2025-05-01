@@ -1,0 +1,131 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  color: #0F0;
+  background-color: black;
+}
+
+/* Basic Matrix canvas styling */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  filter: blur(0.5px) brightness(0.85);
+  opacity: 0.9;
+}
+
+/* 添加暗色叠加层 */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #0F0;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  text-align: center;
+  z-index: 200;
+  opacity: 0;
+  animation: fadeIn 1.5s forwards 1.5s;
+}
+
+h1 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #0F0;
+  border: 1px solid #0F0;
+  outline: none;
+  font-family: 'Courier New', monospace;
+  box-sizing: border-box;
+}
+
+input[type="password"]:focus {
+  box-shadow: 0 0 5px #0F0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 50, 0, 0.7);
+  color: #0F0;
+  border: 1px solid #0F0;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: rgba(0, 80, 0, 0.9);
+  box-shadow: 0 0 10px #0F0;
+}
+
+.error-message {
+  color: #F00;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 1px;
+  animation: typing 3.5s steps(40, end) 1s forwards,
+             blink-caret .75s step-end infinite;
+  opacity: 0;
+  width: 0;
+}
+
+@keyframes typing {
+  from { width: 0; opacity: 1; }
+  to { width: 100%; opacity: 1; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #0F0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} 
