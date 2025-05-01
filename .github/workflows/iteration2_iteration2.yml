@@ -4,10 +4,11 @@
 
 name: Build and deploy Python app to Azure Web App - iteration2
 
-on:
-  push:
-    branches:
-      - iteration2
+#on:
+#  push:
+#   branches:
+#      - iteration2
+on:  
   workflow_dispatch:
 
 jobs:
