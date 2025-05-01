@@ -926,6 +926,13 @@ class Game {
      * @param {string} defaultPath 默认图片路径
      */
     setCharacterImage(element, imagePath, defaultPath = '/static/images/characters/default.png') {
+        // 确保元素存在
+        if (!element) return;
+        
+        // 先移除错误状态
+        element.classList.remove('error');
+        element.style.backgroundColor = 'transparent';
+        
         // 使用全局图片路径修复函数
         if (window.fixImagePath) {
             imagePath = window.fixImagePath(imagePath);
@@ -934,18 +941,41 @@ class Game {
         
         const img = new Image();
         img.onload = () => {
+            // 图片加载成功
             element.style.backgroundImage = `url(${imagePath})`;
-            // 移除错误样式类
+            // 确保移除错误样式类
             element.classList.remove('error');
+            element.style.backgroundColor = 'transparent';
         };
         img.onerror = () => {
             console.warn(`Failed to load image: ${imagePath}, using default`);
+            
+            // 检查默认图片是否与目标图片相同
+            if (imagePath === defaultPath) {
+                // 防止无限循环：如果默认图片就是当前图片，则清除背景
+                console.error('Default image is same as failed image, clearing background');
+                element.style.backgroundImage = 'none';
+                element.classList.remove('error');
+                return;
+            }
+            
             // 使用错误处理函数或直接设置默认图像
             if (window.handleImageError) {
                 window.handleImageError(element, defaultPath);
             } else {
-                element.classList.add('error');
-                element.style.backgroundImage = `url(${defaultPath})`;
+                // 直接设置默认图像
+                const defaultImg = new Image();
+                defaultImg.onload = () => {
+                    element.style.backgroundImage = `url(${defaultPath})`;
+                    element.classList.add('error');
+                };
+                defaultImg.onerror = () => {
+                    // 如果默认图片也无法加载，清除背景
+                    console.error('Default image also failed to load');
+                    element.style.backgroundImage = 'none';
+                    element.classList.remove('error');
+                };
+                defaultImg.src = defaultPath;
             }
         };
         img.src = imagePath;

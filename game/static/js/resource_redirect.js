@@ -5,14 +5,31 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('[资源重定向] 脚本加载中...');
     
+    // 检测当前环境
+    const isAzure = window.location.hostname.includes('azure') || 
+                   window.location.hostname.includes('azurewebsites.net');
+    console.log('[资源重定向] 当前环境:', isAzure ? 'Azure' : '本地开发');
+    
     // 劫持Audio构造函数
     const originalAudio = window.Audio;
     window.Audio = function(src) {
         // 如果提供了src参数，检查并修复路径
-        if (src && typeof src === 'string' && src.includes('/static/')) {
-            const newSrc = src.replace('/static/', '/game-static/');
-            console.log('[资源重定向] 音频路径修复:', src, '->', newSrc);
-            src = newSrc;
+        if (src && typeof src === 'string') {
+            if (isAzure) {
+                // Azure环境
+                if (src.includes('/game-static/')) {
+                    const newSrc = src.replace('/game-static/', '/static/');
+                    console.log('[资源重定向] 音频路径修复:', src, '->', newSrc);
+                    src = newSrc;
+                }
+            } else {
+                // 本地环境
+                if (src.includes('/static/')) {
+                    const newSrc = src.replace('/static/', '/game-static/');
+                    console.log('[资源重定向] 音频路径修复:', src, '->', newSrc);
+                    src = newSrc;
+                }
+            }
         }
         return new originalAudio(src);
     };
@@ -23,33 +40,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // 劫持createElement方法，处理图片和音频元素创建
     const originalCreateElement = document.createElement;
     document.createElement = function(tagName) {
-        const element = originalCreateElement.call(this, tagName);
+        const element = originalCreateElement.call(document, tagName);
         
-        // 处理创建的图片和音频元素
-        if (tagName.toLowerCase() === 'img' || tagName.toLowerCase() === 'audio') {
-            const originalSetAttribute = element.setAttribute;
-            element.setAttribute = function(name, value) {
-                // 检查src属性
-                if (name === 'src' && typeof value === 'string' && value.includes('/static/')) {
-                    value = value.replace('/static/', '/game-static/');
-                    console.log(`[资源重定向] ${tagName} src属性修复:`, value);
-                }
-                return originalSetAttribute.call(this, name, value);
-            };
+        // 处理图片元素
+        if (tagName.toLowerCase() === 'img') {
+            const originalSrcSetter = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src').set;
             
-            // 直接添加监听器处理src直接赋值的情况
+            // 修改src属性setter
             Object.defineProperty(element, 'src', {
                 set: function(value) {
-                    if (typeof value === 'string' && value.includes('/static/')) {
-                        value = value.replace('/static/', '/game-static/');
-                        console.log(`[资源重定向] ${tagName} src属性修复(直接赋值):`, value);
+                    if (typeof value === 'string') {
+                        if (isAzure) {
+                            // Azure环境
+                            if (value.includes('/game-static/')) {
+                                value = value.replace('/game-static/', '/static/');
+                                console.log('[资源重定向] 图片src修复:', value);
+                            }
+                        } else {
+                            // 本地环境
+                            if (value.includes('/static/')) {
+                                value = value.replace('/static/', '/game-static/');
+                                console.log('[资源重定向] 图片src修复:', value);
+                            }
+                        }
                     }
-                    // 使用原始的setAttribute方法设置
-                    originalSetAttribute.call(this, 'src', value);
+                    originalSrcSetter.call(this, value);
                 },
-                get: function() {
-                    return this.getAttribute('src');
-                }
+                get: Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src').get
             });
         }
         
@@ -66,9 +83,20 @@ document.addEventListener('DOMContentLoaded', function() {
             // 覆盖src属性的setter
             Object.defineProperty(img, 'src', {
                 set: function(value) {
-                    if (typeof value === 'string' && value.includes('/static/')) {
-                        value = value.replace('/static/', '/game-static/');
-                        console.log('[资源重定向] Image src属性修复:', value);
+                    if (typeof value === 'string') {
+                        if (isAzure) {
+                            // Azure环境
+                            if (value.includes('/game-static/')) {
+                                value = value.replace('/game-static/', '/static/');
+                                console.log('[资源重定向] Image src属性修复:', value);
+                            }
+                        } else {
+                            // 本地环境
+                            if (value.includes('/static/')) {
+                                value = value.replace('/static/', '/game-static/');
+                                console.log('[资源重定向] Image src属性修复:', value);
+                            }
+                        }
                     }
                     originalImageSrcSetter.call(this, value);
                 }
@@ -82,9 +110,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // 拦截XMLHttpRequest以修复请求URLs
     const originalXHROpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
-        if (typeof url === 'string' && url.includes('/static/')) {
-            url = url.replace('/static/', '/game-static/');
-            console.log('[资源重定向] XHR请求URL修复:', url);
+        if (typeof url === 'string') {
+            if (isAzure) {
+                // Azure环境
+                if (url.includes('/game-static/')) {
+                    url = url.replace('/game-static/', '/static/');
+                    console.log('[资源重定向] XHR请求URL修复:', url);
+                }
+            } else {
+                // 本地环境
+                if (url.includes('/static/')) {
+                    url = url.replace('/static/', '/game-static/');
+                    console.log('[资源重定向] XHR请求URL修复:', url);
+                }
+            }
         }
         return originalXHROpen.call(this, method, url, async, user, password);
     };
@@ -97,9 +136,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     preloadContinue.onerror = function() {
         console.error('[资源重定向] continue.png预加载失败，尝试备用路径');
-        this.src = '/game-static/images/continue.png';
+        // 根据环境选择不同路径
+        this.src = isAzure ? '/static/images/continue.png' : '/game-static/images/continue.png';
     };
-    preloadContinue.src = '/game-static/images/continue.png';
+    preloadContinue.src = isAzure ? '/static/images/continue.png' : '/game-static/images/continue.png';
     
     console.log('[资源重定向] 脚本加载完成');
 }); 
