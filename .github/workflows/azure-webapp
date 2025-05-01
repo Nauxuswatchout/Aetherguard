@@ -65,13 +65,11 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-
       - name: Clean existing files in wwwroot before deployment
-      run: |
-        curl -s -o clean.sh https://raw.githubusercontent.com/nauxuswatchout/tools/main/clean-wwwroot.sh
-        chmod +x clean.sh
-        ./clean.sh Aetherguard2 Project
-
+        run: |
+          curl -s -o clean.sh https://raw.githubusercontent.com/nauxuswatchout/tools/main/clean-wwwroot.sh
+          chmod +x clean.sh
+          ./clean.sh Aetherguard2 Project
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
