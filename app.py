@@ -637,26 +637,55 @@ def load_game_events_abs():
     
     return events
 
-# 游戏资源重定向路由 - 将/static路径下的请求重定向到/game-static路径
+# 游戏资源重定向路由 - 智能处理静态资源请求
 @app.route('/static/<path:filename>')
 def game_static_redirect(filename):
     # 检查文件是否存在于游戏静态资源目录中
     game_static_dir = os.path.join(app.root_path, 'game', 'static')
     target_path = os.path.join(game_static_dir, filename)
     
+    # 检查是否为游戏相关路径
+    is_game_resource = False
+    game_path_prefixes = ['images/characters/', 'images/backgrounds/', 'sounds/', 'music/', 'images/continue.png', 'images/bedroom.png']
+    
+    for prefix in game_path_prefixes:
+        if filename.startswith(prefix):
+            is_game_resource = True
+            break
+    
+    # 检查请求来源（Referer头）
+    referer = request.headers.get('Referer', '')
+    is_from_game = 'game' in referer or 'new_game' in referer or 'load_game' in referer
+    
     # 调试日志
     print(f"静态资源请求: /static/{filename}")
-    print(f"检查路径: {target_path} (存在: {os.path.exists(target_path)})")
+    print(f"来源: {referer}, 游戏资源: {is_game_resource}, 来自游戏页面: {is_from_game}")
     
-    if os.path.exists(target_path):
-        # 如果文件存在于游戏静态资源目录中，则重定向到/game-static路径
-        print(f"找到游戏资源，重定向到: /game-static/{filename}")
-        return redirect(url_for('game_static', filename=filename))
+    # 如果是游戏资源或请求来自游戏页面，尝试从game/static目录提供
+    if is_game_resource or is_from_game:
+        # 检查文件是否存在
+        if os.path.exists(target_path):
+            print(f"提供游戏资源: {target_path}")
+            return send_from_directory(game_static_dir, filename)
+        else:
+            # 转发到game-static路径
+            print(f"重定向到游戏资源: /game-static/{filename}")
+            return redirect(url_for('game_static', filename=filename))
+    elif os.path.exists(target_path):
+        # 如果文件存在于游戏静态资源目录且不是通过上面识别的游戏资源
+        # 优先使用主站静态目录
+        main_static_path = os.path.join(app.static_folder, filename)
+        if os.path.exists(main_static_path):
+            print(f"使用主站静态资源: {main_static_path}")
+            return send_from_directory(app.static_folder, filename)
+        else:
+            print(f"使用游戏静态资源: {target_path}")
+            return send_from_directory(game_static_dir, filename)
     else:
         # 否则使用Flask默认的static路由
         print(f"使用默认静态路由: /static/{filename}")
         return send_from_directory(app.static_folder, filename)
-        
+
 # 保留原有的游戏事件JSON文件路由
 @app.route('/game-events/<path:filename>')
 def game_events_json(filename):

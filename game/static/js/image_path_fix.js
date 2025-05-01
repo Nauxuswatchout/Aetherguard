@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
                    window.location.hostname.includes('azurewebsites.net');
     console.log('[Image Fix] 当前环境:', isAzure ? 'Azure' : '本地开发');
     
+    // 检测是否在游戏页面
+    const isGamePage = window.location.pathname.includes('/game') || 
+                      window.location.pathname.includes('/new_game') || 
+                      window.location.pathname.includes('/load_game');
+    console.log('[Image Fix] 页面类型:', isGamePage ? '游戏页面' : '网站页面');
+    
     // 定义图片路径修复函数
     window.fixImagePath = function(path) {
         if (!path) return path;
@@ -23,25 +29,33 @@ document.addEventListener('DOMContentLoaded', function() {
             path = '/' + path;
         }
         
-        if (!isAzure) {
-            // 本地环境下的处理方式
-            // 2. 替换/static/为/game-static/
-            if (path.startsWith('/static/')) {
-                path = path.replace('/static/', '/game-static/');
-            }
-            // 如果没有以/static/开头，则添加/game-static/前缀
-            else if (!path.startsWith('/game-static/')) {
-                path = '/game-static' + path;
+        // 游戏页面特殊处理
+        if (isGamePage) {
+            // 本地环境且为游戏页面
+            if (!isAzure) {
+                // 替换/static/为/game-static/
+                if (path.startsWith('/static/')) {
+                    path = path.replace('/static/', '/game-static/');
+                }
+                // 如果没有以/static/开头，则添加/game-static/前缀
+                else if (!path.startsWith('/game-static/')) {
+                    path = '/game-static' + path;
+                }
+            } else {
+                // 在Azure上，保持/static/路径不变，因为我们有特殊的后端处理
+                if (path.startsWith('/game-static/')) {
+                    path = path.replace('/game-static/', '/static/');
+                }
+                if (!path.startsWith('/static/')) {
+                    path = '/static' + path;
+                }
             }
         } else {
-            // Azure环境下的处理方式
-            // 确保使用/static/
-            if (path.startsWith('/game-static/')) {
-                path = path.replace('/game-static/', '/static/');
-            }
-            // 如果没有以/static/开头，添加/static/前缀
-            if (!path.startsWith('/static/') && !path.startsWith('/game/static/')) {
-                path = '/static' + path;
+            // 非游戏页面，使用原始的路径处理逻辑
+            if (!isAzure) {
+                if (path.includes('/static/') && path.includes('/game/')) {
+                    path = path.replace('/static/', '/game-static/');
+                }
             }
         }
         
@@ -86,11 +100,21 @@ document.addEventListener('DOMContentLoaded', function() {
     testImage.onerror = function() {
         console.error('[Image Fix] 图片服务器连接失败，可能需要检查服务器配置');
         // 尝试备用路径
-        const backupPath = isAzure ? '/static/images/bedroom.png' : '/game-static/images/bedroom.png';
-        this.src = backupPath + '?' + new Date().getTime();
+        if (isGamePage) {
+            // 游戏页面使用角色默认图片测试
+            this.src = '/static/images/characters/default.png';
+        } else {
+            // 主站页面不再重试，避免错误信息泛滥
+            console.log('[Image Fix] 非游戏页面，停止图片连接测试');
+        }
     };
-    testImage.src = isAzure ? '/static/images/bedroom.png' : '/game-static/images/bedroom.png';
-    testImage.src += '?' + new Date().getTime();
+    
+    // 根据页面类型选择适当的测试图片
+    if (isGamePage) {
+        testImage.src = isAzure ? '/static/images/characters/default.png' : '/game-static/images/characters/default.png';
+    } else {
+        testImage.src = '/static/images/logo.png'; // 假设主站有logo.png
+    }
     
     // 添加全局图片错误处理
     window.addEventListener('error', function(event) {
@@ -98,17 +122,19 @@ document.addEventListener('DOMContentLoaded', function() {
             console.warn('[Image Fix] 捕获到图片加载错误:', event.target.src);
             
             // 尝试修复路径
-            if (isAzure) {
-                // Azure环境中修复路径
-                if (event.target.src.includes('/game-static/')) {
-                    event.target.src = event.target.src.replace('/game-static/', '/static/');
-                    console.log('[Image Fix] 尝试修复路径:', event.target.src);
-                }
-            } else {
-                // 本地环境中修复路径
-                if (event.target.src.includes('/static/')) {
-                    event.target.src = event.target.src.replace('/static/', '/game-static/');
-                    console.log('[Image Fix] 尝试修复路径:', event.target.src);
+            if (isGamePage) {
+                if (isAzure) {
+                    // Azure游戏页面 - 如果使用了game-static，改为static
+                    if (event.target.src.includes('/game-static/')) {
+                        event.target.src = event.target.src.replace('/game-static/', '/static/');
+                        console.log('[Image Fix] 尝试修复路径:', event.target.src);
+                    }
+                } else {
+                    // 本地游戏页面 - 如果使用了static，改为game-static
+                    if (event.target.src.includes('/static/')) {
+                        event.target.src = event.target.src.replace('/static/', '/game-static/');
+                        console.log('[Image Fix] 尝试修复路径:', event.target.src);
+                    }
                 }
             }
             

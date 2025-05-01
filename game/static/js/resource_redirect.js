@@ -10,6 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
                    window.location.hostname.includes('azurewebsites.net');
     console.log('[资源重定向] 当前环境:', isAzure ? 'Azure' : '本地开发');
     
+    // 检测是否为游戏页面
+    const isGamePage = window.location.pathname.includes('/game') || 
+                      window.location.pathname.includes('/new_game') || 
+                      window.location.pathname.includes('/load_game');
+    console.log('[资源重定向] 页面类型:', isGamePage ? '游戏页面' : '网站页面');
+    
+    // 非游戏页面不进行资源重定向
+    if (!isGamePage) {
+        console.log('[资源重定向] 非游戏页面，不进行资源重定向');
+        return;
+    }
+    
     // 劫持Audio构造函数
     const originalAudio = window.Audio;
     window.Audio = function(src) {
@@ -128,18 +140,25 @@ document.addEventListener('DOMContentLoaded', function() {
         return originalXHROpen.call(this, method, url, async, user, password);
     };
     
-    // 创建一个专门处理continue.png的图片元素
-    const preloadContinue = new Image();
-    preloadContinue.onload = function() {
-        console.log('[资源重定向] continue.png预加载成功');
-        window.continueButtonImage = this;
-    };
-    preloadContinue.onerror = function() {
-        console.error('[资源重定向] continue.png预加载失败，尝试备用路径');
-        // 根据环境选择不同路径
-        this.src = isAzure ? '/static/images/continue.png' : '/game-static/images/continue.png';
-    };
-    preloadContinue.src = isAzure ? '/static/images/continue.png' : '/game-static/images/continue.png';
+    // 预加载常用游戏资源
+    if (isGamePage) {
+        // 创建一个专门处理continue.png的图片元素
+        const preloadContinue = new Image();
+        preloadContinue.onload = function() {
+            console.log('[资源重定向] continue.png预加载成功');
+            window.continueButtonImage = this;
+        };
+        preloadContinue.onerror = function() {
+            console.error('[资源重定向] continue.png预加载失败，尝试备用路径');
+            // 根据环境选择不同路径
+            this.src = isAzure ? '/static/images/continue.png' : '/game-static/images/continue.png';
+        };
+        preloadContinue.src = isAzure ? '/static/images/continue.png' : '/game-static/images/continue.png';
+        
+        // 预加载角色默认图片
+        const preloadDefault = new Image();
+        preloadDefault.src = isAzure ? '/static/images/characters/default.png' : '/game-static/images/characters/default.png';
+    }
     
     console.log('[资源重定向] 脚本加载完成');
 }); 
