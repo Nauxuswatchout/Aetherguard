@@ -209,7 +209,7 @@ def activity_trends():
             conn.close()
         return jsonify({"error": str(e)}), 500
 
-# 会话状态检查中间件，确保游戏状态正确初始化
+
 @app.before_request
 def ensure_game_state():
     # 游戏相关路由需要检查游戏状态
@@ -411,6 +411,15 @@ def game_js_files(filename):
     except Exception as e:
         print(f"加载游戏JS文件出错: {e}")
         return jsonify({"error": f"加载JS文件失败: {str(e)}"}), 404
+
+# 添加对新增JS文件的特定路由
+@app.route('/debug_tools.js')
+def debug_tools_js():
+    return redirect(url_for('game_js_files', filename='debug_tools.js'))
+
+@app.route('/game_init.js')
+def game_init_js():
+    return redirect(url_for('game_js_files', filename='game_init.js'))
 
 # ---------- 游戏API路由 ----------
 @app.route('/get_game_state')
