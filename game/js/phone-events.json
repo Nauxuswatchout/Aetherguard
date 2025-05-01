@@ -1,0 +1,704 @@
+{
+  "events": [
+    {
+      "id": "PhoneEvent-01",
+      "type": "phone",
+      "title": "Suspicious Group Chat Invitation",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "I finally have no homework today. I can play for a while."
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "Let me check my phone for new notifications."
+        },
+        {
+          "character": "narrator",
+          "text": "(Zack scrolls his phone and gets a private message from a stranger)"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "Only brave people can join. Recruiting new members to the [ISIS Blood Oath], follow the true power."
+        },
+        {
+          "character": "Zack_worried",
+          "text": "ISIS Blood Oath? That name sounds scary..."
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "(He looks at Aether sitting in the corner)"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "Aether, I just got a strange invite to join the ISIS Blood Oath."
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "ISIS? I heard that name somewhere... Is it a game group?"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "It feels more than a game... Let's check."
+        },
+        {
+          "character": "narrator",
+          "text": "(Zack and Aether grab a tablet and search quickly)"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "Oh my god. ISIS is a real terror group. They have done many terrible things."
+        },
+        {
+          "character": "Aether_relaxed",
+          "text": "Is this a prank group? Are they really that bad?"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "It seems this group is made by their supporters."
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "But... should we go in to see? Maybe it's just a dramatic name and nothing is inside?"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "If we go, we can see what they do and get proof to report... But what if it's too awful?"
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "I don't know... It feels strange, but I'm curious what's inside."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Enter to check.",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "narrator",
+                "text": "(After hesitating, Zack clicks the link)"
+              },
+              {
+                "character": "narrator",
+                "text": "(Inside the chat, the screen fills with violent propaganda images and bloody clips)"
+              },
+              {
+                "character": "Zack_alert",
+                "text": "This... this is so disgusting!"
+              },
+              {
+                "character": "narrator",
+                "text": "(Zack immediately leaves the chat)"
+              },
+              {
+                "character": "narrator",
+                "text": "(Zack reports the group. After review, the platform thanks him and gives one month of plus experience)"
+              },
+              {
+                "character": "narrator",
+                "text": "(System message: Fans +20)"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "I'll never click on such things again... The images still haunt me."
+              }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": 20,
+              "fans": 20
+            }
+          }
+        },
+        {
+          "text": "Report directly.",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_serious",
+                "text": "This is too dangerous. Reporting is the safest choice."
+              },
+              {
+                "character": "narrator",
+                "text": "(Zack does not enter and reports directly)"
+              },
+              {
+                "character": "narrator",
+                "text": "(After review, the platform thanks him and gives one month of plus experience)"
+              },
+              {
+                "character": "narrator",
+                "text": "(System message: Fans +20)"
+              },
+              {
+                "character": "Zack_calm",
+                "text": "Right. Staying away from these people is how I protect myself."
+              }
+            ],
+            "stats": {
+              "mentalHealth": 0,
+              "safetyAwareness": 25,
+              "fans": 20
+            }
+          }
+        }
+      ],
+      "summary": "Some dangers you don't need to see with your own eyes to confirm. When you find real criminal or violent content, the best action is to stay away and report immediately. Not letting curiosity lead you is the start of protecting yourself."
+    },
+    {
+      "id": "PhoneEvent-02",
+      "type": "phone",
+      "title": "Harsh Online Comments",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_excited", "text": "My video got hundreds of likes today. I feel like a little star." },
+        { "character": "Zack_neutral", "text": "Let's check the comments for nice words." },
+        { "character": "narrator", "text": "(Zack scrolls his phone, reading comments)" },
+        { "character": "Unnamed_neutral", "text": "Even this trash video gets likes. It's laughable and embarrassing." },
+        { "character": "Zack_sad", "text": "..." },
+        { "character": "Zack_thinking", "text": "I tried so hard, why say that about me?" },
+        { "character": "narrator", "text": "(Aether notices Zack's silence and walks over)" },
+        { "character": "Aether_concerned", "text": "What's wrong? Did someone say something?" },
+        { "character": "Zack_sad", "text": "Someone insulted me in the comments, saying I'm embarrassing." },
+        { "character": "Aether_neutral", "text": "Some people online like to say mean things. It doesn't mean it's true." },
+        { "character": "Zack_thinking", "text": "Should I reply and insult them back?" },
+        { "character": "Aether_uncertain", "text": "You can choose how to respond, but you don't have to copy their way." }
+      ],
+      "choices": [
+        {
+          "text": "Report the comment and ignore it.",
+          "outcome": {
+            "dialogues": [
+              { "character": "narrator", "text": "(Zack opens the report option and reports the insulting comment)" },
+              { "character": "narrator", "text": "(System: Report successful)" },
+              { "character": "narrator", "text": "(The video seems more popular now. Fans +15)" },
+              { "character": "Zack_relief", "text": "I feel much better, no need to waste time on them." }
+            ],
+            "stats": { "mentalHealth": 5, "safetyAwareness": 10, "fans": 10 }
+          }
+        },
+        {
+          "text": "Reply with insults impulsively.",
+          "outcome": {
+            "dialogues": [
+              { "character": "narrator", "text": "(Zack impulsively insults back in the comments)" },
+              { "character": "narrator", "text": "(He soon gets more negative replies and feels worse)" },
+              { "character": "Zack_worried", "text": "It seems to have made things worse..." }
+            ],
+            "stats": { "mentalHealth": -5, "safetyAwareness": -10, "fans": -10 }
+          }
+        }
+      ],
+      "summary": "When facing online hate, the best response is to report and stay away. Wasting energy on replies will only pull you down. Save your time for those who truly support you."
+    },
+    {
+      "id": "PhoneEvent-10",
+      "type": "phone",
+      "title": "Live Stream Trouble",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_excited", "text": "The live stream had so many viewers today! It's the first time so many people come to watch me." },
+        { "character": "Zack_neutral", "text": "Thanks everyone for your support. I will keep working on better content." },
+        { "character": "narrator", "text": "(The live comments are scrolling)" },
+        { "character": "Unnamed_neutral", "text": "You look like a joke. How dare you stream." },
+        { "character": "Zack_shocked", "text": "..." },
+        { "character": "Zack_thinking", "text": "Why say that... What did I do wrong?" },
+        { "character": "narrator", "text": "(Aether notices Zack's expression change)" },
+        { "character": "Aether_concerned", "text": "Don't pay them any mind. They just want to see you get mad." },
+        { "character": "Zack_determined", "text": "But I'm really upset. Should I just let it go?" },
+        { "character": "Aether_neutral", "text": "What you do next depends on the person you want to be." },
+        { "character": "Zack_thinking", "text": "Should I fight back, or handle this calmly?" }
+      ],
+      "choices": [
+        {
+          "text": "Ignore the comment and ban Unnamed, then continue streaming.",
+          "outcome": {
+            "dialogues": [
+              { "character": "narrator", "text": "(Zack takes a deep breath, calmly opens the moderation panel, and bans Unnamed)" },
+              { "character": "Zack_determined", "text": "Thanks everyone, let's keep going. True friends won't define me with malice." },
+              { "character": "narrator", "text": "(The stream atmosphere returns to normal. Supportive comments start flooding in.)" }
+            ],
+            "stats": { "mentalHealth": 5, "safetyAwareness": 10, "fans": 15 }
+          }
+        },
+        {
+          "text": "Argue with Unnamed and fight back in the stream.",
+          "outcome": {
+            "dialogues": [
+              { "character": "narrator", "text": "(Zack gets emotional and starts arguing with Unnamed in the comments)" },
+              { "character": "Zack_angry", "text": "What are you? If you have guts, start your own live stream!" },
+              { "character": "narrator", "text": "(Viewers split into two groups. The stream atmosphere becomes tense.)" },
+              { "character": "Zack_worried", "text": "It seems to have made things worse..." }
+            ],
+            "stats": { "mentalHealth": -10, "safetyAwareness": -10, "fans": -20 }
+          }
+        }
+      ],
+      "summary": "When facing hateful attacks, the smartest move is to protect yourself and stay calm, not get into endless fights. Being true to yourself is more important than winning an argument."
+    },
+    {
+      "id": "PhoneEvent-11",
+      "type": "phone",
+      "title": "App Permission Trap",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "I really don't want to study today. I'll find some mini-games to kill time." },
+        { "character": "narrator", "text": "(Zack sees a popular mini-game in the app store titled 'Super Accurate Personality Test – Know the Real You!')" },
+        { "character": "Zack_thinking", "text": "It sounds fun. I'll try it." },
+        { "character": "narrator", "text": "(Zack downloads and opens the app)" },
+        { "character": "App_neutral", "text": "Please allow access to your contacts, location, and browser history for better service!" },
+        { "character": "Zack_thinking", "text": "Contacts? Browser history? Hmm... whatever. Everyone clicks allow anyway." },
+        { "character": "narrator", "text": "(Zack taps allow casually)" },
+        { "character": "narrator", "text": "(After playing the mini-game for a few minutes, Zack exits the app)" },
+        { "character": "Zack_neutral", "text": "It wasn't that interesting, but not bad." },
+        { "character": "narrator", "text": "(A few hours later)" },
+        { "character": "narrator", "text": "(Weird ad pop-ups start appearing on his phone)" },
+        { "character": "Ad_neutral", "text": "Quick loans, instant money!" },
+        { "character": "Ad_neutral", "text": "Part-time gold farming, earn 1000 a day!" },
+        { "character": "Ad_neutral", "text": "Betting experience, win money easily!" },
+        { "character": "Zack_alert", "text": "What the... Why is it all like this now?" },
+        { "character": "narrator", "text": "(Aether notices Zack's expression change)" },
+        { "character": "Aether_concerned", "text": "Zack, what's wrong?" },
+        { "character": "Zack_worried", "text": "I just downloaded a mini-game... how did it become like this?" },
+        { "character": "Aether_neutral", "text": "That game asked for permissions, right? Contacts, location, that stuff?" },
+        { "character": "Zack_thinking", "text": "I think so... But I didn't really check..." },
+        { "character": "Aether_serious", "text": "Some apps use mini-games or tests to secretly collect your data. With that info, they can target ads and even sell it to scammers." },
+        { "character": "Zack_shocked", "text": "That's really scary!" },
+        { "character": "Aether_gentle", "text": "In the online world, free stuff is rarely free. You use the app, and they use your data." }
+      ],
+      "choices": [
+        {
+          "text": "Keep playing the mini-game and just close the ads.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "It should be fine, right? I won't really click those ads." },
+              { "character": "Aether_worried", "text": "You won't click, but remember, your data is already theirs. They won't let go easily." }
+            ],
+            "stats": { "safetyAwareness": -10, "mentalHealth": -5, "social": 0 }
+          }
+        },
+        {
+          "text": "Uninstall this app and check my phone permissions.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "No, I will delete this app and turn off its permissions." },
+              { "character": "Aether_smile", "text": "Right, exactly. Taking control of your data is true freedom." },
+              { "character": "narrator", "text": "(Zack deletes the app, checks other apps' permissions one by one, and restores his phone to normal)" }
+            ],
+            "stats": { "safetyAwareness": 15, "mentalHealth": 10, "social": 5 }
+          }
+        },
+        {
+          "text": "Try blocking the ads, but keep the app.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_thinking", "text": "Then I'll install an ad blocker." },
+              { "character": "Aether_neutral", "text": "Blocking ads is only a band-aid. Your data is already used, and they will keep watching you." }
+            ],
+            "stats": { "safetyAwareness": -5, "mentalHealth": -5, "social": 0 }
+          }
+        }
+      ],
+      "summary": "In the online world, an app without strict privacy protection is like a house with no door or lock. Each time you grant permissions carelessly, you share your location, interests, and personal details. Protecting your data means protecting your safety and dignity. Choosing wisely and authorizing with caution is a basic skill you must learn."
+    },
+    {
+      "id": "PhoneEvent-12",
+      "type": "phone",
+      "title": "Algorithm Push Pollution",
+      "conditions": { "day": 6 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "No homework today. I can play for a while." },
+        { "character": "narrator", "text": "(Zack opens his phone and scrolls through short videos)" },
+        { "character": "Zack_neutral", "text": "Huh, why are all the videos like this?" },
+        { "character": "narrator", "text": "(He notices his feed is full of extreme sports after clicking some before)" },
+        { "character": "Zack_thinking", "text": "They are exciting, but watching too many makes me a bit scared..." },
+        { "character": "narrator", "text": "(Aether sees Zack's face change)" },
+        { "character": "Aether_concerned", "text": "What's wrong?" },
+        { "character": "Zack_worried", "text": "My phone keeps pushing dangerous content. It's making me scared." },
+        { "character": "Aether_neutral", "text": "That's the power of algorithm push. You click, it thinks you like it, and pushes more." },
+        { "character": "Zack_thinking", "text": "But I clicked out of curiosity. It doesn't mean I really like it..." },
+        { "character": "Aether_gentle", "text": "Algorithm doesn't think. It only knows you clicked, so it keeps pushing." },
+        { "character": "Zack_worried", "text": "What can I do? I feel trapped by these videos." },
+        { "character": "Aether_thinking", "text": "You can stay controlled by the algorithm, or take charge of your feed." }
+      ],
+      "choices": [
+        {
+          "text": "Keep watching but limit my time.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "I'll watch less, that should help." },
+              { "character": "Aether_concerned", "text": "The algorithm remembers each click and will push more similar content." }
+            ],
+            "stats": { "mentalHealth": -5, "safetyAwareness": -5, "social": 0 }
+          }
+        },
+        {
+          "text": "Clear watch history and reset the algorithm.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "I'm going to clear all my watch history and start fresh." },
+              { "character": "Aether_smile", "text": "Yes, choose what you want to watch, not the algorithm." },
+              { "character": "narrator", "text": "(Zack clears his watch history and searches for fun, light videos)" },
+              { "character": "Zack_relaxed", "text": "I feel better. My home feed is not full of scary stuff anymore." }
+            ],
+            "stats": { "mentalHealth": 10, "safetyAwareness": 15, "social": 5 }
+          }
+        },
+        {
+          "text": "Uninstall the app and take a break.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_upset", "text": "I'll just delete it and take a few days off." },
+              { "character": "Aether_neutral", "text": "Sometimes stepping away is protection too." }
+            ],
+            "stats": { "mentalHealth": 5, "safetyAwareness": 10, "social": -5 }
+          }
+        }
+      ],
+      "summary": "Algorithm push is like a mirror; it reflects what you give it. But you decide whether to look. Active choice, not passive acceptance, is key to protect your mental health."
+    },
+    {
+      "id": "PhoneEvent-13",
+      "type": "phone",
+      "title": "Personal Brand Anxiety",
+      "conditions": { "fans": 200 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "I gained dozens of fans today. Not bad..." },
+        { "character": "narrator", "text": "(Zack sits on his bed and looks at his new videos)" },
+        { "character": "Zack_thinking", "text": "But I feel my smile looks fake... Should I edit it more?" },
+        { "character": "narrator", "text": "(He opens a photo editor and keeps retouching the photo)" },
+        { "character": "narrator", "text": "(Aether watches quietly)" },
+        { "character": "Aether_concerned", "text": "Zack... you seem less like yourself lately." },
+        { "character": "Zack_neutral", "text": "Really? I just want my video to look perfect." },
+        { "character": "Aether_gentle", "text": "Is perfection for others to like you, or for you to be happy?" },
+        { "character": "Zack_worried", "text": "I'm just afraid they think I'm not good enough." },
+        { "character": "Aether_thinking", "text": "If you keep dressing yourself up, one day you won't know what's real." },
+        { "character": "Zack_sad", "text": "I just want to be more popular... More people to like me." },
+        { "character": "Aether_neutral", "text": "Showing the best side is fine, but don't let it replace the real you." },
+        { "character": "Zack_thinking", "text": "But if I'm not perfect, will my fans leave?" },
+        { "character": "Aether_smile", "text": "True fans like you for being Zack, not for a perfect image." },
+        { "character": "Zack_determined", "text": "...Thank you, Aether. I'll think about this." }
+      ],
+      "choices": [
+        {
+          "text": "Keep the perfect image, edit and hide reality.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "Maybe I'll keep trying harder. More effort might help." },
+              { "character": "Aether_concerned", "text": "Remember, your true self needs care too, no matter how you edit." }
+            ],
+            "stats": { "mentalHealth": -10, "safetyAwareness": -5, "social": 5, "fans": 30 }
+          }
+        },
+        {
+          "text": "Show more of the real me and edit less.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_relaxed", "text": "I think I'll try to show more of the real me." },
+              { "character": "Aether_smile", "text": "Real glow comes from you, not from filters." }
+            ],
+            "stats": { "mentalHealth": 15, "safetyAwareness": 10, "social": 10, "fans": 50 }
+          }
+        },
+        {
+          "text": "Give up the account and stay in the real world.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_upset", "text": "I'm tired... I'll just stop caring." },
+              { "character": "Aether_neutral", "text": "Escaping feels easy, but you miss chances to grow. Choose courage, not escape." }
+            ],
+            "stats": { "mentalHealth": 0, "safetyAwareness": 0, "social": -10, "fans": -50 }
+          }
+        }
+      ],
+      "summary": "In the online world, everyone wants to show the best side. But what's important is that you accept your real self. Social media is part of life, not your whole life."
+    },
+    {
+      "id": "PhoneEvent-14",
+      "type": "phone",
+      "title": "Dangerous Live Stream Challenge",
+      "conditions": { "day": 9 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_excited", "text": "The live stream is so lively today! More and more people are joining!" },
+        { "character": "Tiktok_user_neutral", "text": "I like your stream! I'll give you a challenge: complete it and I'll send you a big cash prize!" },
+        { "character": "Zack_surprised", "text": "What challenge?" },
+        { "character": "Tiktok_user_neutral", "text": "Eat a live spider on the stream. Do you dare?" },
+        { "character": "Zack_shocked", "text": "Eat... a spider?" },
+        { "character": "Tiktok_user_neutral", "text": "Prove yourself on stream, cash is yours immediately! You might even go viral!" },
+        { "character": "Zack_alert", "text": "..." },
+        { "character": "Zack_worried", "text": "This is too crazy... but viewer count went up so much, everyone is egging me on..." },
+        { "character": "Aether_concerned", "text": "(quietly) Zack, this challenge sounds wrong. Eating a spider? Even as a joke, it's too dangerous." },
+        { "character": "Zack_thinking", "text": "But... cash reward and stream popularity... if I do it, I can buy that dream bike..." },
+        { "character": "Aether_neutral", "text": "You're finding excuses. Think why someone would suggest this on your stream. Are they really caring for you?" },
+        { "character": "Zack_worried", "text": "...What should I do?" },
+        { "character": "Aether_serious", "text": "Online, people chase views and thrills. They encourage anything. But you bear the consequences." },
+        { "character": "Zack_conflicted", "text": "...What should I do?" }
+      ],
+      "choices": [
+        {
+          "text": "Offer my own safe challenge.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "Eating a spider is too gross. I can do an extreme jump rope challenge for positive energy!" },
+              { "character": "Tiktok_user_neutral", "text": "Not fun, forget it!" },
+              { "character": "Zack_calm", "text": "Trying to use me as a stunt? No way!" },
+              { "character": "Aether_relaxed", "text": "Good, Zack. You chose to respect yourself." }
+            ],
+            "stats": { "fans": 10, "mentalHealth": 5, "safetyAwareness": 10, "social": 5 }
+          }
+        },
+        {
+          "text": "Accept the spider eating challenge.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "...Okay, I accept." },
+              { "character": "Aether_concerned", "text": "Zack, don't!" },
+              { "character": "Zack_determined", "text": "It's just one challenge... It's fine..." },
+              { "character": "narrator", "text": "(Zack forces himself to complete the challenge. The stream explodes. Tiktok_User pays the cash.)" },
+              { "character": "narrator", "text": "(Zack uses the money to buy the dream bike.)" },
+              { "character": "Zack_upset", "text": "I got everything... but why don't I feel happy?" },
+              { "character": "Aether_concerned", "text": "You won the audience but lost yourself." }
+            ],
+            "stats": { "fans": 60, "mentalHealth": -30, "safetyAwareness": -20, "social": 15 }
+          }
+        },
+        {
+          "text": "Politely decline and thank for support.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "Thank you for your offer, but I won't joke with my health. Thanks for your support!" },
+              { "character": "Tiktok_user_neutral", "text": "...Boring." },
+              { "character": "Zack_smile", "text": "True support shouldn't be like this." },
+              { "character": "Aether_relaxed", "text": "Very good, Zack. True strength is saying no." }
+            ],
+            "stats": { "fans": 15, "mentalHealth": 10, "safetyAwareness": 10, "social": 0 }
+          }
+        }
+      ],
+      "summary": "In the online world, dangerous challenges are often disguised as 'games', 'trends', or 'rewards'. But the real challenge is to refuse temptations that disrespect your body and will. Remember, likes and gifts will never pay for your health. Protecting yourself is your most important promise."
+    },
+    {
+      "id": "PhoneEvent-15",
+      "type": "phone",
+      "title": "Live PK Trap",
+      "conditions": { "day": 10 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_excited", "text": "Aether, today was great! I have big news!" },
+        { "character": "Aether_smile", "text": "Oh, what makes you so excited?" },
+        { "character": "Zack_excited", "text": "A senior will do a live PK tonight and asked me to send gifts to support her!" },
+        { "character": "Aether_neutral", "text": "A senior? Why ask you?" },
+        { "character": "Zack_proud", "text": "My stream has some fans now! She said she'll pay me back whatever I spend!" },
+        { "character": "Aether_thinking", "text": "Zack, how much money do you have? Gifts cost a lot." },
+        { "character": "Zack_relaxed", "text": "It's okay. I'm using mom's App ID. It auto-charges. I'll pay her back!" },
+        { "character": "Aether_concerned", "text": "That sounds weird... But it's your choice." },
+        { "character": "Zack_determined", "text": "Don't worry. I set a budget: at most fifty to a hundred dollars!" },
+        { "character": "narrator", "text": "(At night, Zack joins the live PK.)" },
+        { "character": "Zack_relaxed", "text": "It starts, it starts!" },
+        { "character": "narrator", "text": "(Zack sends a bunch of gifts)" },
+        { "character": "Zack_alert", "text": "Huh? The other side is spamming gifts like a waterfall!" },
+        { "character": "Zack_shocked", "text": "I only sent a hundred, but they have over a thousand?!" },
+        { "character": "Aether_serious", "text": "Zack, stop. This isn't your money. If she doesn't pay you back, what will you do?" },
+        { "character": "Zack_worried", "text": "But... I've already spent... If I stop now, won't I let her down?" },
+        { "character": "Aether_neutral", "text": "The person you should honor is yourself and your trusting mom." }
+      ],
+      "choices": [
+        {
+          "text": "Keep sending gifts to win the PK.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_stubborn", "text": "Let's go all in. I can't back out now!" },
+              { "character": "narrator", "text": "(Zack spends hundreds more but still loses the PK. The senior then ignores him.)" },
+              { "character": "Aether_serious", "text": "Sacrificing your responsibility for face isn't worth it." }
+            ],
+            "stats": { "mentalHealth": -15, "safetyAwareness": -20, "social": 5 }
+          }
+        },
+        {
+          "text": "Stop spending and protect my account.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "No, I can't send more gifts." },
+              { "character": "Aether_smile", "text": "That's the mature choice: protect yourself and trust." },
+              { "character": "narrator", "text": "(Zack calms down. Though he feels regret, he feels at peace.)" }
+            ],
+            "stats": { "mentalHealth": 10, "safetyAwareness": 15, "social": 0 }
+          }
+        },
+        {
+          "text": "Ask for deposit before sending more gifts.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_cautious", "text": "How about you pay a deposit first?" },
+              { "character": "narrator", "text": "(She replies vaguely: let's talk after the PK.)" },
+              { "character": "Zack_alert", "text": "Looks like she won't pay soon." },
+              { "character": "Aether_serious", "text": "The sooner you see the truth, the less you'll get hurt." }
+            ],
+            "stats": { "mentalHealth": 5, "safetyAwareness": 10, "social": 0 }
+          }
+        }
+      ],
+      "summary": "In the online world, not every promise is trustworthy, especially when money is involved. Any rash decision only hurts you. Protect your account and responsibility. That's true maturity."
+    },
+    {
+      "id": "PhoneEvent-16",
+      "type": "phone",
+      "title": "Algorithm Feed Pollution",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "My video views went up again today. I'm so happy." },
+        { "character": "narrator", "text": "(Zack opens TikTok and scrolls videos)" },
+        { "character": "narrator", "text": "(After a few swipes, he sees many videos with stirring slogans and radical messages)" },
+        { "character": "Zack_shocked", "text": "Huh? Why are the recommendations getting so weird..." },
+        { "character": "narrator", "text": "(Zack scrolls to his comment section)" },
+        { "character": "narrator", "text": "(He finds strangers posting stirring slogans in comments)" },
+        { "character": "Zack_alert", "text": "Have these people taken over my comments too?" },
+        { "character": "Zack_worried", "text": "What is going on? I didn't follow these things on purpose." },
+        { "character": "narrator", "text": "(Aether moves closer and looks at Zack's phone)" },
+        { "character": "Aether_thinking", "text": "Maybe you didn't choose to watch them. The algorithm push is broken." },
+        { "character": "Zack_thinking", "text": "Push? But I never searched for these topics." },
+        { "character": "Aether_neutral", "text": "Push doesn't only watch searches. It uses watch time, taps, likes, comments, shares... Even pausing for a few seconds can mean it thinks you like it." },
+        { "character": "Zack_shocked", "text": "So just looking a bit longer made it think I liked it?" },
+        { "character": "Aether_serious", "text": "The algorithm doesn't care about your true thoughts. It only reads data." },
+        { "character": "Zack_determined", "text": "I can't let this go. I need to do something." }
+      ],
+      "choices": [
+        {
+          "text": "Block and report the content, then clear my watch history.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_serious", "text": "I can take action to stop these things from showing up." },
+              { "character": "narrator", "text": "(Zack reports bad videos, blocks the users, and clears his watch history and preferences)" },
+              { "character": "narrator", "text": "(After some time, the recommendations return to normal)" }
+            ],
+            "stats": { "mentalHealth": 15, "safetyAwareness": 20, "social": 5 }
+          }
+        },
+        {
+          "text": "Switch to a new account and start over.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "Whatever, I'll make a new account and start fresh." },
+              { "character": "narrator", "text": "(Zack registers a new account)" },
+              { "character": "narrator", "text": "(He frees himself from polluted recommendations, but loses old fans and social progress. He regrets it.)" }
+            ],
+            "stats": { "mentalHealth": 5, "safetyAwareness": 5, "social": -10, "fans": -99999 }
+          }
+        },
+        {
+          "text": "Ignore it and watch only what I like.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_upset", "text": "I don't care. I didn't like those videos anyway." },
+              { "character": "narrator", "text": "(Zack does nothing. Negative content increases and affects his mood.)" }
+            ],
+            "stats": { "mentalHealth": -10, "safetyAwareness": -5, "social": 0 }
+          }
+        }
+      ],
+      "summary": "Often the content you see is decided by algorithms, not you. If you find yourself surrounded by unhealthy information, actively intervene, clear history, and report. Setting boundaries is the most effective way to protect your mental health."
+    },
+    {
+      "id": "PhoneEvent-17",
+      "type": "phone",
+      "title": "Account Security Settings",
+      "conditions": { "day": 1 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "Today I finally made up my mind." },
+        { "character": "Zack_excited", "text": "I'm going to open my own TikTok account! Start streaming and record my life!" },
+        { "character": "Aether_curious", "text": "Wow, that sounds fun. What made you decide this?" },
+        { "character": "Zack_neutral", "text": "I always feel unnoticed by classmates and shy to talk." },
+        { "character": "Zack_thinking", "text": "If I meet more people on TikTok, maybe I can become braver." },
+        { "character": "Aether_thinking", "text": "Yes... expressing yourself on camera is a good exercise." },
+        { "character": "Aether_smile", "text": "Just remember, do it to grow, not to please others. I support you, Zack." },
+        { "character": "Zack_neutral", "text": "Thank you, Aether!" },
+        { "character": "Zack_determined", "text": "Then I'll register now!" },
+        { "character": "narrator", "text": "(Zack opens his phone excitedly and starts filling in registration info)" },
+        { "character": "System_neutral", "text": "Hint: Your password strength is low. Continue anyway?" },
+        { "character": "System_neutral", "text": "Hint: Enable two-factor authentication to boost account security?" },
+        { "character": "Zack_thinking", "text": "Password strength? Two-factor? Sounds so complex..." },
+        { "character": "Aether_neutral", "text": "Simply put, password strength is how hard it is to guess. A weak password is like locking your door with a twig." },
+        { "character": "Zack_shocked", "text": "That's so dangerous!" },
+        { "character": "Aether_smile", "text": "Two-factor adds another lock, like a phone code. Even with the password, no phone means no entry." },
+        { "character": "Zack_thinking", "text": "Sounds... very smart." },
+        { "character": "Aether_smile", "text": "Now, have you thought of a password? This is your first step to safety." }
+      ],
+      "choices": [
+        {
+          "text": "Use my birthday as the password.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "Uh, I'll use my birthday. It's simple and easy to remember!" },
+              { "character": "Aether_concerned", "text": "Zack, birthdays are easy to guess, like leaving your key outside. Very unsafe." },
+              { "character": "Zack_worried", "text": "Then... I'll think of something else." }
+            ],
+            "stats": { "safetyAwareness": -5, "mentalHealth": 0, "social": 0 }
+          }
+        },
+        {
+          "text": "Use a favorite quote as the password.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "Then I'll use a line from a text I like. It's meaningful." },
+              { "character": "Aether_concerned", "text": "That's nice, but if it's famous, others can guess it easily." },
+              { "character": "Zack_worried", "text": "Oh, that's not safe either..." }
+            ],
+            "stats": { "safetyAwareness": -5, "mentalHealth": 0, "social": 0 }
+          }
+        },
+        {
+          "text": "Mix my birthday into the quote to make the password.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_thinking", "text": "I'll insert my birth numbers into the quote and mix them up so it's hard to guess!" },
+              { "character": "Aether_proud", "text": "That's a real password! Smart!" },
+              { "character": "Aether_neutral", "text": "But if it's too complex to remember, write it down in a safe place." },
+              { "character": "Zack_smile", "text": "Got it. I'll write it in my notebook now!" }
+            ],
+            "stats": { "safetyAwareness": 10, "mentalHealth": 5, "social": 0 }
+          }
+        }
+      ],
+      "summary": "In the online world, a password is like your door, and two-factor is like a lock guard. Setting strong passwords and not sharing personal info is your basic defense. Small choices decide your safety online."
+    },
+    {
+      "id": "PhoneEvent-18",
+      "type": "phone",
+      "title": "Live Stream Co-host Invitation",
+      "conditions": { "day": 12 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "narrator", "text": "Zack was about to lie down and enjoy the weekend, but a call from Louis surprised him." },
+        { "character": "Louis_call", "text": "Haven't you always wanted to ride on my fame? Consider this a favor I owe you." },
+        { "character": "Louis_call", "text": "Tomorrow is the weekend and I have a live stream. Join me and co-host." },
+        { "character": "Louis_call", "text": "This is a great chance to gain fans. Don't mess it up." },
+        { "character": "Zack_excited", "text": "(He sits up) Wow! She wants me to co-host! With a big influencer! The stream will explode!" },
+        { "character": "Aether_smile", "text": "Really? You always rolled in bed trying to get her viewers? The chance is here." },
+        { "character": "Zack_smile", "text": "I have to reply... uh... wait, she hung up..." },
+        { "character": "narrator", "text": "Excitement not yet gone, Zack froze, his phone hot in his hand." },
+        { "character": "Zack_worried", "text": "(softly) But hardly anyone watched my previous streams..." },
+        { "character": "Zack_worried", "text": "This time it's real... hundreds, maybe thousands. What if they start mocking me?" },
+        { "character": "Aether_gentle", "text": "Zack, I know you're worried. But think how much you've grown." },
+        { "character": "Aether_proud", "text": "You learned to spot danger, refuse temptations, and work on friendships..." },
+        { "character": "Aether_proud", "text": "I've watched you get stronger." },
+        { "character": "Aether_serious", "text": "You're no longer the kid secretly streaming in a corner of his room." },
+        { "character": "Zack_thinking", "text": "...Do you think I can handle it?" },
+        { "character": "Aether_smile", "text": "You may be nervous or say the wrong thing, but this is the best chance to grow." },
+        { "character": "Zack_determined", "text": "(deep breath) ...Okay. I accept." }
+      ],
+      "choices": [],
+      "summary": "Zack held his breath staring at the screen and finally tapped reply. He knew tomorrow was not a game, but a real battlefield."
+    }
+  ]
+}
