@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/interactive_pages.css') }}">
+
+<div class="cyber-cover-wrapper">
+  <div class="cyber-cover-image-container">
+    <img
+      src="{{ url_for('static', filename='images/animations/Lulu_crazy_adventure.png') }}"
+      alt="Be Kind Online Cover"
+      class="cyber-cover-image"
+      loading="lazy"
+    />
+    <div class="cyber-cover-title">
+      <h3>🌟 Be Kind Online – Stop Cyberbullying! 🌟</h3>
+    </div>
+  </div>
+</div>
+
+<div class="cyber-container">
+  <section class="cyber-card">
+    <h2>1. Know What Cyberbullying Looks Like 👀</h2>
+    <ul>
+      <li>📱 Sending mean or scary messages</li>
+      <li>📸 Posting embarrassing photos without permission</li>
+      <li>💬 Leaving hurtful comments on posts or games</li>
+      <li>🎭 Pretending to be someone else to trick or hurt you</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>2. Always Be Kind 💖</h2>
+    <ul>
+      <li>😊 Say nice things</li>
+      <li>🎉 Encourage your friends</li>
+      <li>🤝 Help others feel welcome</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>3. Don’t Fight Back ⚠️</h2>
+    <ul>
+      <li>🙅‍♂️ Don't argue</li>
+      <li>🛑 Don't say mean things back</li>
+      <li>🚫 Don't join in</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>4. Tell a Grown-up You Trust 👨‍👩‍👧‍👦</h2>
+    <p>🗣️ Show the messages to a parent, teacher, or trusted adult. They can help block the bully and report it.</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>5. Protect Your Feelings 🌈</h2>
+    <ul>
+      <li>🔒 Log out</li>
+      <li>🧘 Take a break</li>
+      <li>🎨 Do something you love!</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>You Are a Cyber Safety Hero! 🦸</h2>
+    <p>🌍 Every kind word and action makes the internet safer for everyone.</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>🎮 Drag & Drop Game: Is it Cyberbullying?</h2>
+    <p>Drag the message to the correct category!</p>
+  
+    <div id="game-container">
+      <div id="message-pool" class="dropzone">
+        <h3>Messages 🗨️</h3>
+      </div>
+      <div id="drop-areas">
+        <div class="dropzone" data-label="Bullying">
+          <h3>😠 Cyberbullying</h3>
+        </div>
+        <div class="dropzone" data-label="Not-Bullying">
+          <h3>😊 Not Bullying</h3>
+        </div>
+      </div>
+    </div>
+    <button onclick="checkAnswers()">Check Answers ✅</button>
+    <p id="result"></p>
+  </section>
+
+  <section class="cyber-video">
+    <h2>🎥 Learn More with Videos</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/6ctd75a7_Yw" title="What is cyberbullying?" allowfullscreen></iframe>
+  </section>
+
+  <section class="cyber-links">
+    <h2>🌐 Helpful Links</h2>
+    <ul>
+      <li>📘 <a href="https://kidshelpline.com.au/teens/issues/cyberbullying" target="_blank">What is Cyberbullying?</a></li>
+      <li>🤗 <a href="https://kidshelpline.com.au/teens/issues/my-friend-being-cyberbullied" target="_blank">Help a Friend</a></li>
+      <li>🧒 <a href="https://kidshelpline.com.au/kids/issues/cyberbullying" target="_blank">Cyberbullying Help for Kids</a></li>
+    </ul>
+  </section>
+</div>
+
+<script src="{{ url_for('static', filename='js/children_cyberbullying.js') }}"></script>
+{% endblock %}

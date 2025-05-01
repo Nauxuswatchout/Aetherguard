@@ -1,0 +1,180 @@
+{% block additional_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/storybook.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="storybook-container full-page">
+  <div class="book-wrapper">
+    <div id="book" class="book">
+      <!-- Book Cover -->
+      <div class="page">
+        <div class="page-content">
+          <div class="text-section">
+            <h2 class="page-header">Tilly the Turtle and the Secret App</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 1 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>By the sea, Tilly the Turtle lived with Grandma Turtle.</p>
+          </div>
+          <div class="page-number">1</div>
+        </div>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>One morning, Grandma said, “You can use my tablet, sweetie.”</p>
+          </div>
+          <div class="page-number">2</div>
+        </div>
+      </div>
+
+      <!-- Page 3 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Tilly opened a fun puzzle game and started playing happily.</p>
+          </div>
+          <div class="page-number">3</div>
+        </div>
+      </div>
+
+      <!-- Page 4 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>A pop-up appeared: “Download ‘Magic Shells’ for more fun!”</p>
+          </div>
+          <div class="page-number">4</div>
+        </div>
+      </div>
+
+      <!-- Page 5 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>“Ooooh!” Tilly said, “I want sparkly shells!”</p>
+          </div>
+          <div class="page-number">5</div>
+        </div>
+      </div>
+
+      <!-- Page 6 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>
+              She clicked. Another screen said: “Allow full access to device?”
+            </p>
+          </div>
+          <div class="page-number">6</div>
+        </div>
+      </div>
+
+      <!-- Page 7 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Tilly paused. “What does that mean?” she wondered.</p>
+          </div>
+          <div class="page-number">7</div>
+        </div>
+      </div>
+
+      <!-- Page 8 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>She clicked “Yes.” Suddenly, the screen turned all black.</p>
+          </div>
+          <div class="page-number">8</div>
+        </div>
+      </div>
+
+      <!-- Page 9 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>The tablet beeped. A loud voice shouted: “Got you!”</p>
+          </div>
+          <div class="page-number">9</div>
+        </div>
+      </div>
+
+      <!-- Page 10 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Tilly screamed. Grandma rushed over. “What happened, dear?”</p>
+          </div>
+          <div class="page-number">10</div>
+        </div>
+      </div>
+
+      <!-- Page 11 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>
+              “The app stole everything!” Tilly cried. “Even your pictures!”
+            </p>
+          </div>
+          <div class="page-number">11</div>
+        </div>
+      </div>
+
+      <!-- Page 12 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Grandma sighed, “That’s a fake app. It’s dangerous.”</p>
+          </div>
+          <div class="page-number">12</div>
+        </div>
+      </div>
+
+      <!-- Page 13 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>They deleted the app and called Turtle Tech Helpers.</p>
+          </div>
+          <div class="page-number">13</div>
+        </div>
+      </div>
+
+      <!-- Page 14 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Now Tilly knows: “Never click unknown apps or buttons!”</p>
+          </div>
+          <div class="page-number">14</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Controls -->
+  <div class="book-controls">
+    <div class="back-to-section">
+      <a href="{{ url_for('tilly_page') }}" class="back-button">
+        <span class="back-arrow">←</span> Back to Library
+      </a>
+    </div>
+    <button id="prev-btn" class="flip-btn">Previous</button>
+    <button id="next-btn" class="flip-btn">Next</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+<script src="{{ url_for('static', filename='js/stories/tilly.js') }}"></script>
+{% endblock %}

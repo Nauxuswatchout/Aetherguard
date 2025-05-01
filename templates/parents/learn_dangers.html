@@ -1,0 +1,172 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-cover-container">
+  <img
+    src="{{ url_for('static', filename='images/covers/learn_dangers.jpeg') }}"
+    alt="Learn the Dangers Cover"
+    class="page-cover-image"
+    loading = "lazyload"
+  />
+  <div class="page-cover-title">
+    <h2 style="margin-bottom: 20px">Learn About Online Dangers</h2>
+
+    <p>The internet can be confusing, but you're not alone.</p>
+    <p>
+      This section is here to help you understand the online risks that affect
+      both you and your children.
+    </p>
+  </div>
+</div>
+
+<div class="page-content" id="main-content">
+  <div class="card-grid">
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/dangers/cyber_bullying.png') }}"
+          alt="Cyberbullying"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">Cyberbullying</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Cyberbullying</h3>
+          <p>
+            Bullying that takes place over digital devices like cell phones,
+            computers, and tablets through SMS, text, apps, online games, or
+            social media platforms.
+          </p>
+          <a href="{{ url_for('cyberbullying') }}" class="card-button"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/dangers/predators.jpg') }}"
+          alt="Online Predators"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">Online Predators</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Online Predators</h3>
+          <p>
+            Individuals who use the internet to identify and groom potential
+            victims, typically through flattery, sympathy, and by offering
+            understanding or gifts.
+          </p>
+          <a href="{{ url_for('online_predators') }}" class="card-button"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/dangers/phising_scams.png') }}"
+          alt="Phishing & Scams"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">Phishing & Scams</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Phishing & Scams</h3>
+          <p>
+            Deceptive attempts to steal personal information like usernames,
+            passwords, location and credit card details by disguising as
+            trustworthy entities.
+          </p>
+          <a href="{{ url_for('phishing_scams') }}" class="card-button"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/dangers/inappropriate.jpg') }}"
+          alt="Inappropriate Content"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">Inappropriate Content</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Inappropriate Content</h3>
+          <p>
+            Material not suitable for children including violent content,
+            pornography, hate speech, drug use, and other adult themes that
+            children may stumble upon.
+          </p>
+          <a href="{{ url_for('inappropriate_content') }}" class="card-button"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/dangers/virus_malware.jpg') }}"
+          alt="Virus & Malware"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">Virus & Malware</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Virus & Malware</h3>
+          <p>
+            Malicious software that harms computers without permission. Viruses
+            and Malware self-replicate and attach to files. These threats damage
+            data, steal information, and compromise systems. Protection requires
+            antivirus software, updates, and cautious digital habits.
+          </p>
+          <a href="{{ url_for('virus_malware') }}" class="card-button"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/dangers/online_addiction.png') }}"
+          alt="online_addiction"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">Online Addiction</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Online Addiction</h3>
+          <p>
+            Excessive use of digital devices and the internet to the point where
+            it interferes with daily life, relationships, and emotional
+            well-being.
+          </p>
+          <a href="{{ url_for('online_addiction') }}" class="card-button"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('parents') }}" class="back-button"
+    >← Back to Parent Resources</a
+  >
+</div>
+{% endblock %}
