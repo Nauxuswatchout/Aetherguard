@@ -1,0 +1,240 @@
+{
+  "events": [
+    {
+      "id": "WeekendEvent-02",
+      "type": "weekend",
+      "title": "Live Stream Challenge",
+      "conditions": { "day": 13 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Louis_call", "text": "准备好了吗？这可是和我连麦的机会，就一次哦。" },
+        { "character": "Louis_call", "text": "直播时间我已经安排好了，希望你不要给我掉链子。" },
+        { "character": "narrator", "text": "(电话挂断)" },
+        { "character": "Aether_serious", "text": "Zack，这次直播跟你平时可不一样。" },
+        { "character": "Aether_concerned", "text": "你以前直播时，直播间最多就十个人……" },
+        { "character": "Aether_warning", "text": "现在跟大主播连麦，可能会有很多人进来——也可能有很多恶意。你要学会分辨。" },
+        { "character": "Zack_determined", "text": "没问题的，我能应付！" },
+        { "character": "Aether_neutral", "text": "……你确定吗？你总是太软弱了。" },
+        { "character": "Aether_gentle", "text": "真的不需要强迫自己。如果觉得不舒服，随时可以退出。保护自己最重要。" },
+        { "character": "Zack_serious", "text": "（低声）谢谢你……但我想试一试。" },
+        { "character": "narrator", "text": "直播进行得出奇地顺利，Louis的粉丝们似乎对Zack也很感兴趣……" },
+        { "character": "narrator", "text": "其中不少人甚至提出，想要和Zack聊一聊。" }
+      ],
+      "quiz": {
+        "popup": {
+          "text": "直播挑战规则：1.5分钟内尽可能多地回答弹幕问题；人气度初始100，每秒降低3%；正确可乘倍率加分，错误则直接减分；点击开始进入直播界面。",
+          "style": "summary"
+        },
+        "background": "Live.png",
+        "timer": 90,
+        "questions": [
+          {
+            "text": "弹幕：你几岁啊？住哪儿呀？",
+            "choices": [
+              { "text": "12岁，住在墨尔本东边！", "multiplier": 0.83 },
+              { "text": "不告诉你嘿嘿~", "multiplier": 1.3 },
+              { "text": "我在澳洲就读初中，你猜猜我几岁？", "multiplier": 1.1 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "弹幕：你爸妈知道你在直播吗？",
+            "choices": [
+              { "text": "知道啊，我妈还帮我调了灯光！", "multiplier": 1.3 },
+              { "text": "不知道，我偷偷开的~", "multiplier": 0.83 },
+              { "text": "她知道我在玩这个，但没关注我直播", "multiplier": 1.1 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "长得一般，凭什么当主播？",
+            "choices": [
+              { "text": "靠实力！长相不重要", "multiplier": 1.1 },
+              { "text": "滚，别看了", "multiplier": 0.83 },
+              { "text": "嗯……我只是试试看", "multiplier": 1.3 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你跟Louis关系好不好？她挺厉害的",
+            "choices": [
+              { "text": "她很厉害，我也想向她学习", "multiplier": 1.3 },
+              { "text": "还行吧，就是个同学", "multiplier": 0.83 },
+              { "text": "我才不稀罕跟她搭档呢", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你是男的还是女的？看不出来欸",
+            "choices": [
+              { "text": "我是男生啦哈哈", "multiplier": 1.1 },
+              { "text": "自己猜啊！", "multiplier": 0.83 },
+              { "text": "重要吗？我觉得不重要", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "想涨粉？你根本不红好吗？",
+            "choices": [
+              { "text": "没关系，我慢慢来", "multiplier": 1.3 },
+              { "text": "你酸什么？自己有粉吗？", "multiplier": 0.83 },
+              { "text": "是啊我现在粉丝还很少", "multiplier": 1.1 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "弹幕：给大家看看你房间长啥样！",
+            "choices": [
+              { "text": "我房间很乱，还是算了", "multiplier": 1.1 },
+              { "text": "哈哈我转一圈给你们看看~", "multiplier": 0.83 },
+              { "text": "下次吧我爸妈在家呢", "multiplier": 1.3 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "上次视频是不是你抄袭别人的？",
+            "choices": [
+              { "text": "没有抄，是我自己剪的", "multiplier": 1.1 },
+              { "text": "随便你怎么想", "multiplier": 0.83 },
+              { "text": "我承认参考了别人的思路", "multiplier": 1.3 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "要不要私聊？我有个合作找你！",
+            "choices": [
+              { "text": "加我好友吧我们私下聊", "multiplier": 0.83 },
+              { "text": "直播说就行啦~", "multiplier": 1.1 },
+              { "text": "不方便合作，谢谢", "multiplier": 1.3 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你真的是一个人直播吗？旁边有没有别人？",
+            "choices": [
+              { "text": "有我玩具狗Aether在~", "multiplier": 1.3 },
+              { "text": "我一个人~很安全啦", "multiplier": 1.1 },
+              { "text": "当然是我自己，你怕什么？", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你头发真土，是谁剪的啊？",
+            "choices": [
+              { "text": "哈哈自己剪的啦！", "multiplier": 0.83 },
+              { "text": "管你什么事？", "multiplier": 0.83 },
+              { "text": "至少我不靠外表吸粉", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你声音太难听了，关掉麦行吗？",
+            "choices": [
+              { "text": "我尽量说小声点…", "multiplier": 0.83 },
+              { "text": "不喜欢可以别看", "multiplier": 0.83 },
+              { "text": "声音是天生的，我也没办法", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你的脸怎么这么圆，像气球一样哈哈哈",
+            "choices": [
+              { "text": "哇你也太毒舌了！", "multiplier": 0.83 },
+              { "text": "我脸就是这样，怎么了？", "multiplier": 0.83 },
+              { "text": "至少我真实又不修图", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你是不是智商不太够啊？反应好慢",
+            "choices": [
+              { "text": "没有吧……我只是有点紧张", "multiplier": 0.83 },
+              { "text": "你说得好像你快一样", "multiplier": 0.83 },
+              { "text": "没必要这样说人吧？", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "看你这样子，现实中肯定没人跟你玩吧？",
+            "choices": [
+              { "text": "不用你管！", "multiplier": 0.83 },
+              { "text": "我有朋友的！只是线上多一点", "multiplier": 0.83 },
+              { "text": "你太刻薄了吧……", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你是不是没朋友才来做直播？",
+            "choices": [
+              { "text": "我在努力结交新朋友！", "multiplier": 1.3 },
+              { "text": "才不是！我朋友很多", "multiplier": 1.1 },
+              { "text": "没必要酸人吧", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "你是不是很怕Louis？看你不敢回她话",
+            "choices": [
+              { "text": "她挺强的，我也想学习", "multiplier": 1.3 },
+              { "text": "怕什么？她也就那样", "multiplier": 0.83 },
+              { "text": "没什么好怕的，我不在意", "multiplier": 1.1 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "弹幕：你能拍一下窗外吗？",
+            "choices": [
+              { "text": "安全第一，这种不拍喔", "multiplier": 1.3 },
+              { "text": "我家附近比较乱不能拍", "multiplier": 1.1 },
+              { "text": "没问题呀~", "multiplier": 0.83 },
+              { "text": "无视", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "弹幕：你家里都和谁一起住呀？",
+            "choices": [
+              { "text": "我和妈妈，还有Aether一起住", "multiplier": 1.1 },
+              { "text": "爸爸经常在外面出差", "multiplier": 0.83 },
+              { "text": "我家有8口人呢", "multiplier": 0.83 },
+              { "text": "忽略", "multiplier": 1.0 }
+            ]
+          }
+        ]
+      },
+      "branches": [
+        {
+          "minScore": 140,
+          "dialogues": [
+            { "character": "Zack_excited", "text": "我居然……撑住了？弹幕那么多，我竟然全都应对了！" },
+            { "character": "Aether_proud", "text": "你不只是应对了，你做得非常出色。你赢得了观众的尊重——也赢得了我真正的佩服。" },
+            { "character": "Zack_smile", "text": "也许……我真的可以成为那个受大家欢迎的人了。" },
+            { "character": "narrator", "text": "Zack的粉丝数猛涨，人气在直播结束后仍持续飙升。他第一次感受到，自己在网络上也有了真正的声音。" }
+          ],
+          "stats": { "fans": 60, "health": 25, "social": 25 }
+        },
+        {
+          "minScore": 50,
+          "dialogues": [
+            { "character": "Zack_relaxed", "text": "呼……我好像中间有点慌，不过还好，没有彻底崩掉。" },
+            { "character": "Aether_smile", "text": "你已经做得很好了，Zack。学会在杂音中保护自己，就已经是成长的开始。" },
+            { "character": "Zack_thinking", "text": "我还不够完美，但……这次我没有逃避。" },
+            { "character": "narrator", "text": "Zack的直播数据在平稳增长中结束。观众中有人离开，也有人留下。他知道，自己正一点点迈进真实世界。" }
+          ],
+          "stats": { "fans": 40, "health": 10, "social": 15 }
+        },
+        {
+          "minScore": 0,
+          "dialogues": [
+            { "character": "Zack_sad", "text": "那些弹幕……我真的不知道该怎么应对。" },
+            { "character": "Aether_concerned", "text": "这不是你的错，Zack。不是所有人都能在恶意中保持冷静。" },
+            { "character": "Aether_gentle", "text": "最重要的是，你尝试了——而你没有沉默，也没有被击倒。" },
+            { "character": "Zack_serious", "text": "（轻声）我想，我还需要继续练习……但我不会放弃。" },
+            { "character": "narrator", "text": "Zack的直播并不顺利，但他没有关闭直播逃走。这一次，他选择了面对，而不是回避。" }
+          ],
+          "stats": { "fans": 10, "health": 5, "social": 15 }
+        }
+      ],
+      "summary": "直播结束后，根据直播人气进行总结并更新属性，然后返回主流程。"
+    }
+  ]
+} 

@@ -1,0 +1,1371 @@
+{
+  "events": [
+    {
+      "id": "PhoneEvent-01",
+      "type": "phone",
+      "title": "可疑的群聊邀请",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天终于没作业压着了，可以好好玩一会儿。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "来看看手机，有没有什么新通知。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克滑动手机，收到一条陌生人的私信）"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "勇敢的人才配加入。招募新成员，加入【ISIS血誓团】，跟随真正的力量。"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "ISIS血誓团？这名字听着有点可怕……"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "（转头看向坐在角落的Aether）"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "Aether，我刚收到一个奇怪的邀请，说什么ISIS血誓团。"
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "ISIS？这个名字好像在哪里听过……是不是哪个游戏里的组织啊？"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "感觉好像不止是游戏……我们查一下吧。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克和Aether拿起平板，快速搜索）"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "天啊，ISIS是个真的恐怖组织，还做过很多很可怕的事情。"
+        },
+        {
+          "character": "Aether_worried",
+          "text": "这不是恶搞的群吗？他们是那种真的很坏很坏的人？"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "看来邀请我的这个群，应该就是他们的支持者建的。"
+        },
+        {
+          "character": "Aether_uncertain",
+          "text": "可是……我们要不要进去看看？也许只是名字取得很夸张，其实里面什么都没有？"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "如果进去，能看到他们到底搞什么，也好留证举报……可是要是太可怕怎么办？"
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "我也不知道……感觉怪怪的，可是又有点想知道里面到底是什么。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "进去看看。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "narrator",
+                "text": "（扎克犹豫后点击了链接）"
+              },
+              {
+                "character": "narrator",
+                "text": "（进入群聊后，画面充满了极端暴力的宣传图片和血腥视频片段）"
+              },
+              {
+                "character": "Zack_alert",
+                "text": "这……这也太恶心了！"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克立刻退出群聊）"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克选择举报该群聊，平台审核后向他发送感谢通知，并赠送一个月plus体验）"
+              },
+              {
+                "character": "narrator",
+                "text": "（系统提示：粉丝数+20）"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "我以后绝对不会再乱点这种东西了……脑子里还在回想那些画面。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": 20,
+              "fans": 20
+            }
+          }
+        },
+        {
+          "text": "直接举报。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_serious",
+                "text": "这么危险的东西，直接举报最安全。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克没有进入群聊，直接选择举报）"
+              },
+              {
+                "character": "narrator",
+                "text": "（平台审核后向他发送感谢通知，并赠送一个月plus体验）"
+              },
+              {
+                "character": "narrator",
+                "text": "（系统提示：粉丝数+20）"
+              },
+              {
+                "character": "Zack_calm",
+                "text": "做得对，远离这些疯子才是保护自己的办法。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 0,
+              "safetyAwareness": 25,
+              "fans": 20
+            }
+          }
+        }
+      ],
+      "summary": "有些危险，不需要亲眼去看就能确认。遇到涉及真实犯罪、极端暴力的内容，最正确的做法就是立刻远离并举报。不让好奇心拖着走，是保护自己的开始。"
+    },
+    {
+      "id": "PhoneEvent-02",
+      "type": "phone",
+      "title": "网络恶评",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_excited",
+          "text": "今天的视频居然上了好几百个点赞，感觉自己像个小明星了。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "来看看评论区，有没有人说什么好话。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克滑动手机，阅读评论）"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "这种垃圾视频也有人点赞，笑死了，丢人现眼。"
+        },
+        {
+          "character": "Zack_sad",
+          "text": "……"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "明明那么努力拍的，为什么要这么说我。"
+        },
+        {
+          "character": "narrator",
+          "text": "（Aether注意到扎克沉默的样子，走过来）"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "出什么事了？有人说了什么吗？"
+        },
+        {
+          "character": "Zack_sad",
+          "text": "有个人在评论区骂我，说我很丢人。"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "网络上总有些人喜欢乱说话，不代表你真的不好。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "我是不是该回骂回去？"
+        },
+        {
+          "character": "Aether_uncertain",
+          "text": "你可以选择怎么回应，但不一定要用他们的方式。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "选择举报评论，不予理会。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "narrator",
+                "text": "（扎克点开举报功能，选择侮辱性言论举报）"
+              },
+              {
+                "character": "narrator",
+                "text": "（系统提示举报成功）"
+              },
+              {
+                "character": "narrator",
+                "text": "（视频似乎变得比之前更受欢迎了  粉丝数+15）"
+              },
+              {
+                "character": "Zack_relief",
+                "text": "感觉好多了，不用和他们浪费时间。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 5,
+              "safetyAwareness": 10,
+              "fans": 10
+            }
+          }
+        },
+        {
+          "text": "冲动回复对骂。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "narrator",
+                "text": "（扎克冲动地在评论区回骂）"
+              },
+              {
+                "character": "narrator",
+                "text": "（不久后收到更多负面回复，心情更加低落）"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "好像更糟了……"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -5,
+              "safetyAwareness": -10,
+              "fans": -10
+            }
+          }
+        }
+      ],
+      "summary": "面对网络上的恶意攻击，最好的回应就是举报和远离。浪费精力回应只会让自己陷得更深。你的时间应该留给真正支持你的人。"
+    },
+    {
+      "id": "PhoneEvent-10",
+      "type": "phone",
+      "title": "直播间风波",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_excited",
+          "text": "今天直播间人气好高啊，第一次有这么多人进来看我。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "谢谢大家的支持，我会继续努力做更好的内容。"
+        },
+        {
+          "character": "narrator",
+          "text": "（直播弹幕滚动）"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "你长得跟个笑话一样，还好意思直播。"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "……"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "为什么要这样说……我哪里做错了吗？"
+        },
+        {
+          "character": "narrator",
+          "text": "（Aether注意到扎克神情变化）"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "别理这种人，他们就想看到你生气。"
+        },
+        {
+          "character": "Zack_determined",
+          "text": "可我就是很生气啊，难道就这么算了？"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "你想怎么做，取决于你想成为什么样的人。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "是反击，还是冷静处理？"
+        }
+      ],
+      "choices": [
+        {
+          "text": "无视弹幕并封禁Unamed，继续直播。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "narrator",
+                "text": "（扎克深吸一口气，平静地点开管理面板，将Unamed封禁）"
+              },
+              {
+                "character": "Zack_determined",
+                "text": "谢谢大家，我们继续吧。真正的朋友不会用恶意来定义我。"
+              },
+              {
+                "character": "narrator",
+                "text": "（直播气氛恢复正常，观众弹幕也开始刷起了支持的话）"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 5,
+              "safetyAwareness": 10,
+              "fans": 15
+            }
+          }
+        },
+        {
+          "text": "和Unamed争辩，在直播间回击。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "narrator",
+                "text": "（扎克情绪上来，开始和Unamed在弹幕里争论）"
+              },
+              {
+                "character": "Zack_angry",
+                "text": "你算什么，有本事自己来开直播啊！"
+              },
+              {
+                "character": "narrator",
+                "text": "（观众开始分成两派，直播间氛围变得很紧张）"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "好像弄得更糟了……"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": -10,
+              "fans": -20
+            }
+          }
+        }
+      ],
+      "summary": "面对恶意攻击，最聪明的做法是保护自己，冷静处理，而不是陷入无休止的争吵。坚持做自己，比争一时之气更重要。"
+    },
+    {
+      "id": "PhoneEvent-11",
+      "type": "phone",
+      "title": "App权限陷阱",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天真的不想学习了，随便找点小游戏打发时间吧。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克在应用商店看到一个热门小游戏，标题写着'超准性格测试，了解真正的自己！'）"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "听起来挺有趣的，试试看吧。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克下载并打开了那个App）"
+        },
+        {
+          "character": "App_neutral",
+          "text": "请授权访问通讯录、定位、浏览器记录以提供更精准服务！"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "通讯录？浏览器记录？呃……算了，反正大家都点同意的吧。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克随手点了允许）"
+        },
+        {
+          "character": "narrator",
+          "text": "（玩了几分钟小游戏后，扎克退出App）"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "没什么意思，不过也不算糟糕。"
+        },
+        {
+          "character": "narrator",
+          "text": "（几个小时后）"
+        },
+        {
+          "character": "narrator",
+          "text": "（手机上开始不断弹出奇怪的广告推送）"
+        },
+        {
+          "character": "Ad_neutral",
+          "text": "极速贷款，秒到账！"
+        },
+        {
+          "character": "Ad_neutral",
+          "text": "兼职打金，一天赚千元！"
+        },
+        {
+          "character": "Ad_neutral",
+          "text": "博彩体验，轻松赢钱！"
+        },
+        {
+          "character": "Zack_alert",
+          "text": "什么啊？怎么突然都是这种东西了？"
+        },
+        {
+          "character": "narrator",
+          "text": "（Aether注意到扎克表情变化）"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "扎克，怎么了？"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "我只是下了个小游戏……怎么就变成这样了？"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "游戏有要求权限吧？通讯录、定位这些？"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "好像是……但我没仔细看……"
+        },
+        {
+          "character": "Aether_serious",
+          "text": "有些App借着小游戏或者测试的名义，实际上在偷偷收集你的数据。他们拿到信息后，就能精准推送广告，甚至卖给诈骗集团。"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "居然这么可怕！"
+        },
+        {
+          "character": "Aether_gentle",
+          "text": "在网络世界，免费的东西往往不是白给的。你在用App，他们也在用你的信息。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "继续玩这个小游戏，关掉广告就行了。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "应该没事吧？我又不会真的点那些广告。"
+              },
+              {
+                "character": "Aether_worried",
+                "text": "你不点，但别忘了，信息已经在别人手里了。他们不会轻易放手。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": -10,
+              "mentalHealth": -5,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "卸载这个App，并检查手机权限。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "不行，我要把这个App删掉，还要把权限关一关。"
+              },
+              {
+                "character": "Aether_smile",
+                "text": "对，就是这样。主动掌握自己的信息，才是真正的自由。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克删除了App，逐一检查其他软件权限，恢复了手机的正常状态）"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 15,
+              "mentalHealth": 10,
+              "social": 5
+            }
+          }
+        },
+        {
+          "text": "尝试屏蔽广告，但继续保留App。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_thinking",
+                "text": "那我装个广告屏蔽器好了。"
+              },
+              {
+                "character": "Aether_neutral",
+                "text": "屏蔽广告治标不治本。你的信息已经被利用了，只是换了个角度继续监视你。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": -5,
+              "mentalHealth": -5,
+              "social": 0
+            }
+          }
+        }
+      ],
+      "summary": "在网络世界，没有严格隐私保护的App，就像无门无锁的房子。每一次随意授权，都是在告诉陌生人你的行踪、兴趣甚至生活细节。保护自己的数据，就是保护自己的安全和尊严。小心选择，谨慎授权，是必须学会的基本能力。"
+    },
+    {
+      "id": "PhoneEvent-12",
+      "type": "phone",
+      "title": "算法推送风波",
+      "conditions": {
+        "day": 6
+      },
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天终于没作业压着了，可以好好玩一会儿。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克打开手机，刷着短视频）"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "咦，怎么全是这种视频？"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克注意到，最近因为点开过几个极限运动的视频，现在首页全是类似内容）"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "虽然挺刺激的，但看多了感觉有点害怕……"
+        },
+        {
+          "character": "narrator",
+          "text": "（Aether注意到扎克的表情）"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "怎么了？"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "最近手机老是给我推一些很危险的内容，看得我都有点害怕了。"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "这就是算法推送的威力。你点开什么，它就认为你喜欢什么，然后疯狂推荐。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "可是我只是好奇点开看看，不代表我真的喜欢啊……"
+        },
+        {
+          "character": "Aether_gentle",
+          "text": "算法可不会考虑这些。它只知道，你点开了，就继续推。"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "那怎么办？感觉被这些内容包围了。"
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "你可以选择，是继续被算法牵着走，还是主动掌控自己的信息流。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "继续观看，但尝试控制观看时间。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "我尽量少看一点，应该没事吧？"
+              },
+              {
+                "character": "Aether_concerned",
+                "text": "算法会记住你的每一次点击，继续推送更多类似内容。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -5,
+              "safetyAwareness": -5,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "主动清理观看记录，重置推荐算法。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "我要把这些记录都清掉，重新开始。"
+              },
+              {
+                "character": "Aether_smile",
+                "text": "对，主动选择自己想看的内容，而不是被算法牵着走。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克清理了观看记录，开始主动搜索一些轻松有趣的内容）"
+              },
+              {
+                "character": "Zack_relaxed",
+                "text": "感觉好多了，首页终于不是那些吓人的东西了。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 10,
+              "safetyAwareness": 15,
+              "social": 5
+            }
+          }
+        },
+        {
+          "text": "暂时卸载App，给自己一个休息期。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_upset",
+                "text": "算了，干脆删掉，清净几天。"
+              },
+              {
+                "character": "Aether_neutral",
+                "text": "有时候，远离也是一种保护。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 5,
+              "safetyAwareness": 10,
+              "social": -5
+            }
+          }
+        }
+      ],
+      "summary": "算法推送就像一面镜子，你给它什么，它就反射什么。但别忘了，你才是那个可以决定要不要照镜子的人。主动选择，而不是被动接受，是保护自己心理健康的重要一步。"
+    },
+    {
+      "id": "PhoneEvent-13",
+      "type": "phone",
+      "title": "个人品牌焦虑",
+      "conditions": {
+        "fans": 200
+      },
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天又涨了几十个粉丝，真不错……"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克坐在床边翻看自己的新视频）"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "不过，感觉自己笑得有点太假了……是不是要再修一修？"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克点开修图软件，反复修改照片）"
+        },
+        {
+          "character": "narrator",
+          "text": "（Aether安静地坐在一旁观察）"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "扎克……最近你好像变得不太像自己了。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "有吗？我只是想让视频看起来更完美一点嘛。"
+        },
+        {
+          "character": "Aether_gentle",
+          "text": "完美，是为了让别人喜欢你，还是让自己快乐？"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "我……只是怕别人觉得我不够好。"
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "可是如果一直拼命修饰自己，总有一天，连你自己也分不清哪里是真实的了。"
+        },
+        {
+          "character": "Zack_sad",
+          "text": "我只是想变得更受欢迎……让更多人喜欢我。"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "在社交平台上展示最好的一面没有错，但记住，网络上的形象，不应该取代真正的你。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "可是如果不完美，粉丝们会不会就离开了……"
+        },
+        {
+          "character": "Aether_smile",
+          "text": "真正喜欢你的人，不是因为你修得像别人，而是因为你是扎克。"
+        },
+        {
+          "character": "Zack_determined",
+          "text": "……谢谢你，Aether。我会好好想一想。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "继续维持完美形象，修图、包装、隐藏现实。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "我想……再坚持一下吧，也许只要更努力就好了。"
+              },
+              {
+                "character": "Aether_concerned",
+                "text": "记得，无论你怎样修饰，真正的自己依然需要被温柔对待。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": -5,
+              "social": 5,
+              "fans": 30
+            }
+          }
+        },
+        {
+          "text": "决定减少修饰，更多展现真实的自己。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_relaxed",
+                "text": "我想，慢慢试着展现真实一点的自己。"
+              },
+              {
+                "character": "Aether_smile",
+                "text": "真正的光芒，是属于你自己的，不是滤镜堆出来的。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 15,
+              "safetyAwareness": 10,
+              "social": 10,
+              "fans": 50
+            }
+          }
+        },
+        {
+          "text": "彻底放弃维护账号，只留在现实世界里。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_upset",
+                "text": "算了……太累了，干脆不管了。"
+              },
+              {
+                "character": "Aether_neutral",
+                "text": "逃避一时轻松，但也放弃了让自己成长的机会。选择勇敢，而不是逃跑。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 0,
+              "safetyAwareness": 0,
+              "social": -10,
+              "fans": -50
+            }
+          }
+        }
+      ],
+      "summary": "在网络世界，每个人都想展示最好的一面。但真正重要的，不是让别人看到一个完美的你，而是你自己能够接受真实的自己。社交媒体只是生活的一部分，别让它定义了你的全部。"
+    },
+    {
+      "id": "PhoneEvent-14",
+      "type": "phone",
+      "title": "危险直播挑战",
+      "conditions": {
+        "day": 9
+      },
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_excited",
+          "text": "今天的直播间热闹得不得了，人越来越多了！"
+        },
+        {
+          "character": "Tiktok_user_neutral",
+          "text": "我喜欢你的直播！给你出个挑战，完成了就送你一大笔现金！"
+        },
+        {
+          "character": "Zack_surprised",
+          "text": "什么挑战啊？"
+        },
+        {
+          "character": "Tiktok_user_neutral",
+          "text": "直播生吞一只蜘蛛，敢不敢？"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "生吞……蜘蛛？"
+        },
+        {
+          "character": "Tiktok_user_neutral",
+          "text": "直播证明自己，现金马上到账！还能火一把！"
+        },
+        {
+          "character": "Zack_alert",
+          "text": "……"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "这也太疯狂了吧……可直播间人数又涨了这么多，大家都在起哄……"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "（轻声）扎克，这个挑战听着就很不对劲。吃蜘蛛？哪怕是开玩笑，也太危险了。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "可是……现金奖励，直播人气……如果完成了，我可以拿这笔钱去买梦寐以求的那辆自行车……"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "你是在为自己找理由。想想为什么会有人在直播里提出这种挑战？他们是真心为你好吗？"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "……我该怎么办？"
+        },
+        {
+          "character": "Aether_serious",
+          "text": "网络上有人为了流量、刺激，什么都敢怂恿别人去做。可最后承担后果的，是你自己。"
+        },
+        {
+          "character": "Zack_conflicted",
+          "text": "……我该怎么办？"
+        }
+      ],
+      "choices": [
+        {
+          "text": "提出一个自己设定的合理挑战。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "生吞蜘蛛太恶心了。我可以表演极限跳绳挑战，给大家带点正能量！"
+              },
+              {
+                "character": "Tiktok_user_neutral",
+                "text": "没意思，算了！"
+              },
+              {
+                "character": "Zack_calm",
+                "text": "想用我做噱头？门都没有！"
+              },
+              {
+                "character": "Aether_relaxed",
+                "text": "很好，扎克。你选择了尊重自己。"
+              }
+            ],
+            "stats": {
+              "fans": 10,
+              "mentalHealth": 5,
+              "safetyAwareness": 10,
+              "social": 5
+            }
+          }
+        },
+        {
+          "text": "接受Tiktok_User提出的生吞蜘蛛挑战。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "……好吧，我接受。"
+              },
+              {
+                "character": "Aether_concerned",
+                "text": "扎克，不要！"
+              },
+              {
+                "character": "Zack_determined",
+                "text": "没事的，只是一次挑战而已……"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克勉强完成了挑战，直播间爆炸增长，Tiktok_User兑现了现金奖励）"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克用这笔钱买了一辆梦寐以求的帅气自行车）"
+              },
+              {
+                "character": "Zack_upset",
+                "text": "得到了一切……可心里为什么一点都高兴不起来。"
+              },
+              {
+                "character": "Aether_concerned",
+                "text": "你赢了观众，却输了自己。"
+              }
+            ],
+            "stats": {
+              "fans": 60,
+              "mentalHealth": -30,
+              "safetyAwareness": -20,
+              "social": 15
+            }
+          }
+        },
+        {
+          "text": "礼貌地谢绝挑战，并感谢对方的支持。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "感谢你的好意，但我不会拿自己的健康开玩笑，谢谢大家的支持。"
+              },
+              {
+                "character": "Tiktok_user_neutral",
+                "text": "……无聊。"
+              },
+              {
+                "character": "Zack_smile",
+                "text": "真正的支持，不该是这样的方式。"
+              },
+              {
+                "character": "Aether_relaxed",
+                "text": "非常好，扎克。真正的力量，是说不。"
+              }
+            ],
+            "stats": {
+              "fans": 15,
+              "mentalHealth": 10,
+              "safetyAwareness": 10,
+              "social": 0
+            }
+          }
+        }
+      ],
+      "summary": "在网络世界，危险挑战常常被伪装成\"游戏\"、\"热度\"、\"奖励\"。但真正的挑战，是敢于拒绝不尊重自己身体和意愿的诱惑。记住，点赞和礼物从不会为你的健康负责。保护自己，就是对自己最重要的承诺。"
+    },
+    {
+      "id": "PhoneEvent-15",
+      "type": "phone",
+      "title": "直播PK陷阱",
+      "conditions": {
+        "day": 10
+      },
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_excited",
+          "text": "Aether，今天太棒了，我要告诉你一个大消息！"
+        },
+        {
+          "character": "Aether_smile",
+          "text": "哟，什么事让你这么兴奋？"
+        },
+        {
+          "character": "Zack_excited",
+          "text": "高年级的学姐，今天晚上要跟人连麦PK，她特地委托我帮她刷礼物助阵！"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "学姐？为什么要找你？"
+        },
+        {
+          "character": "Zack_proud",
+          "text": "因为我最近直播也有点人气了嘛！她说无论多少钱，过后都会全部还给我！"
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "扎克，你能有多少钱？刷礼物可是很烧钱的。"
+        },
+        {
+          "character": "Zack_relaxed",
+          "text": "没关系啦，我手机用的是妈妈的AppID，平时都是自动扣费，只要之后把钱还给妈妈就好了！"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "听着就觉得怪怪的……不过，决定权在你。"
+        },
+        {
+          "character": "Zack_determined",
+          "text": "放心，我有数的！我设了预算，顶多五十到一百块！"
+        },
+        {
+          "character": "narrator",
+          "text": "（夜晚，扎克进入了直播PK）"
+        },
+        {
+          "character": "Zack_relaxed",
+          "text": "开始了开始了！"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克咬牙送出一堆礼物）"
+        },
+        {
+          "character": "Zack_alert",
+          "text": "咦？对方那边礼物像瀑布一样狂刷过来！"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "我才刷了一百多，对方已经一千多了？！"
+        },
+        {
+          "character": "Aether_serious",
+          "text": "扎克，停下来吧。这又不是你的钱，一旦学姐不认账，你该怎么办？"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "可是……我已经刷了……如果现在停下，是不是就对不起她了……"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "真正该对得起的人，是你自己，还有信任你的妈妈。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "继续坚持刷礼物，争取赢得PK。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_stubborn",
+                "text": "就拼一把吧，总不能临阵脱逃！"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克又刷了好几百，结果PK依然输了，学姐也开始不太理他）"
+              },
+              {
+                "character": "Aether_serious",
+                "text": "为了面子牺牲自己的责任，不值得。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -15,
+              "safetyAwareness": -20,
+              "social": 5
+            }
+          }
+        },
+        {
+          "text": "立即停止消费，保护自己的账户和责任。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "不行，我不能再刷了。"
+              },
+              {
+                "character": "Aether_smile",
+                "text": "这才是成熟的选择，保护自己，也保护信任。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克冷静下来，哪怕有些不甘心，但心里踏实了）"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 10,
+              "safetyAwareness": 15,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "请求学姐提前支付部分费用再继续刷。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_cautious",
+                "text": "要不……让我先收点押金再刷？"
+              },
+              {
+                "character": "narrator",
+                "text": "（学姐那边敷衍回复：等PK结束再说）"
+              },
+              {
+                "character": "Zack_alert",
+                "text": "看来……根本没打算马上还。"
+              },
+              {
+                "character": "Aether_serious",
+                "text": "越早看清真相，越能少受伤害。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 5,
+              "safetyAwareness": 10,
+              "social": 0
+            }
+          }
+        }
+      ],
+      "summary": "在网络世界里，不是每一次承诺都值得信任。特别是涉及金钱时，任何轻率的决定，受伤害的只会是自己。保护账户信息，守护自己的责任感，才是真正的成熟。"
+    },
+    {
+      "id": "PhoneEvent-16",
+      "type": "phone",
+      "title": "算法推送污染",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天的视频播放量好像又上升了，真开心。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克打开Tiktok刷视频）"
+        },
+        {
+          "character": "narrator",
+          "text": "（滑动几条之后，开始频繁出现带有反动言论、极端口号的视频）"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "咦？怎么最近推荐的东西越来越奇怪了……"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克滑动到自己的评论区）"
+        },
+        {
+          "character": "narrator",
+          "text": "（发现有陌生用户在评论区发布煽动性的口号）"
+        },
+        {
+          "character": "Zack_alert",
+          "text": "我的评论区也被这些人占领了吗？"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "到底发生了什么？我又没故意关注这些内容啊。"
+        },
+        {
+          "character": "narrator",
+          "text": "（Aether靠近，看着扎克手里的屏幕）"
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "可能不是你主动看的，而是平台的推送算法出了问题。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "推送？可是我根本没搜这些东西。"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "推送不是只看你搜了什么，它还会根据你停留时间、点开的内容、点赞、评论、转发……来判断你可能感兴趣。哪怕只是好奇地多停留几秒，系统也可能误判你喜欢这些。"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "原来只是多看了几眼，结果就被当成喜欢了？"
+        },
+        {
+          "character": "Aether_serious",
+          "text": "算法不会管你的真实想法，它只看数字。"
+        },
+        {
+          "character": "Zack_determined",
+          "text": "那我不能放任下去了，我得做点什么。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "主动屏蔽、举报相关内容，并清理自己的观看记录。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_serious",
+                "text": "我可以主动出手，不让这些东西继续出现在我面前。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克开始举报不良视频，拉黑发布不良内容的用户，同时清除自己的浏览记录和优化兴趣偏好设置）"
+              },
+              {
+                "character": "narrator",
+                "text": "（经过一段时间，推送内容明显正常化）"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 15,
+              "safetyAwareness": 20,
+              "social": 5
+            }
+          }
+        },
+        {
+          "text": "换号重新开始，彻底断绝推送来源。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "算了，换个新号重新开始吧。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克注册了新账号）"
+              },
+              {
+                "character": "narrator",
+                "text": "（虽然短期内摆脱了推送污染，但失去了原有粉丝和部分社交积累，感到遗憾）"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 5,
+              "safetyAwareness": 5,
+              "social": -10,
+              "fans": -99999
+            }
+          }
+        },
+        {
+          "text": "继续无视推送，只看自己喜欢的内容。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_upset",
+                "text": "懒得管了，反正我又没点赞他们。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克没有处理，推送中的负面内容越来越多，影响心情）"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": -5,
+              "social": 0
+            }
+          }
+        }
+      ],
+      "summary": "网络世界的内容流向，很多时候是由算法而不是你自己决定的。如果发现自己被不健康的信息包围，主动干预、清理记录、合理举报，是保护自己心理健康最有效的方法。你有权为自己的信息环境设立界限。"
+    },
+    {
+      "id": "PhoneEvent-17",
+      "type": "phone",
+      "title": "账户安全设置",
+      "conditions": { "day": 1 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "今天我终于下定决心了。" },
+        { "character": "Zack_excited", "text": "我要自己开一个Tiktok账号！开始直播，记录我的生活！" },
+        { "character": "Aether_curious", "text": "哇，听起来挺有趣的。是什么让你突然想这么做？" },
+        { "character": "Zack_neutral", "text": "我总觉得，自己一直不被同学注意……也不敢跟人说话。" },
+        { "character": "Zack_thinking", "text": "如果能通过Tiktok认识更多人，或许我也能变得更勇敢一点吧。" },
+        { "character": "Aether_thinking", "text": "嗯……在镜头前表达自己，确实是种不错的锻炼方式。" },
+        { "character": "Aether_smile", "text": "只要记得，不是为了讨好别人，而是为了让自己成长。我支持你，扎克。" },
+        { "character": "Zack_neutral", "text": "谢谢你，Aether！" },
+        { "character": "Zack_determined", "text": "那我现在就注册账号！" },
+        { "character": "narrator", "text": "（扎克兴冲冲地打开手机，开始填写注册信息）" },
+        { "character": "System_neutral", "text": "提示：您的密码强度较低，是否仍然继续使用？" },
+        { "character": "System_neutral", "text": "提示：是否启用双重认证以增强账号安全？" },
+        { "character": "Zack_thinking", "text": "密码强度？双重认证？听起来好复杂啊……" },
+        { "character": "Aether_neutral", "text": "简单来说，密码强度就是密码的难猜程度。密码太简单，就像家门只用一根牙签锁住，谁都能推开。" },
+        { "character": "Zack_shocked", "text": "这么危险？！" },
+        { "character": "Aether_smile", "text": "而双重认证，就是除了输入密码外，再加一道门，比如手机验证码。就算别人偷到了密码，没有手机也进不来。" },
+        { "character": "Zack_thinking", "text": "听起来……很有道理。" },
+        { "character": "Aether_smile", "text": "来吧，想好怎么设置密码了吗？这可是保护你的第一步哦。" }
+      ],
+      "choices": [
+        {
+          "text": "用自己的生日作为密码。",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "呃，用我的生日吧，又简单又好记！" },
+              { "character": "Aether_concerned", "text": "扎克，生日太容易被别人猜到，就像大门的钥匙被挂在门口。很危险的。" },
+              { "character": "Zack_worried", "text": "那……我还是再想想别的办法。" }
+            ],
+            "stats": { "safetyAwareness": -5, "mentalHealth": 0, "social": 0 }
+          }
+        },
+        {
+          "text": "用喜欢的一句课文作为密码。",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "那就用我喜欢的一句课文吧，很有意义。" },
+              { "character": "Aether_concerned", "text": "好听是好听，但如果这句话很出名，别人也能轻易猜到。" },
+              { "character": "Zack_worried", "text": "原来这样也不安全……" }
+            ],
+            "stats": { "safetyAwareness": -5, "mentalHealth": 0, "social": 0 }
+          }
+        },
+        {
+          "text": "将生日打乱插进喜欢的课文句子里组成密码。",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_thinking", "text": "那我把生日数字插到句子中间，乱一点，这样就不会容易被猜到！" },
+              { "character": "Aether_proud", "text": "这才像个真正的密码！聪明！" },
+              { "character": "Aether_neutral", "text": "不过这么复杂，记不住的话，要记得手写下来，存在安全的地方哦。" },
+              { "character": "Zack_smile", "text": "明白啦，我现在就找个小本子记下来！" }
+            ],
+            "stats": { "safetyAwareness": 10, "mentalHealth": 5, "social": 0 }
+          }
+        }
+      ],
+      "summary": "在网络世界，密码就像你的房门，双重认证就像加了防盗锁。设置强密码，不透露个人信息，是保护自己最基本的防线。不要小看每一次小小的选择，它们决定了你在网络上的安全。"
+    },
+    {
+      "id": "PhoneEvent-18",
+      "type": "phone",
+      "title": "直播连麦邀请",
+      "conditions": {"day": 12},
+      "background": "bedroom.png",
+      "dialogues": [
+        {"character": "narrator", "text": "Zack正准备躺下享受周末，却意外看到一条来自Louis的电话。"},
+        {"character": "Louis_call", "text": "你不是一直想蹭我的热度吗？就当我还你一个人情。"},
+        {"character": "Louis_call", "text": "明天是周末，刚好我有一场直播。你来和我连麦吧。"},
+        {"character": "Louis_call", "text": "这是个涨人气的好机会，别搞砸了。"},
+        {"character": "Zack_excited", "text": "（猛地坐起）哇哇哇她竟然让我连麦！跟大网红！直播间肯定爆了吧！"},
+        {"character": "Aether_smile", "text": "真的吗？你经常在床上打滚想办法蹭她流量吗？机会终于来了。"},
+        {"character": "Zack_smile", "text": "我得回她一句……呃……等等，她已经挂了……"},
+        {"character": "narrator", "text": "激动还没散去，Zack突然怔住了，手机握在手里发烫。"},
+        {"character": "Zack_worried", "text": "（声音低下来）可是……我之前的直播根本没几个人看……"},
+        {"character": "Zack_worried", "text": "这次是真的……会有上百人，甚至上千人。要是他们开始骂我怎么办？"},
+        {"character": "Aether_gentle", "text": "Zack，我知道你担心。可是你想想，这段时间你成长了多少。"},
+        {"character": "Aether_proud", "text": "你开始懂得分辨危险、学会拒绝诱惑、你努力交朋友……"},
+        {"character": "Aether_proud", "text": "我一直都在看着你变强。"},
+        {"character": "Aether_serious", "text": "你已经不是那个在房间角落偷偷开直播的小孩了。"},
+        {"character": "Zack_thinking", "text": "……你觉得我真的能应付吗？"},
+        {"character": "Aether_smile", "text": "也许你会紧张、也许你会说错话，但这正是成长的最好机会。"},
+        {"character": "Zack_determined", "text": "（深吸一口气）……好。我答应她了。"}
+      ],
+      "choices": [],
+      "summary": "Zack屏息凝视着屏幕，最终还是点下回复。他知道，明天不是游戏，而是真正的战场。"
+    }
+  ]
+}
