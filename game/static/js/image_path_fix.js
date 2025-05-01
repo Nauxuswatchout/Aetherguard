@@ -35,13 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             // Azure环境下的处理方式
-            // 确保使用/static/
-            if (path.startsWith('/game-static/')) {
-                path = path.replace('/game-static/', '/static/');
-            }
-            // 如果没有以/static/开头，添加/static/前缀
-            if (!path.startsWith('/static/') && !path.startsWith('/game/static/')) {
-                path = '/static' + path;
+            // 在Azure环境中，所有资源都应该使用/game-static/前缀
+            if (!path.startsWith('/game-static/')) {
+                if (path.startsWith('/static/')) {
+                    path = path.replace('/static/', '/game-static/');
+                } else {
+                    path = '/game-static' + path;
+                }
             }
         }
         
@@ -85,12 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     testImage.onerror = function() {
         console.error('[Image Fix] 图片服务器连接失败，可能需要检查服务器配置');
-        // 尝试备用路径
-        const backupPath = isAzure ? '/static/images/bedroom.png' : '/game-static/images/bedroom.png';
-        this.src = backupPath + '?' + new Date().getTime();
+        // 停止尝试备用路径，避免重复错误
+        console.log('[Image Fix] 停止连接测试以避免错误信息泛滥');
     };
-    testImage.src = isAzure ? '/static/images/bedroom.png' : '/game-static/images/bedroom.png';
-    testImage.src += '?' + new Date().getTime();
+    
+    // 使用更可能存在的路径来测试
+    const testPath = isAzure ? '/game-static/images/characters/default.png' : '/game-static/images/bedroom.png';
+    testImage.src = testPath;
     
     // 添加全局图片错误处理
     window.addEventListener('error', function(event) {
@@ -100,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // 尝试修复路径
             if (isAzure) {
                 // Azure环境中修复路径
-                if (event.target.src.includes('/game-static/')) {
-                    event.target.src = event.target.src.replace('/game-static/', '/static/');
+                if (event.target.src.includes('/static/')) {
+                    event.target.src = event.target.src.replace('/static/', '/game-static/');
                     console.log('[Image Fix] 尝试修复路径:', event.target.src);
                 }
             } else {

@@ -399,7 +399,14 @@ def load_game_main():
 @app.route('/game-static/<path:filename>')
 def game_static(filename):
     game_static_dir = os.path.join(app.root_path, 'game', 'static')
+    print(f"请求游戏静态资源: {filename}, 从目录: {game_static_dir}")
     return send_from_directory(game_static_dir, filename)
+
+# Azure环境中用于支持/game-static路径的端点
+@app.route('/static/images/<path:filename>')
+def azure_images_redirect(filename):
+    # 将/static/images请求重定向到/game-static/images
+    return redirect(url_for('game_static', filename=f'images/{filename}'))
 
 # 服务游戏JS文件的路由
 @app.route('/game-static/js/<path:filename>')
@@ -648,9 +655,9 @@ def game_static_redirect(filename):
     print(f"静态资源请求: /static/{filename}")
     print(f"检查路径: {target_path} (存在: {os.path.exists(target_path)})")
     
-    if os.path.exists(target_path):
-        # 如果文件存在于游戏静态资源目录中，则重定向到/game-static路径
-        print(f"找到游戏资源，重定向到: /game-static/{filename}")
+    if os.path.exists(target_path) or filename.startswith('images/'):
+        # 如果文件存在于游戏静态资源目录中，或是图片路径，则重定向到/game-static路径
+        print(f"找到游戏资源或图片路径，重定向到: /game-static/{filename}")
         return redirect(url_for('game_static', filename=filename))
     else:
         # 否则使用Flask默认的static路由
