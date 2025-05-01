@@ -1,0 +1,359 @@
+/* Cover Section */
+.cyber-cover-wrapper {
+    max-width: 960px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+  }
+  
+  .cyber-cover-image-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 280px;
+  }
+  
+  .cyber-cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+  
+  .cyber-cover-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    max-width: 90%;
+  }
+  
+  .cover-section h1 {
+    font-size: 2.8em;
+    font-weight: bold;
+  }
+  
+  /* Main Container */
+  .cyber-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  
+  /* Vertical Card Styles (non-scrollable) */
+  .cyber-card {
+    background-color: #ffffff;
+    border: 3px solid #ffd966;
+    border-left: 10px solid #ff69b4;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 20px 25px;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+  }
+  
+  .cyber-card h2 {
+    color: #d63384;
+    margin-bottom: 12px;
+  }
+  
+  .cyber-card ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .cyber-card li {
+    margin: 10px 0;
+    font-size: 1.1em;
+  }
+  
+  /* Horizontal Scroll Section */
+  .cyber-scroll-wrapper {
+    overflow-x: auto;
+    padding: 20px 10px;
+    margin-bottom: 40px;
+  }
+  
+  .cyber-card-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+  }
+  
+  /* Horizontal Scroll Cards (new class to avoid conflict) */
+  .cyber-scroll-card {
+    flex: 0 0 280px;
+    background-color: #ffffff;
+    padding: 18px;
+    border: 3px solid #ffd966;
+    border-left: 10px solid #ff69b4;
+    border-radius: 20px;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .cyber-scroll-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .cyber-scroll-card h2 {
+    font-size: 1.2rem;
+    color: #d63384;
+    margin-bottom: 12px;
+  }
+  
+  .cyber-scroll-card ul {
+    padding-left: 18px;
+    list-style-type: disc;
+    color: #444;
+  }
+  
+  .cyber-scroll-card p {
+    color: #555;
+    font-size: 1em;
+  }
+  
+  /* Video Section */
+  .cyber-video {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .cyber-video h2 {
+    color: #6f42c1;
+    margin-bottom: 20px;
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 4px solid #f7b731;
+    border-radius: 15px;
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Links Section */
+  .cyber-links {
+    margin-top: 50px;
+    background-color: #d0f0c0;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+  }
+  
+  .cyber-links h2 {
+    color: #2e8b57;
+    margin-bottom: 15px;
+  }
+  
+  .cyber-links ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .cyber-links li {
+    margin: 10px 0;
+  }
+  
+  .cyber-links a {
+    color: #0077cc;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .cyber-links a:hover {
+    color: #ff6600;
+    text-decoration: underline;
+  }
+  
+  #game-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  #message-pool,
+  #drop-areas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .dropzone {
+    border: 2px dashed #999;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 100px;
+    background-color: #f1f1f1;
+    width: 300px;
+  }
+  
+  .draggable-message {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: grab;
+  }
+
+  #phishing-game {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  #game-message {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+  
+  .game-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .game-buttons button:hover {
+    background-color: #388e3c;
+  }
+  
+  #feedback {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  #permission-simulator {
+    margin-top: 2rem;
+  }
+  
+  .simulator-buttons {
+    margin-top: 10px;
+  }
+  
+  .simulator-buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background-color: #6c63ff;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .simulator-buttons button:hover {
+    background-color: #5750d3;
+  }
+  
+  .feedback {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  .permission-popup {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .permission-popup .app-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .permission-popup .permission-question {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  .simulator-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .simulator-buttons button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s ease;
+    min-width: 80px;
+  }
+  
+  .simulator-buttons button:first-child {
+    background-color: #e53935; /* Deny - red */
+  }
+  
+  .simulator-buttons button:hover {
+    opacity: 0.9;
+  }
+
+  .simulator-feedback {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .feedback {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    display: inline-block;
+    max-width: 90%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  #next-button {
+    background-color: #1976D2;
+    color: white;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #next-button:hover {
+    background-color: #125a9c;
+  }
+  
+    
+  

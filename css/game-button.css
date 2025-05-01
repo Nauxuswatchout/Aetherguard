@@ -1,0 +1,118 @@
+.game-launch-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.game-launch-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    background-image: url('/static/images/background.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.game-launch-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    margin: 0;
+    z-index: 3;
+}
+
+.game-launch-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    z-index: 3;
+}
+
+.game-launch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.7), rgba(66, 39, 245, 0.7));
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    border-radius: 24px !important;
+}
+
+.game-launch-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+    border-radius: 24px !important;
+}
+
+.game-launch-button:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 24px !important;
+}
+
+.game-launch-button:hover .game-launch-overlay {
+    opacity: 0.6;
+    border-radius: 24px !important;
+}
+
+.game-launch-button:hover .game-launch-video {
+    opacity: 1;
+    border-radius: 24px !important;
+}
+
+.game-launch-button:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.game-launch-icon {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #ffffff;
+    z-index: 3;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.game-launch-button {
+    animation: pulse 2s infinite;
+}
+
+.game-launch-button:hover {
+    animation: none;
+} 
