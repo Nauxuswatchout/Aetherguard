@@ -31,7 +31,15 @@ db_config = {
 }
  
 def get_db_connection():
-    connection = mysql.connector.connect(**db_config)
+    connection = mysql.connector.connect(
+            host='trustitdata.mysql.database.azure.com',
+            user='at07data',
+            password='trustit07data?',
+            database='build_trust_in_it',
+            ssl_ca=os.path.join(os.path.dirname(__file__), 'DigiCertGlobalRootG2.crt.pem'),
+            ssl_verify_cert=True,
+            use_pure=True
+        )
     return connection
 
 """
