@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((item, index) => {
           const div = document.createElement('div');
           div.className = 'draggable-message';
-          div.textContent = item.Text;
+          div.textContent = item.text;
           div.draggable = true;
-          div.dataset.label = item.Label;
+          div.dataset.label = item.label;
           div.dataset.id = index;
           div.addEventListener('dragstart', dragStart);
           messagePool.appendChild(div);

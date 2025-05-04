@@ -18,7 +18,7 @@ async function fetchMessages() {
 
 function showNextMessage() {
   if (currentIndex < messages.length) {
-    const msg = messages[currentIndex].Message;
+    const msg = messages[currentIndex].message;
     document.getElementById("game-message").textContent = msg;
     document.getElementById("feedback").textContent = "";
   } else {
@@ -28,7 +28,7 @@ function showNextMessage() {
 }
 
 function checkAnswer(userAnswer) {
-  const actualAnswer = messages[currentIndex].Category;
+  const actualAnswer = messages[currentIndex].category;
   if (userAnswer === actualAnswer) {
     score++;
     document.getElementById("feedback").textContent = "✅ Correct!";
