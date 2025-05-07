@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>{{ title }} - AetherGuard</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/questions-data.js') }}"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+
+        <div class="logo">AetherGuard</div>
+
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="material-icons">menu</span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('parents') }}">Parents</a></li>
+          <li><a href="{{ url_for('children') }}">Children</a></li>
+          <li><a href="{{ url_for('resource_hub') }}">Resource hub</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

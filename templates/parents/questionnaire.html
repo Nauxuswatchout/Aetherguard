@@ -1,0 +1,356 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-content">
+  <h1 class="page-title">E-Safety Questionnaire</h1>
+
+  <div class="questionnaire-container">
+    <!-- Progress indicator -->
+    <div class="progress-container" id="progress-container">
+      <div class="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+      <div id="question-counter">Question 1 of 6</div>
+    </div>
+
+    <!-- Questions Section -->
+    <div id="questions-container">
+      <!-- Questions will be dynamically loaded here -->
+    </div>
+
+    <!-- Results Section (initially hidden) -->
+    <div id="results-container" style="display: none">
+      <h2>Your E-Safety Assessment Results</h2>
+
+  <div class="score-summary">
+    <div id="overall-score" class="overall-score"></div>
+    <p id="overall-feedback"></p>
+  </div>
+
+  <div class="category-scores">
+    <h3>Your Knowledge By Category</h3>
+    <div id="category-results"></div>
+  </div>
+
+  <div class="recommendations">
+    <h3>Personalized Recommendations</h3>
+    <div id="recommendation-list"></div>
+  </div>
+
+  <p id="resource-comment">
+    Check out our <a href="{{ url_for('resource_hub') }}">Resource Hub</a> for additional help and resources!
+  </p>
+
+  <button id="retake-button" class="action-button">
+    Retake Questionnaire
+  </button>
+  <a href="{{ url_for('parents') }}" class="back-button">← Back to Parent Resources</a>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import {
+    getRandomQuestions,
+    categoryInfo,
+  } from "/static/js/questions-data.js";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get randomly selected questions
+    const questions = getRandomQuestions(25);
+
+    // Current question index and scores
+    let currentQuestionIndex = 0;
+    let categoryScores = {
+      scams: 0,
+      phishing: 0,
+      malware: 0,
+      harassment: 0,
+      inappropriate: 0,
+      privacy: 0,
+    };
+    let answers = [];
+
+    // DOM elements
+    const questionsContainer = document.getElementById("questions-container");
+    const resultsContainer = document.getElementById("results-container");
+    const progressContainer = document.getElementById("progress-container");
+    const progressFill = document.getElementById("progress-fill");
+    const questionCounter = document.getElementById("question-counter");
+
+    // Initialize the questionnaire
+    function initQuestionnaire() {
+      currentQuestionIndex = 0;
+      categoryScores = {
+        scams: 0,
+        phishing: 0,
+        malware: 0,
+        harassment: 0,
+        inappropriate: 0,
+        privacy: 0,
+      };
+      answers = [];
+
+      showQuestion(currentQuestionIndex);
+      updateProgress();
+
+      resultsContainer.style.display = "none";
+      questionsContainer.style.display = "block";
+      progressContainer.style.display = "block";
+    }
+
+    // Display a specific question
+    function showQuestion(index) {
+      // Clear the container
+      questionsContainer.innerHTML = "";
+
+      // Create the question element
+      const question = questions[index];
+      const questionElement = document.createElement("div");
+      questionElement.className = "question-box";
+
+      const questionText = document.createElement("h3");
+      questionText.textContent = question.question;
+      questionElement.appendChild(questionText);
+
+      // Create option buttons
+      const optionsContainer = document.createElement("div");
+      optionsContainer.className = "options-container";
+
+      question.options.forEach((option, optionIndex) => {
+        const button = document.createElement("button");
+        button.className = "option-button";
+        button.textContent = option;
+        button.addEventListener("click", () => selectOption(optionIndex));
+        optionsContainer.appendChild(button);
+      });
+
+      questionElement.appendChild(optionsContainer);
+      questionsContainer.appendChild(questionElement);
+    }
+
+    // Handle option selection
+    function selectOption(optionIndex) {
+      // Record the answer
+      const question = questions[currentQuestionIndex];
+      const score = question.scores[optionIndex];
+      const category = question.category;
+
+      answers.push({
+        questionIndex: currentQuestionIndex,
+        selectedOption: optionIndex,
+        score: score,
+        category: category,
+      });
+
+      // Update category score
+      categoryScores[category] += score;
+
+      // Move to next question or show results
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < questions.length) {
+        showQuestion(currentQuestionIndex);
+        updateProgress();
+      } else {
+        showResults();
+      }
+    }
+
+    // Update progress bar and counter
+    function updateProgress() {
+      const progress = (currentQuestionIndex / questions.length) * 100;
+      progressFill.style.width = progress + "%";
+      questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${
+        questions.length
+      }`;
+    }
+
+    // Display the results
+    function showResults() {
+      // Hide questions and progress container, show results
+      questionsContainer.style.display = "none";
+      progressContainer.style.display = "none";
+      resultsContainer.style.display = "block";
+
+      // Calculate overall score
+      // Count how many questions per category
+      const categoryQuestionCounts = {};
+      questions.forEach((q) => {
+        const cat = q.category;
+        categoryQuestionCounts[cat] = (categoryQuestionCounts[cat] || 0) + 1;
+      });
+
+      // Calculate maximum possible score per category
+      const categoryMaxScores = {};
+      Object.keys(categoryQuestionCounts).forEach((category) => {
+        categoryMaxScores[category] = categoryQuestionCounts[category] * 3; // Each question max score is 3
+      });
+
+      // Calculate total maximum possible score
+      const maxScore = Object.values(categoryMaxScores).reduce(
+        (sum, val) => sum + val,
+        0
+      );
+
+      let totalScore = 0;
+      Object.keys(categoryScores).forEach((category) => {
+        totalScore += categoryScores[category];
+      });
+
+      // Ensure score cannot exceed 100%
+      const percentageScore = Math.min(
+        100,
+        Math.round((totalScore / maxScore) * 100)
+      );
+
+      // Display overall score
+      const overallScoreElement = document.getElementById("overall-score");
+      overallScoreElement.textContent = `${percentageScore}%`;
+
+      // Set score color based on result
+      if (percentageScore >= 80) {
+        overallScoreElement.className = "overall-score excellent";
+      } else if (percentageScore >= 60) {
+        overallScoreElement.className = "overall-score good";
+      } else if (percentageScore >= 40) {
+        overallScoreElement.className = "overall-score moderate";
+      } else {
+        overallScoreElement.className = "overall-score needs-improvement";
+      }
+
+      // Display overall feedback
+      const overallFeedback = document.getElementById("overall-feedback");
+      if (percentageScore >= 80) {
+        overallFeedback.textContent =
+          "Excellent! You have a strong understanding of e-safety principles and are taking many appropriate steps to protect your children online.";
+      } else if (percentageScore >= 60) {
+        overallFeedback.textContent =
+          "Good job! You have a solid foundation in e-safety, though there are some areas where you could strengthen your approach.";
+      } else if (percentageScore >= 40) {
+        overallFeedback.textContent =
+          "You have some understanding of e-safety concepts, but there are several important areas that need improvement to better protect your children online.";
+      } else {
+        overallFeedback.textContent =
+          "Your e-safety knowledge and practices need significant improvement. We recommend reviewing the resources available on this site to better protect your children online.";
+      }
+
+      // Display category results
+      const categoryResultsElement =
+        document.getElementById("category-results");
+      categoryResultsElement.innerHTML = "";
+
+      Object.keys(categoryInfo).forEach((category) => {
+        // Calculate category percentage (based on actual questions in this category)
+        const maxCategoryScore = categoryMaxScores[category] || 3; // Default to 3 if no questions in category
+        const categoryScore = categoryScores[category] || 0;
+        // Ensure category score cannot exceed 100%
+        const categoryPercentage = Math.min(
+          100,
+          Math.round((categoryScore / maxCategoryScore) * 100)
+        );
+
+        const categoryElement = document.createElement("div");
+        categoryElement.className = "category-result";
+
+        const categoryName = document.createElement("div");
+        categoryName.className = "category-name";
+        categoryName.textContent = categoryInfo[category].name;
+
+        const scoreBarContainer = document.createElement("div");
+        scoreBarContainer.className = "score-bar-container";
+
+        const scoreBar = document.createElement("div");
+        scoreBar.className = "score-bar";
+        scoreBar.style.width = `${categoryPercentage}%`;
+
+        // Set color based on score
+        if (categoryPercentage >= 80) {
+          scoreBar.style.backgroundColor = "#27ae60"; // Excellent color
+        } else if (categoryPercentage >= 60) {
+          scoreBar.style.backgroundColor = "#3498db"; // Good color
+        } else if (categoryPercentage >= 40) {
+          scoreBar.style.backgroundColor = "#f39c12"; // Moderate color
+        } else {
+          scoreBar.style.backgroundColor = "#e74c3c"; // Needs improvement color
+        }
+
+        const scoreLabel = document.createElement("span");
+        scoreLabel.className = "score-label";
+        scoreLabel.textContent = `${categoryPercentage}%`;
+
+        scoreBarContainer.appendChild(scoreBar);
+        scoreBarContainer.appendChild(scoreLabel);
+
+        categoryElement.appendChild(categoryName);
+        categoryElement.appendChild(scoreBarContainer);
+
+        categoryResultsElement.appendChild(categoryElement);
+      });
+
+      // Generate personalized recommendations
+      const recommendationListElement = document.getElementById(
+        "recommendation-list"
+      );
+      recommendationListElement.innerHTML = "";
+
+      // Find the categories that need the most improvement
+      const categoriesSorted = Object.keys(categoryScores).sort((a, b) => {
+        const aPercentage =
+          (categoryScores[a] / (categoryMaxScores[a] || 3)) * 100;
+        const bPercentage =
+          (categoryScores[b] / (categoryMaxScores[b] || 3)) * 100;
+        return aPercentage - bPercentage;
+      });
+
+      // Take the bottom 2-3 categories for recommendations
+      const needsImprovement = categoriesSorted
+        .slice(0, 3)
+        .filter((category) => {
+          const maxCategoryScore = categoryMaxScores[category] || 3;
+          const categoryPercentage =
+            (categoryScores[category] / maxCategoryScore) * 100;
+          return categoryPercentage < 70; // Only include categories below 70%
+        });
+
+      if (needsImprovement.length === 0) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent =
+          "Great job! You're doing well in all areas. Keep up with the latest e-safety information to stay current.";
+        recommendationListElement.appendChild(paragraph);
+      } else {
+        // Create recommendation list
+        needsImprovement.forEach((category) => {
+          const categoryRecs = categoryInfo[category].recommendations;
+
+          const categoryHeader = document.createElement("h4");
+          categoryHeader.textContent = categoryInfo[category].name;
+          recommendationListElement.appendChild(categoryHeader);
+
+          const recList = document.createElement("ul");
+
+          // Randomly select 3 recommendations per category
+          const shuffledRecs = [...categoryRecs].sort(
+            () => 0.5 - Math.random()
+          );
+          const selectedRecs = shuffledRecs.slice(0, 3);
+
+          selectedRecs.forEach((rec) => {
+            const recItem = document.createElement("li");
+            recItem.textContent = rec;
+            recList.appendChild(recItem);
+          });
+
+          recommendationListElement.appendChild(recList);
+        });
+      }
+
+      // Setup retake button
+      document
+        .getElementById("retake-button")
+        .addEventListener("click", initQuestionnaire);
+    }
+
+    // Initialize the questionnaire when the page loads
+    initQuestionnaire();
+  });
+</script>
+{% endblock %}

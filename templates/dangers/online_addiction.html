@@ -1,0 +1,254 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-cover-container">
+  <img
+    src="{{ url_for('static', filename='images/dangers/online_addiction.png') }}"
+    alt="E-Safety for Parents Cover"
+    class="page-cover-image"
+  />
+  <div class="page-cover-title">
+    <h1>Online Addiction</h1>
+    <p>
+      Excessive use of digital devices and the internet to the point where it
+      interferes with daily life, relationships, and emotional well-being.
+    </p>
+  </div>
+</div>
+<div class="page-content">
+  <div class="content-container">
+    <div class="content-section">
+      <!-- Content Block 1: What is Digital Addiction -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>What is Online Addiction?</h2>
+          <p>
+            Online addiction refers to excessive use of digital devices, social
+            media, video games, or other online activities to the point where it
+            interferes with daily life, relationships, and emotional well-being.
+            It's characterized by a compulsive need to use digital technology
+            and difficulty controlling the amount of time spent online.
+          </p>
+          <p>
+            Children and teenagers are particularly vulnerable to online
+            addiction due to their developing brains, social pressures, and the
+            intentionally engaging design of many apps and games that
+            incorporate reward systems to encourage continued use.
+          </p>
+
+          <div class="info-card warning-card">
+            <h3>Important to Know</h3>
+            <p>
+              Digital addiction is increasingly recognized as a serious
+              behavioral issue. While not yet officially classified as a
+              disorder in most medical frameworks, its effects on mental health,
+              academic performance, and social development are well-documented.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="chart-container" style="height: 450px">
+            <div class="pie-charts-flex">
+              <div class="pie-chart-block">
+                <h4>2017–2018</h4>
+                <canvas id="vicPie2017" width="280" height="280"></canvas>
+              </div>
+              <div class="pie-chart-block">
+                <h4>2021–2022</h4>
+                <canvas id="vicPie2021" width="280" height="280"></canvas>
+              </div>
+            </div>
+            <p class="caption">
+              VIC Activity Participation: Over 6,000 Victorian children aged 5
+              to 14 were surveyed to understand how they spend their time.
+              Screen use remained consistently high at over 90 percent, with a
+              sharp increase in those spending more than 20 hours per week on
+              screens.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Block 2: Warning Signs (Reversed) -->
+      <div class="content-block reverse">
+        <div class="text-content">
+          <h2>Warning Signs</h2>
+          <ul>
+            <li>
+              Irritability, anxiety, or distress when unable to use devices
+            </li>
+            <li>Loss of interest in offline activities previously enjoyed</li>
+            <li>Declining performance at school</li>
+            <li>Using devices to escape problems or improve mood</li>
+            <li>Failed attempts to cut back on screen time</li>
+            <li>
+              Neglecting personal hygiene or skipping meals to stay online
+            </li>
+            <li>Disrupted sleep patterns due to late-night device use</li>
+            <li>Lying about or hiding the amount of time spent online</li>
+          </ul>
+
+          <div class="info-card tip-card">
+            <h3>For Parents</h3>
+            <p>
+              If you notice several of these warning signs, approach the
+              situation with empathy rather than criticism. Digital habits can
+              be difficult to change, and a supportive approach is more
+              effective than punishment.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/vOSYmLER664"
+              allowfullscreen
+              title="What you need to know about internet addiction"
+            ></iframe>
+          </div>
+          <p class="caption">What you need to know about internet addiction</p>
+        </div>
+      </div>
+
+      <!-- Content Block 3: Prevention Tips -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>Prevention Tips</h2>
+          <ul>
+            <li>Establish tech-free zones and times in your home</li>
+            <li>Create a family media use plan with clear boundaries</li>
+            <li>Encourage diverse interests and physical activities offline</li>
+            <li>Use apps to monitor and limit screen time</li>
+            <li>Model healthy digital habits yourself</li>
+            <li>Keep devices out of bedrooms at night</li>
+            <li>Schedule regular family activities without technology</li>
+            <li>Teach children mindful use of technology</li>
+          </ul>
+
+          <div class="info-card">
+            <h3>Balanced Approach</h3>
+            <p>
+              The goal isn't to eliminate technology but to foster a healthy
+              relationship with it. Technology offers many benefits when used
+              mindfully and in balance with other activities.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-content">
+          <h2>Changing Activity Patterns</h2>
+          <p>
+            Data from Victorian surveys show concerning trends in how children
+            spend their time. While screen use remains consistently high,
+            participation in reading, creative activities, and physical play has
+            declined significantly.
+          </p>
+          <p>
+            These shifts in activity patterns can have profound impacts on
+            development:
+          </p>
+          <ul>
+            <li>
+              <strong>Physical Development</strong> - Reduced physical activity
+              can affect motor skills, fitness, and overall health
+            </li>
+            <li>
+              <strong>Cognitive Development</strong> - Less reading and creative
+              play may impact language skills and problem-solving abilities
+            </li>
+            <li>
+              <strong>Social Development</strong> - Fewer in-person interactions
+              can affect emotional intelligence and social skills
+            </li>
+            <li>
+              <strong>Mental Health</strong> - Imbalanced activities may
+              contribute to increased stress and reduced wellbeing
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Content Block 5: Healthy Screen Habits -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>Developing Healthy Digital Habits</h2>
+          <p>
+            Rather than fighting technology, focus on teaching skills for
+            healthy tech use:
+          </p>
+          <ul>
+            <li>
+              <strong>Digital Literacy</strong> - Help children understand how
+              apps and games are designed to capture attention
+            </li>
+            <li>
+              <strong>Self-Regulation</strong> - Gradually teach children to
+              monitor and manage their own screen time
+            </li>
+            <li>
+              <strong>Critical Thinking</strong> - Encourage evaluation of
+              online content and experiences
+            </li>
+            <li>
+              <strong>Mindful Consumption</strong> - Promote active, purposeful
+              use versus passive scrolling
+            </li>
+            <li>
+              <strong>Tech-Life Balance</strong> - Demonstrate that technology
+              is just one part of a fulfilling life
+            </li>
+          </ul>
+
+          <div class="info-card tip-card">
+            <h3>Family Media Agreement</h3>
+            <p>
+              Consider creating a family media agreement that all family members
+              (including parents) sign. This can include agreed-upon screen-free
+              times, content guidelines, and consequences for breaking the
+              rules.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="resources-list">
+            <h3>Resources for Parents</h3>
+            <ul>
+              <li>
+                <strong
+                  ><a
+                    href="https://raisingchildren.net.au/school-age/play-media-technology/screen-time-healthy-screen-use/screen-time"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Raising Children Network</a
+                  ></strong
+                >
+                : Australia's trusted parenting website offers guidelines for
+                healthy screen use by age group.
+              </li>
+              <li>
+                <strong
+                  ><a
+                    href="https://www.esafety.gov.au/parents/big-issues/time-online"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >eSafety Commissioner: Time Online</a
+                  ></strong
+                >
+                : Resources for helping children develop healthy digital habits
+                and manage screen time.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('learn_dangers') }}" class="back-button"
+    >← Back to All Dangers</a
+  >
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/activity_trends.js') }}"></script>
+{% endblock %}

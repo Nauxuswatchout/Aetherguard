@@ -1,0 +1,412 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-cover-container">
+  <img
+    src="{{ url_for('static', filename='images/covers/learn_dangers.jpeg') }}"
+    alt="Learn the Dangers Cover"
+    class="page-cover-image"
+    loading = "lazyload"
+  />
+  <div class="page-cover-title">
+    <h2 style="margin-bottom: 20px">Resources Hub</h2>
+
+    <p>Unlock the Aetherguard Resource Hub – expert articles, insightful videos, and vital helplines to empower you in tackling online dangers and ensuring digital safety.</p>
+  </div>
+</div>
+
+<div class="resource_hub page-content">
+  <div class="content-container">
+    <p><strong>Welcome to the Aetherguard Resource Hub</strong> — your trusted companion in building safer online experiences.</p>
+    <p>In today's digital world, awareness is the strongest shield you can have.</p>
+    <p>Browse through expert articles, insightful videos, and vital helpline services across key topics like cyberbullying, online predators, scams, and more. Select a topic below and empower yourself and your loved ones with knowledge that truly protects.</p>
+    <!-- Horizontal Scroll for Categories -->
+    <div class="scrolling-buttons">
+      <button class="category-btn active" onclick="showResource('cyberbullying')">Cyberbullying</button>
+      <button class="category-btn" onclick="showResource('inappropriate')">Inappropriate Content</button>
+      <button class="category-btn" onclick="showResource('addiction')">Online Addiction</button>
+      <button class="category-btn" onclick="showResource('predators')">Online Predators</button>
+      <button class="category-btn" onclick="showResource('phishing')">Phishing Scams</button>
+      <button class="category-btn" onclick="showResource('malware')">Virus & Malware</button>
+    </div>
+
+    <!-- Resources Sections -->
+
+    <!-- Cyberbullying -->
+    <div class="resource-section" id="cyberbullying" style="display: block;">
+      <h2>Cyberbullying</h2>
+      <div class="resource-content">
+        <!-- Left side (Articles & Helplines) -->
+        <div class="articles helplines">
+          <h3>Resources</h3>
+          <ul>
+            <li>
+              <strong
+                ><a
+                  href="https://www.esafety.gov.au/key-issues/cyberbullying"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >eSafety Commissioner</a
+                ></strong
+              >
+              : Australia's official guide to online safety, with specific
+              resources for cyberbullying.
+            </li>
+            <li>
+              <strong
+                ><a
+                  href="https://kidshelpline.com.au/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Kids Helpline</a
+                ></strong
+              >
+              : Free, private and confidential 24/7 phone and online
+              counseling service for young people aged 5 to 25.
+            </li>
+            <li>
+              <strong
+                ><a
+                  href="https://bullyingnoway.gov.au/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Bullying. No Way!</a
+                ></strong
+              >
+              : Resources for Australian schools, parents and students to
+              prevent and respond to bullying.
+            </li>
+            <li>
+              <strong
+                ><a
+                  href="https://www.reachout.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ReachOut Australia</a
+                ></strong
+              >
+              : Online mental health service for young people and parents,
+              with specific resources on cyberbullying.
+            </li>
+          </ul>
+        </div>
+        <!-- Right side (Videos) -->
+        <div class="videos">
+          <h3>Videos</h3>
+          <ul>
+            <li><iframe
+              src="https://www.youtube.com/embed/cDouLLbD_HU"
+              allowfullscreen
+              title="Cyberbullying and online drama"
+            ></iframe></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inappropriate Content -->
+    <div class="resource-section" id="inappropriate" style="display: none;">
+      <h2>Inappropriate Content</h2>
+      <div class="resource-content">
+        <!-- Left side (Articles & Helplines) -->
+        <div class="articles helplines">
+          <h3>Resources</h3>
+            <ul>
+              <li>
+                <strong
+                  ><a
+                    href="https://www.unicef.org.au/parent-teacher-resources/online-safety/harmful-content"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >UNICEF: Harmful Online Content</a
+                  ></strong
+                >
+                : Guidance for parents on identifying and responding to harmful
+                content children may encounter online.
+              </li>
+              <li>
+                <strong
+                  ><a
+                    href="https://www.esafety.gov.au/educators/training-for-professionals/professional-learning-program-teachers/inappropriate-content-factsheet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >eSafety Commission: Inappropriate Content Factsheet</a
+                  ></strong
+                >
+                : A practical factsheet explaining what inappropriate content is
+                and how to protect children from it.
+              </li>
+              <li>
+                <strong
+                  ><a
+                    href="https://www.internetmatters.org/issues/inappropriate-content/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Internet Matters: Inappropriate Content Guide</a
+                  ></strong
+                >
+                : Comprehensive advice on protecting children from different
+                types of harmful content online.
+              </li>
+            </ul>
+        </div>
+        <!-- Right side (Videos) -->
+        <div class="videos">
+          <h3>Videos</h3>
+          <ul>
+            <li><iframe
+              src="https://www.youtube.com/embed/sQNFIBH-rjg"
+              allowfullscreen
+              title="Tips for protecting children online"
+            ></iframe></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Online Addiction -->
+    <div class="resource-section" id="addiction" style="display: none;">
+      <h2>Online Addiction</h2>
+      <div class="resource-content">
+        <!-- Left side (Articles & Helplines) -->
+        <div class="articles helplines">
+          <h3>Resources</h3>
+          <ul>
+            <li>
+              <strong
+                ><a
+                  href="https://raisingchildren.net.au/school-age/play-media-technology/screen-time-healthy-screen-use/screen-time"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Raising Children Network</a
+                ></strong
+              >
+              : Australia's trusted parenting website offers guidelines for
+              healthy screen use by age group.
+            </li>
+            <li>
+              <strong
+                ><a
+                  href="https://www.esafety.gov.au/parents/big-issues/time-online"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >eSafety Commissioner: Time Online</a
+                ></strong
+              >
+              : Resources for helping children develop healthy digital habits
+              and manage screen time.
+            </li>
+          </ul>
+        </div>
+        <!-- Right side (Videos) -->
+        <div class="videos">
+          <h3>Videos</h3>
+          <ul>
+            <li><iframe
+              src="https://www.youtube.com/embed/vOSYmLER664"
+              allowfullscreen
+              title="What you need to know about internet addiction"
+            ></iframe></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Online Predators -->
+    <div class="resource-section" id="predators" style="display: none;">
+      <h2>Online Predators</h2>
+      <div class="resource-content">
+        <!-- Left side (Articles & Helplines) -->
+        <div class="articles helplines">
+          <h3>Resources</h3>
+          <ul>
+            <li>
+              <strong
+                ><a
+                  href="https://www.esafety.gov.au/parents/big-issues/unwanted-contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >eSafety Commissioner</a
+                ></strong
+              >
+              : Information about unwanted contact and online grooming, with
+              reporting options.
+            </li>
+            <li>
+              <strong
+                ><a
+                  href="https://www.accce.gov.au/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Australian Centre to Counter Child Exploitation</a
+                ></strong
+              >
+              : Resources for reporting and preventing online child sexual
+              exploitation.
+            </li>
+            <li>
+              <strong
+                ><a
+                  href="https://kidshelpline.com.au/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Kids Helpline</a
+                ></strong
+              >
+              : Free, private counseling service for young people (1800 55
+              1800).
+            </li>
+            <li>
+              <strong
+                ><a
+                  href="https://www.thinkuknow.org.au/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ThinkUKnow Australia</a
+                ></strong
+              >
+              : Education program focused on preventing online child sexual
+              exploitation.
+            </li>
+          </ul>
+        </div>
+        <!-- Right side (Videos) -->
+        <div class="videos">
+          <h3>Videos</h3>
+          <ul>
+            <li><iframe
+              src="https://www.youtube.com/embed/kvEO1QQ2mVY"
+              allowfullscreen
+              title=""
+            ></iframe></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phishing Scams -->
+    <div class="resource-section" id="phishing" style="display: none;">
+      <h2>Phishing Scams</h2>
+      <div class="resource-content">
+        <!-- Left side (Articles & Helplines) -->
+        <div class="articles helplines">
+          <h3>Resources</h3>
+          <ul>
+            <li>
+              <strong>
+                <a
+                  href="https://www.accc.gov.au/media-release/accc-welcomes-passage-of-world-first-scams-prevention-laws"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Australian Prevention Laws</a
+                > </strong
+              >: ACCC announces new laws to combat scams — the world's first
+              of their kind.
+            </li>
+            <li>
+              <strong>
+                <a
+                  href="https://news.nab.com.au/news/explainer-five-scams-to-watch-in-2025/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Five Scams to Watch in 2025</a
+                > </strong
+              >: A guide from NAB on emerging scam types and how to stay
+              informed.
+            </li>
+            <li>
+              <strong>
+                <a
+                  href="https://www.scamwatch.gov.au/stop-check-protect/help-to-spot-and-avoid-scams"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Help to Spot and Avoid Scams</a
+                > </strong
+              >: Practical tips from Scamwatch to identify and avoid online
+              scams.
+            </li>
+          </ul>
+        </div>
+        <!-- Right side (Videos) -->
+        <div class="videos">
+          <h3>Videos</h3>
+          <ul>
+            <li><iframe
+              src="https://www.youtube.com/embed/vreLbXr9s6g"
+              allowfullscreen
+              title="Stop, Think and Protect Yourself against Online Scams"
+            ></iframe></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Virus & Malware -->
+    <div class="resource-section" id="malware" style="display: none;">
+      <h2>Virus & Malware</h2>
+      <div class="resource-content">
+        <!-- Left side (Articles & Helplines) -->
+        <div class="articles helplines">
+          <h3>Resources</h3>
+          <ul>
+            <li>
+              <strong
+                ><a
+                  href="https://www.esafety.gov.au/key-issues/esafety-guide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >eSafety Guide</a
+                ></strong
+              >
+              : Information about online safety, including protecting devices
+              from malware.
+            </li>
+            <li>
+              <strong
+                ><a
+                  href="https://www.cyber.gov.au/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Cyber</a
+                ></strong
+              >
+              : Australian Government Cyber Security Centre's Website
+            </li>
+          </ul>
+        </div>
+        <!-- Right side (Videos) -->
+        <div class="videos">
+          <h3>Videos</h3>
+          <ul>
+            <li><iframe
+              src="https://www.youtube.com/embed/mqzP7gJDM2s"
+              allowfullscreen
+              title="What is Malware? Let's Hear the Hacker's Viewpoint"
+            ></iframe></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JavaScript to Switch Sections -->
+<script>
+function showResource(categoryId) {
+  const sections = document.querySelectorAll('.resource-section');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+
+  const buttons = document.querySelectorAll('.category-btn');
+  buttons.forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  document.getElementById(categoryId).style.display = 'block';
+  event.target.classList.add('active');
+}
+</script>
+
+{% endblock %}

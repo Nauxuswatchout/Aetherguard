@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>测试事件转跳</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            margin-bottom: 40px;
+            color: #3498db;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            width: 80%;
+            max-width: 800px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>事件转跳测试</h1>
+    
+    <div class="button-container">
+        <button id="test-morning-to-home">测试早晨事件转跳到家庭事件</button>
+        <button id="test-home-to-summary">测试家庭事件转跳到每日总结</button>
+        <button id="load-morning">直接加载早晨事件</button>
+    </div>
+    
+    <div id="result">结果将显示在这里...</div>
+    
+    <script>
+        document.getElementById('test-morning-to-home').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/test_next_event/morning');
+                const event = await response.json();
+                document.getElementById('result').textContent = '测试结果: ' + JSON.stringify(event, null, 2);
+            } catch (error) {
+                document.getElementById('result').textContent = '错误: ' + error.message;
+            }
+        });
+        
+        document.getElementById('test-home-to-summary').addEventListener('click', () => {
+            if (window.currentGame) {
+                window.currentGame.showDailySummary();
+                document.getElementById('result').textContent = '已显示每日总结';
+            } else {
+                document.getElementById('result').textContent = '错误: 游戏实例不存在';
+            }
+        });
+        
+        document.getElementById('load-morning').addEventListener('click', () => {
+            window.location.href = '/new_game';
+        });
+    </script>
+</body>
+</html> 

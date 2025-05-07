@@ -1,0 +1,98 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-cover-container">
+  <img
+    src="{{ url_for('static', filename='images/covers/for_parents.jpeg') }}"
+    alt="E-Safety for Parents Cover"
+    class="page-cover-image"
+    loading = "lazyload"
+  />
+  <div class="page-cover-title">
+    <h1>E-Safety for Parents</h1>
+    <p>
+      Learn how to guide yourself and your children safely through the digital
+      world.
+    </p>
+    <p>
+      Understand the risks, explore real-life scenarios, and build the
+      confidence to protect your family online.
+    </p>
+  </div>
+</div>
+
+<div class="page-content" id="main-content">
+  <div class="card-grid">
+    <!-- Internet Guidelines Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/guidelines.jpeg') }}"
+          alt="Internet Guidelines"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">Internet Guidelines</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Internet Guidelines</h3>
+          <p>
+            General advice and best practices for online safety. Learn how to
+            set up proper boundaries. Educate yourself and your family.
+          </p>
+          <a href="{{ url_for('internet_guidelines') }}" class="card-button"
+            >Explore Guidelines</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Learn the Dangers Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/dangers.jpeg') }}"
+          alt="Learn the Dangers"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">Learn the Dangers</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Learn the Dangers</h3>
+          <p>
+            Knowledge is the first step to protecting your family from digital
+            dangers. Understand the various risks and threats that exist online.
+          </p>
+          <a href="{{ url_for('learn_dangers') }}" class="card-button"
+            >Discover Dangers</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Questionnaire Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/questionnaire.jpeg') }}"
+          alt="Questionnaire"
+          loading = "lazyload"
+        />
+      </div>
+      <h2 class="card-title">E-safety Quiz</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Test Your Knowledge</h3>
+          <p>
+            How much do you know about online safety? Take our interactive quiz
+            to test your knowledge and get personalized recommendations to
+            improve your digital safety.
+          </p>
+          <a href="{{ url_for('questionnaire') }}" class="card-button"
+            >Take Quiz</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

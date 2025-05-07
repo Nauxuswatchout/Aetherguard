@@ -1,0 +1,229 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-cover-container">
+  <img
+    src="{{ url_for('static', filename='images/dangers/phising_scams.png') }}"
+    alt="E-Safety for Parents Cover"
+    class="page-cover-image"
+  />
+  <div class="page-cover-title">
+    <h1>Phishing & Scams</h1>
+    <p>
+      Deceptive attempts to steal personal information like usernames,
+      passwords, location and credit card details by disguising as trustworthy
+      entities.
+    </p>
+  </div>
+</div>
+<div class="page-content">
+  <div class="content-container">
+    <div class="content-section">
+      <!-- Content Block 1: Text + Chart -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>What are Phishing & Online Scams?</h2>
+          <p>
+            Phishing is a type of online scam where criminals send deceptive
+            messages designed to trick people into revealing sensitive
+            information or installing malicious software. These attacks often
+            disguise themselves as trustworthy entities such as banks, social
+            media platforms, or well-known companies.
+          </p>
+          <p>
+            For children and teenagers, phishing can occur through fake gaming
+            websites, social media messages, free gift offers, or even fake
+            messages that appear to be from friends or family members.
+          </p>
+
+          <div class="info-card warning-card">
+            <h3>Warning!</h3>
+            <p>
+              Never share personal information or login credentials in response
+              to an unsolicited message, even if it appears to come from a
+              legitimate source.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/vreLbXr9s6g"
+              allowfullscreen
+              title="Stop, Think and Protect Yourself against Online Scams"
+            ></iframe>
+          </div>
+          <p class="caption">
+            Video: How to protect yourself as scams advance with technology
+          </p>
+        </div>
+        <!--
+        <div class="visual-content">
+          <div class="chart-container">
+            <canvas id="scamChart" width="100%" height="100%"></canvas>
+          </div>
+          <p class="caption">
+            Fig 1: Types of phishing attacks reported in 2024
+          </p>
+        </div>
+        -->
+      </div>
+
+
+      <!-- Content Block 2: Video + Text (Reversed) -->
+      <div class="content-block reverse">
+        <div class="text-content">
+          <h2>Warning Signs</h2>
+          <ul>
+            <li>Urgent requests for personal information</li>
+            <li>Poor spelling and grammar in communications</li>
+            <li>
+              Offers that seem too good to be true (free games, gifts, in-game
+              currency)
+            </li>
+            <li>
+              Links that lead to websites with URLs slightly different from
+              legitimate sites
+            </li>
+            <li>Messages asking for account credentials or personal details</li>
+            <li>Pop-ups or messages saying your device is infected</li>
+          </ul>
+
+          <div class="info-card tip-card">
+            <h3>Safety Tip</h3>
+            <p>
+              Always check the sender's email address carefully. Legitimate
+              organizations will use their official domain names.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/Vfv5yv-NH30"
+              allowfullscreen
+              title="Stop, Think and Protect Yourself against Online Scams"
+            ></iframe>
+          </div>
+          <p class="caption">
+            Video: How to protect yourself as scams advance with technology
+          </p>
+        </div>
+      </div>
+
+      <!-- Content Block 3: Text + Article -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>Prevention Tips</h2>
+          <ul>
+            <li>Teach critical thinking about online content and offers</li>
+            <li>
+              Install and maintain updated anti-virus and anti-malware software
+            </li>
+            <li>
+              Never click on suspicious links or download unknown attachments
+            </li>
+            <li>
+              Verify requests for information through official channels or
+              websites
+            </li>
+            <li>Use strong, unique passwords for different accounts</li>
+            <li>Enable two-factor authentication when available</li>
+          </ul>
+        </div>
+
+        <div class="visual-content">
+          <div class="visual-content">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/O2DOQhG8D1A"
+                allowfullscreen
+                title="Phishing – AFP Cybercrime Series"
+              ></iframe>
+            </div>
+            <p class="caption">Phishing – AFP Cybercrime Series</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Block 4: Resources section -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>Latest Scam Trends</h2>
+          <p>
+            Scammers are constantly evolving their tactics to exploit new
+            technologies and trends. Recent developments include:
+          </p>
+          <ul>
+            <li>
+              <strong>AI-generated voice scams</strong> - Using artificial
+              intelligence to mimic the voices of family members in distress
+            </li>
+            <li>
+              <strong>QR code phishing</strong> - Placing malicious QR codes in
+              public places that lead to fake websites
+            </li>
+            <li>
+              <strong>Investment scams</strong> - Targeting young adults with
+              fake cryptocurrency or stock trading opportunities
+            </li>
+            <li>
+              <strong>Gaming in-app purchase scams</strong> - Offering free
+              in-game currency or items to steal account information
+            </li>
+          </ul>
+        </div>
+
+        <div class="visual-content">
+          <div class="resources-list">
+            <h3>Helpful Resources</h3>
+            <ul>
+              <li>
+                <strong>
+                  <a
+                    href="https://www.accc.gov.au/media-release/accc-welcomes-passage-of-world-first-scams-prevention-laws"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Australian Prevention Laws</a
+                  > </strong
+                >: ACCC announces new laws to combat scams — the world's first
+                of their kind.
+              </li>
+              <li>
+                <strong>
+                  <a
+                    href="https://news.nab.com.au/news/explainer-five-scams-to-watch-in-2025/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Five Scams to Watch in 2025</a
+                  > </strong
+                >: A guide from NAB on emerging scam types and how to stay
+                informed.
+              </li>
+              <li>
+                <strong>
+                  <a
+                    href="https://www.scamwatch.gov.au/stop-check-protect/help-to-spot-and-avoid-scams"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Help to Spot and Avoid Scams</a
+                  > </strong
+                >: Practical tips from Scamwatch to identify and avoid online
+                scams.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('learn_dangers') }}" class="back-button"
+    >← Back to All Dangers</a
+  >
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+<script src="{{ url_for('static', filename='js/scam_chart.js') }}"></script>
+{% endblock %}

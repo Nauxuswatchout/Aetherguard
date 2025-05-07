@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/interactive_pages.css') }}">
+
+<div class="cyber-cover-wrapper">
+  <div class="cyber-cover-image-container">
+    <img
+      src="{{ url_for('static', filename='images/animations/Lulu_crazy_adventure.png') }}"
+      alt="Stay Smart with Mobile Apps"
+      class="cyber-cover-image"
+      loading="lazy"
+    />
+    <div class="cyber-cover-title">
+      <h3>📱 Stay Smart with Mobile Apps – Understand Permissions! 🔐</h3>
+    </div>
+  </div>
+</div>
+
+<div class="cyber-container">
+  <section class="cyber-card">
+    <h2>👋 Hey little explorer!</h2>
+    <p>Apps on phones and tablets can be super fun — you can play games, solve puzzles, listen to songs, and learn new things like drawing or counting!</p>
+    <p>But not all apps are made the same. Some might ask to do things they don’t really need — like looking at your photos or knowing where you are. That’s why it's important to stay alert and ask questions!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>1. 🤔 What Are Permissions?</h2>
+    <p>When you download or use an app, it might ask for permission to do things like:</p>
+    <ul>
+      <li>📸 Use your camera</li>
+      <li>🖼️ See your photos</li>
+      <li>📍 Know your location</li>
+      <li>🎤 Access your microphone</li>
+    </ul>
+    <p>These are like giving a special key to the app. But not every app needs every key!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>2. 🚪 Not Every App Needs Every Key</h2>
+    <p>Imagine letting a friend borrow your bike — would you also give them your house key?</p>
+    <p>A drawing game might need to save your pictures — but should it also know where you live?</p>
+    <ul>
+      <li>❓ Does the app really need this?</li>
+      <li>🤨 Why would a game need my microphone?</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>3. 👨‍👩‍👧 Always Ask Before Allowing Permissions</h2>
+    <p>Before you click “Allow,” ask a grown-up you trust:</p>
+    <ul>
+      <li>👩 A parent</li>
+      <li>👨‍🏫 A teacher</li>
+      <li>🧑‍🦳 Any trusted adult</li>
+    </ul>
+    <p>It’s smart to say “no” if you’re not sure!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>4. 🔒 Be Careful with Personal Information</h2>
+    <p>Some apps ask for things like:</p>
+    <ul>
+      <li>🧒 Your real name</li>
+      <li>🎂 Your birthday</li>
+      <li>📫 Where you live</li>
+    </ul>
+    <p>If it feels too personal:</p>
+    <ul>
+      <li>🚫 Don’t answer</li>
+      <li>👨‍👩‍👧 Tell a grown-up</li>
+      <li>🔁 Try a different app that keeps your secrets safe</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>5. 📱 Keep Your Device Safe and Happy</h2>
+    <p>When you make smart choices about apps and permissions:</p>
+    <ul>
+      <li>🛡️ Your device stays safe</li>
+      <li>🙅‍♂️ You avoid strange ads and scary pop-ups</li>
+      <li>🎉 You have more fun and fewer problems!</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>🦸‍♂️ You’re the Boss of Your Device!</h2>
+    <p>Every time you:</p>
+    <ul>
+      <li>🔍 Check permissions carefully</li>
+      <li>🙋 Ask a grown-up before clicking "Allow"</li>
+      <li>🛑 Protect your secrets</li>
+    </ul>
+    <p>…you’re being a Cyber Safety Hero — keeping your adventures fun and safe!</p>
+  </section>
+
+  <section class="cyber-card" id="permission-simulator">
+    <h2>🧪 Try the App Permissions Simulator!</h2>
+    <div id="simulator-box">
+      <div class="permission-popup">
+        <p class="app-title" id="app-info">Loading app info...</p>
+        <p class="permission-question" id="permission-question"></p>
+        <div class="simulator-buttons">
+          <button onclick="handleChoice('deny')">Deny</button>
+          <button onclick="handleChoice('allow')">Allow</button>
+        </div>
+      </div>
+      <div class="simulator-feedback">
+        <p id="feedback-message" class="feedback"></p>
+        <button onclick="loadNewApp()" id="next-button" style="display:none;">Next</button>
+      </div>
+  </section>
+
+  <section class="cyber-video">
+    <h2>🎥 Learn More with Videos</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/o92z8s3Bfqw" title="Understanding App Permissions for Kids" allowfullscreen></iframe>
+</section>
+
+  <section class="cyber-links">
+    <h2>🌐 Helpful Links</h2>
+    <ul>
+      <li>📱 <a href="https://kidshelpline.com.au/kids/issues/being-safe-internet" target="_blank">Being Safe on the Internet – Kids Helpline</a></li>
+    </ul>
+  </section>
+</div>
+<script src="{{ url_for('static', filename='js/app_permission_simulator.js') }}"></script>
+{% endblock %}

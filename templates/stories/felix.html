@@ -1,0 +1,176 @@
+{% block additional_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/storybook.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="storybook-container full-page">
+  <div class="book-wrapper">
+    <div id="book" class="book">
+      <!-- Book Cover -->
+      <div class="page">
+        <div class="page-content">
+          <div class="text-section">
+            <h2 class="page-header">Felix the Fox and the Fake Contest</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 1 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Felix the Fox lived in a treehouse near Berry Hill.</p>
+          </div>
+          <div class="page-number">1</div>
+        </div>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>One day, he checked his email on his shiny laptop.</p>
+          </div>
+          <div class="page-number">2</div>
+        </div>
+      </div>
+
+      <!-- Page 3 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>“Congratulations!” the message said. “You won a scooter!”</p>
+          </div>
+          <div class="page-number">3</div>
+        </div>
+      </div>
+
+      <!-- Page 4 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Felix gasped, “Wow! I never even joined a contest!”</p>
+          </div>
+          <div class="page-number">4</div>
+        </div>
+      </div>
+
+      <!-- Page 5 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>The message said, “Click here and fill your details.”</p>
+          </div>
+          <div class="page-number">5</div>
+        </div>
+      </div>
+
+      <!-- Page 6 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Felix clicked. The page asked for name and password.</p>
+          </div>
+          <div class="page-number">6</div>
+        </div>
+      </div>
+
+      <!-- Page 7 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>He typed fast, dreaming about riding the scooter.</p>
+          </div>
+          <div class="page-number">7</div>
+        </div>
+      </div>
+
+      <!-- Page 8 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Later, he tried to log in — but his account was gone!</p>
+          </div>
+          <div class="page-number">8</div>
+        </div>
+      </div>
+
+      <!-- Page 9 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>“Oh no!” he cried. “They tricked me and stole everything!”</p>
+          </div>
+          <div class="page-number">9</div>
+        </div>
+      </div>
+
+      <!-- Page 10 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>He told Owl, the wise forest teacher, right away.</p>
+          </div>
+          <div class="page-number">10</div>
+        </div>
+      </div>
+
+      <!-- Page 11 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Owl said, “Real contests don’t ask for passwords.”</p>
+          </div>
+          <div class="page-number">11</div>
+        </div>
+      </div>
+
+      <!-- Page 12 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>They reported the email and changed Felix’s passwords.</p>
+          </div>
+          <div class="page-number">12</div>
+        </div>
+      </div>
+
+      <!-- Page 13 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Felix felt safe again, but he stayed more careful now.</p>
+          </div>
+          <div class="page-number">13</div>
+        </div>
+      </div>
+
+      <!-- Page 14 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Now he teaches friends: “If it’s too good — it’s fake!”</p>
+          </div>
+          <div class="page-number">14</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Controls -->
+  <div class="book-controls">
+    <div class="back-to-section">
+      <a href="{{ url_for('tilly_page') }}" class="back-button">
+        <span class="back-arrow">←</span> Back to Library
+      </a>
+    </div>
+    <button id="prev-btn" class="flip-btn">Previous</button>
+    <button id="next-btn" class="flip-btn">Next</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+<script src="{{ url_for('static', filename='js/stories/felix.js') }}"></script>
+{% endblock %}

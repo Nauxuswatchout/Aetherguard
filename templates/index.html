@@ -1,0 +1,94 @@
+{% extends "base.html" %} 
+{% block content %}
+<div class="cover-container">
+  <img
+    src="{{ url_for('static', filename='images/covers/cover.jpg') }}"
+    alt="E-Safety Cover Image"
+    class="cover-image"
+    loading="lazyload"
+  />
+  <div class="cover-title">
+    <h2>Think You Know the Internet?</h2>
+    <p>That image behind? It was made by AI and it looks real, right?</p>
+    <p>
+      Learn to navigate online risks, protect your family, and build digital
+      confidence.
+    </p>
+    <a href="#main-content" class="scroll-down">Explore</a>
+  </div>
+</div>
+
+<div class="page-content" id="main-content">
+  <div class="about-section">
+    <!-- About Section (left side takes more space) -->
+    <div class="about-text">
+      <h2 class="page-title">About AetherGuard</h2>
+      <p class="page-description">
+        AetherGuard empowers parents and families to better understand the digital world and stay safe within it. Our mission is to simplify online safety with clear, accessible resources that make even the most complex topics easy to grasp.
+      </p>
+      <p class="page-description">
+        Whether you're new to technology or just want to stay informed, you'll find practical advice and interactive tools designed to help you and your children thrive online with confidence.
+      </p>
+    </div>
+
+    <!-- Mission and Vision (right side, compact) -->
+    <div class="about-right">
+      <p><strong>Our Mission:</strong> Empower families with the knowledge and tools to navigate the digital world safely.</p>
+      <p><strong>Our Vision:</strong> A world where everyone, especially children, can thrive online with confidence and security.</p>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <!-- Parents Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/resources.jpg') }}"
+          alt="For Parents"
+          loading="lazyload"
+        />
+      </div>
+      <h2 class="card-title">Resources for Parents</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Resources for Parents</h3>
+          <p>
+            Guide to help you and your children stay safe online. Learn about
+            online dangers, best practices, and how to protect your family in
+            the digital world.
+          </p>
+          <a href="{{ url_for('parents') }}" class="card-button">Parent Resources</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Playground Button (Independent) -->
+    <a id="playground-button" href="{{ url_for('home') }}"></a>
+
+    <!-- Questionnaire Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/questionnaire.jpeg') }}"
+          alt="Take the Quiz"
+          loading="lazyload"
+        />
+      </div>
+      <h2 class="card-title">E-Safety Quiz</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Test Your Knowledge</h3>
+          <p>
+            How much do you know about online safety? Take our interactive quiz
+            to test your knowledge and get personalized recommendations to
+            improve your digital safety.
+          </p>
+          <a href="{{ url_for('questionnaire') }}" class="card-button">Take Quiz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/playground_button.js') }}"></script>
+{% endblock %}

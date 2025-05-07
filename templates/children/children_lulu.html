@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="lulu-page-container">
+
+  <!-- Page Cover Section -->
+  <div class="lulu-page-cover">
+    <img src="{{ url_for('static', filename='images/animations/lulu_adventure.jpeg') }}" alt="Lulu Cover" class="lulu-cover-image">
+    <div class="lulu-cover-text">
+      <h2>🌟 Welcome to Lulu’s Crazy Adventure! 🌟</h2>
+      <p>
+        Hey hey, I’m Lulu! 🐑<br>
+        Ready to jump into the wild world of the internet with me and learn how to stay safe without being bored? Let's make it fun—let’s do this! 🎉
+      </p>
+    </div>
+  </div>
+
+  <!-- Interactive Learning Section -->
+  <div class="lulu-interactive-learning-wrapper">
+    <h2 class="lulu-section-heading">🚀 Let’s Learn, Laugh & Level Up with Lulu!</h2>
+    <div class="lulu-learning-cards">
+      
+      <!-- Cyberbullying Card -->
+      <div class="lulu-learning-card">
+        <img src="{{ url_for('static', filename='images/animations/cyberbullying.png') }}" alt="Cyberbullying" class="lulu-card-image">
+        <h3 class="lulu-card-title">🚫 Say "See Ya!" to Bullies!</h3>
+        <p class="lulu-card-description">Tired of online bullies? Let’s zap ‘em away and keep our online space friendly and fun!</p>
+        <a href="/children/children_lulu/cyberbullying" class="lulu-card-link">Zap Bullies Away!</a>
+      </div>
+      
+      <!-- Mobile App Permissions Card -->
+      <div class="lulu-learning-card">
+        <img src="{{ url_for('static', filename='images/animations/mobile_permissions.png') }}" alt="Mobile Apps and Permissions" class="lulu-card-image">
+        <h3 class="lulu-card-title">🔐 Apps Asking for What?!</h3>
+        <p class="lulu-card-description">Why do apps need your permission to do stuff? Let’s break it down like a detective! 🕵️‍♂️</p>
+        <a href="/children/children_lulu/apps_permissions" class="lulu-card-link">Unmask the App Secrets!</a>
+      </div>
+      
+      <!-- Phishing Card -->
+      <div class="lulu-learning-card">
+        <img src="{{ url_for('static', filename='images/animations/Be_a_phishing.jpg') }}" alt="Phishing" class="lulu-card-image">
+        <h3 class="lulu-card-title">🎣 Fishy Phishing Alerts!</h3>
+        <p class="lulu-card-description">Got an email from "your uncle"? Uh-oh! Let's find out how to spot fake messages trying to trick you!</p>
+        <a href="/children/children_lulu/phishing" class="lulu-card-link">Catch Those Phishers!</a>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Game Card Section -->
+  <div class="lulu-game-card-section">
+    <div class="lulu-game-card">
+      <h3 class="lulu-game-card-title">🎮 Game On! Test Your Safety Skills!</h3>
+      <p class="lulu-game-card-description">Ready to laugh and learn? Time to put your online safety knowledge to the test. No pressure, but... we’re counting on you!</p>
+      <a href="/children/children_lulu/game" class="lulu-game-card-link">Let’s Do This! 🎉</a>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

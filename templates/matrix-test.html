@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrix Test</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+    }
+    #matrix {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(1px) brightness(0.7);
+      opacity: 0.8;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .test-info {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      z-index: 100;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-info">矩阵动画测试页面</div>
+  <canvas id="matrix"></canvas>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("Matrix test script loaded");
+      
+      const canvas = document.getElementById('matrix');
+      console.log("Canvas element:", canvas);
+      
+      if (!canvas) {
+        console.error("Canvas element not found!");
+        return;
+      }
+      
+      const ctx = canvas.getContext('2d');
+      console.log("Canvas context:", ctx);
+      
+      if (!ctx) {
+        console.error("Could not get canvas context!");
+        return;
+      }
+      
+      // 设置canvas大小
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      console.log("Canvas size:", canvas.width, "x", canvas.height);
+      
+      // 填充黑色背景
+      ctx.fillStyle = 'black';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // 绘制测试矩形，确认Canvas可绘制
+      ctx.fillStyle = 'rgba(0, 180, 0, 0.5)';
+      ctx.fillRect(50, 50, 200, 100);
+      
+      // 简单Matrix效果
+      const letters = '01';
+      const fontSize = 14;
+      const columns = Math.floor(canvas.width / fontSize);
+      const drops = [];
+      
+      for(let i = 0; i < columns; i++) {
+        drops[i] = 1;
+      }
+      
+      function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = 'rgba(0, 255, 0, 0.5)';
+        ctx.font = fontSize + 'px monospace';
+        
+        for(let i = 0; i < drops.length; i++) {
+          const text = letters[Math.floor(Math.random() * letters.length)];
+          
+          // 为部分字符设置不同的透明度
+          if (Math.random() > 0.8) {
+            ctx.fillStyle = 'rgba(0, 255, 0, 0.7)';
+          } else {
+            ctx.fillStyle = 'rgba(0, 180, 0, 0.4)';
+          }
+          
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          
+          if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          
+          drops[i]++;
+        }
+      }
+      
+      setInterval(draw, 33);
+    });
+  </script>
+</body>
+</html> 
