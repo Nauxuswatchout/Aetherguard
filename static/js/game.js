@@ -691,13 +691,13 @@ class Game {
 
         // 根据角色名称和心情构建图片路径
         if (characterName === 'Zack') {
-            characterImage = `/static/images/characters/zack_${characterMood.toLowerCase()}.png`;
+            characterImage = `/static/images/characters/Zack_${characterMood.toLowerCase()}.png`;
         } else if (characterName === 'Aether') {
-            characterImage = `/static/images/characters/aether_${characterMood.toLowerCase()}.png`;
+            characterImage = `/static/images/characters/Aether_${characterMood.toLowerCase()}.png`;
         } else if (characterName === 'Mom') {
-            characterImage = `/static/images/characters/mom_${characterMood.toLowerCase()}.png`;
+            characterImage = `/static/images/characters/Mom_${characterMood.toLowerCase()}.png`;
         } else {
-            characterImage = `/static/images/characters/${characterName.toLowerCase()}_${characterMood.toLowerCase()}.png`;
+            characterImage = `/static/images/characters/${characterName}_${characterMood.toLowerCase()}.png`;
         }
 
         // 更新左侧角色（Zack）
