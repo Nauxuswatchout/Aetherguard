@@ -1,0 +1,1076 @@
+{
+  "events": [
+    {
+      "id": "HomeEvent-01",
+      "type": "home",
+      "title": "放学路上的邀请",
+      "conditions": {},
+      "background": "school.png",
+      "dialogues": [
+        {
+          "character": "Zack_tired",
+          "text": "今天终于放学了，感觉脑子都快炸掉了。数学测验又出错了，Louis还在背后笑话我。"
+        },
+        {
+          "character": "Zack_smile",
+          "text": "算了，反正今天的粉丝数终于上了100，总算有点小小的成就感吧。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "（拿出手机，看到新私信）"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "嘿，小Z，我是你频道的粉丝哦。一直在关注你的视频，真的很喜欢你的风格。"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "粉丝？真的假的，第一次有人主动找我聊天。"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "我家就在你学校这边，今天下午没事的话要不要一起去小公园？我可以帮你拍几张好看的照片，保证让你的账号涨粉超快。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "小公园啊，就在学校后面，走路几分钟。拍照听起来还不错，要是能有几张厉害的照片，发出去一定能吸不少赞。"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "不过……突然就约见面，会不会有点奇怪？可是机会难得，万一真的认识了厉害的人呢？"
+        },
+        {
+          "character": "Aether_serious",
+          "text": "做决定的时候，想一想什么对你最重要。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "同意邀请，去小公园见面。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "好啊，在哪里碰头？"
+              },
+              {
+                "character": "Unnamed_neutral",
+                "text": "就在小公园中央的大树旁边，我穿黑色卫衣，很好认。"
+              },
+              {
+                "character": "narrator",
+                "text": "（时间推进至小公园）"
+              },
+              {
+                "character": "Zack_neutral",
+                "text": "怎么好像周围一个人都没有？明明平时这里挺热闹的。"
+              },
+              {
+                "character": "Unnamed_neutral",
+                "text": "你来了啊，没想到这么准时。"
+              },
+              {
+                "character": "Zack_serious",
+                "text": "你真的是我频道的粉丝吗？感觉和我想象的不太一样。"
+              },
+              {
+                "character": "Unnamed_neutral",
+                "text": "跟我来，给你找个拍照的好地方。"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "等等，我觉得有点不对劲……"
+              },
+              {
+                "character": "Aether_warning",
+                "text": "扎克，快跑吧。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克转身跑开，快速回到大路上）"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -20,
+              "safetyAwareness": 10,
+              "familyTrust": -5
+            }
+          }
+        },
+        {
+          "text": "拒绝邀请，把这件事告诉Aether。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_serious",
+                "text": "今天可能不太方便，改天吧。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克锁上手机，回头看向手中的Aether）"
+              },
+              {
+                "character": "Zack_relaxed",
+                "text": "说不出来为什么，就是觉得有点奇怪，还是小心点好。"
+              },
+              {
+                "character": "Aether_proud",
+                "text": "保护自己是最重要的决定。你已经做得很好了。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 5,
+              "safetyAwareness": 15,
+              "familyTrust": 5
+            }
+          }
+        }
+      ],
+      "summary": "在网络上认识陌生人时，要特别小心。即使对方自称是粉丝或朋友，也要保持警惕。选择在人多的地方见面，并随时注意周围环境，保护自己的安全。"
+    },
+    {
+      "id": "HomeEvent-02",
+      "type": "home",
+      "title": "陌生人的询问",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天学校也没什么特别的事情，早点回到家感觉真好。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "妈妈还在做晚饭，我可以休息一会儿。看看手机上有没有新消息吧。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克打开手机，看到一条新的私信）"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "嗨，小扎克，我是你妈妈的朋友Linda阿姨呀。"
+        },
+        {
+          "character": "Zack_confused",
+          "text": "Linda阿姨？妈妈的朋友吗？好像听妈妈提过有个朋友叫Linda。"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "上次聚会时你们家很热闹呢。阿姨最近想约你妈妈出去买东西，可是她电话一直打不通。我记得你们好像有个固定的周末活动来着，能不能告诉阿姨，你妈妈最近打算什么时候去超市？"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "她说得好自然……上次妈妈的确和朋友出去过一次，但我不记得她有没有叫Linda。"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "要不要告诉她呢？如果是妈妈的朋友，不告诉她好像不太礼貌。"
+        },
+        {
+          "character": "Aether_gentle",
+          "text": "（Aether静静地坐在床头，看着扎克，似乎在等待他的决定）"
+        }
+      ],
+      "choices": [
+        {
+          "text": "告诉对方妈妈周末打算去超市。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_smile",
+                "text": "好吧，我妈妈应该周六下午会去市中心的超市。"
+              },
+              {
+                "character": "Unnamed_neutral",
+                "text": "太好了，谢谢你，小扎克。你真是个好孩子。"
+              },
+              {
+                "character": "narrator",
+                "text": "（消息发送后，对方迅速下线）"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "感觉有点不安……但可能只是我多心了吧。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": -10,
+              "familyTrust": -5,
+              "mentalHealth": -5
+            }
+          }
+        },
+        {
+          "text": "礼貌地拒绝提供任何家庭行程信息。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_serious",
+                "text": "抱歉阿姨，我不太清楚妈妈的安排，可能你要亲自问她比较好。"
+              },
+              {
+                "character": "narrator",
+                "text": "（消息已读，对方没有回复）"
+              },
+              {
+                "character": "Zack_relaxed",
+                "text": "不告诉陌生人家庭的事情，应该是对的吧。"
+              },
+              {
+                "character": "Aether_proud",
+                "text": "小心保护家人的信息，说明你真的长大了。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 15,
+              "familyTrust": 5,
+              "mentalHealth": 5
+            }
+          }
+        }
+      ],
+      "summary": "在网上，无论对方自称是谁，都不能随便透露家人的行程、位置或任何隐私。即使对方说得很像真的，也要保持警惕，保护自己和家人的安全。"
+    },
+    {
+      "id": "HomeEvent-03",
+      "type": "home",
+      "title": "可疑的水电账单",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "终于到家了，厨房里好香啊，妈妈在做什么好吃的呢。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克走进厨房）"
+        },
+        {
+          "character": "MrsWilliam_neutral",
+          "text": "扎克，帮妈妈个忙，把我包里的信用卡拿过来。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "要买什么吗？"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "手机上刚收到一条水电公司的催缴通知，得赶紧付钱，不然说要停电。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克打开包，拿到信用卡，但停顿了一下）"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "水电公司这么着急要钱？不都是月底才交吗？"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "妈妈，能给我看看那个通知吗？"
+        },
+        {
+          "character": "MrsWilliam_confused",
+          "text": "啊？我都点开付款界面了，应该没问题吧？"
+        },
+        {
+          "character": "Zack_determined",
+          "text": "让我确认一下吧，万一是假的呢。"
+        },
+        {
+          "character": "narrator",
+          "text": "（妈妈把手机递给扎克）"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克看到付款页面，发现网址奇怪，页面简陋）"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "这个网站……好像有问题，发件人也不是官方邮箱。"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "啊？不会吧，我都准备输卡号了。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "直接制止妈妈付款，建议拨打水电公司官方客服电话核实。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "妈妈，先别付，赶紧打客服电话问清楚。"
+              },
+              {
+                "character": "narrator",
+                "text": "（妈妈立刻打了电话，确认并无欠费，是诈骗邮件）"
+              },
+              {
+                "character": "MrsWilliam_relief",
+                "text": "幸亏你提醒，不然真的出大事了。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 20,
+              "familyTrust": 10,
+              "mentalHealth": 5
+            }
+          }
+        },
+        {
+          "text": "让妈妈自己决定，相信她不会出错。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_worried",
+                "text": "那你自己小心点吧……"
+              },
+              {
+                "character": "narrator",
+                "text": "（妈妈最终填写了部分信息，但突然意识到奇怪，及时停下，受惊但无重大损失）"
+              },
+              {
+                "character": "MrsWilliam_worried",
+                "text": "还好我自己反应过来，不过以后我应该更小心。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 5,
+              "familyTrust": 0,
+              "mentalHealth": -5
+            }
+          }
+        },
+        {
+          "text": "继续观察页面细节，找到更多异常再说明。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_thinking",
+                "text": "让我仔细看看……发件人拼写错了，网站链接也是盗版。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克整理好证据，向妈妈详细解释）"
+              },
+              {
+                "character": "MrsWilliam_grateful",
+                "text": "太谢谢你了，以后我要先让你帮我查一查。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 15,
+              "familyTrust": 10,
+              "mentalHealth": 5
+            }
+          }
+        }
+      ],
+      "summary": "账单诈骗常常通过伪造官方邮件和逼迫感制造紧张气氛。要预防这类诈骗，首先要核对发件人信息，不直接点击链接，最好通过官网或客服电话核实。如果已经输入了敏感信息，要立即联系银行冻结卡片，并更改相关密码，最大程度减少损失。"
+    },
+    {
+      "id": "HomeEvent-04",
+      "type": "home",
+      "title": "快递补费骗局",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "作业终于做完了，可以好好休息一下了。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克走进客厅）"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "扎克，你能过来一下吗？妈妈好像遇到麻烦了。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "怎么了？"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "我刚才在手机上看到一条快递补费通知，说我的包裹差一点被退回了。我点进去付了两块钱的费用……可是现在想想，好像哪里不对。"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "你付了？！"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "是啊……当时着急，页面看着也像真的，没多想。"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "能给我看看你付费用的网站吗？"
+        },
+        {
+          "character": "narrator",
+          "text": "（妈妈递过手机）"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克检查网站，发现网址杂乱、没有正规认证标识）"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "这个是假的，是典型的钓鱼链接。"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "那……怎么办？我的银行卡信息是不是被盗了？"
+        }
+      ],
+      "choices": [
+        {
+          "text": "立刻冻结卡片并拨打银行电话报警。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "不管有没有被盗，先冻结卡片最保险。打银行客服电话，申请挂失处理。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克帮妈妈拨打银行电话，及时冻结卡片）"
+              },
+              {
+                "character": "narrator",
+                "text": "（银行确认卡片已冻结并无资金损失）"
+              },
+              {
+                "character": "MrsWilliam_relief",
+                "text": "太好了，真的太感谢你了扎克。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 20,
+              "familyTrust": 20,
+              "mentalHealth": 5
+            }
+          }
+        },
+        {
+          "text": "先观察账户变动情况，看有没有异常消费再决定。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_thinking",
+                "text": "先不要慌，看看银行账户有没有异常消费。"
+              },
+              {
+                "character": "narrator",
+                "text": "（妈妈登录网银，短时间内没有异常，但隔天发现小额盗刷）"
+              },
+              {
+                "character": "MrsWilliam_worried",
+                "text": "果然被骗了，还好只是小金额。"
+              },
+              {
+                "character": "narrator",
+                "text": "（最后仍需补救，申请银行追款）"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 5,
+              "familyTrust": 0,
+              "mentalHealth": -10
+            }
+          }
+        }
+      ],
+      "summary": "面对钓鱼链接，如果已经泄露了支付信息，第一时间应该是冻结卡片，联系银行挂失，防止进一步损失。同时保存相关截图证据，必要时可以向警方备案。等问题出现再处理，往往为时已晚，主动快速应对才能最大程度保护自己。"
+    },
+    {
+      "id": "HomeEvent-05",
+      "type": "home",
+      "title": "信用卡盗刷风波",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天总算有点属于自己的时间了。"
+        },
+        {
+          "character": "narrator",
+          "text": "（妈妈突然气冲冲地走来）"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "扎克，你是不是用我的信用卡充值游戏了？"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "什么？我没有！"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "账单上多了一笔游戏公司的消费记录，金额还是648,一看就是游戏充值。不是你还能有谁？"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "我真的没有动过你的卡！"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "别找借口了，回房间去，别让我再生气。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克气呼呼地回到房间）"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "明明不是我，凭什么冤枉我！"
+        },
+        {
+          "character": "narrator",
+          "text": "（Aether靠在门边）"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "出什么事了？你一脸不高兴。"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "妈妈以为是我刷了卡，可我根本没动过。"
+        },
+        {
+          "character": "Aether_thinking",
+          "text": "有没有可能……卡信息被盗了？"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "对啊，要是被盗刷，那就严重了。"
+        },
+        {
+          "character": "Aether_neutral",
+          "text": "要不要让妈妈查一下消费记录？看看是不是正常交易。"
+        },
+        {
+          "character": "Zack_determined",
+          "text": "对，我得说服她认真对待！"
+        }
+      ],
+      "choices": [
+        {
+          "text": "督促妈妈立刻联系银行冻结卡片并核实交易。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_serious",
+                "text": "（重新走出房间）妈妈，真的不是我，最好赶快联系银行查一下交易，可能是卡被盗了。"
+              },
+              {
+                "character": "MrsWilliam_worried",
+                "text": "……好吧，我打个电话试试。"
+              },
+              {
+                "character": "narrator",
+                "text": "（时间推进）"
+              },
+              {
+                "character": "narrator",
+                "text": "（银行确认卡片有海外消费记录，妈妈及时冻结卡片，几天之后金额又被银行追回了）"
+              },
+              {
+                "character": "MrsWilliam_grateful",
+                "text": "幸好听了你的，不然真要出大问题了。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 20,
+              "familyTrust": 15,
+              "mentalHealth": 5
+            }
+          }
+        },
+        {
+          "text": "督促妈妈报警处理。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_serious",
+                "text": "妈妈，这种事情很严重，应该报警处理。"
+              },
+              {
+                "character": "MrsWilliam_worried",
+                "text": "别胡闹了，几块钱的事还报警？小题大做。"
+              },
+              {
+                "character": "narrator",
+                "text": "（妈妈不理会扎克的建议，拒绝报警）"
+              },
+              {
+                "character": "narrator",
+                "text": "（几天后）"
+              },
+              {
+                "character": "MrsWilliam_worried",
+                "text": "扎克，又有人用我的卡买东西了！"
+              },
+              {
+                "character": "narrator",
+                "text": "（妈妈这才后悔，但损失已经发生）"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 0,
+              "familyTrust": -10,
+              "mentalHealth": -10
+            }
+          }
+        }
+      ],
+      "summary": "发现银行卡可能被盗刷时，第一步是立刻冻结卡片并联系银行，避免更多损失。如果有异常消费记录，及时报警也是必要的补救措施。越早行动，越能降低损失；犹豫拖延只会让问题变得更严重。"
+    },
+    {
+      "id": "HomeEvent-06",
+      "type": "home",
+      "title": "隐私泄露风波",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天真是累坏了，终于可以放松一下了。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克正准备回房间）"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "扎克，能帮妈妈看一下手机吗？好像出了点问题。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "怎么了？"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "我刚发了张朋友聚会的照片到朋友圈，结果有个陌生人留言，说知道我们家在哪，还留言了我的小区名字……"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "什么？！你有开启定位吗？"
+        },
+        {
+          "character": "MrsWilliam_confused",
+          "text": "没有啊……吧？"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "让我看看。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克接过妈妈的手机）"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "你的照片有位置信息，App自动公开了。还有，账户信息里也写了家庭住址。"
+        },
+        {
+          "character": "MrsWilliam_confused",
+          "text": "啊？我都不知道！"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "现在很多App默认公开各种信息，如果不自己去关掉，别人可以轻易看到。"
+        },
+        {
+          "character": "MrsWilliam_worried",
+          "text": "那怎么办？要不要删掉那张照片？"
+        }
+      ],
+      "choices": [
+        {
+          "text": "只删掉敏感照片，继续使用原有设置。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "那就把照片删掉好了，应该没事吧。"
+              },
+              {
+                "character": "MrsWilliam_relief",
+                "text": "也好，总比留着强。"
+              },
+              {
+                "character": "narrator",
+                "text": "（妈妈删了照片，但其他隐私信息仍然暴露在外）"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "不过……这样真的安全吗？"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": -5,
+              "mentalHealth": -5,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "只关闭位置服务，其他权限不管。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_thinking",
+                "text": "我帮你关掉手机定位功能吧。"
+              },
+              {
+                "character": "MrsWilliam_neutral",
+                "text": "好啊，关了就安全了吧？"
+              },
+              {
+                "character": "narrator",
+                "text": "（位置公开问题解决了，但联系方式、生日、住址等仍然暴露在社交平台上）"
+              },
+              {
+                "character": "Zack_neutral",
+                "text": "嗯……可能还不够彻底。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": -5,
+              "mentalHealth": 0,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "全面检查所有App权限，调整隐私设置。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "不行，我们得全面检查你的App权限，改掉默认公开的设置。"
+              },
+              {
+                "character": "MrsWilliam_confused",
+                "text": "要这么麻烦吗？"
+              },
+              {
+                "character": "Zack_smile",
+                "text": "保护自己总比出事后后悔好。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克帮妈妈逐一检查账户隐私设置，关闭了不必要的分享功能，清理了公开信息）"
+              },
+              {
+                "character": "MrsWilliam_grateful",
+                "text": "多亏了你，扎克。以后我要小心点了。"
+              }
+            ],
+            "stats": {
+              "safetyAwareness": 15,
+              "mentalHealth": 5,
+              "social": 5
+            }
+          }
+        }
+      ],
+      "summary": "在网络世界，很多App默认会收集和公开你的位置信息、照片信息、个人资料。如果不主动管理隐私设置，个人数据很容易落入不怀好意的人手中。保护自己的信息，就像在现实中锁好门窗一样重要。"
+    },
+    {
+      "id": "HomeEvent-07",
+      "type": "home",
+      "title": "视频被侵权",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天的视频数据不错，希望越来越多人喜欢。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克刷手机，突然看到一条广告）"
+        },
+        {
+          "character": "Zack_shocked",
+          "text": "等等，这不是我拍的视频吗？！"
+        },
+        {
+          "character": "narrator",
+          "text": "（广告里，扎克的视频被篡改，加上了奇怪的台词，还打上了某购物网站标志）"
+        },
+        {
+          "character": "Zack_alert",
+          "text": "他们居然直接拿走我的视频，还乱改内容！"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克气得站起来）"
+        },
+        {
+          "character": "Zack_angry",
+          "text": "这太离谱了，根本没有经过我同意！"
+        },
+        {
+          "character": "narrator",
+          "text": "（Aether走到他身边）"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "这种情况不是误会，是侵权，而且影响了你的名誉。"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "可是我是普通人，对方又是公司……我能做什么？"
+        },
+        {
+          "character": "Aether_serious",
+          "text": "你有权保护自己的创作。问题是，你要找对地方投诉。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克打开聊天软件，联系Louis）"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "（发消息）Louis，如果有人用我的视频做广告，我该找谁投诉？"
+        },
+        {
+          "character": "Louis_relaxed",
+          "text": "（回复）取决于你想怎么处理。选错地方只会浪费时间，要选对。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "投诉到内容平台内部客服（普通客服系统）",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "先跟平台客服聊聊吧。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克提交了投诉单，但因为走的是普通客服流程，效率低，客服只是机械回复，问题没有得到处理）"
+              },
+              {
+                "character": "narrator",
+                "text": "（几天后，侵权广告仍在流传）"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "好像没什么用……"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -5,
+              "safetyAwareness": -5,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "投诉到广告监管机构（ACCC）",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "既然是商业广告违规，应该找监管部门。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克整理了证据，向ACCC提交了正式举报）"
+              },
+              {
+                "character": "narrator",
+                "text": "（几天后，平台因接到监管通知迅速下架了侵权广告，相关方被要求道歉）"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克账号声誉恢复正常）"
+              },
+              {
+                "character": "Zack_determined",
+                "text": "这次真的做对了！"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 15,
+              "safetyAwareness": 20,
+              "social": 10
+            }
+          }
+        },
+        {
+          "text": "投诉到学校学生事务办公室",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_uncertain",
+                "text": "学校应该也能帮忙吧？"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克向学校投诉，但学校回复说无法处理社会平台上的商业纠纷）"
+              },
+              {
+                "character": "narrator",
+                "text": "（浪费了时间，广告问题继续存在）"
+              },
+              {
+                "character": "Zack_sad",
+                "text": "果然找错了地方……"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": -10,
+              "social": 0
+            }
+          }
+        }
+      ],
+      "summary": "在面对严重侵权时，选择正确的举报渠道非常重要。一般来说，涉及网络侵权、商业不当行为时，应向专业监管机构（比如ACCC）投诉。普通客服处理不了严重违规，学校事务部门也不具备处理权。学会用对方法，是保护自己的第一步。"
+    },
+    {
+      "id": "HomeEvent-08",
+      "type": "home",
+      "title": "身份被盗用",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天好像视频评论区特别活跃啊，去看看。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克刷手机，突然看到一条粉丝留言）"
+        },
+        {
+          "character": "Tiktok_user",
+          "text": "你怎么还有另一个账号？我在那边看到了你发的自拍！"
+        },
+        {
+          "character": "Zack_confused",
+          "text": "我根本没开第二个账号啊？"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克点开粉丝发的链接）"
+        },
+        {
+          "character": "narrator",
+          "text": "（看到一个用自己照片冒充的账号，还在发布奇怪的内容）"
+        },
+        {
+          "character": "Zack_alert",
+          "text": "天啊，有人盗用我的照片冒充我！"
+        },
+        {
+          "character": "Zack_worried",
+          "text": "如果继续下去，别人会以为那些乱七八糟的话是我说的！"
+        },
+        {
+          "character": "Aether_concerned",
+          "text": "（靠过来）这已经影响到你的名誉了，必须处理。"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "要去找谁投诉呢……"
+        }
+      ],
+      "choices": [
+        {
+          "text": "向社交平台内容审核部门举报",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_neutral",
+                "text": "我先在平台内部举报吧。"
+              },
+              {
+                "character": "narrator",
+                "text": "（平台审核进度缓慢，且处理结果模糊）"
+              },
+              {
+                "character": "narrator",
+                "text": "（盗用账号继续活跃，影响越来越大）"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "等平台慢慢处理，我的名誉都毁了。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": -5,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "向网络身份盗用专门机构（例如Australian Cyber Security Centre）举报",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_determined",
+                "text": "身份盗用是严重问题，得找专门机构处理。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克收集截图证据，向Australian Cyber Security Centre提交举报）"
+              },
+              {
+                "character": "narrator",
+                "text": "（ACSC协助平台快速冻结盗用账号）"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克账号安全恢复，社交圈子也因此更加支持他）"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 15,
+              "safetyAwareness": 20,
+              "social": 10
+            }
+          }
+        },
+        {
+          "text": "向学校投诉请求删除假账号",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_uncertain",
+                "text": "学校也许能帮忙？"
+              },
+              {
+                "character": "narrator",
+                "text": "（学校回复：这是社交媒体平台外的个人行为，无法干预）"
+              },
+              {
+                "character": "Zack_sad",
+                "text": "果然不是学校该管的事……"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -5,
+              "safetyAwareness": -5,
+              "social": 0
+            }
+          }
+        }
+      ],
+      "summary": "网络身份盗用是严重的违法行为，不是小事。遇到照片被盗用冒充，一定要通过网络安全机构（如ACSC）及时举报，同时保留证据，维护自己的名誉和权益。"
+    }
+  ]
+} 
