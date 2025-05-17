@@ -1,0 +1,207 @@
+{
+  "events": [
+    {
+      "id": "BadEnd",
+      "type": "end",
+      "background1": "badend1.png",
+      "dialogues1": [
+        "The room was quiet again. Too quiet, like a silence after something is broken.",
+        "Zack sat there, still bound by invisible weight — not the ropes, but the helplessness left behind.",
+        "Aether was gone. His voice, his comfort, had faded away with the dream.",
+        "Zack stared at the empty corner of the room, half-expecting Aether to reappear… but nothing moved.",
+        "Outside the window, the world was as dark as the screen in front of him.",
+        "All the courage he'd tried to build — vanished. He wasn't ready after all."
+      ],
+      "background2": "badend2.png",
+      "dialogues2": [
+        "No one knocked on his door.",
+        "No one came online to check on him.",
+        "The hateful comments stayed. The rumors kept spreading.",
+        "Zack stayed still. The lamp flickered once, then dimmed.",
+        "Even the noise of the outside world no longer reached him.",
+        "Only the shallow sound of his own breathing echoed back, as if even his voice had left him.",
+        "And in that silence… Zack realized: he couldn't protect himself. Not yet."
+      ],
+      "title": "Bad end"
+    },
+
+    {
+      "id": "FailedTrustEnd",
+      "type": "end",
+      "background1": "Failend1.png",
+      "dialogues1": [
+        "Zack's livestream began with hope, but was soon overrun by hateful comments.",
+        "No one offered help. The chat scrolled endlessly with accusations and mockery.",
+        "The screen flashed red — 'This content has been reported.' Then, silence.",
+        "He lowered the phone. Not even Bob could say anything.",
+        "The people he counted on… remembered his words, not his reasons."
+      ],
+      "background2": "Failend2.png",
+      "dialogues2": [
+        "Zack wasn't ignored because he was quiet.",
+        "He was ignored because when he spoke, he was harsh, sarcastic, and irresponsible.",
+        "He never practiced kindness online. Never thought words mattered.",
+        "So when he finally needed others… no one believed him.",
+        "Online, trust isn't given — it's earned, word by word."
+      ],
+      "title": "Echoes of Words"
+    },
+
+    {
+      "id": "Alone",
+      "type": "end",
+      "background1": "Alone1.png",
+      "dialogues1": [
+        "Louis stared at Zack. 'That story proves you remember things. Not people.'",
+        "Zack opened his mouth, but no words came out.",
+        "Bob let out a sigh. 'She tried talking to you, Zack. We both did. You just never answered back.'",
+        "Louis took one last look. 'You always talked to the camera. Never to us.'",
+        "They turned and left together. Zack didn't stop them."
+      ],
+      "background2": "Alone2.png",
+      "dialogues2": [
+        "After that night, Zack stopped trying to reach out.",
+        "Evil Zack became his only companion — the voice behind the screen, sharper than ever.",
+        "Together they ran the account. Views soared. Comments cheered.",
+        "But every 'like' felt hollow. Every 'share' echoed back emptiness.",
+        "Zack won the algorithm. But lost everyone else."
+      ],
+      "background3": "Alone3.png",
+      "dialogues3": [
+        "Popularity isn't connection. Followers aren't friends.",
+        "Zack mistook performance for trust — and the internet rewarded it.",
+        "He became everything the platform wanted. But nothing his friends needed.",
+        "In the spotlight, he smiled louder. But the silence behind it only grew.",
+        "You don't disappear online. You just become someone else."
+      ],
+      "title": "Lost in the virtual"
+    },
+    {
+      "id": "Virtual",
+      "type": "end",
+      "background1": "Alone1.png",
+      "dialogues1": [
+        "Zack lowered his head. After a long silence, he finally tapped 'Cancel Deletion' with a gentle touch.",
+        "'Maybe there's another way… Maybe I shouldn't throw all this away.'",
+        "Bob frowned but said nothing; Louis just gave a faint smile and turned to leave.",
+        "From that day on, they never contacted Zack again."
+      ],
+      "background2": "Alone2.png",
+      "dialogues2": [
+        "But Zack kept getting more famous.",
+        "His video editing became sharper, his titles more clickable, and his comment section full of praise.",
+        "He co-managed the channel with Evil Zack—quiet, efficient, never questioned or resisted.",
+        "They launched a second channel, released an AI voice model, signed brand deals, and constantly trended.",
+        "He became a rising star of the internet, the favorite of the algorithm, a symbol of success.",
+        "He had truly made it.",
+        "At least, in the data…"
+      ],
+      "background3": "Virtual.png",
+      "dialogues3": [
+        "Zack did have a choice, but he chose the version of himself that seemed more 'useful'.",
+        "He no longer needed Aether's company, nor the messy but real relationships of the offline world.",
+        "Why risk being misunderstood by friends when online fans always hit 'like'?",
+        "He turned daily life into content, shaped his personality into a persona,",
+        "and replaced 'who I am' with 'who they want me to be'.",
+        "His smile got smoother. His voice, more confident.",
+        "But sometimes at night, just as the lights dimmed, he would suddenly pause.",
+        "He might blurt out, 'Aether, did you see that?' while finishing a cut.",
+        "He might reach for his phone, eager to tell Bob and Louis about a new milestone.",
+        "Then he'd freeze… go quiet… and slowly turn off the mic.",
+        "He seemed like he no longer needed friends. But sometimes,",
+        "on some quiet night, just for a moment,",
+        "a memory would flash through his mind.",
+        "He'd call out Aether's name without thinking.",
+        "And feel the urge to share something with Bob and Louis—just one more time…"
+      ],
+      "title": "Alone in the Spotlight"
+    },
+    {
+      "id": "PerfectEnd",
+      "type": "end",
+      "background1": "perfect1.png",
+      "dialogues1": [
+        "Zack looked at the 'Delete Account' screen on his phone. He hesitated, his finger hovering over the button.",
+        "Bob asked quietly, 'Are you sure? This is everything you've worked for.'",
+        "Louis frowned. 'You're already famous now. Don't you want to keep going?'",
+        "Zack gave a small smile. 'The internet is still virtual… but you two—you're what's real to me.'",
+        "Then, without hesitation, he tapped 'Delete'.",
+        "The phone screen faded to black. The followers, the numbers, the account—all gone.",
+        "And the shadow from the online world… finally disappeared for good."
+      ],
+      "background2": "perfect2.png",
+      "dialogues2": [
+        "The three of them stood at the edge of a busy sidewalk, traffic rushing by, voices all around them.",
+        "There were no cheers. No cameras. Just the warm streetlight, and the mixed expressions on his friends' faces.",
+        "Bob nudged his shoulder. 'Is this really the Zack I know?'",
+        "Louis raised an eyebrow, then smirked. 'If you'd done this earlier, we might have actually been friends already.'",
+        "Zack shrugged. He didn't try to explain.",
+        "He just smiled.",
+        "This time, he was truly ready."
+      ],
+      "background3": "perfect3.png",
+      "dialogues3": [
+        "After returning to his normal life, Zack didn't leave the internet behind.",
+        "He created a new account, and named it—'Aetherguard'.",
+        "He began sharing his story, opening up about the online dangers he had faced.",
+        "He used his voice to help other kids learn how to stay safe online.",
+        "The numbers were smaller now. The chats less crowded.",
+        "But Zack felt more grounded than ever before.",
+        "He knew that behind the name 'Aetherguard' was a memory—",
+        "of someone who had once stood by his side, even in silence.",
+        "And now, Zack had become that someone for others.",
+        "Because the real journey… had just begun."
+      ],
+      "title": "The Real Reset"
+    },
+    {
+      "id": "DreamEnd",
+      "type": "end",
+      "background1": "Dream1.png",
+      "dialogues1": [
+        "The light in the room slowly grew brighter.",
+        "Zack opened his eyes.",
+        "No evil copy, no countdown, no blinding light—",
+        "Just the ceiling, his blanket, and the morning sun creeping through the window.",
+        "It had all been a dream.",
+        "But this time, something felt different.",
+        "He sat up, took a deep breath, and smiled.",
+        "He knew something inside him had truly changed."
+      ],
+      "background2": "Dream2.png",
+      "dialogues2": [
+        "That afternoon, Zack invited Bob and Louis over to his house for a small get-together.",
+        "He spoke with excitement, describing the dream, the evil version of himself, Aether, and every decision he had made.",
+        "Louis scrolled through her phone, occasionally glancing up with an eye-roll, clearly thinking it all sounded childish.",
+        "Bob just smiled the whole time—maybe not following everything, but clearly happy to be there.",
+        "In the kitchen, his mom was preparing dinner, never stopping her hands, but looking into the room now and then with a peaceful smile.",
+        "What Zack said didn't matter as much as one simple thing: they were there."
+      ],
+      "background3": "perfect3.png",
+      "dialogues3": [
+        "In the days that followed, Zack didn't completely leave the internet.",
+        "But he no longer checked his follower count every hour.",
+        "He no longer let likes and comments define his day.",
+        "He started a new channel, and named it 'Aetherguard',",
+        "as a tribute to the friend who had always stayed by his side.",
+        "This time, it wasn't about chasing numbers.",
+        "He just wanted to share what he had learned.",
+        "To be there for others—before they got lost in the noise."
+      ],
+      "background4": "Dream3.png",
+      "dialogues4": [
+        "The dream faded away, just like all dreams do.",
+        "But its echo stayed in Zack's heart—",
+        "in how he spoke,",
+        "in how he chose to listen,",
+        "and in the way he no longer held back when reaching out to others.",
+        "Sometimes, change doesn't arrive with fireworks.",
+        "Sometimes, it starts quietly—",
+        "with one strange dream,",
+        "and the choice to live differently after waking up."
+      ],
+      "title": "The Dream Ending"
+    }
+    
+  ]
+} 
