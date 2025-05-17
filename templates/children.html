@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="children-page-container">
+    <!-- Matrix canvas for background effect -->
+    <canvas id="matrix-background" class="matrix-canvas"></canvas>
+
+    <div class="children-content-wrapper">
+        <h1 class="children-heading">🌟 Pick Your Adventure Buddy! 🌟</h1>
+        <p class="children-intro">
+            🚀✨ Ready for a magical journey through the online universe? ✨🚀<br>
+            Your new friends are waiting to explore, learn, and have fun — all while staying safe!
+            Choose your buddy and let's blast off! 🌈🌍
+        </p>
+
+        <div class="children-cards-wrapper">
+            <div class="children-cards">
+
+                <!-- Tilly Card -->
+                <div class="child-wrapper" data-buddy="tilly">
+                    <div class="child-card">
+                        <div class="media-container">
+                            <img src="{{ url_for('static', filename='images/animations/tilly.jpeg') }}"
+                                 alt="Tilly the Turtle" class="child-image">
+                            <video class="child-video" loop muted>
+                                <source src="{{ url_for('static', filename='images/animations/tilly.mp4') }}" type="video/mp4">
+                            </video>
+                        </div>
+                        <h2 class="child-name">Tilly 🐢</h2>
+                        <p class="child-age">(Ages 5–9)</p>
+                        <p class="child-message">
+                            🌟 Hi there! I'm Tilly, a super curious turtle!
+                            I love to learn new things and stay safe while I explore.
+                            Let's discover safe ways to have fun online, together! 🌈
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lulu Card -->
+                <div class="child-wrapper" data-buddy="lulu">
+                    <div class="child-card">
+                        <div class="media-container">
+                            <img src="{{ url_for('static', filename='images/animations/lulu.jpeg') }}" alt="Lulu the Sheep"
+                                 class="child-image">
+                            <video class="child-video" loop muted>
+                                <source src="{{ url_for('static', filename='images/animations/lulu.mp4') }}" type="video/mp4">
+                            </video>
+                        </div>
+                        <h2 class="child-name">Lulu 🐑</h2>
+                        <p class="child-age">(Ages 9–15)</p>
+                        <p class="child-message">
+                            🚀 Hey! I'm Lulu, your adventurous sheep buddy!
+                            The online world is exciting, but we gotta be smart.
+                            Let's learn cool tips to stay safe and make great choices! 🎯
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Zack Card -->
+                <div class="child-wrapper" data-buddy="zack">
+                    <div class="child-card zack-card">
+                        <div class="zack-media">
+                            <img src="{{ url_for('static', filename='images/background.png') }}" alt="Zack's Digital Journey" class="zack-image">
+                            <video class="zack-video" loop muted>
+                                <source src="{{ url_for('static', filename='images/cover.mp4') }}" type="video/mp4">
+                            </video>
+                            <div class="zack-overlay">
+                                <h2 class="zack-title">Zack's Digital Journey</h2>
+                                <p class="zack-age">(Ages 9-14)</p>
+                                <p class="zack-description">
+                                    Enhance your child's cybersecurity awareness through learning. 
+                                    Join Zack on an amazing adventure!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Load Matrix script first -->
+<script src="{{ url_for('static', filename='js/matrix.js') }}"></script>
+<script src="{{ url_for('static', filename='js/children.js') }}"></script>
+
+<script>
+    // Test direct access to matrix functions
+    console.log('Direct test of matrix functions:',
+        typeof initMatrix === 'function',
+        typeof stopMatrix === 'function');
+    
+    // Fallback matrix functions in case the external script fails to load
+    if (typeof initMatrix !== 'function') {
+        console.log('Creating fallback matrix functions');
+        window.initMatrix = function(canvas) {
+            console.log('Fallback initMatrix called');
+            canvas.style.display = 'block';
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas dimensions
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // Fill with dark background
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw some matrix-like text
+            ctx.fillStyle = 'rgba(0, 255, 0, 0.8)';
+            ctx.font = '16px monospace';
+            
+            for (let i = 0; i < 50; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                ctx.fillText('10', x, y);
+            }
+        };
+        
+        window.stopMatrix = function() {
+            console.log('Fallback stopMatrix called');
+            const canvas = document.getElementById('matrix-background');
+            if (canvas) {
+                canvas.style.display = 'none';
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        };
+    }
+        
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Children page loaded');
+        
+        // Matrix 背景初始化
+        const matrixCanvas = document.getElementById('matrix-background');
+        if (matrixCanvas) {
+            matrixCanvas.style.display = 'none'; // 初始设为隐藏
+        }
+
+        const titles = document.querySelectorAll('.child-wrapper[data-buddy="tilly"] .child-name, .child-wrapper[data-buddy="lulu"] .child-name');
+        
+        
+        titles.forEach(title => {
+            const text = title.textContent;
+           
+            const emojiMatch = text.match(/([\uD800-\uDBFF][\uDC00-\uDFFF]|\p{Emoji}+)$/u);
+            const emoji = emojiMatch ? emojiMatch[0] : '';
+            
+            const textWithoutEmoji = emojiMatch ? text.substring(0, text.length - emoji.length) : text;
+            
+            title.textContent = '';
+            
+            
+            for (let i = 0; i < textWithoutEmoji.length; i++) {
+                const letterSpan = document.createElement('span');
+                letterSpan.className = 'letter';
+                letterSpan.textContent = textWithoutEmoji[i];
+                title.appendChild(letterSpan);
+            }
+            
+            
+            if (emoji) {
+                const emojiSpan = document.createElement('span');
+                emojiSpan.className = 'emoji';
+                emojiSpan.textContent = emoji;
+                title.appendChild(emojiSpan);
+            }
+        });
+        
+        
+        const wrappers = document.querySelectorAll('.child-wrapper[data-buddy="tilly"], .child-wrapper[data-buddy="lulu"]');
+        
+        wrappers.forEach(wrapper => {
+            wrapper.addEventListener('mouseenter', function() {
+                
+                const video = this.querySelector('.child-video');
+                if (video) {
+                    video.playbackRate = 2.0;
+                    video.play();
+                }
+                
+                
+                const letters = this.querySelectorAll('.letter');
+                letters.forEach((letter, index) => {
+                    letter.style.animation = `letterBounce 1s ease ${index * 0.1}s infinite`;
+                });
+            });
+            
+            wrapper.addEventListener('mouseleave', function() {
+                
+                const video = this.querySelector('.child-video');
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+                
+                
+                const letters = this.querySelectorAll('.letter');
+                letters.forEach(letter => {
+                    letter.style.animation = 'none';
+                });
+            });
+        });
+
+        // Zack 卡片悬停效果
+        const zackWrapper = document.querySelector('.child-wrapper[data-buddy="zack"]');
+        
+        if (zackWrapper) {
+            // 状态跟踪变量
+            let isHovering = false;
+            let debounceTimer = null;
+            
+            // 悬停效果处理函数
+            const handleZackInteraction = (isEntering) => {
+                // 取消任何未完成的计时器
+                if (debounceTimer) {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = null;
+                }
+                
+                // 如果状态没有变化，就不重复处理
+                if (isHovering === isEntering) {
+                    return;
+                }
+                
+                // 更新状态
+                isHovering = isEntering;
+                
+                console.log('Zack interaction:', isEntering ? 'enter' : 'leave');
+                
+                const video = zackWrapper.querySelector('.zack-video');
+                const overlay = zackWrapper.querySelector('.zack-overlay');
+                const matrixCanvas = document.getElementById('matrix-background');
+                
+                if (isEntering) {
+                    // 处理进入事件
+                    if (video) {
+                        video.style.display = 'block';
+                        // 播放视频
+                        if (video.paused) {
+                            video.play().catch(e => console.log('Video play error:', e));
+                        }
+                    }
+                    
+                    // 显示信息覆盖层
+                    if (overlay) {
+                        overlay.classList.add('show');
+                    }
+                    
+                    // Show Matrix background
+                    if (matrixCanvas && typeof window.initMatrix === 'function') {
+                        console.log('Showing Matrix background');
+                        matrixCanvas.style.display = 'block';
+                        window.initMatrix(matrixCanvas);
+                        
+                        // Add small delay before adding visible class for transition
+                        setTimeout(() => {
+                            matrixCanvas.classList.add('visible');
+                        }, 10);
+                    }
+                } else {
+                    // 处理离开事件
+                    if (video) {
+                        video.pause();
+                        video.currentTime = 0;
+                        video.style.display = 'none';
+                    }
+                    
+                    // 隐藏信息覆盖层
+                    if (overlay) {
+                        overlay.classList.remove('show');
+                    }
+                    
+                    // Hide Matrix background with fade-out
+                    if (matrixCanvas && typeof window.stopMatrix === 'function') {
+                        console.log('Hiding Matrix background');
+                        // First remove the visible class to trigger fade-out
+                        matrixCanvas.classList.remove('visible');
+                        
+                        // Wait for fade-out to complete before hiding and stopping
+                        setTimeout(() => {
+                            window.stopMatrix();
+                            matrixCanvas.style.display = 'none';
+                        }, 500); // Same duration as the CSS transition
+                    }
+                }
+            };
+            
+            // 注册鼠标事件监听器
+            zackWrapper.addEventListener('mouseenter', function(e) {
+                e.stopPropagation();
+                // 简单的防抖处理，避免快速进出时闪烁
+                if (debounceTimer) {
+                    clearTimeout(debounceTimer);
+                }
+                debounceTimer = setTimeout(() => {
+                    handleZackInteraction(true);
+                }, 50);
+            });
+            
+            zackWrapper.addEventListener('mouseleave', function(e) {
+                e.stopPropagation();
+                // 简单的防抖处理
+                if (debounceTimer) {
+                    clearTimeout(debounceTimer);
+                }
+                debounceTimer = setTimeout(() => {
+                    handleZackInteraction(false);
+                }, 50);
+            });
+            
+            // 触摸事件支持
+            zackWrapper.addEventListener('touchstart', function(e) {
+                e.preventDefault(); // 阻止默认行为
+                handleZackInteraction(true);
+            });
+            
+            zackWrapper.addEventListener('touchend', function() {
+                handleZackInteraction(false);
+            });
+            
+            // 导航点击事件
+            zackWrapper.addEventListener('click', function() {
+                // 导航到 Zack 的旅程页面
+                window.location.href = '/children/children_zack';
+            });
+        }
+    });
+</script>
+
+{% endblock %}

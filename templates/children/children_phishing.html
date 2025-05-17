@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+{% block content %}
+
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/interactive_pages.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/child_theme.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+  
+  body, h1, h2, h3, h4, h5, h6, p, li, span {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI', 'Arial', sans-serif !important;
+  }
+  
+  
+  .game-text {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+    color: #d63384 !important;
+    -webkit-text-fill-color: #d63384 !important;
+    display: inline-block;
+  }
+  
+  .game-card h2 {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cyber-cover-title h3 {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+  }
+  
+  .cyber-cover-title {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    text-align: left;
+    max-width: 70%;
+  }
+  
+  .emoji {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+    font-style: normal !important;
+  }
+  
+  h1 .emoji, h2 .emoji, h3 .emoji, p .emoji, li .emoji, span .emoji {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+  }
+</style>
+
+<script>
+ 
+  document.body.classList.add('children-page', 'phishing-page');
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    wrapEmojisInSpans();
+    
+    function wrapEmojisInSpans() {
+      
+      const elements = document.querySelectorAll('h1, h2, h3, p, li, span');
+      
+      elements.forEach(function(element) {
+        if (!element.classList.contains('processed-emoji')) {
+          
+          const emojiRegex = /(\p{Emoji}|\p{Emoji_Presentation}|\p{Emoji_Modifier}|\p{Emoji_Modifier_Base}|\p{Emoji_Component})/gu;
+          
+          
+          element.innerHTML = element.innerHTML.replace(emojiRegex, '<span class="emoji" style="font-family: \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Noto Color Emoji\', sans-serif !important;">$1</span>');
+          
+          
+          element.classList.add('processed-emoji');
+        }
+      });
+    }
+  });
+</script>
+
+<div class="cyber-cover-wrapper">
+  <div class="cyber-cover-image-container">
+    <img
+      src="{{ url_for('static', filename='images/animations/Lulu_crazy_adventure.png') }}"
+      alt="Be a Phishing Detective Cover"
+      class="cyber-cover-image"
+      loading="lazy"
+    />
+    <div class="cyber-cover-title">
+      <h3 style="font-family: 'Segoe UI', 'Arial', sans-serif !important; line-height: 1.4; margin-bottom: 10px;">
+        Be a Phishing Detective!<br />
+        – Protect Yourself Online
+      </h3>
+      
+    </div>
+  </div>
+</div>
+
+<div class="cyber-container">
+  <section class="cyber-card">
+    <h2>What is Phishing? </h2>
+    <p>Hello little explorer! When you're having fun online — playing games, watching videos, or chatting with friends — some sneaky tricksters might be hiding out there too! 👀</p>
+    <p>They try to "phish" for your secrets — like passwords, your address, or your parent's credit card! But don't worry — you can outsmart them easily!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>1. Don't Click on Strange Links </h2>
+    <p>Sometimes messages say:</p>
+    <ul>
+      <li>🎁 "You won a free iPad! Click here!"</li>
+      <li>⚠️ "Your game account will be deleted! Hurry and log in here!"</li>
+    </ul>
+    <p>These are fake! Always check with a grown-up before clicking anything weird or urgent.</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>2. Keep Your Secrets Super Safe </h2>
+    <ul>
+      <li>🕵️ Never share your password — even if they say they're from the game!</li>
+      <li>🏠 Don't tell your name, address, or school online.</li>
+      <li>🐉 Use silly but strong passwords like "FluffyBananaDragon!" and keep them secret!</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>3. Look Carefully — Spot the Clues! </h2>
+    <p>Phishing messages often:</p>
+    <ul>
+      <li>❌ Have bad spelling</li>
+      <li>🤨 Say strange or silly things</li>
+      <li>🌐 Use weird web addresses like "www.realname.com"</li>
+    </ul>
+    <p>If it looks strange, it probably is! Be a detective and find the clues!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>4. Real Friends Don't Ask for Secrets </h2>
+    <ul>
+      <li>💬 "Tell me your password, I'll give you free coins!"</li>
+      <li>📩 "I'm your online buddy! Where do you live?"</li>
+    </ul>
+    <p>🚫 Say: "No, thank you!" A real friend won't ask those things. Always tell a trusted adult if something feels off.</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>5. What Should You Do If You See Something Strange? </h2>
+    <ul>
+      <li>🙅‍♀️ Don't reply.</li>
+      <li>🖱️ Don't click anything.</li>
+      <li>👨‍👩‍👧 Show it to a parent, teacher, or trusted adult.</li>
+      <li>🛡️ Block the sender or get help to do it.</li>
+    </ul>
+    <p>You're never alone — there's always someone who can help!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>🎉 You're the Hero of Your Internet Adventure! </h2>
+    <p>Every time you:</p>
+    <ul>
+      <li>🛑 Stop and think before clicking,</li>
+      <li>🔐 Keep your secrets safe,</li>
+      <li>🆘 Ask for help when unsure...</li>
+    </ul>
+    <p>…you're being a brave and awesome Cyber Safety Hero! 🏅</p>
+  </section>
+
+  <section class="cyber-card" id="phishing-game">
+    <h2>Game Time: Phishing or Not?</h2>
+    <div id="game-box">
+      <p id="game-message">Loading message...</p>
+      <div class="game-buttons">
+        <button onclick="checkAnswer('spam')">Phishing 🎣</button>
+        <button onclick="checkAnswer('ham')">Safe 👍</button>
+      </div>
+      <p id="feedback"></p>
+      <p id="score-board">Score: 0 / 0</p>
+    </div>
+  </section>
+
+  <section class="cyber-video">
+    <h2>🎥 Learn More with Videos</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/R12_y2BhKbE" title="What is Phishing?" allowfullscreen></iframe>
+    <br><br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4C3PecVKu08" title="How to Stay Safe from Online Scams" allowfullscreen></iframe>
+  </section>
+
+  <section class="cyber-links">
+    <h2>🌐 Helpful Links</h2>
+    <ul>
+      <li>🎣 <a href="https://www.internetmatters.org/hub/expert-opinion/phishing-and-ransomware/" target="_blank">Phishing and Ransomware (Internet Matters)</a></li>
+    </ul>
+  </section>
+</div>
+<script src="{{ url_for('static', filename='js/children_phishing.js') }}"></script>
+<!-- Then load enhanced version with all animations -->
+<script src="{{ url_for('static', filename='js/child_phishing_enhanced.js') }}"></script>
+{% endblock %}

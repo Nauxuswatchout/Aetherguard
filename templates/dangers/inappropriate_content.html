@@ -1,0 +1,380 @@
+{% extends "base.html" %} {% block content %}
+<div class="page-cover-container">
+  <img
+    src="{{ url_for('static', filename='images/dangers/inappropriate.jpg') }}"
+    alt="E-Safety for Parents Cover"
+    class="page-cover-image"
+  />
+  <div class="page-cover-title">
+    <h1>Inappropriate Content</h1>
+    <p>
+      Material not suitable for children including violent content, pornography,
+      hate speech, drug use, and other adult themes that children may stumble
+      upon.
+    </p>
+  </div>
+</div>
+<div class="page-content">
+  <div class="content-container">
+    <div class="content-section">
+      <!-- Content Block 1: What is Inappropriate Content -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>What is Inappropriate Content?</h2>
+          <p>
+            Inappropriate content refers to material not suitable for children
+            including violent content, pornography, hate speech, drug use, and
+            other adult themes that children may stumble upon while browsing the
+            internet or using apps.
+          </p>
+          <p>
+            Children can encounter inappropriate content accidentally through
+            web searches, pop-up ads, mistyped URLs, or through content shared
+            by others. Some content may be harmful, upsetting, or confusing for
+            children based on their age and maturity level.
+          </p>
+
+          <div class="info-card warning-card">
+            <h3>Important to Know</h3>
+            <p>
+              Even with safeguards in place, children may still encounter
+              inappropriate content. Teaching them how to respond when they see
+              something concerning is just as important as prevention.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="chart-container">
+            <!-- This would be your chart element -->
+            <canvas
+              id="contentExposureChart"
+              width="100%"
+              height="100%"
+            ></canvas>
+          </div>
+          <p class="caption">
+            Fig 1: How children are exposed to inappropriate content online
+            (2024 data)
+          </p>
+        </div>
+      </div>
+
+      <!-- Content Block 2: Warning Signs (Reversed) -->
+      <div class="content-block reverse">
+        <div class="text-content">
+          <h2>Warning Signs</h2>
+          <ul>
+            <li>
+              Quickly changing screens or closing browsers when adults approach
+            </li>
+            <li>Cleared browser history on a regular basis</li>
+            <li>
+              Using language or making references that are not age-appropriate
+            </li>
+            <li>Becoming secretive about online activities</li>
+            <li>Showing signs of distress after using the internet</li>
+            <li>
+              Spending unusual amounts of time online, particularly late at
+              night
+            </li>
+            <li>Receiving messages or media from unknown sources</li>
+            <li>
+              Changes in behavior or unusual questions about sexual or violent
+              content
+            </li>
+          </ul>
+
+          <div class="info-card tip-card">
+            <h3>For Parents</h3>
+            <p>
+              If you notice these signs, approach the situation with calm and
+              open communication. Avoid accusations that might make your child
+              reluctant to share their online experiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/VnJoJiMMbhg"
+              allowfullscreen
+              title="Disturbing figures reveal spike in online children danger"
+            ></iframe>
+          </div>
+          <p class="caption">
+            Video: Disturbing figures reveal spike in online children danger
+          </p>
+        </div>
+      </div>
+
+      <!-- Content Block 4: Types of Inappropriate Content -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>Types of Inappropriate Content</h2>
+          <p>
+            Understanding the range of content your child might encounter can
+            help you have more specific conversations about online safety:
+          </p>
+          <ul>
+            <li>
+              <strong>Violence and Gore</strong> - Graphic violence in videos,
+              images, or games that can be disturbing or desensitizing
+            </li>
+            <li>
+              <strong>Sexual Content</strong> - Pornography, sexual images, or
+              explicit discussions that are not age-appropriate
+            </li>
+            <li>
+              <strong>Hate Speech and Extremism</strong> - Content promoting
+              discrimination, racism, or extremist views
+            </li>
+            <li>
+              <strong>Self-Harm Content</strong> - Material glorifying or
+              providing instructions for self-harm or suicide
+            </li>
+            <li>
+              <strong>Drug and Substance Use</strong> - Content promoting or
+              glamorizing alcohol, tobacco, or illegal drug use
+            </li>
+            <li>
+              <strong>Frightening Content</strong> - Horror content or scary
+              challenges that can cause anxiety or nightmares
+            </li>
+          </ul>
+
+          <div class="info-card">
+            <h3>Age-Appropriate Guidelines</h3>
+            <p>
+              Content ratings exist for a reason. Following age recommendations
+              for apps, games, and websites is an important first step in
+              protecting children from inappropriate content.
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="article-preview">
+            <h3>Reuters: TV Drama Exposes Teenage Violence Issue</h3>
+            <p>
+              A new television drama is shining a spotlight on the global issue
+              of teenage violence and its portrayal in media. The series
+              examines how exposure to violent content can influence adolescent
+              behavior and highlights the importance of media literacy.
+            </p>
+            <p>
+              Experts interviewed for the article stress the need for parents to
+              be aware of what media their children consume and to have regular
+              conversations about the content they encounter.
+            </p>
+            <a
+              href="https://www.reuters.com/business/media-telecom/adolescence-tv-drama-exposes-global-issue-teenage-violence-2025-04-07/"
+              class="read-more"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Read More</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Block 3: Prevention Tips -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>Prevention Tips</h2>
+          <ul>
+            <li>Use parental controls and content filters on all devices</li>
+            <li>Keep computers and devices in common areas of the home</li>
+            <li>Use child-friendly search engines like Kiddle or KidzSearch</li>
+            <li>
+              Regularly check browser history and monitor online activities
+            </li>
+            <li>
+              Create separate user accounts for children with appropriate
+              restrictions
+            </li>
+            <li>
+              Teach children to immediately close any content that makes them
+              uncomfortable
+            </li>
+            <li>
+              Maintain open conversations about appropriate content and online
+              safety
+            </li>
+            <li>Review and approve apps before children download them</li>
+          </ul>
+        </div>
+
+        <div class="visual-content">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/sQNFIBH-rjg"
+              allowfullscreen
+              title="Tips for protecting children online"
+            ></iframe>
+          </div>
+          <p class="caption">
+            Video: Tips for Protecting Your Children from Inappropriate Online
+            Content
+          </p>
+        </div>
+      </div>
+
+      <!-- Content Block 5: Talking to Children -->
+      <div class="content-block">
+        <div class="text-content">
+          <h2>Talking to Children About Inappropriate Content</h2>
+          <p>
+            Having regular, age-appropriate conversations about online content
+            is essential:
+          </p>
+          <ul>
+            <li>
+              <strong>Create a safe environment</strong> - Assure children they
+              won't get in trouble for telling you about concerning content
+              they've seen
+            </li>
+            <li>
+              <strong>Use age-appropriate language</strong> - Tailor your
+              conversation to your child's level of understanding
+            </li>
+            <li>
+              <strong>Be specific but sensitive</strong> - Explain what kinds of
+              content are inappropriate without providing unnecessary details
+            </li>
+            <li>
+              <strong>Develop a response plan</strong> - Teach children to
+              "close and tell" when they encounter something inappropriate
+            </li>
+            <li>
+              <strong>Discuss media literacy</strong> - Help children understand
+              that not everything they see online is real or accurate
+            </li>
+          </ul>
+
+          <div class="info-card tip-card">
+            <h3>Conversation Starter</h3>
+            <p>
+              "Sometimes people put things online that aren't good for kids to
+              see. If you ever see anything that makes you feel uncomfortable,
+              confused, or scared, you can always close it and come talk to me
+              about it."
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-content">
+          <div class="resources-list">
+            <h3>Resources for Parents</h3>
+            <ul>
+              <li>
+                <strong
+                  ><a
+                    href="https://www.unicef.org.au/parent-teacher-resources/online-safety/harmful-content"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >UNICEF: Harmful Online Content</a
+                  ></strong
+                >
+                : Guidance for parents on identifying and responding to harmful
+                content children may encounter online.
+              </li>
+              <li>
+                <strong
+                  ><a
+                    href="https://www.esafety.gov.au/educators/training-for-professionals/professional-learning-program-teachers/inappropriate-content-factsheet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >eSafety Commission: Inappropriate Content Factsheet</a
+                  ></strong
+                >
+                : A practical factsheet explaining what inappropriate content is
+                and how to protect children from it.
+              </li>
+              <li>
+                <strong
+                  ><a
+                    href="https://www.internetmatters.org/issues/inappropriate-content/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Internet Matters: Inappropriate Content Guide</a
+                  ></strong
+                >
+                : Comprehensive advice on protecting children from different
+                types of harmful content online.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('learn_dangers') }}" class="back-button"
+    >← Back to All Dangers</a
+  >
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Sample script for content exposure chart
+  document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document
+      .getElementById("contentExposureChart")
+      .getContext("2d");
+
+    const chart = new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: [
+          "Accidental Searches",
+          "Shared by Peers",
+          "Social Media Algorithms",
+          "Pop-up Ads",
+          "Mistyped URLs",
+          "Compromised Apps/Games",
+        ],
+        datasets: [
+          {
+            data: [32, 24, 18, 12, 8, 6],
+            backgroundColor: [
+              "rgba(231, 76, 60, 0.7)",
+              "rgba(52, 152, 219, 0.7)",
+              "rgba(241, 196, 15, 0.7)",
+              "rgba(46, 204, 113, 0.7)",
+              "rgba(155, 89, 182, 0.7)",
+              "rgba(230, 126, 34, 0.7)",
+            ],
+            borderColor: [
+              "rgba(231, 76, 60, 1)",
+              "rgba(52, 152, 219, 1)",
+              "rgba(241, 196, 15, 1)",
+              "rgba(46, 204, 113, 1)",
+              "rgba(155, 89, 182, 1)",
+              "rgba(230, 126, 34, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "right",
+          },
+          title: {
+            display: true,
+            text: "How Children Encounter Inappropriate Content",
+            font: {
+              size: 16,
+            },
+          },
+        },
+      },
+    });
+  });
+</script>
+{% endblock %}

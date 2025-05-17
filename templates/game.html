@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Zack's Digital Journey - Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+    <style>
+        .character {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+        }
+        
+        .character.error {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        #debug-panel {
+            position: fixed;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 12px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
+        #debug-panel button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 120px;
+            text-align: center;
+        }
+        
+        #debug-output {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 12px;
+            padding: 10px;
+            z-index: 9990;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Output Area -->
+    <div id="debug-output"></div>
+
+    <div class="game-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span>Fans:</span>
+                <span id="fans-count">0</span>
+            </div>
+            <div class="status-item">
+                <span>Health:</span>
+                <span id="health-value">100</span>
+            </div>
+            <div class="status-item">
+                <span>Social:</span>
+                <span id="social-value">50</span>
+            </div>
+            <div class="status-item">
+                <span>Safety Awareness:</span>
+                <span id="safety-awareness-value">50</span>
+            </div>
+            <div class="status-item">
+                <span>Day:</span>
+                <span id="day-count">1</span>
+            </div>
+        </div>
+
+        <!-- Quiz Timer Bar Container -->
+        <div id="quiz-timer-bar-container" style="position:absolute;top:70px;left:50%;transform:translateX(-50%);width:90%;height:18px;background:#f1f1f1;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.2);display:none;z-index:1000;">
+            <div id="quiz-timer-bar" style="width:100%;height:100%;background:#4CAF50;border-radius:10px;transition:width 1s linear;"></div>
+        </div>
+
+        <!-- Quiz Question Container -->
+        <div id="quiz-container" style="position:absolute;top:100px;left:50%;transform:translateX(-50%);width:80%;max-width:600px;padding:20px;background:rgba(255,255,255,0.95);border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.3);display:none;z-index:1000;">
+            <div id="quiz-question-text" style="font-size:20px;color:#333;margin-bottom:15px;text-align:center;">题目加载中...</div>
+            <div id="quiz-question-choices" style="display:flex;flex-direction:column;gap:10px;"></div>
+        </div>
+
+        <!-- Game Main Screen -->
+        <div class="game-screen">
+            <div class="background" id="background"></div>
+            <div class="character left" id="character-left"></div>
+            <div class="character right" id="character-right"></div>
+            <div class="dialog-box">
+                <div class="speaker-name" id="speaker-name"></div>
+                <div class="dialog-text" id="dialog-text"></div>
+                <div class="choices" id="choices"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Debug Tools -->
+    <div id="debug-panel">
+        <div>Debug Tools</div>
+        <button id="debug-day6">Jump to Day 6</button>
+        <button id="debug-day13">Jump to Day 13</button>
+        <button id="debug-day20">Reach Day 20</button>
+        <button id="debug-next-event">Next Event</button>
+        <button id="debug-next-day">Next Day</button>
+        <button id="debug-fans-plus">Fans +100</button>
+        <button id="debug-max-health">Max Health</button>
+        <button id="debug-max-social">Max Social</button>
+        <button id="debug-max-security">Max Security</button>
+        <button id="debug-log">Show Logs</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/weekend_event_handler.js') }}?v={{ now() }}"></script>
+    <script src="{{ url_for('static', filename='js/weekend_event_2_handler.js') }}?v={{ now() }}"></script>
+    <script src="{{ url_for('static', filename='js/regular_event_handler.js') }}?v={{ now() }}"></script>
+    <script src="{{ url_for('static', filename='js/ending_event_handler.js') }}?v={{ now() }}"></script>
+    <script src="{{ url_for('static', filename='js/event_jump_fix.js') }}?v={{ now() }}"></script>
+    <script>
+        // Replace console.log, output logs to debug panel
+        const originalConsoleLog = console.log;
+        console.log = function() {
+            // Call the original console.log
+            originalConsoleLog.apply(console, arguments);
+            
+            // Output logs to debug panel
+            const debugOutput = document.getElementById('debug-output');
+            if (debugOutput) {
+                const args = Array.from(arguments);
+                const message = args.map(arg => {
+                    if (typeof arg === 'object') {
+                        try {
+                            return JSON.stringify(arg);
+                        } catch(e) {
+                            return String(arg);
+                        }
+                    }
+                    return String(arg);
+                }).join(' ');
+                
+                const logTime = new Date().toLocaleTimeString();
+                const logItem = document.createElement('div');
+                logItem.textContent = `[${logTime}] ${message}`;
+                debugOutput.appendChild(logItem);
+                
+                // Scroll to bottom
+                debugOutput.scrollTop = debugOutput.scrollHeight;
+                
+                // Limit log count
+                while (debugOutput.children.length > 100) {
+                    debugOutput.removeChild(debugOutput.firstChild);
+                }
+            }
+        };
+        
+        // Debug panel functions
+        document.getElementById('debug-day6').addEventListener('click', function() {
+            if (window.currentGame) {
+                window.currentGame.gameState.day = 6;
+                window.currentGame.debug('Force set day to 6');
+                window.currentGame.saveGameState().then(() => {
+                    const ts = Date.now();
+                    window.location.href = `/new_game?t=${ts}`;
+                });
+            }
+        });
+        
+        document.getElementById('debug-day13').addEventListener('click', function() {
+            if (window.currentGame) {
+                window.currentGame.gameState.day = 13;
+                window.currentGame.debug('Force set day to 13');
+                window.currentGame.saveGameState().then(() => {
+                    const ts = Date.now();
+                    window.location.href = `/new_game?t=${ts}`;
+                });
+            }
+        });
+        
+        document.getElementById('debug-day20').addEventListener('click', function() {
+            if (window.currentGame) {
+                window.currentGame.gameState.day = 20;
+                window.currentGame.debug('Force set day to 20');
+                window.currentGame.saveGameState().then(() => {
+                    const ts = Date.now();
+                    window.location.href = `/new_game?t=${ts}`;
+                });
+            }
+        });
+        
+        document.getElementById('debug-next-event').addEventListener('click', function() {
+            if (window.currentGame) {
+                // Force end current event, load next event
+                if (window.currentGame.currentEvent) {
+                    window.currentGame.hasEventEnded = true;
+                    window.currentGame.isEventEnding = true;
+                    window.currentGame.endEvent();
+                } else {
+                    window.currentGame.loadNextEvent();
+                }
+            }
+        });
+        
+        document.getElementById('debug-next-day').addEventListener('click', function() {
+            if (window.currentGame) {
+                window.currentGame.gameState.day += 1;
+                window.currentGame.debug('Force set day to ' + window.currentGame.gameState.day);
+                window.currentGame.saveGameState().then(() => {
+                    const ts = Date.now();
+                    window.location.href = `/new_game?t=${ts}`;
+                });
+            }
+        });
+        
+        document.getElementById('debug-fans-plus').addEventListener('click', function() {
+            if (window.currentGame) {
+                window.currentGame.gameState.fans += 100;
+                window.currentGame.debug('Fans +100');
+                window.currentGame.saveGameState().then(() => {
+                    window.currentGame.updateStatusBar();
+                });
+            }
+        });
+        
+        document.getElementById('debug-max-health').addEventListener('click', function() {
+            if (window.currentGame) {
+                window.currentGame.gameState.health = 100;
+                window.currentGame.debug('Health set to 100');
+                window.currentGame.saveGameState().then(() => {
+                    window.currentGame.updateStatusBar();
+                });
+            }
+        });
+        
+        document.getElementById('debug-max-social').addEventListener('click', function() {
+            if (window.currentGame) {
+                window.currentGame.gameState.social = 100;
+                window.currentGame.debug('Social set to 100');
+                window.currentGame.saveGameState().then(() => {
+                    window.currentGame.updateStatusBar();
+                });
+            }
+        });
+        
+        document.getElementById('debug-max-security').addEventListener('click', function() {
+            if (window.currentGame) {
+                window.currentGame.gameState.security = 100;
+                window.currentGame.debug('Security set to 100');
+                window.currentGame.saveGameState().then(() => {
+                    window.currentGame.updateStatusBar();
+                });
+            }
+        });
+        
+        // Show/hide logs button
+        document.getElementById('debug-log').addEventListener('click', function() {
+            const debugOutput = document.getElementById('debug-output');
+            if (debugOutput.style.display === 'none') {
+                debugOutput.style.display = 'block';
+                this.textContent = 'Hide Logs';
+            } else {
+                debugOutput.style.display = 'none';
+                this.textContent = 'Show Logs';
+            }
+        });
+    </script>
+</body>
+</html> 

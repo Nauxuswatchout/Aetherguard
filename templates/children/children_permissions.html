@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% block content %}
+
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/interactive_pages.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/child_theme.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+ 
+  body, h1, h2, h3, h4, h5, h6, p, li, span {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI', 'Arial', sans-serif !important;
+  }
+  
+  
+  .game-text {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+    color: #d63384 !important;
+    -webkit-text-fill-color: #d63384 !important;
+    display: inline-block;
+  }
+  
+  .game-card h2 {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cyber-cover-title h3 {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+  }
+  
+  .cyber-cover-title {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    text-align: left;
+    max-width: 70%;
+  }
+  
+  .emoji {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+    font-style: normal !important;
+  }
+  
+  h1 .emoji, h2 .emoji, h3 .emoji, p .emoji, li .emoji, span .emoji {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+  }
+</style>
+
+<script>
+  
+  document.body.classList.add('children-page', 'permissions-page');
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    wrapEmojisInSpans();
+    
+    function wrapEmojisInSpans() {
+      
+      const elements = document.querySelectorAll('h1, h2, h3, p, li, span');
+      
+      elements.forEach(function(element) {
+        if (!element.classList.contains('processed-emoji')) {
+          
+          const emojiRegex = /(\p{Emoji}|\p{Emoji_Presentation}|\p{Emoji_Modifier}|\p{Emoji_Modifier_Base}|\p{Emoji_Component})/gu;
+          
+          
+          element.innerHTML = element.innerHTML.replace(emojiRegex, '<span class="emoji" style="font-family: \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Noto Color Emoji\', sans-serif !important;">$1</span>');
+          
+          
+          element.classList.add('processed-emoji');
+        }
+      });
+    }
+  });
+</script>
+
+<div class="cyber-cover-wrapper">
+  <div class="cyber-cover-image-container">
+    <img
+      src="{{ url_for('static', filename='images/animations/Lulu_crazy_adventure.png') }}"
+      alt="Stay Smart with Mobile Apps"
+      class="cyber-cover-image"
+      loading="lazy"
+    />
+    <div class="cyber-cover-title">
+      <h3 style="font-family: 'Segoe UI', 'Arial', sans-serif !important; line-height: 1.4; margin-bottom: 10px;">
+        Stay Smart with Mobile Apps<br />
+        – Understand Permissions!
+      </h3>
+      
+    </div>
+  </div>
+</div>
+
+<div class="cyber-container">
+  <section class="cyber-card">
+    <h2> Hey little explorer!</h2>
+    <p>Apps on phones and tablets can be super fun — you can play games, solve puzzles, listen to songs, and learn new things like drawing or counting!</p>
+    <p>But not all apps are made the same. Some might ask to do things they don't really need — like looking at your photos or knowing where you are. That's why it's important to stay alert and ask questions!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>1. What Are Permissions?</h2>
+    <p>When you download or use an app, it might ask for permission to do things like:</p>
+    <ul>
+      <li>📸 Use your camera</li>
+      <li>🖼️ See your photos</li>
+      <li>📍 Know your location</li>
+      <li>🎤 Access your microphone</li>
+    </ul>
+    <p>These are like giving a special key to the app. But not every app needs every key!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>2. Not Every App Needs Every Key</h2>
+    <p>Imagine letting a friend borrow your bike — would you also give them your house key?</p>
+    <p>A drawing game might need to save your pictures — but should it also know where you live?</p>
+    <ul>
+      <li>❓ Does the app really need this?</li>
+      <li>🤨 Why would a game need my microphone?</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>3. Always Ask Before Allowing Permissions</h2>
+    <p>Before you click "Allow," ask a grown-up you trust:</p>
+    <ul>
+      <li>👩 A parent</li>
+      <li>👨‍🏫 A teacher</li>
+      <li>🧑‍🦳 Any trusted adult</li>
+    </ul>
+    <p>It's smart to say "no" if you're not sure!</p>
+  </section>
+
+  <section class="cyber-card">
+    <h2>4. Be Careful with Personal Information</h2>
+    <p>Some apps ask for things like:</p>
+    <ul>
+      <li>🧒 Your real name</li>
+      <li>🎂 Your birthday</li>
+      <li>📫 Where you live</li>
+    </ul>
+    <p>If it feels too personal:</p>
+    <ul>
+      <li>🚫 Don't answer</li>
+      <li>👨‍👩‍👧 Tell a grown-up</li>
+      <li>🔁 Try a different app that keeps your secrets safe</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2>5. Keep Your Device Safe and Happy</h2>
+    <p>When you make smart choices about apps and permissions:</p>
+    <ul>
+      <li>🛡️ Your device stays safe</li>
+      <li>🙅‍♂️ You avoid strange ads and scary pop-ups</li>
+      <li>🎉 You have more fun and fewer problems!</li>
+    </ul>
+  </section>
+
+  <section class="cyber-card">
+    <h2> You're the Boss of Your Device!</h2>
+    <p>Every time you:</p>
+    <ul>
+      <li>🔍 Check permissions carefully</li>
+      <li>🙋 Ask a grown-up before clicking "Allow"</li>
+      <li>🛑 Protect your secrets</li>
+    </ul>
+    <p>…you're being a Cyber Safety Hero — keeping your adventures fun and safe!</p>
+  </section>
+
+  <section class="cyber-card" id="permission-simulator">
+    <h2> Try the App Permissions Simulator!</h2>
+    <div id="simulator-box">
+      <div class="permission-popup">
+        <p class="app-title" id="app-info">Loading app info...</p>
+        <p class="permission-question" id="permission-question"></p>
+        <div class="simulator-buttons">
+          <button onclick="handleChoice('deny')">Deny</button>
+          <button onclick="handleChoice('allow')">Allow</button>
+        </div>
+      </div>
+      <div class="simulator-feedback">
+        <p id="feedback-message" class="feedback"></p>
+        <button onclick="loadNewApp()" id="next-button" style="display:none;">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cyber-video">
+    <h2>🎥 Learn More with Videos</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/o92z8s3Bfqw" title="Understanding App Permissions for Kids" allowfullscreen></iframe>
+  </section>
+
+  <section class="cyber-links">
+    <h2>🌐 Helpful Links</h2>
+    <ul>
+      <li>📱 <a href="https://kidshelpline.com.au/kids/issues/being-safe-internet" target="_blank">Being Safe on the Internet – Kids Helpline</a></li>
+    </ul>
+  </section>
+</div>
+<script src="{{ url_for('static', filename='js/app_permission_simulator.js') }}"></script>
+<!-- Then load enhanced version with all animations -->
+<script src="{{ url_for('static', filename='js/child_permissions_enhanced.js') }}"></script>
+{% endblock %}

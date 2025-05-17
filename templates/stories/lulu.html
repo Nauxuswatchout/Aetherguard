@@ -1,0 +1,219 @@
+{% block additional_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/storybook.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="storybook-container full-page">
+  <div class="book-wrapper">
+    <div id="book" class="book">
+      <!-- Book Cover -->
+      <div class="page">
+        <div class="page-content">
+          <div class="text-section">
+            <h2 class="page-header">
+              Lulu the Little Lamb and the Stranger on the Phone
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 1 -->
+      <div class="page">
+        <div class="page-content bottom-half">
+          <div class="text-section">
+            <p>
+              Deep in the forest, there was a little red-roofed cottage where a
+              sweet lamb named Lulu lived happily with her mom.
+            </p>
+          </div>
+          <div class="page-number">1</div>
+        </div>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="page">
+        <div class="page-content bottom-half">
+          <div class="text-section">
+            <p>
+              One evening, Mom said, “Sweetie, you can play on my phone while I
+              cook. But don’t click on anything strange.”
+            </p>
+          </div>
+          <div class="page-number">2</div>
+        </div>
+      </div>
+
+      <!-- Page 3 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>
+              Lulu climbed onto the sofa, opened a jumping game, and giggled as
+              she tapped the screen.
+            </p>
+          </div>
+          <div class="page-number">3</div>
+        </div>
+      </div>
+
+      <!-- Page 4 -->
+      <div class="page">
+        <div class="page-content bottom-half">
+          <div class="text-section">
+            <p>
+              Suddenly, a shiny message popped up: “Hi there! I’m your mom’s
+              good friend. She told me to come get you!”
+            </p>
+          </div>
+          <div class="page-number">4</div>
+        </div>
+      </div>
+
+      <!-- Page 5 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>
+              “Huh? Mom never told me about this friend…” Lulu tilted her head
+              and frowned.
+            </p>
+          </div>
+          <div class="page-number">5</div>
+        </div>
+      </div>
+
+      <!-- Page 6 -->
+      <div class="page">
+        <div class="page-content bottom-half">
+          <div class="text-section">
+            <p>
+              “I brought candy, dolls, and a trampoline!” the stranger wrote.
+              “Just tell me your address, and I’ll come now!”
+            </p>
+          </div>
+          <div class="page-number">6</div>
+        </div>
+      </div>
+
+      <!-- Page 7 -->
+      <div class="page">
+        <div class="page-content bottom-half">
+          <div class="text-section">
+            <p>
+              Lulu’s eyes sparkled. She whispered, “I really, really want that
+              pink trampoline…”
+            </p>
+          </div>
+          <div class="page-number">7</div>
+        </div>
+      </div>
+
+      <!-- Page 8 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>
+              She looked around — Mom was still humming in the kitchen. So Lulu
+              quietly typed: “We live in the red-roofed house with mushroom
+              flower pots.”
+            </p>
+          </div>
+          <div class="page-number">8</div>
+        </div>
+      </div>
+
+      <!-- Page 9 -->
+      <div class="page">
+        <div class="page-content bottom-half">
+          <div class="text-section">
+            <p>
+              Night fell. The moon rose quietly. The wind brushed the curtains.
+              Then — knock knock — someone was at the door.
+            </p>
+          </div>
+          <div class="page-number">9</div>
+        </div>
+      </div>
+
+      <!-- Page 10 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>
+              “Lulu,” the voice whispered sweetly, “I’m your mom’s friend. Open
+              the door, I brought candy.”
+            </p>
+          </div>
+          <div class="page-number">10</div>
+        </div>
+      </div>
+
+      <!-- Page 11 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Lulu jumped up happily and opened the door wide. “Hello—”</p>
+          </div>
+          <div class="page-number">11</div>
+        </div>
+      </div>
+
+      <!-- Page 12 -->
+      <div class="page">
+        <div class="page-content bottom-half">
+          <div class="text-section">
+            <p>
+              But it wasn’t a friend. It was a big grey wolf dressed like a
+              gentleman! He licked his lips and rushed inside…
+            </p>
+          </div>
+          <div class="page-number">12</div>
+        </div>
+      </div>
+
+      <!-- Page 13 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>
+              That night, the forest was extra quiet. The lights in the cottage
+              never turned back on.
+            </p>
+          </div>
+          <div class="page-number">13</div>
+        </div>
+      </div>
+
+      <!-- Page 14 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>
+              Since that day, all the forest animals remembered: “A friend
+              online may not be a real friend. And your home is a secret, not to
+              share with anyone.”
+            </p>
+          </div>
+          <div class="page-number">14</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Controls -->
+  <div class="book-controls">
+    <div class="back-to-section">
+      <a href="{{ url_for('tilly_page') }}" class="back-button">
+        <span class="back-arrow">←</span> Back to Library
+      </a>
+    </div>
+    <button id="prev-btn" class="flip-btn">Previous</button>
+    <button id="next-btn" class="flip-btn">Next</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+<script src="{{ url_for('static', filename='js/stories/lulu.js') }}"></script>
+{% endblock %}

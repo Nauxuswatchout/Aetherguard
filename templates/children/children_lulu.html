@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block content %}
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/interactive_pages.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/child_theme.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+  
+  body, h1, h2, h3, h4, h5, h6, p, li, span {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI', 'Arial', sans-serif !important;
+  }
+  
+  
+  .game-text {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+    color: #d63384 !important;
+    -webkit-text-fill-color: #d63384 !important;
+    display: inline-block;
+  }
+  
+  .game-card h2 {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cyber-cover-title h3 {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Arial', sans-serif !important;
+  }
+  
+  .emoji {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+    font-style: normal !important;
+  }
+  
+  h1 .emoji, h2 .emoji, h3 .emoji, p .emoji, li .emoji, span .emoji {
+    font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+  }
+</style>
+
+<script>
+  
+  document.body.classList.add('children-page', 'lulu-adventure-page');
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    wrapEmojisInSpans();
+    
+    function wrapEmojisInSpans() {
+      
+      const elements = document.querySelectorAll('h1, h2, h3, p, li, span');
+      
+      elements.forEach(function(element) {
+        if (!element.classList.contains('processed-emoji')) {
+        
+          const emojiRegex = /(\p{Emoji}|\p{Emoji_Presentation}|\p{Emoji_Modifier}|\p{Emoji_Modifier_Base}|\p{Emoji_Component})/gu;
+          
+          
+          element.innerHTML = element.innerHTML.replace(emojiRegex, '<span class="emoji" style="font-family: \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Noto Color Emoji\', sans-serif !important;">$1</span>');
+          
+         
+          element.classList.add('processed-emoji');
+        }
+      });
+    }
+  });
+</script>
+
+<div class="lulu-page-container">
+
+  <!-- Page Cover Section -->
+  <div class="cyber-cover-wrapper lulu-page-cover">
+    <div class="cyber-cover-image-container">
+      <img src="{{ url_for('static', filename='images/animations/lulu_adventure.jpeg') }}" alt="Lulu Cover" class="cyber-cover-image">
+      <div class="cyber-cover-title lulu-cover-text">
+        <h2 style="font-family: 'Segoe UI', 'Arial', sans-serif !important;"><span class="emoji" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;">🌟</span> Welcome to Lulu's Crazy Adventure! <span class="emoji" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;">🌟</span></h2>
+        <p style="font-family: 'Segoe UI', 'Arial', sans-serif !important;">
+          Hey hey, I'm Lulu! <span class="emoji" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;">🐑</span><br>
+          Ready to jump into the wild world of the internet with me and learn how to stay safe without being bored? Let's make it fun—let's do this! <span class="emoji" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;">🎉</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Learning Section -->
+  <div class="cyber-container lulu-interactive-learning-wrapper">
+    <h2 class="cyber-card lulu-section-heading">🚀 Let's Learn, Laugh & Level Up with Lulu!</h2>
+    <div class="lulu-learning-cards">
+      
+      <!-- Cyberbullying Card -->
+      <section class="cyber-card lulu-learning-card">
+        <img src="{{ url_for('static', filename='images/animations/cyberbullying.png') }}" alt="Cyberbullying" class="lulu-card-image">
+        <h3 class="lulu-card-title">🚫 Say "See Ya!" to Bullies!</h3>
+        <p class="lulu-card-description">Tired of online bullies? Let's zap 'em away and keep our online space friendly and fun!</p>
+        <a href="/children/children_lulu/cyberbullying" class="lulu-card-link">Zap Bullies Away!</a>
+      </section>
+      
+      <!-- Mobile App Permissions Card -->
+      <section class="cyber-card lulu-learning-card">
+        <img src="{{ url_for('static', filename='images/animations/mobile_permissions.png') }}" alt="Mobile Apps and Permissions" class="lulu-card-image">
+        <h3 class="lulu-card-title">🔐 Apps Asking for What?!</h3>
+        <p class="lulu-card-description">Why do apps need your permission to do stuff? Let's break it down like a detective! 🕵️‍♂️</p>
+        <a href="/children/children_lulu/apps_permissions" class="lulu-card-link">Unmask the App Secrets!</a>
+      </section>
+      
+      <!-- Phishing Card -->
+      <section class="cyber-card lulu-learning-card">
+        <img src="{{ url_for('static', filename='images/animations/Be_a_phishing.jpg') }}" alt="Phishing" class="lulu-card-image">
+        <h3 class="lulu-card-title">🎣 Fishy Phishing Alerts!</h3>
+        <p class="lulu-card-description">Got an email from "your uncle"? Uh-oh! Let's find out how to spot fake messages trying to trick you!</p>
+        <a href="/children/children_lulu/phishing" class="lulu-card-link">Catch Those Phishers!</a>
+      </section>
+      
+    </div>
+  </div>
+
+ 
+  <div class="cyber-container lulu-game-card-section">
+    <section class="cyber-card game-card lulu-game-card">
+      <h3 class="lulu-game-card-title"><span class="game-emoji">🎮</span> <span class="game-text">Game On! Test Your Safety Skills!</span></h3>
+      <p class="lulu-game-card-description">Ready to laugh and learn? Time to put your online safety knowledge to the test. No pressure, but... we're counting on you!</p>
+      <a href="/children/children_lulu/game" class="lulu-game-card-link">Let's Do This! 🎉</a>
+    </section>
+  </div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/children_lulu.js') }}"></script>
+{% endblock %}

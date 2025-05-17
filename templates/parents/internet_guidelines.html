@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-cover-container">
+  <img
+    src="{{ url_for('static', filename='images/covers/learn_dangers.jpeg') }}"
+    alt="Learn the Dangers Cover"
+    class="page-cover-image"
+    loading = "lazyload"
+  />
+  <div class="page-cover-title">
+    <h2 style="margin-bottom: 20px">Internet Guidelines 🚀</h2>
+
+    <p>Navigate the Digital Landscape Safely — Empower Yourself with Essential Online Safety Tips and Tools.</p>
+  </div>
+</div>
+
+<div class="internet-safety-container container">
+  <h4 class="internet-safety-title"></h4>
+  
+  <p class="intro-paragraph">
+    The internet is a wonderful tool for learning, connection, and entertainment, but it also presents a number of challenges, especially for children. As we navigate the digital world, it's important to instill safety habits early on, ensuring that everyone in the family is aware of the potential risks and how to avoid them. Here, we've compiled key guidelines to help protect your family online.
+  </p>
+  
+  <p class="intro-paragraph">
+    From safeguarding personal information to managing screen time, these guidelines will empower parents and children to enjoy the digital world safely. Take a look through these tips, and feel free to revisit them as your family's understanding of internet safety evolves.
+  </p>
+
+  <div class="internet-safety-timeline">
+    <!-- Timeline Items -->
+
+    <!-- 1. Protecting Personal Information -->
+    <div class="timeline-item">
+      <div class="timeline-icon">🔒</div>
+      <div class="timeline-content">
+        <h2 class="timeline-header">Protecting Personal Information</h2>
+        <p>Our personal information is our most valuable asset. Online, it can be easily exposed to malicious individuals. Protecting sensitive data like our name, address, and financial details is the first step toward staying safe in the digital world.</p>
+        <ul class="highlighted-list">
+          <li>Keep personal information, like full name, home address, and financial details private.</li>
+          <li>Use complex passwords and different ones for each account.</li>
+          <li>Enable two-factor authentication (2FA) for important accounts.</li>
+        </ul>
+        <button class="tip-button" onclick="toggleCollapse('collapse-1')">💬 Parent Tip</button>
+        <div class="tip-box" id="collapse-1" style="display: none;">
+          "Would you shout your address at the mall? 🏬 It's the same online! Remind kids: Think before sharing — online spaces are full of strangers."
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Family Online Safety Measures -->
+    <div class="timeline-item">
+      <div class="timeline-icon">🏡</div>
+      <div class="timeline-content">
+        <h2 class="timeline-header">Family Online Safety Measures</h2>
+        <p>Setting clear rules and boundaries around internet use ensures that children stay safe while online. Devices should be monitored, and privacy settings should be checked regularly to avoid unnecessary risks.</p>
+        <ul class="highlighted-list">
+          <li>Keep devices in shared spaces for easy monitoring.</li>
+          <li>Review privacy settings on apps and social media regularly.</li>
+          <li>Set daily or weekly screen time limits.</li>
+        </ul>
+        <button class="tip-button" onclick="toggleCollapse('collapse-2')">💬 Family Activity</button>
+        <div class="tip-box" id="collapse-2" style="display: none;">
+          "Create a 'Family Tech Contract' 📜 together! Let kids help set rules — they'll love signing it and decorating it too!"
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Safe Online Communication -->
+    <div class="timeline-item">
+      <div class="timeline-icon">💬</div>
+      <div class="timeline-content">
+        <h2 class="timeline-header">Safe Online Communication</h2>
+        <p>Children need to understand the risks involved in communicating online. Setting clear boundaries for online communication, teaching privacy measures, and encouraging open discussions about strangers help ensure a safer digital experience.</p>
+        <ul class="highlighted-list">
+          <li>Protect privacy in online conversations.</li>
+          <li>Teach the importance of using private settings on social media accounts and games.</li>
+          <li>Set guidelines for acceptable communication and encourage reporting suspicious behavior.</li>
+        </ul>
+        <button class="tip-button" onclick="toggleCollapse('collapse-3')">💬 Discussion Starter</button>
+        <div class="tip-box" id="collapse-3" style="display: none;">
+          "Ask: If a gamer buddy asked your real name or address, would you share it? 🎮🤔 Talk about safe answers like 'No thanks!'"
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Recognize and Avoid Online Scams -->
+    <div class="timeline-item">
+      <div class="timeline-icon">🚨</div>
+      <div class="timeline-content">
+        <h2 class="timeline-header">Recognize and Avoid Online Scams</h2>
+        <p>Online scams have become increasingly sophisticated, but with awareness, they can be avoided. Recognizing red flags like too-good-to-be-true offers or urgent requests will keep your family safe from scammers.</p>
+        <ul class="highlighted-list">
+          <li>Watch out for free prizes or offers that seem too good to be true.</li>
+          <li>Hover over links before clicking to ensure they lead to trusted sources.</li>
+          <li>Regularly update software to avoid vulnerabilities.</li>
+        </ul>
+        <button class="tip-button" onclick="toggleCollapse('collapse-4')">💬 Red Flags</button>
+        <div class="tip-box" id="collapse-4" style="display: none;">
+          "Spotting scams? 🎯 Look for sudden urgency ('Act NOW!'), weird links, or spelling errors. If unsure, pause and ask an adult."
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Balancing Screen Time -->
+    <div class="timeline-item">
+      <div class="timeline-icon">⏳</div>
+      <div class="timeline-content">
+        <h2 class="timeline-header">Balancing Screen Time</h2>
+        <p>While technology offers numerous benefits, it's essential to create a healthy balance between screen time and offline activities. Setting limits and encouraging tech-free moments fosters better mental health and family bonding.</p>
+        <ul class="highlighted-list">
+          <li>Set daily screen time limits, especially before bedtime.</li>
+          <li>Encourage outdoor activities, reading, and other hobbies.</li>
+          <li>Create tech-free zones or times, like during meals or family gatherings.</li>
+        </ul>
+        <button class="tip-button" onclick="toggleCollapse('collapse-5')">💬 Family Challenge</button>
+        <div class="tip-box" id="collapse-5" style="display: none;">
+          "Declare 'Tech-Free Tuesdays'! 📵 After dinner, swap screens for board games, walks, or storytelling. Make it a family tradition!"
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Digital Footprint Awareness -->
+    <div class="timeline-item">
+      <div class="timeline-icon">🧠</div>
+      <div class="timeline-content">
+        <h2 class="timeline-header">Digital Footprint Awareness</h2>
+        <p>Everything shared online leaves a trace. Teaching children about their digital footprint will help them understand the long-term impact of their online actions, from college admissions to job prospects.</p>
+        <ul class="highlighted-list">
+          <li>Be mindful of what is shared online—every post leaves a trace.</li>
+          <li>Ensure your child knows the potential consequences of their online actions.</li>
+          <li>Encourage a positive digital identity that they can be proud of.</li>
+        </ul>
+        <button class="tip-button" onclick="toggleCollapse('collapse-6')">💬 Reflection Prompt</button>
+        <div class="tip-box" id="collapse-6" style="display: none;">
+          "Grandma Test 👵✨: Would you be proud if grandma saw your post? If not, rethink it before hitting 'send'!"
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center" style="margin-top: 2rem;">
+    <a href="{{ url_for('parents') }}" class="back-button">← Back to Parent Resources</a>
+  </div>
+</div>
+
+<!-- CSS (no changes needed, you already have this) -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/static.css') }}">
+
+<!-- JS Script -->
+<script src="{{ url_for('static', filename='js/guidelines.js') }}"></script>
+
+<script>
+  function toggleCollapse(tipId) {
+    const tipBox = document.getElementById(tipId);
+    tipBox.style.display = tipBox.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+
+{% endblock %}

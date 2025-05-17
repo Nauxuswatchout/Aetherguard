@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/children_tilly.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="page-header">
+        <h1>Click on a book to start reading !</h1>
+      </div>
+
+      <div class="book-shelf">
+        <div class="book-container" id="book1-container" data-book-id="1">
+          <a href="{{ url_for('lulu_story') }}" class="book-link">
+            <div class="book" id="book1">
+              <div class="book-cover">
+                <img
+                  src="{{ url_for('static', filename='images/stories/lulu/Lulusheep_page1.png') }}"
+                  alt="Lulu"
+                  class="cover-image"
+                />
+                <div class="book-title">Lulu the Little Lamb</div>
+                <div class="book-description">
+                  Lulu the Little Lamb and the Stranger on the Phone
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="book-container" id="book2-container" data-book-id="2">
+          <a href="{{ url_for('tilly_story') }}" class="book-link">
+            <div class="book" id="book2">
+              <div class="book-cover">
+                <img
+                  src="{{ url_for('static', filename='images/stories/tilly/Tillyturtle_page1.png') }}"
+                  alt="Tilly"
+                  class="cover-image"
+                />
+                <div class="book-title">Tilly the Turtle</div>
+                <div class="book-description">
+                  Tilly the Turtle and the Secret App
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="book-container" id="book3-container" data-book-id="3">
+          <a href="{{ url_for('felix_story') }}" class="book-link">
+            <div class="book" id="book3">
+              <div class="book-cover">
+                <img src="" alt="Felix" class="cover-image" />
+                <div class="book-title">Felix the Fox</div>
+                <div class="book-description">
+                  Felix the Fox and the Fake Contest
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="book-container" id="book4-container" data-book-id="4">
+          <a href="{{ url_for('bella_story') }}" class="book-link">
+            <div class="book" id="book4">
+              <div class="book-cover">
+                <img src="" alt="Bella" class="cover-image" />
+                <div class="book-title">Bella the Bunny</div>
+                <div class="book-description">
+                  Bella the Bunny and the Mystery Photo
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="book-container" id="book5-container" data-book-id="5">
+          <a href="{{ url_for('benny_story') }}" class="book-link">
+            <div class="book" id="book5">
+              <div class="book-cover">
+                <img src="" alt="Benny" class="cover-image" />
+                <div class="book-title">Benny the Bear</div>
+                <div class="book-description">
+                  Benny the Bear and the Photo Request
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="floating-elements" id="floatingElements"></div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/stories/children_tilly.js') }}"></script>
+  </body>
+</html>
+{% endblock %}

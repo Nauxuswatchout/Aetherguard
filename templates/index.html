@@ -1,0 +1,268 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&family=Raleway:wght@500;700&display=swap" rel="stylesheet">
+
+
+<style>
+ 
+  
+  .cyber-info-section h2 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  
+  .cyber-info-section h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  .cyber-info-section p, 
+  .cyber-info-section li {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+  }
+  
+  .info-number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+</style>
+
+<div class="cover-container">
+  <img
+    src="{{ url_for('static', filename='images/covers/cover.jpg') }}"
+    alt="E-Safety Cover Image"
+    class="cover-image"
+    loading="lazyload"
+  />
+  <div class="cover-title">
+    <h2>Think You Know the Internet?</h2>
+    <p>That image behind? It was made by AI and it looks real, right?</p>
+    <p>
+      Learn to navigate online risks, protect your family, and build digital
+      confidence.
+    </p>
+    <a href="#main-content" class="scroll-down">Explore</a>
+  </div>
+</div>
+
+<div class="page-content" id="main-content">
+  <div class="card-grid">
+    <!-- Parents Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/resources.jpg') }}"
+          alt="For Parents"
+          loading="lazyload"
+        />
+      </div>
+      <h2 class="card-title">Resources for Parents</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Resources for Parents</h3>
+          <p>
+            Guide to help you and your children stay safe online. Learn about
+            online dangers, best practices, and how to protect your family in
+            the digital world.
+          </p>
+          <a href="{{ url_for('parents') }}" class="card-button">Parent Resources</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Playground Button (Independent) -->
+    <a id="playground-button" href="{{ url_for('home') }}"></a>
+
+    <!-- Questionnaire Card -->
+    <div class="card interactive-card">
+      <div class="card-image">
+        <img
+          src="{{ url_for('static', filename='images/questionnaire.jpeg') }}"
+          alt="Take the Quiz"
+          loading="lazyload"
+        />
+      </div>
+      <h2 class="card-title">E-Safety Quiz</h2>
+      <div class="card-overlay">
+        <div class="card-content">
+          <h3>Test Your Knowledge</h3>
+          <p>
+            How much do you know about online safety? Take our interactive quiz
+            to test your knowledge and get personalized recommendations to
+            improve your digital safety.
+          </p>
+          <a href="{{ url_for('questionnaire') }}" class="card-button">Take Quiz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 新添加的内容，使用新的样式结构 -->
+  <section class="cyber-info-section">
+    <div class="info-block dark">
+      <div class="info-block-content">
+        <div class="info-header">
+          <div class="info-number">1</div>
+          <h2 class="info-title">WHAT IS CYBER SAFETY?</h2>
+        </div>
+        
+        <div class="info-flex-container">
+          <div class="info-image-column">
+            <img src="{{ url_for('static', filename='images/covers/info1.jpg') }}" alt="Cyber Safety Image">
+          </div>
+          
+          <div class="info-text-column">
+            <p>Cyber safety means helping families protect children from online dangers like scams, harmful content, and strangers.</p>
+            <p>Many parents worry about their children's safety on the internet but don't always know what to look out for or how to respond. Our website is built to support these parents—offering clear, trusted resources to help them understand digital risks and guide their children safely.</p>
+            <p>We use games, stories, toolkits, and interactive guides to make cyber safety simple and practical for real families.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block light">
+      <div class="info-list-container">
+        <h3>Here are some of the biggest online risks that Australian parents are worried about:</h3>
+        <div class="info-list-columns">
+          <div class="info-list-column">
+            <ul>
+              <li>Children talking to strangers online</li>
+              <li>Exposure to violent, sexual, or fake content</li>
+              <li>Being bullied or pressured through social media</li>
+              <li>Downloading unsafe apps or clicking on scam links</li>
+            </ul>
+          </div>
+          <div class="info-list-column">
+            <ul>
+              <li>Spending too much time online and losing sleep</li>
+              <li>Sharing personal photos or private information</li>
+              <li>Not knowing who to trust—or what's real</li>
+              <li>Feeling anxious, isolated, or emotionally affected by digital experiences</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block dark">
+      <div class="info-block-content">
+        <div class="info-header">
+          <div class="info-number">2</div>
+          <h2 class="info-title">WHY IS CYBER SAFETY IMPORTANT?</h2>
+        </div>
+        
+        <div class="info-flex-container">
+          <div class="info-image-column">
+            <img src="{{ url_for('static', filename='images/covers/info2.jpg') }}" alt="Cyber Safety Importance">
+          </div>
+          
+          <div class="info-text-column">
+            <p>In today's digital world, children start using the internet at a younger age than ever before. Whether it's watching videos, playing games, or chatting with friends, kids are constantly connected—and constantly at risk.</p>
+            <p>Online threats are often hidden in plain sight. A simple game may contain unmoderated chat rooms, a message from a stranger could lead to grooming, or a viral trend might pressure teens into unsafe behavior. Many of these dangers are subtle, fast-moving, and difficult to detect—especially for busy parents who may not fully understand the digital platforms their children use every day.</p>
+            <p>At the same time, children often feel uncomfortable talking to adults about their online problems. They may worry about getting in trouble, being judged, or having their internet access taken away. This creates a dangerous silence that can delay intervention or support.</p>
+            <p>Cyber safety education is important because it breaks this silence. It helps parents understand the risks, recognize the warning signs, and communicate openly with their children. It also empowers kids to speak up, ask questions, and make safer decisions online.</p>
+            <p>Protecting children online isn't just about using filters or blocking websites—it's about building trust, creating dialogue, and staying informed together.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block light">
+      <div class="info-list-container">
+        <h3>Without strong cyber safety habits, families may face serious risks such as:</h3>
+        <div class="info-list-columns">
+          <div class="info-list-column">
+            <ul>
+              <li>Accidental exposure to harmful or explicit content, often through ads, links, or search results</li>
+              <li>Falling victim to online scams, including phishing messages, fake giveaways, or misleading apps</li>
+              <li>Cyberbullying or peer pressure through social media, messaging platforms, or multiplayer games</li>
+              <li>Sharing sensitive information, like addresses, passwords, or private photos, without understanding the risks</li>
+            </ul>
+          </div>
+          <div class="info-list-column">
+            <ul>
+              <li>Developing unhealthy screen time habits, leading to sleep issues, social withdrawal, or reduced academic performance</li>
+              <li>Emotional distress caused by online harassment, exclusion, or digital comparison</li>
+              <li>Lack of parental awareness, as children may hide risky behaviors or downplay incidents due to fear of punishment</li>
+              <li>Cyber safety matters because it creates a safer digital future for our children—one where they feel confident, informed, and supported every step of the way.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block dark">
+      <div class="info-block-content">
+        <div class="info-header">
+          <div class="info-number">3</div>
+          <h2 class="info-title">OUR APPROACH</h2>
+        </div>
+        
+        <div class="info-flex-container">
+          <div class="info-image-column">
+            <img src="{{ url_for('static', filename='images/covers/info2.jpeg') }}" alt="Our Approach">
+          </div>
+          
+          <div class="info-text-column">
+            <p>Our website is designed to support parents who want to protect their children online, but may not know where to start.</p>
+            <p>Many parents worry about online threats such as scams, cyberbullying, or exposure to harmful content. However, they may lack the technical knowledge to fully understand these risks or to explain them clearly to their children.</p>
+            <p>That's why we created a platform that focuses on educating parents first. We believe that when parents feel informed and confident, they can guide their children more effectively. Even if children don't always respond well to formal lessons, they learn through conversations, habits, and daily interactions with adults.</p>
+            <p>By improving digital awareness among parents, we empower them to teach safe behaviors, set boundaries, and recognize warning signs. This indirect approach builds a more sustainable and trusted form of cyber safety education within the home environment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block light">
+      <div class="info-list-container">
+        <h3>Key features of our platform that help families stay safe online:</h3>
+        <div class="info-list-columns">
+          <div class="info-list-column">
+            <ul>
+              <li><strong>Cyber Safety Storybooks</strong><br>
+                Illustrated short stories that explain online safety risks to younger children in a way that's engaging and easy to understand. Each story includes follow-up questions and parent prompts.</li>
+              <li><strong>Teen Awareness Toolkits</strong><br>
+                Age-appropriate resources that help older children learn how to recognize scams, avoid digital pressure, and manage screen time, with guidance available for parents to discuss each topic.</li>
+              <li><strong>Zack's Digital Journey Game</strong><br>
+                A story-driven online game designed to simulate real-life digital scenarios. Teens make choices and learn the outcomes, while parents can observe and reflect on key moments with them.</li>
+            </ul>
+          </div>
+          <div class="info-list-column">
+            <ul>
+              <li><strong>Personalised Safety Questionnaire for Parents</strong><br>
+                A tool that allows parents to answer questions about their child's online habits and receive tailored advice on how to respond and engage.</li>
+              <li><strong>Parent-focused learning support</strong><br>
+                Every section of our platform includes tips, suggestions, and conversation starters to help adults confidently lead discussions about online safety—even without technical expertise.</li>
+              <li>Through parent-focused education and interactive tools, we help families build a shared understanding of cyber safety and create open lines of communication that last.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block dark">
+      <div class="info-block-content" style="text-align: center; padding: 40px 20px;">
+        <div class="info-header" style="justify-content: center;">
+          <div class="info-number"></div>
+          <h2 class="info-title">ABOUT US</h2>
+        </div>
+        
+        <div style="display: flex; justify-content: center; align-items: center; padding: 30px 0;">
+          <img src="{{ url_for('static', filename='images/covers/Logo.png') }}" alt="Company Logo" style="max-width: 300px; height: auto;">
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<button id="back-to-top">Back To Top</button>
+
+<script src="{{ url_for('static', filename='js/playground_button.js') }}"></script>
+<script src="{{ url_for('static', filename='js/back-to-top.js') }}"></script>
+{% endblock %}

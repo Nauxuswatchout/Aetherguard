@@ -1,0 +1,176 @@
+{% block additional_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/storybook.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="storybook-container full-page">
+  <div class="book-wrapper">
+    <div id="book" class="book">
+      <!-- Book Cover -->
+      <div class="page">
+        <div class="page-content">
+          <div class="text-section">
+            <h2 class="page-header">Bella the Bunny and the Mystery Photo</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 1 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Bella the Bunny lived in a grassy meadow with her brother.</p>
+          </div>
+          <div class="page-number">1</div>
+        </div>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>One afternoon, Bella chatted with new friends online.</p>
+          </div>
+          <div class="page-number">2</div>
+        </div>
+      </div>
+
+      <!-- Page 3 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Someone named “CoolCarrot123” sent a photo.</p>
+          </div>
+          <div class="page-number">3</div>
+        </div>
+      </div>
+
+      <!-- Page 4 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>“Click to see a funny bunny dance!” the message said.</p>
+          </div>
+          <div class="page-number">4</div>
+        </div>
+      </div>
+
+      <!-- Page 5 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Bella giggled. “That sounds fun!” She reached to click.</p>
+          </div>
+          <div class="page-number">5</div>
+        </div>
+      </div>
+
+      <!-- Page 6 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>But her brother shouted, “Wait! We don’t know them!”</p>
+          </div>
+          <div class="page-number">6</div>
+        </div>
+      </div>
+
+      <!-- Page 7 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Bella paused. “But it’s just a funny video… right?”</p>
+          </div>
+          <div class="page-number">7</div>
+        </div>
+      </div>
+
+      <!-- Page 8 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>They asked Dad Bunny. He checked the message.</p>
+          </div>
+          <div class="page-number">8</div>
+        </div>
+      </div>
+
+      <!-- Page 9 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>“This file could hide a virus,” he warned. “Don’t open it.”</p>
+          </div>
+          <div class="page-number">9</div>
+        </div>
+      </div>
+
+      <!-- Page 10 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Bella gasped. “A virus? Like... the sneezy kind?”</p>
+          </div>
+          <div class="page-number">10</div>
+        </div>
+      </div>
+
+      <!-- Page 11 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Dad smiled, “It makes your tablet sick, not you!”</p>
+          </div>
+          <div class="page-number">11</div>
+        </div>
+      </div>
+
+      <!-- Page 12 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>They blocked CoolCarrot123 and reported the message.</p>
+          </div>
+          <div class="page-number">12</div>
+        </div>
+      </div>
+
+      <!-- Page 13 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Bella felt proud. “We stopped the trick in time!”</p>
+          </div>
+          <div class="page-number">13</div>
+        </div>
+      </div>
+
+      <!-- Page 14 -->
+      <div class="page">
+        <div class="page-content top-half">
+          <div class="text-section">
+            <p>Now Bella says, “Don’t open files from strangers — ever!”</p>
+          </div>
+          <div class="page-number">14</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Controls -->
+  <div class="book-controls">
+    <div class="back-to-section">
+      <a href="{{ url_for('tilly_page') }}" class="back-button">
+        <span class="back-arrow">←</span> Back to Library
+      </a>
+    </div>
+    <button id="prev-btn" class="flip-btn">Previous</button>
+    <button id="next-btn" class="flip-btn">Next</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+<script src="{{ url_for('static', filename='js/stories/bella.js') }}"></script>
+{% endblock %}
