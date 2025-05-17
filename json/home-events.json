@@ -1,0 +1,509 @@
+{
+  "events": [
+    {
+      "id": "HomeEvent-01",
+      "type": "home",
+      "title": "Invitation after School",
+      "conditions": {"fans": 100},
+      "background": "home.png",
+      "dialogues": [
+        { "character": "Zack_sad", "text": "School is finally over today. My head feels like it will burst. I made mistakes on the math test again, and Louis laughed at me." },
+        { "character": "Zack_smile", "text": "Well, my fan count finally reached 100 today. At least I feel a bit proud." },
+        { "character": "Zack_neutral", "text": "(I pull out my phone and see a new private message)" },
+        { "character": "Unnamed_neutral", "text": "Hi, little Z. I'm a fan of your channel. I've been watching your videos and really like your style." },
+        { "character": "Zack_shocked", "text": "A fan? Really? It's my first time someone reached out to me." },
+        { "character": "Unnamed_neutral", "text": "I live near your school. If you're free this afternoon, do you want to meet in the small park? I can take nice photos for you and help your account get more followers." },
+        { "character": "Zack_thinking", "text": "The small park is just behind the school, only a few minutes' walk. Taking photos sounds good. If I get some nice photos, they'll get a lot of likes." },
+        { "character": "Zack_worried", "text": "But... meeting a stranger feels strange. Still, it might be a rare chance to meet someone great." },
+        { "character": "Aether_serious", "text": "When you decide, think about what is most important for you." }
+      ],
+      "choices": [
+        {
+          "text": "Agree to the invitation and go to the small park.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "Okay, where do we meet?" },
+              { "character": "Unnamed_neutral", "text": "Meet at the big tree in the center of the park. I will wear a black hoodie so I'm easy to spot." },
+              { "character": "narrator", "text": "(Time passes, now at the small park)" },
+              { "character": "Zack_neutral", "text": "Why is there no one around? This place is usually busy." },
+              { "character": "Unnamed_neutral", "text": "You're here. I didn't expect you to be so on time." },
+              { "character": "Zack_serious", "text": "Are you really a fan of my channel? You seem different from what I thought." },
+              { "character": "Unnamed_neutral", "text": "Follow me. I will show you a good place for photos." },
+              { "character": "Zack_worried", "text": "Wait, I feel something is wrong..." },
+              { "character": "Aether_warning", "text": "Zack, run!" },
+              { "character": "narrator", "text": "(Zack turns and runs back to the main road)" }
+            ],
+            "stats": {
+              "mentalHealth": -20,
+              "safetyAwareness": 10,
+              "familyTrust": -5
+            }
+          }
+        },
+        {
+          "text": "Reject the invitation and tell Aether.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_serious", "text": "Maybe it's not a good time today. Let's do it another day." },
+              { "character": "narrator", "text": "(Zack locks his phone and looks at Aether in his hand)" },
+              { "character": "Zack_relaxed", "text": "I can't explain why, but it feels strange. It's better to be safe." },
+              { "character": "Aether_proud", "text": "Protecting yourself is the most important choice. You did well." }
+            ],
+            "stats": {
+              "mentalHealth": 5,
+              "safetyAwareness": 15,
+              "familyTrust": 5
+            }
+          }
+        }
+      ],
+      "summary": "Be very careful when meeting strangers online. Even if they say they are fans or friends, stay alert. Meet in public places and watch your surroundings to keep yourself safe."
+    },
+    {
+      "id": "HomeEvent-02",
+      "type": "home",
+      "title": "A Stranger's Inquiry",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "Today at school was nothing special. It feels good to get home early." },
+        { "character": "Zack_thinking", "text": "Mom is still cooking dinner. I can rest a bit and see if I have new messages on my phone." },
+        { "character": "narrator", "text": "(Zack opens his phone and sees a new private message)" },
+        { "character": "Unnamed_neutral", "text": "Hi, little Zack, I am your mom's friend, Aunt Linda." },
+        { "character": "Zack_confused", "text": "Aunt Linda? Mom's friend? I think Mom mentioned a friend named Linda." },
+        { "character": "Unnamed_neutral", "text": "At the last party, your home was very busy. I want to know when your mom plans to go to the supermarket. I can't reach her by phone." },
+        { "character": "Zack_thinking", "text": "She spoke so naturally... Mom did go out last time, but I'm not sure if it was Linda." },
+        { "character": "Zack_worried", "text": "Should I tell her? If she is really Mom's friend, not telling seems rude." },
+        { "character": "Aether_gentle", "text": "(Aether sits quietly on the bedside, looking at Zack as if waiting for his decision)" }
+      ],
+      "choices": [
+        {
+          "text": "Tell her when Mom plans to go to the supermarket on the weekend.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_smile", "text": "Okay. Mom should go to the city-center supermarket on Saturday afternoon." },
+              { "character": "Unnamed_neutral", "text": "Great, thank you, little Zack. You are a good kid." },
+              { "character": "narrator", "text": "(After sending, the stranger goes offline quickly)" },
+              { "character": "Zack_worried", "text": "I feel uneasy... but maybe I am just overthinking." }
+            ],
+            "stats": {
+              "safetyAwareness": -10,
+              "familyTrust": -5,
+              "mentalHealth": -5
+            }
+          }
+        },
+        {
+          "text": "Politely refuse to give any family schedule information.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_serious", "text": "Sorry, Aunt Linda, I don't know Mom's schedule. You should ask her directly." },
+              { "character": "narrator", "text": "(The stranger read the message and did not reply.)" },
+              { "character": "Zack_relaxed", "text": "Not giving family information to a stranger seems right." },
+              { "character": "Aether_proud", "text": "Keeping family information safe shows you have grown up." }
+            ],
+            "stats": {
+              "safetyAwareness": 15,
+              "familyTrust": 5,
+              "mentalHealth": 5
+            }
+          }
+        }
+      ],
+      "summary": "Online, no matter who someone says they are, you should not share your family's schedule or private information. Even if they sound real, stay alert and protect your family's safety."
+    },
+    {
+      "id": "HomeEvent-03",
+      "type": "home",
+      "title": "Suspicious Utility Bill",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "I'm finally home. The kitchen smells so good. I wonder what Mom is cooking." },
+        { "character": "narrator", "text": "(Zack walks into the kitchen)" },
+        { "character": "MrsWilliam_worried", "text": "Mom: Zack, help me. Get the credit card from my bag." },
+        { "character": "Zack_neutral", "text": "What do you need to buy?" },
+        { "character": "MrsWilliam_worried", "text": "Mom: I just got a message from the utility company asking me to pay the bill or they will cut the power." },
+        { "character": "narrator", "text": "(Zack takes the card but hesitates.)" },
+        { "character": "Zack_thinking", "text": "Why is the utility company so urgent? They usually ask at the end of the month." },
+        { "character": "Zack_serious", "text": "Mom, can you show me that message?" },
+        { "character": "MrsWilliam_confused", "text": "Huh? I already opened the payment page. It should be fine." },
+        { "character": "Zack_determined", "text": "Let me check it. It might be fake." },
+        { "character": "narrator", "text": "(Mom hands the phone to Zack.)" },
+        { "character": "narrator", "text": "(Zack sees the page and finds the URL odd and the page rough.)" },
+        { "character": "Zack_serious", "text": "This site... looks wrong. The sender is not an official email." },
+        { "character": "MrsWilliam_worried", "text": "Huh? Really? I was about to enter my card number." }
+      ],
+      "choices": [
+        {
+          "text": "Stop Mom from paying and call the utility company's official number to verify.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "Mom, stop. Call the official customer service to check." },
+              { "character": "narrator", "text": "(Mom immediately calls and confirms there is no bill; it was a scam.)" },
+              { "character": "MrsWilliam_relief", "text": "Mom: Good thing you warned me, or it would have been a big problem." }
+            ],
+            "stats": {
+              "safetyAwareness": 20,
+              "familyTrust": 10,
+              "mentalHealth": 5
+            }
+          }
+        },
+        {
+          "text": "Let Mom decide herself, trusting she won't make a mistake.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_worried", "text": "Then be careful yourself..." },
+              { "character": "narrator", "text": "(Mom entered some information but noticed something strange in time, was shocked but there was no major loss.)" },
+              { "character": "MrsWilliam_worried", "text": "Mom: Luckily I reacted, but next time I will be more careful." }
+            ],
+            "stats": {
+              "safetyAwareness": 5,
+              "familyTrust": 0,
+              "mentalHealth": -5
+            }
+          }
+        },
+        {
+          "text": "Keep looking at the page for more problems, then explain.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_thinking", "text": "Let me look closely... The sender name is misspelled and the link is fake." },
+              { "character": "narrator", "text": "(Zack gathers proof and explains clearly to Mom.)" },
+              { "character": "MrsWilliam_grateful", "text": "Mom: Thanks so much, next time I will have you check first." }
+            ],
+            "stats": {
+              "safetyAwareness": 15,
+              "familyTrust": 10,
+              "mentalHealth": 5
+            }
+          }
+        }
+      ],
+      "summary": "Utility bill scams often use fake emails and urgent messages to create panic. To prevent this, check the sender information, do not click links, and verify through official channels. If you already gave sensitive information, contact the bank immediately to freeze the card and change your password to reduce losses."
+    },
+    {
+      "id": "HomeEvent-04",
+      "type": "home",
+      "title": "Delivery Extra Fee Scam",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "I finally finished my homework. Now I can relax." },
+        { "character": "narrator", "text": "(Zack walks into the living room)" },
+        { "character": "MrsWilliam_worried", "text": "Mom: Zack, come here. I seem to have a problem." },
+        { "character": "Zack_neutral", "text": "What's the matter?" },
+        { "character": "MrsWilliam_worried", "text": "Mom: I got a delivery extra fee notice saying my package will be returned if I don't pay. I paid a small fee but now I think something is wrong." },
+        { "character": "Zack_shocked", "text": "You paid?!" },
+        { "character": "MrsWilliam_worried", "text": "Yes... I was in a hurry, and the page looked real, so I didn't think." },
+        { "character": "Zack_serious", "text": "Can you show me the website you used to pay?" },
+        { "character": "narrator", "text": "(Mom hands the phone.)" },
+        { "character": "narrator", "text": "(Zack checks the site and sees the URL is messy and there is no official verification.)" }
+      ],
+      "choices": [
+        {
+          "text": "Immediately freeze the card and call the bank to report it.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "First freeze the card to be safe. Call the bank customer service to report it lost." },
+              { "character": "narrator", "text": "(Zack helps Mom call the bank and freeze the card quickly.)" },
+              { "character": "narrator", "text": "(The bank confirms the card is frozen and there was no loss.)" },
+              { "character": "MrsWilliam_relief", "text": "Mom: Great, thank you so much, Zack." }
+            ],
+            "stats": {
+              "safetyAwareness": 20,
+              "familyTrust": 20,
+              "mentalHealth": 5
+            }
+          }
+        },
+        {
+          "text": "First watch the account transactions to see if anything abnormal before deciding.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_thinking", "text": "Don't panic. Let's check the bank account for any unusual charges." },
+              { "character": "narrator", "text": "(Mom logs into online banking, sees no issues at first, but finds small fraud the next day.)" },
+              { "character": "MrsWilliam_worried", "text": "Mom: It was indeed a scam, but luckily only a small amount." },
+              { "character": "narrator", "text": "(In the end, she still needs to request a refund from the bank.)" }
+            ],
+            "stats": {
+              "safetyAwareness": 5,
+              "familyTrust": 0,
+              "mentalHealth": -10
+            }
+          }
+        }
+      ],
+      "summary": "Delivery fee scams often use fake notices to scare you into paying. To avoid them, check the sender, don't click links, and verify with official channels. If you already paid, contact the bank to freeze your card and apply for a refund." 
+    },
+    {
+      "id": "HomeEvent-05",
+      "type": "home",
+      "title": "Credit Card Fraud Incident",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "I finally have some time for myself today." },
+        { "character": "narrator", "text": "(Mom suddenly walks in angrily)" },
+        { "character": "MrsWilliam_worried", "text": "Mom: Zack, did you use my credit card to buy game top-ups?" },
+        { "character": "Zack_shocked", "text": "What? I didn't!" },
+        { "character": "MrsWilliam_worried", "text": "Mom: My bill shows a game company charge of 648. Who else could it be if not you?" },
+        { "character": "narrator", "text": "(Zack angrily goes back to his room)" },
+        { "character": "Zack_worried", "text": "It's not me. Why am I being blamed?" },
+        { "character": "narrator", "text": "(Aether stands by the door)" },
+        { "character": "Aether_concerned", "text": "What happened? You look upset." },
+        { "character": "Zack_worried", "text": "Mom thinks I charged the card, but I never touched it." },
+        { "character": "Aether_thinking", "text": "Maybe the card information was stolen?" },
+        { "character": "Zack_thinking", "text": "Right, if it was stolen, that's serious." },
+        { "character": "Aether_neutral", "text": "Should we ask Mom to check the transaction history?" },
+        { "character": "Zack_determined", "text": "Yes, I need to convince her to take it seriously!" }
+      ],
+      "choices": [
+        {
+          "text": "Urge Mom to contact the bank immediately to freeze the card and verify the transactions.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_serious", "text": "(Walking out again) Mom, it wasn't me. We should call the bank to check the transactions. It might be theft." },
+              { "character": "MrsWilliam_worried", "text": "Mom: ... Okay, I will call and try." },
+              { "character": "narrator", "text": "(Time passes)" },
+              { "character": "narrator", "text": "(The bank confirms an overseas transaction. Mom freezes the card, and later the bank recovers the money.)" },
+              { "character": "MrsWilliam_grateful", "text": "Mom: Luckily I listened to you, or it would have been a big problem." }
+            ],
+            "stats": {
+              "safetyAwareness": 20,
+              "familyTrust": 15,
+              "mentalHealth": 5
+            }
+          }
+        },
+        {
+          "text": "Urge Mom to call the police.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_serious", "text": "Mom, this is serious. We should report it to the police." },
+              { "character": "MrsWilliam_worried", "text": "Mom: Don't be silly. It's just a few dollars, why call the police? Overkill." },
+              { "character": "narrator", "text": "(Mom ignores Zack's advice and refuses to call the police.)" },
+              { "character": "narrator", "text": "(A few days later)" },
+              { "character": "MrsWilliam_worried", "text": "Mom: Zack, they used my card again!" }
+            ],
+            "stats": {
+              "safetyAwareness": 0,
+              "familyTrust": -10,
+              "mentalHealth": -10
+            }
+          }
+        }
+      ],
+      "summary": "When you find your card may be stolen, first freeze the card and contact the bank to reduce losses. If you see strange charges, reporting to the police is also needed. The sooner you act, the less damage you suffer. Hesitating only makes it worse."
+    },
+    {
+      "id": "HomeEvent-06",
+      "type": "home",
+      "title": "Privacy Exposure Incident",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "I was so tired today. Finally, I can relax." },
+        { "character": "narrator", "text": "(Zack is about to go to his room)" },
+        { "character": "MrsWilliam_worried", "text": "Mom: Zack, can you check my phone? I think there's a problem." },
+        { "character": "Zack_neutral", "text": "What happened?" },
+        { "character": "MrsWilliam_worried", "text": "Mom: I posted a photo of a friend gathering, and a stranger commented they know our home location and our community name..." },
+        { "character": "Zack_shocked", "text": "What?! Did you have location on?" },
+        { "character": "MrsWilliam_confused", "text": "No... I think?" },
+        { "character": "Zack_serious", "text": "Let me see." },
+        { "character": "narrator", "text": "(Zack takes the phone.)" },
+        { "character": "Zack_thinking", "text": "Your photo has location info, and the app shared your home address too. Also in your account info." },
+        { "character": "MrsWilliam_confused", "text": "What? I didn't know!" },
+        { "character": "Zack_worried", "text": "Many apps share information by default. If you don't change the settings, people can easily see it." }
+      ],
+      "choices": [
+        {
+          "text": "Only delete the sensitive photo and keep the settings.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "Then delete the photo. That should be fine." },
+              { "character": "MrsWilliam_relief", "text": "Mom: Yes, better than keeping it." },
+              { "character": "narrator", "text": "(Mom deletes the photo, but other private info remains public.)" },
+              { "character": "Zack_worried", "text": "But... is that really safe?" }
+            ],
+            "stats": {
+              "safetyAwareness": -5,
+              "mentalHealth": -5,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "Only turn off location service, not other permissions.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_thinking", "text": "I will turn off your phone's location service." },
+              { "character": "MrsWilliam_neutral", "text": "Mom: Okay, then it's safe?" },
+              { "character": "narrator", "text": "(The location issue is fixed, but contact, birthday, and address are still exposed.)" },
+              { "character": "Zack_neutral", "text": "Hmm... that may not be enough." }
+            ],
+            "stats": {
+              "safetyAwareness": -5,
+              "mentalHealth": 0,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "Check all app permissions and adjust the privacy settings.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "No, we need to check all app permissions and change default public settings." },
+              { "character": "MrsWilliam_confused", "text": "Mom: Is it that much work?" },
+              { "character": "Zack_smile", "text": "Protecting yourself is better than regretting later." },
+              { "character": "narrator", "text": "(Zack helps Mom check each app's privacy settings, turn off unnecessary sharing, and clean up public information.)" }
+            ],
+            "stats": {
+              "safetyAwareness": 15,
+              "mentalHealth": 5,
+              "social": 5
+            }
+          }
+        }
+      ],
+      "summary": "Online, many apps share your location, photos, and personal info by default. If you don't manage privacy settings, your data can be exposed to strangers. Protecting your information is like locking your doors in real life."
+    },
+    {
+      "id": "HomeEvent-07",
+      "type": "home",
+      "title": "Video Copyright Infringement",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "Today's video stats are good. I hope more people like it." },
+        { "character": "narrator", "text": "(Zack scrolls his phone and suddenly sees an ad.)" },
+        { "character": "Zack_shocked", "text": "Wait, isn't that my video?!" },
+        { "character": "narrator", "text": "(In the ad, Zack's video is used without permission with strange captions and a shopping website logo.)" },
+        { "character": "Aether_concerned", "text": "This is not a mistake, it is infringement, and it harms your reputation." },
+        { "character": "Zack_worried", "text": "But I'm just a normal person, and the other side is a company. What can I do?" },
+        { "character": "Aether_serious", "text": "You have the right to protect your work. The question is where to complain." },
+        { "character": "narrator", "text": "(Zack opens a chat app and contacts Louis.)" },
+        { "character": "Zack_neutral", "text": "(Sends message) Louis, if someone uses my video for ads, who should I complain to?" },
+        { "character": "Louis_relaxed", "text": "(Replies) It depends on how you want to handle it. The wrong place will waste time." }
+      ],
+      "choices": [
+        {
+          "text": "Complain to the platform's general customer service (normal support).",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "I'll contact platform support first." },
+              { "character": "narrator", "text": "(Zack submits a complaint ticket, but the normal process is slow and automated; the issue is not resolved.)" },
+              { "character": "Zack_worried", "text": "It seems useless..." }
+            ],
+            "stats": {
+              "mentalHealth": -5,
+              "safetyAwareness": -5,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "Complain to the advertising regulator (ACCC).",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "Since it is a commercial ad violation, I should go to the regulator." },
+              { "character": "narrator", "text": "(Zack gathers evidence and files a formal complaint with the ACCC.)" },
+              { "character": "narrator", "text": "(After a few days, the platform quickly removes the ad after the regulator's notice and forces an apology.)" },
+              { "character": "Zack_determined", "text": "This time I did the right thing!" }
+            ],
+            "stats": {
+              "mentalHealth": 15,
+              "safetyAwareness": 20,
+              "social": 10
+            }
+          }
+        },
+        {
+          "text": "Complain to the school student affairs office.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_uncertain", "text": "Maybe the school can help?" },
+              { "character": "narrator", "text": "(Zack complains to the school, but they say they cannot handle social platform issues.)" },
+              { "character": "Zack_sad", "text": "I wasted my time..." }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": -10,
+              "social": 0
+            }
+          }
+        }
+      ],
+      "summary": "When facing serious infringement, choose the right channel. For online infringement and commercial violations, complain to professional regulators (like the ACCC). General customer service cannot handle serious issues, and the school office has no authority. Learning to use the right method is the first step in protecting yourself."
+    },
+    {
+      "id": "HomeEvent-08",
+      "type": "home",
+      "title": "Identity Theft",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "Today's video comments are very active. Let's check them out." },
+        { "character": "narrator", "text": "(Zack scrolls and suddenly sees a fan comment)" },
+        { "character": "Tiktok_user", "text": "You have another account? I saw your selfie there!" },
+        { "character": "Zack_confused", "text": "I never opened a second account!" },
+        { "character": "narrator", "text": "(Zack opens the link the fan posted.)" },
+        { "character": "narrator", "text": "(He sees an account using his photo and posting strange content.)" },
+        { "character": "Zack_alert", "text": "Oh no, someone is using my photo to pretend to be me!" },
+        { "character": "Zack_worried", "text": "If this goes on, people will think those weird posts are from me!" },
+        { "character": "Aether_concerned", "text": "This already affects your reputation. You must take action." },
+        { "character": "Zack_thinking", "text": "Who should I complain to...?" }
+      ],
+      "choices": [
+        {
+          "text": "Report to the platform's content review team.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_neutral", "text": "I'll report this to the platform." },
+              { "character": "narrator", "text": "(The platform review is slow, and the issue continues.)" },
+              { "character": "Zack_worried", "text": "I'm worried it won't help." }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": -5,
+              "social": 0
+            }
+          }
+        },
+        {
+          "text": "Report to a specialized identity theft agency (e.g., ACSC).",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "Identity theft is serious. I should report to a specialized agency." },
+              { "character": "narrator", "text": "(Zack collects screenshots and reports to the ACSC.)" },
+              { "character": "narrator", "text": "(The ACSC helps quickly freeze the fake account.)" },
+              { "character": "Zack_neutral", "text": "My account is safe again, and my followers support me even more." }
+            ],
+            "stats": {
+              "mentalHealth": 15,
+              "safetyAwareness": 20,
+              "social": 10
+            }
+          }
+        },
+        {
+          "text": "Ask the school to delete the fake account.",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_uncertain", "text": "Maybe the school can help?" },
+              { "character": "narrator", "text": "(The school replies: This is outside their authority.)" },
+              { "character": "Zack_sad", "text": "I knew that wouldn't work..." }
+            ],
+            "stats": {
+              "mentalHealth": -5,
+              "safetyAwareness": -5,
+              "social": 0
+            }
+          }
+        }
+      ],
+      "summary": "Identity theft is serious. If someone uses your photo to impersonate you, report it to cyber security agencies and keep evidence to protect your reputation."
+    }
+  ]
+} 

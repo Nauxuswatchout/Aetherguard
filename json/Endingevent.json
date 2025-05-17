@@ -1,0 +1,1247 @@
+{
+  "id": "ending_event",
+  "type": "ending",
+  "title": "结局事件",
+  "description": "游戏结局",
+  "dialogues": [
+    {
+      "speaker": "Narration",
+      "text": "夜很安静，安静得不真实。Zack睁开眼，发现自己还坐在熟悉的房间里，天花板没有变，墙上的挂画也在，但空气中似乎缺了点温度。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "……我不是早就睡了吗？这是什么地方？",
+      "character": "Zack_thinking",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "你还在家里。只是现在的家，不太一样。",
+      "character": "Aether_neutral",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "Aether……你是不是看起来有点怪怪的？你平常不是这个声音。",
+      "character": "Zack_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "也许是你长大了，也许是这个梦，太真实了。你要小心，Zack。",
+      "character": "Aether_concerned",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "桌上的手机突然震动，亮起的屏幕划破沉静。一个陌生私信的通知浮现在屏幕正中。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "陌生人",
+      "text": "你以为你是谁？我知道你家在哪。你最好祈祷别惹我生气。",
+      "character": "Tiktok_user_angry",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "……他在威胁我？这不是留言，是警告……他说他知道我家？",
+      "character": "Zack_shocked",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "这不是普通的恶评……这真的有可能出事……",
+      "character": "Zack_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["试着回他消息", "删掉这条私信", "截图、举报并拉黑"],
+      "correctChoice": 2
+    },
+    {
+      "speaker": "Zack",
+      "text": "我不是有意惹你不高兴的。你别太激动，好吗？",
+      "character": "Zack_neutral",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "陌生人",
+      "text": "你已经太晚了。你很快就知道我说的不是玩笑。",
+      "character": "Tiktok_user_angry",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "对话框关闭，对方头像变黑，空气也像是被冻住了。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "删掉就好了……删掉，他就不会再出现……",
+      "character": "Zack_thinking",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他点了删除，页面归于平静，可心跳却变得紊乱，那句话依然清晰地烙在脑中。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "不能忽视……我必须做点什么。",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他迅速截屏，打开举报页面，填好选项，选择封锁。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "这就是你现在的样子，Zack。你没逃避。",
+      "character": "Aether_proud",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我在保护我自己。就算是在梦里……也不能让人随便威胁我。",
+      "character": "Zack_determined",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "Zack举报完那个威胁他的用户，终于松了口气。但手机却没有停下来，反而跳出更多通知，接连不断。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "又是评论……等等，这些好像不是平常的粉丝留言……",
+      "character": "Zack_shocked",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "评论区里堆满了讽刺与恶意，像潮水一般冲垮了他的防线。\"看你演得挺像的，结果也是个骗子？\" \"终于翻车了，谁来吃瓜？\" \"原来你就是这种人？\"",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "他们……他们怎么全都站在那边了……",
+      "character": "Zack_sad",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "有时候人们更喜欢相信他们想听到的东西，而不是事实。",
+      "character": "Aether_warning",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "可这些根本不是我说的！不是我发的！",
+      "character": "Zack_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "type": "title",
+      "text": "【第一组选择：面对网络暴力评论】"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我该怎么做……他们甚至连视频都没看清楚……",
+      "character": "Zack_thinking",
+      "background": "bedroom.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["回每一条评论澄清", "开直播跟大家对质", "关闭评论功能，并向平台申请关键词屏蔽"],
+      "correctChoice": 2
+    },
+    {
+      "speaker": "Zack",
+      "text": "我不能沉默……我得把误会讲清楚……",
+      "character": "Zack_neutral",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他一条条回复，但越解释，留言越多，语气也越狠。他开始看不清屏幕。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我要说清楚！大家听我说，我没有——",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "直播刚开始，弹幕已经被\"骗子\"\"滚出网络\"等字刷屏，他甚至没说完开头就被围攻。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我解释不了所有人，但我可以关掉这个噪音。",
+      "character": "Zack_determined",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他屏蔽关键词，关闭评论，页面顿时安静了。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "不是每个声音都值得你回应。你正在做选择，而不是逃避。",
+      "character": "Aether_relaxed",
+      "background": "bedroom.png"
+    },
+    {
+      "type": "title",
+      "text": "【剧情过渡：遭遇抹黑】"
+    },
+    {
+      "speaker": "Narration",
+      "text": "刚处理完评论区的暴力风波，Zack在网络热搜看到了自己被艾特的帖子。\"Zack私信粉丝的截图曝光！\" \"Zack暗讽Louis直播穿着不当？\"",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "这是什么鬼……这些截图根本就不是我发的！",
+      "character": "Zack_shocked",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "深度伪造，也许不只是图像，还有过去的你——留下的内容，也可能被拼凑成谣言。",
+      "character": "Aether_concerned",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我得做点什么……现在……",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "type": "title",
+      "text": "【第二组选择：面对谣言与抹黑】"
+    },
+    {
+      "type": "choice",
+      "choices": ["假装没看见，等它自己过去", "向平台举报不实内容并澄清", "找Louis帮忙发帖澄清"],
+      "correctChoice": 1
+    },
+    {
+      "speaker": "Zack",
+      "text": "也许……很快就没人再关注这件事了……",
+      "character": "Zack_thinking",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "但转发量仍在上涨，更多人加入了\"声讨\"，Zack的评论被挂在多个页面。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我要收集证据……谁发的、什么时候发的……我都记下来。",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他整理原始对话、比对发图时间，并附带原始文件，发起正式申诉。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "你不像以前那样慌了。你开始用理智应对网络，而不是逃离它。",
+      "character": "Aether_smile",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "她的影响力比我大，也许她能……",
+      "character": "Zack_neutral",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "Louis没有回复，Zack的请求截图却被传出去，被人说是在甩锅、蹭热度。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "刚处理完谣言，邮箱又弹出一封急促的提醒邮件。\"您的账号涉及违规，请在24小时内完成安全验证。\"",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "连这个时候都有人来骗我？……",
+      "character": "Zack_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "type": "title",
+      "text": "【第三组选择：面对诈骗信息】"
+    },
+    {
+      "type": "choice",
+      "choices": ["点击链接验证账号", "回复邮件质问对方", "检查发件人域名并举报为钓鱼邮件"],
+      "correctChoice": 2
+    },
+    {
+      "speaker": "Zack",
+      "text": "如果真的是官方……我不能错过……",
+      "character": "Zack_neutral",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "页面打开，他刚输入用户名，界面瞬间黑屏，账号强制登出。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "喂，你到底是谁？发这种鬼邮件是想骗谁？",
+      "character": "Zack_thinking",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "邮箱安静无声，但很快开始出现莫名通知，他察觉不对。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "\"tikttoksecurity.net\"？拼错了……他在骗人。",
+      "character": "Zack_determined",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他立刻举报邮件来源，并封锁发件人。安全中心页面给出反馈：已记录该钓鱼攻击行为。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "你开始学会保护自己的空间。而不是让恐惧钻进来。",
+      "character": "Aether_proud",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "可我感觉……真正的恶意，还没开始。",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "这一天……就像个怪梦。威胁、骂声、诬陷……从早到晚，全是乱七八糟的事。",
+      "character": "Zack_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "手机屏幕突然开始扭曲，一道黑影从中扯裂而出，缓缓走出一个熟悉又陌生的身影。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "终于撑不住了吧？真让人失望啊，Zack。",
+      "character": "Evezack_Indifferent",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "你……你是我？",
+      "character": "Zack_shocked",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "我是你……从你第一个匿名留言开始，就一直存在的你。你自己养大的怪物，现在变得比你还像\"你\"。",
+      "character": "Evezack_smirk",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "不，你不是我。你只是我账号里被恶意喂饱的影子。",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "你发视频时的犹豫，删评论时的懦弱，被攻击时的退缩……你敢说那些都不是你？",
+      "character": "Evezack_angry",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我没有退缩，我只是不想变成像你那样的人。我没有回应不是因为害怕，而是因为我知道什么该说，什么该放下。",
+      "character": "Zack_determined",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "文明用语？举报？屏蔽？你觉得这有用？这些人根本不在意你是不是善良，他们只在意有没有热闹。",
+      "character": "Evezack_smirk",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我在意。我不是为了他们才这样做的，是为了我自己——我不想被这些恶意拖着走。",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "呵。既然你不想回应，那我来回应——你那个蠢朋友Bob不是很爱出风头吗？我先拍个视频骂他一顿。",
+      "character": "Evezack_Indifferent",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "住口！",
+      "character": "Zack_shocked",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "接着我就去找Louis，骂她那套作秀式直播。让她哭一场，顺便再火一波。",
+      "character": "Evezack_angry",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "你不能碰他们！你不是我！你不了解他们的重要！",
+      "character": "Zack_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "他们会信我，因为我现在才是网络上的Zack，而你……就继续被绑在这里，看我替你\"重塑名声\"。",
+      "character": "Evezack_smirk",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "邪恶Zack冷笑着走回手机屏幕，一步步消失，只留下扎克一人被绑在椅子上。",
+      "type": "narration",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "Aether……你在，对吧？你总是在的，对不对？",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "嗯，我在。你看起来累坏了，这一整天确实太多了。",
+      "character": "Aether_concerned",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我真的不知道该怎么办……我真的……快撑不住了……",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "你已经做得很好了，Zack。一路走来，你从来没放弃过自己。",
+      "character": "Aether_gentle",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "那你就再帮我一次，好吗？快帮我把这绳子解开，我们去阻止他！现在只有你能帮我了！",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "（沉默几秒）……我……做不到。",
+      "character": "Aether_neutral",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "什、什么？你说什么？你不是一直都会帮我的吗？",
+      "character": "Zack_shocked",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "我想帮你，真的。但我没有办法解开这些绳子……因为我……我根本没有手。",
+      "character": "Aether_relaxed",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "你什么意思？别开这种玩笑……求你了，别这个时候说这些！",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "Zack……我是你小时候太孤单时，想出来的朋友。你害怕没人听你说话，就让我替你说；你害怕没人理解你，就让我替你鼓励。可我从来……都只是一个玩具，一只你赋予声音的小狗。",
+      "character": "Aether_gentle",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "那你以前帮过我……你不是一直都在我身边的吗？",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "我一直在，因为你需要我。但你现在有了Bob、有了Louis……你不再一个人了。你也不需要再用我来填空房间的安静了。",
+      "character": "Aether_neutral",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "可是……如果没有你，我还是会觉得害怕……",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "Zack……我明白你害怕。可你知道吗，这些天里，我其实没看到你有太多改变。",
+      "character": "Aether_concerned",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "什……什么意思？你是说……我没做得够好吗？",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "你努力了。但有时候，努力只是开始……你还是太依赖我了。太害怕一个人去面对那些陌生的、不确定的、不友善的声音。",
+      "character": "Aether_gentle",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "可我真的有试着去面对啊……我不是没做……",
+      "character": "Zack_shocked",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "是啊，你做了，但每次都只是停在第一步。你没有真正理解，网络不是靠逃避就能安全的，而是要主动去认识它、掌控它。Zack，你真的……需要快点成长。",
+      "character": "Aether_neutral",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "那你还会陪着我吗？",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "不会一直。你不是应该靠朋友走出去，而不是靠一个……永远不会变的玩具。希望下一次，我看到的你，已经准备好了。",
+      "character": "Aether_relaxed",
+      "background": "Tipup.png"
+    },
+    {
+      "type": "title",
+      "text": "播放结局画面：「坏结局」"
+    },
+    {
+      "speaker": "Aether",
+      "text": "你会害怕，但你已经知道怎么战胜它。Zack……你已经长大了。我不能再替你拦风遮雨了。",
+      "character": "Aether_gentle",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "我也知道……你不需要一直带着我出门了。",
+      "character": "Aether_gentle",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Aether",
+      "text": "放下我，不是因为不珍惜，而是因为……你已经真的走出了房间。",
+      "character": "Aether_gentle",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "Zack低头不语，泪水打湿了掌心。他再抬头时，角落里只剩下那只熟悉的小狗玩具，安静地坐在书包旁。",
+      "type": "narration",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "（轻声自语）Aether……你真的……不在了。我现在只能靠我自己了……",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "他要去找Bob和Louis，我不能坐在这里……我得想办法……快点！",
+      "character": "Zack_thinking",
+      "background": "Tipup.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["高声呼唤妈妈", "扭头寻找剪刀", "爬到窗边大声呼救", "寻找手机"],
+      "correctChoice": 3
+    },
+    {
+      "speaker": "Zack",
+      "text": "妈！妈你在吗？！快来帮我！！",
+      "character": "Zack_shocked",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "（房间毫无反应）",
+      "type": "narration",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "……没人……她听不到……或者……这里根本没有人……",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "也许我桌上有剪刀……如果我能蹭过去一点……",
+      "character": "Zack_thinking",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他用尽全力往边上挪动，但椅子纹丝不动，绳子勒得更紧了。",
+      "type": "narration",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "……不行，我根本动不了……",
+      "character": "Zack_worried",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "窗户……我可以试试……如果有人在外面……",
+      "character": "Zack_neutral",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他艰难地挪动，却发现窗外是一片虚空，没有声音、没有光。",
+      "type": "narration",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "……是梦。这是我的梦。我呼喊也没人能听到。",
+      "character": "Zack_serious",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "……还有手机！它还在地板上……如果它没关……",
+      "character": "Zack_determined",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "（抬起头，深吸一口气）Hi Siri！拨打Bob的电话！",
+      "character": "Zack_shocked",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "手机屏幕瞬间亮起，一个熟悉的音效响起，随后接通了电话。",
+      "type": "narration",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "喂？Zack？你怎么现在才——你声音听起来不对，你还好吗？",
+      "character": "Bob_smile",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "Bob，是我……出大事了。不是我发的那些东西，有人——不，是\"它\"冒充我……",
+      "character": "Zack_sad",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "冷静点，你现在在哪？我马上来找你！",
+      "character": "Bob_worried",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "快来我家帮我，我得先带你去找Louis。他……它打算去找她！",
+      "character": "Zack_serious",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "好，我们一起。告诉我你怎么想找她——我们没时间了。",
+      "character": "Bob_relaxed",
+      "background": "Tipup.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "十分钟后，Bob成功解救了Zack。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "你来了……谢谢你，Bob。",
+      "character": "Zack_determined",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "当然来了！你一个电话我就冲出来了。你说的那个\"假Zack\"到底是什么？",
+      "character": "Bob_happy",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我说不清……他长得和我一模一样，但他说要上传诋毁你的视频，还要去……伤害Louis。",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "伤害Louis？那我们得赶快找到她！",
+      "character": "Bob_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我打电话给她，但一直打不通……",
+      "character": "Zack_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["直接去Louis家", "去学校门口等", "开直播呼叫她的粉丝"],
+      "correctChoice": 2
+    },
+    {
+      "speaker": "Bob",
+      "text": "去她家吧，反正也不远。",
+      "character": "Bob_neutral",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "但她爸妈常年不在家，她说她周末一般不在家里待着……",
+      "character": "Zack_thinking",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "他们赶过去，门口灯黑着，邻居说没见她回来。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "她有时候周末会回学校拍素材。",
+      "character": "Bob_relaxed",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我们可以碰碰运气……",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "两人守了一小时，校园空荡荡，没有半个身影。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "等等……我们可以开直播！之前和Louis连麦的时候，有不少她的粉丝关注了我。",
+      "character": "Zack_thinking",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "你是说……让她的粉丝帮我们找人？",
+      "character": "Bob_smile",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "他们可能知道她今天去哪了——只要还有人信我。",
+      "character": "Zack_determined",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "Zack打开手机，点下\"直播开始\"。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "直播刚刚开启，Zack深吸一口气看向镜头。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "大家好……我知道现在很多人都不信我，但请听我说一句，Louis她可能真的有危险！",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "弹幕开始跳动，数不清的陌生头像和熟悉又陌生的ID。\"你还在装？\" \"之前那条'举报怪'的评论我记得清清楚楚。\" \"今天怎么不骂人了？\" \"平常就只知道屏蔽人，现在要靠我们了？\"",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "不是我发的那些东西……我没有骂她，也没有骗任何人……",
+      "character": "Zack_shocked",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "\"你平时是怎么在网上叫嚣的？\" \"你要是真在意大家，就不会连点赞都懒得点。\" \"除了甩锅和删评，你还会干嘛？\"",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "他们……他们说的，是你过去在网上的样子？",
+      "character": "Bob_worried",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我只是……我只是想保护我自己……",
+      "character": "Zack_sad",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "但保护，不能靠沉默和疏远。当你从未种下信任，也没人愿意在你跌倒时伸手。",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "type": "title",
+      "text": "播放结局画面：「失败者结局」"
+    },
+    {
+      "speaker": "Zack",
+      "text": "大家好……我知道你们很多人已经不信我了。但请听我说，我没有发那些骂Louis的东西。现在她有危险，我必须找到她。",
+      "character": "Zack_serious",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "如果你们知道她在哪里，拜托你们告诉我们。",
+      "character": "Bob_neutral",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "弹幕缓缓刷动，开始只有几条\"骗子别演了\"，但不久后——\"Louis今天说要去Mall拍vlog，她在微博上发过。\" \"她应该在Green Mall那个靠街的大楼里！\"",
+      "type": "narration",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "找到了！谢谢你们！谢谢！",
+      "character": "Zack_excited",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "快走吧，我们还来得及！",
+      "character": "Bob_relaxed",
+      "background": "bedroom.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "Zack和Bob气喘吁吁地冲进Mall，一眼看到了正站在橱窗前拍摄的Louis。",
+      "type": "narration",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "Louis！你得听我说！",
+      "character": "Zack_shocked",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "你来干嘛？别再演戏了。你账号里骂我的东西都已经传遍全网了！",
+      "character": "Louis_worried",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "不是他发的，是别人——不，是\"它\"在冒充他！",
+      "character": "Bob_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "你知道有多少人私信我说我配不上你、说我是蹭你流量的\"花瓶\"？那些截图……那些话，像刀子一样贴在我脸上。",
+      "character": "Louis_sad",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "Louis，我发誓，那不是我！你要怎么才肯相信我……",
+      "character": "Zack_sad",
+      "background": "street.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["说出她最常用的直播用语", "提到她喜欢的美妆品牌", "说出连麦直播时只她和Zack才知道的小插曲"],
+      "correctChoice": 2
+    },
+    {
+      "speaker": "Zack",
+      "text": "你直播结尾不是都会说，\"记得三连+抱抱\"吗？别人不会记得这种细节！",
+      "character": "Zack_thinking",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "这句话我粉丝都知道……你是不是还想\"搬自己一段话证明自己\"？",
+      "character": "Louis_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "你上次还在说你最喜欢那个橘棕色口红，对吧？色号我记得是……",
+      "character": "Zack_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "这些我在视频里讲过啊。想用公开信息骗我，太小看我了吧？",
+      "character": "Louis_relief",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "还记得上次我们连麦的时候，你临时咳嗽了两分钟，我把麦调成静音装成你在唱歌……弹幕说我们配合得像演过一样，你说\"第一次被人直播拯救\"，还笑了三次。",
+      "character": "Zack_serious",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "……那段没录进去……后台直播崩了……这事我一次都没说出去……",
+      "character": "Louis_shocked",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "这件事……只有你和我知道。",
+      "character": "Zack_determined",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "（迟疑）这件事……的确只有我知道……可是……",
+      "character": "Louis_thinking",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "你还是不信我？",
+      "character": "Zack_shocked",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "Zack，你总是记得别人说了什么、做了什么……但你从来不会真正回应我们。你在直播时，沉默；在评论区，冷淡；连我给你发的私信，你也很少回。",
+      "character": "Louis_worried",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我……我以为，只要我默默关注就够了……",
+      "character": "Zack_sad",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "有时候，沉默比恶意还令人失望。你从没真正站在我身边过——直到你需要我了。",
+      "character": "Louis_sad",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "Louis……",
+      "character": "Bob_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "（转身离开）如果你连在平时都不肯伸出手，现在我们也帮不了你了。",
+      "character": "Louis_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "Zack呆站原地，想喊她，却没有声音。",
+      "type": "narration",
+      "background": "street.png"
+    },
+    {
+      "type": "title",
+      "text": "播放结局画面：「孤独结局」"
+    },
+    {
+      "speaker": "Louis",
+      "text": "（声音轻了下来）……所以，那些东西……真的不是你？",
+      "character": "Louis_worried",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "不是。他账号被控制了，也可能不只是账号……你得亲眼看看。",
+      "character": "Bob_relaxed",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "那我们现在要做什么？",
+      "character": "Louis_thinking",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "去阻止他。现在，他就是我这个账号……也许，只要我放弃它，就能终结这一切。",
+      "character": "Zack_serious",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我们现在没时间犹豫。他正用我的账号在做最坏的事——散播仇恨、制造伤害……必须阻止他。",
+      "character": "Zack_serious",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "可我们不是黑客，怎么对付那种……那种\"深度伪造\"的你？",
+      "character": "Louis_worried",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "不用做技术高手，我们只要用对工具，按对流程。他玩的是\"网络\"，我们就用网络反制他！",
+      "character": "Bob_relaxed",
+      "background": "street.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["证据收集 & 平台举报", "粉丝协作，群体举报", "技术定位，查伪造账号来源"],
+      "correctChoice": 0
+    },
+    {
+      "speaker": "Zack",
+      "text": "我来收集他发的内容，查时间戳、对比原始视频数据。他说的不是我说的话——我要把原始的\"我\"拿出来！",
+      "character": "Zack_determined",
+      "background": "street.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["粉丝协作，群体举报", "技术定位，查伪造账号来源"],
+      "correctChoice": 0
+    },
+    {
+      "speaker": "Louis",
+      "text": "我让我的粉丝出手！他们知道我是什么人，也见过真Zack。我们一起举报他的内容，灌爆平台的申诉邮箱！",
+      "character": "Louis_thinking",
+      "background": "street.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["技术定位，查伪造账号来源"],
+      "correctChoice": 0
+    },
+    {
+      "speaker": "Bob",
+      "text": "我去找他账号的发帖IP地址，配合浏览器元数据定位他在哪个系统运行。TikTok内容可能接入第三方缓存，我们查他用的CDN节点！",
+      "character": "Bob_serious",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "三人行动迅速，平台后台被举报轰炸，热搜风向开始转变；技术数据逐步聚焦出异常设备；AI模型识别出\"声音高度相似但语速失衡\"的伪造痕迹。",
+      "type": "narration",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "他越来越弱了……你们看，视频推送量下来了，账号活跃度也在掉！",
+      "character": "Zack_thinking",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "可他还在。他现在，就是你这个账号本身……",
+      "character": "Louis_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "他控制的不只是账号，是你在网络上的\"身份复制体\"……只要这账号还在，他就有存在的理由。",
+      "character": "Bob_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "那我……就注销这个账号吧。",
+      "character": "Zack_serious",
+      "background": "street.png"
+    },
+    {
+      "type": "choice",
+      "choices": ["注销账号", "保留账号"],
+      "correctChoice": 0
+    },
+    {
+      "speaker": "Zack",
+      "text": "不行……我付出那么多努力才做到现在，粉丝、热度、作品……我不能就这么放弃。",
+      "character": "Zack_determined",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "所以你就打算继续和那个\"它\"共用一个名字？就因为你舍不得人气？",
+      "character": "Bob_worried",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "你以为你还是你吗？我看到的只是一段段数据，而你……已经不肯为自己做决定了。",
+      "character": "Louis_sad",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "我只是……我以为还有别的办法……",
+      "character": "Zack_serious",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Bob",
+      "text": "我们陪你走到这一步，是希望你能重新做回自己。但现在看……可能我们都错了。",
+      "character": "Bob_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Louis",
+      "text": "我真的失望了，Zack。",
+      "character": "Louis_worried",
+      "background": "street.png"
+    },
+    {
+      "type": "title",
+      "text": "播放结局画面：「迷失者结局」"
+    },
+    {
+      "speaker": "Zack",
+      "text": "（深吸一口气）我不想再让那个\"我\"继续活在网络上了。这个账号，不再代表真正的我。",
+      "character": "Zack_serious",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "「账号注销中……」",
+      "type": "narration",
+      "background": "street.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "你这个懦夫！这段时间我累积的流量、舆论、曝光……就这样被你一键清空了？！",
+      "character": "Evezack_angry",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "那不是我应该拥有的关注，也不是我想成为的模样。",
+      "character": "Zack_neutral",
+      "background": "street.png"
+    },
+    {
+      "speaker": "邪恶Zack",
+      "text": "你一点长进都没有。",
+      "character": "Evezack_Indifferent",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Zack",
+      "text": "（轻声）也许吧。但至少……我终于分清了，现实和网络，哪一边更宝贵。",
+      "character": "Zack_determined",
+      "background": "street.png"
+    },
+    {
+      "speaker": "Narration",
+      "text": "（邪恶Zack消失）",
+      "type": "narration",
+      "background": "street.png"
+    },
+    {
+      "type": "title",
+      "text": "播放结局画面：「好结局」"
+    },
+    {
+      "type": "title",
+      "text": "播放结局画面：「完美结局」"
+    },
+    {
+      "type": "title",
+      "text": "播放结局画面：「梦幻结局」"
+    }
+  ]
+} 

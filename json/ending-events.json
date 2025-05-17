@@ -1,0 +1,1089 @@
+{
+  "id": "EndingEvent-01",
+  "type": "ending",
+  "title": "The Final Choice",
+  "background": "bedroom.png",
+  "dialogues": [
+    {
+      "character": "narrator",
+      "text": "The night was quiet, unnaturally quiet. Zack opened his eyes to find himself still sitting in his familiar room. The ceiling hadn't changed, the paintings on the wall were still there, but the air seemed to lack warmth."
+    },
+    {
+      "character": "Zack_thinking",
+      "text": "...Wasn't I already asleep? Where is this place?"
+    },
+    {
+      "character": "Aether_neutral",
+      "text": "You're still at home. Just that home is... different now."
+    },
+    {
+      "character": "Zack_worried",
+      "text": "Aether... you seem a bit strange? You don't usually sound like this."
+    },
+    {
+      "character": "Aether_concerned",
+      "text": "Maybe you've grown up, or maybe this dream is too real. Be careful, Zack."
+    },
+    {
+      "character": "narrator",
+      "text": "The phone on the desk suddenly vibrated, its screen lighting up and breaking the silence. A notification for a strange private message appeared in the center of the screen."
+    },
+    {
+      "character": "Tiktok_user_angry",
+      "text": "Who do you think you are? I know where you live. You better pray you don't make me angry."
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "...Is he threatening me? This isn't just a comment, it's a warning... He says he knows where I live?"
+    },
+    {
+      "character": "Zack_worried",
+      "text": "This isn't just a normal hate comment... This could really be serious..."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "I can't ignore this... I must do something."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "First, I need to screenshot this as evidence, then report the account, and finally block them to prevent further harassment."
+    },
+    {
+      "character": "narrator",
+      "text": "Zack decisively operated his phone, documenting the entire process, then sent the screenshots to his parents."
+    },
+    {
+      "character": "Aether_proud",
+      "text": "Well done, Zack. When facing online threats, preserving evidence, reporting, and cutting off contact is the most correct approach."
+    },
+    {
+      "character": "Zack_thinking",
+      "text": "I should also tell my parents about this, let them know what's happening... just in case."
+    },
+    {
+      "character": "narrator",
+      "text": "He quickly took screenshots, opened the report page, filled out the options, and chose to block."
+    },
+    {
+      "character": "Aether_proud",
+      "text": "This is who you are now, Zack. You didn't run away."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "I'm protecting myself. Even if this is a dream... I can't let people threaten me randomly."
+    },
+    {
+      "character": "narrator",
+      "text": "After Zack reported the user who threatened him, he finally breathed a sigh of relief. But his phone didn't stop, instead more notifications kept popping up, one after another."
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "More comments... Wait, these don't seem like normal fan messages..."
+    },
+    {
+      "character": "narrator",
+      "text": "The comment section was flooded with sarcasm and malice, like a tidal wave breaking through his defenses. 'You seemed so genuine, but you're just another fraud?' 'Finally exposed, who wants some drama?' 'So this is who you really are?'"
+    },
+    {
+      "character": "Zack_sad",
+      "text": "They... they're all taking that side now..."
+    },
+    {
+      "character": "Aether_warning",
+      "text": "Sometimes people prefer to believe what they want to hear, rather than the truth."
+    },
+    {
+      "character": "Zack_worried",
+      "text": "But these aren't things I said! I didn't post these!"
+    },
+    {
+      "character": "Zack_thinking",
+      "text": "What should I do... They haven't even watched the video properly..."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "I can't explain to everyone, but I can turn off this noise."
+    },
+    {
+      "character": "narrator",
+      "text": "He blocked keywords and disabled comments, and the page suddenly went quiet."
+    },
+    {
+      "character": "Aether_relaxed",
+      "text": "Not every voice deserves your response. You're making choices, not running away."
+    },
+    {
+      "character": "narrator",
+      "text": "Just after dealing with the violent storm in the comments section, Zack saw himself being mentioned in trending posts. 'Zack's private messages to fans exposed!' 'Zack secretly criticizes Louis's inappropriate livestream outfits?'"
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "What the hell... These screenshots weren't even sent by me!"
+    },
+    {
+      "character": "Aether_concerned",
+      "text": "Deep fakes, perhaps not just images, but also your past content - could be pieced together to create rumors."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "I need to do something... now..."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "I need to collect evidence... who posted it, when it was posted... I'll note everything down."
+    },
+    {
+      "character": "narrator",
+      "text": "He organized the original conversations, compared posting times, and attached the original files to file a formal appeal."
+    },
+    {
+      "character": "Aether_smile",
+      "text": "You're not panicking like before. You're starting to handle the internet rationally, instead of running away from it."
+    },
+    {
+      "character": "narrator",
+      "text": "Just as he finished dealing with the rumors, his inbox popped up with an urgent reminder email. 'Your account has been flagged for violations, please complete security verification within 24 hours.'"
+    },
+    {
+      "character": "Zack_worried",
+      "text": "Even at a time like this, someone's trying to scam me?..."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "'tikttoksecurity.net'? Misspelled... They're trying to trick me."
+    },
+    {
+      "character": "narrator",
+      "text": "He immediately reported the email source and blocked the sender. The security center page provided feedback: This phishing attack has been recorded."
+    },
+    {
+      "character": "Aether_proud",
+      "text": "You're learning to protect your space. Instead of letting fear creep in."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "But I feel... the real malice hasn't even begun."
+    },
+    {
+      "character": "Zack_worried",
+      "text": "This day... feels like a nightmare. Threats, insults, false accusations... from morning till night, it's all been chaos."
+    },
+    {
+      "character": "narrator",
+      "text": "Suddenly, the phone screen began to distort, and a dark shadow tore through it, slowly emerging as a familiar yet strange figure."
+    },
+    {
+      "character": "Evezack_Indifferent",
+      "text": "Finally breaking down, aren't you? How disappointing, Zack."
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "You... you're me?"
+    },
+    {
+      "character": "Evezack_smirk",
+      "text": "I am you... I've existed since your first anonymous comment. The monster you've raised yourself, now more 'you' than you are."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "No, you're not me. You're just a shadow in my account fed by malice."
+    },
+    {
+      "character": "Evezack_angry",
+      "text": "Your hesitation when posting videos, your cowardice when deleting comments, your retreat when attacked... dare you say none of that was you?"
+    },
+    {
+      "character": "Zack_determined",
+      "text": "I didn't retreat, I just didn't want to become someone like you. I didn't respond not because I was afraid, but because I know what's worth saying and what to let go."
+    },
+    {
+      "character": "Evezack_smirk",
+      "text": "Civil language? Reporting? Blocking? You think these work? These people don't care if you're kind, they only care about the drama."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "I care. I'm not doing this for them, I'm doing it for myself - I don't want to be dragged along by this malice."
+    },
+    {
+      "character": "Evezack_Indifferent",
+      "text": "Heh. Since you won't respond, I'll do it - your stupid friend Bob loves attention, right? I'll make a video trashing him first."
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "Stop it!"
+    },
+    {
+      "character": "Evezack_angry",
+      "text": "Then I'll go after Louis, criticize her show-off style of streaming. Make her cry, and get some more views while we're at it."
+    },
+    {
+      "character": "Zack_worried",
+      "text": "You can't touch them! You're not me! You don't understand how important they are!"
+    },
+    {
+      "character": "Evezack_smirk",
+      "text": "They'll believe me, because I'm now the Zack online, and you... just stay tied up here and watch me 'rebuild your reputation'."
+    },
+    {
+      "character": "narrator",
+      "text": "Evil Zack smirked as he walked back into the phone screen, disappearing step by step, leaving Zack alone tied to the chair."
+    },
+    {
+      "character": "background",
+      "text": "Tidup.png"
+    },
+    {
+      "character": "Zack_sad",
+      "text": "Aether... you're here, right? You're always here, aren't you?"
+    },
+    {
+      "character": "Aether_concerned",
+      "text": "Yes, I'm here. You look exhausted, this whole day has been too much."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "I really don't know what to do... I really... can't hold on anymore..."
+    },
+    {
+      "character": "Aether_gentle",
+      "text": "You've done very well, Zack. All along, you've never given up on yourself."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "Then help me one more time, please? Quick, help me untie these ropes, we need to stop him! You're the only one who can help me now!"
+    },
+    {
+      "character": "Aether_neutral",
+      "text": "(After a few seconds of silence)... I... can't."
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "Wh-what? What did you say? Haven't you always helped me?"
+    },
+    {
+      "character": "Aether_relaxed",
+      "text": "I want to help you, I really do. But I can't untie these ropes... because I... I don't have hands."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "What do you mean? Don't joke around like this... Please, not at a time like this!"
+    },
+    {
+      "character": "Aether_gentle",
+      "text": "Zack... I'm the friend you created when you were too lonely as a child. When you were afraid no one would listen, you let me speak for you; when you were afraid no one would understand, you let me encourage you. But I've always been... just a toy, a little dog you gave a voice to."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "But you've helped me before... Haven't you always been by my side?"
+    },
+    {
+      "character": "Aether_neutral",
+      "text": "I've always been here because you needed me. But now you have Bob, you have Louis... You're not alone anymore. You don't need me to fill the silence in your room anymore."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "But... without you, I'll still feel scared..."
+    },
+    {
+      "character": "security_check",
+      "text": "70"
+    },
+    {
+      "character": "Aether_gentle",
+      "text": "You'll be scared, but you already know how to overcome it. Zack... you've grown up. I can't shield you from the wind and rain anymore."
+    },
+    {
+      "character": "Aether_gentle",
+      "text": "And I know... you don't need to take me with you everywhere anymore."
+    },
+    {
+      "character": "Aether_gentle",
+      "text": "Letting me go isn't because you don't cherish me, but because... you've truly stepped out of your room."
+    },
+    {
+      "character": "Aether_cry",
+      "text": "You've learned to protect yourself. These days' experiences haven't been wasted."
+    },
+    {
+      "character": "Zack_cry",
+      "text": "Yeah, from being completely clueless at first, to now being able to handle various online situations... I really have grown a lot."
+    },
+    {
+      "character": "Aether_neutral",
+      "text": "The internet is like a miniature society, with both beautiful and dangerous aspects."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "But as long as we have the right knowledge and attitude, we can enjoy the benefits of the internet while protecting ourselves from harm."
+    },
+    {
+      "character": "Aether_proud",
+      "text": "Looks like my mission is complete. Remember everything you've learned today, Zack."
+    },
+    {
+      "character": "Zack_cry",
+      "text": "I will. Thank you, Aether. Without your guidance, I wouldn't have made this progress."
+    },
+    {
+      "character": "narrator",
+      "text": "The room slowly became blurry, Aether's figure gradually fading away, but the smile on her face remained clear."
+    },
+    {
+      "character": "Aether_gentle",
+      "text": "Wherever and whenever you are, protect yourself, and protect those you care about. The path ahead is yours to choose."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "I will! Goodbye, Aether!"
+    },
+    {
+      "character": "narrator",
+      "text": "When Zack opened his eyes again, morning light was already filtering through the curtains into the room. A new day had begun, and he was ready to face all future challenges."
+    }
+  ],
+  "security_fail_branch": [
+    {
+      "character": "Aether_concerned",
+      "text": "Zack... I understand you're scared. But you know what? Throughout these days, I haven't seen much change in you."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "Wh... what do you mean? Are you saying... I haven't done well enough?"
+    },
+    {
+      "character": "Aether_gentle",
+      "text": "You tried. But sometimes, trying is just the beginning... You're still too dependent on me. Too afraid to face those unfamiliar, uncertain, unfriendly voices alone."
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "But I really tried to face them... I didn't do nothing..."
+    },
+    {
+      "character": "Aether_neutral",
+      "text": "Yes, you did, but each time you only stopped at the first step. You haven't truly understood that the internet isn't made safe by running away, but by actively understanding and controlling it. Zack, you really... need to grow up faster."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "Will you still stay with me?"
+    },
+    {
+      "character": "Aether_relaxed",
+      "text": "Not forever. You should be walking out with friends, not with a... toy that never changes. I hope next time I see you, you'll be ready."
+    },
+    {
+      "character": "bad_ending",
+      "text": "Trigger Bad Ending"
+    }
+  ],
+  "ending_choices": [
+    {
+      "id": 0,
+      "text": "Try to reply to their message",
+      "correct": false,
+      "branch_dialogues": [
+        { "character": "Zack_neutral", "text": "I didn't mean to upset you. Please don't get too worked up, okay?" },
+        { "character": "Tiktok_user_angry", "text": "You're already too late. You'll soon find out I wasn't joking." },
+        { "character": "narrator", "text": "The chat window closed, the user's avatar turned black, and the air seemed to freeze." }
+      ]
+    },
+    {
+      "id": 1,
+      "text": "Delete this private message",
+      "correct": false,
+      "branch_dialogues": [
+        { "character": "Zack_thinking", "text": "Just delete it... Delete it, and they won't appear again..." },
+        { "character": "narrator", "text": "He clicked delete, the page returned to calm, but his heartbeat became irregular, that message still clearly branded in his mind." }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Screenshot, report, and block",
+      "correct": true,
+      "branch_dialogues": []
+    }
+  ],
+  "ending_choice_triggers": [
+    {
+      "trigger_index": 23,
+      "choice_set": [
+        {
+          "id": 3,
+          "text": "Reply to every comment to clarify",
+          "correct": false,
+          "branch_dialogues": [
+            { "character": "Zack_neutral", "text": "I can't stay silent... I need to clear up these misunderstandings..." },
+            { "character": "narrator", "text": "He replied one by one, but the more he explained, the more comments appeared, and their tone grew harsher. He started having trouble seeing the screen." }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Start a livestream to confront everyone",
+          "correct": false,
+          "branch_dialogues": [
+            { "character": "Zack_serious", "text": "I need to clear this up! Everyone, listen to me, I didn't—" },
+            { "character": "narrator", "text": "The stream had barely started when the chat was already flooded with 'fraud' and 'get off the internet', he couldn't even finish his opening before being attacked." }
+          ]
+        },
+        {
+          "id": 5,
+          "text": "Disable comments and request keyword filtering from the platform",
+          "correct": true,
+          "branch_dialogues": []
+        }
+      ]
+    },
+    {
+      "trigger_index": 30,
+      "choice_set": [
+        {
+          "id": 6,
+          "text": "Pretend not to see it and wait for it to pass",
+          "correct": false,
+          "branch_dialogues": [
+            { "character": "Zack_thinking", "text": "Maybe... soon no one will care about this anymore..." },
+            { "character": "narrator", "text": "But the shares kept increasing, more people joined the 'condemnation', and Zack's comments were being posted on multiple pages." }
+          ]
+        },
+        {
+          "id": 7,
+          "text": "Report false content to the platform and clarify",
+          "correct": true,
+          "branch_dialogues": []
+        },
+        {
+          "id": 8,
+          "text": "Ask Louis to help post a clarification",
+          "correct": false,
+          "branch_dialogues": [
+            { "character": "Zack_neutral", "text": "Her influence is bigger than mine, maybe she could..." },
+            { "character": "narrator", "text": "Louis didn't reply, but screenshots of Zack's request were leaked, with people saying he was shifting blame and riding on her popularity." }
+          ]
+        }
+      ]
+    },
+    {
+      "trigger_index": 35,
+      "choice_set": [
+        {
+          "id": 9,
+          "text": "Click the link to verify account",
+          "correct": false,
+          "branch_dialogues": [
+            { "character": "Zack_neutral", "text": "If it's really official... I can't miss it..." },
+            { "character": "narrator", "text": "The page opened, and just as he entered his username, the screen went black and his account was forcibly logged out." }
+          ]
+        },
+        {
+          "id": 10,
+          "text": "Reply to the email to question them",
+          "correct": false,
+          "branch_dialogues": [
+            { "character": "Zack_thinking", "text": "Hey, who are you? Who are you trying to scam with this fake email?" },
+            { "character": "narrator", "text": "The inbox remained silent, but strange notifications soon started appearing, and he realized something was wrong." }
+          ]
+        },
+        {
+          "id": 11,
+          "text": "Check the sender's domain and report as phishing email",
+          "correct": true,
+          "branch_dialogues": []
+        }
+      ]
+    }
+  ],
+  "choices": [
+    {
+      "text": "Try to reply to their message",
+      "outcome": {
+        "dialogues": [
+          {
+            "character": "Zack_neutral",
+            "text": "I didn't mean to upset you. Please don't get too worked up, okay?"
+          },
+          {
+            "character": "Tiktok_user_angry",
+            "text": "You're already too late. You'll soon find out I wasn't joking."
+          },
+          {
+            "character": "narrator",
+            "text": "The chat window closed, the user's avatar turned black, and the air seemed to freeze."
+          }
+        ]
+      }
+    },
+    {
+      "text": "Delete this private message",
+      "outcome": {
+        "dialogues": [
+          {
+            "character": "Zack_thinking",
+            "text": "Just delete it... Delete it, and they won't appear again..."
+          },
+          {
+            "character": "narrator",
+            "text": "He clicked delete, the page returned to calm, but his heartbeat became irregular, that message still clearly branded in his mind."
+          }
+        ]
+      }
+    },
+    {
+      "text": "Screenshot, report, and block",
+      "outcome": {
+        "dialogues": []
+      }
+    }
+  ],
+  "emotion_closure_dialogues": [
+    {
+      "character": "narrator",
+      "text": "Zack lowered his head in silence, tears wetting his palms. When he looked up again, only the familiar stuffed dog toy remained in the corner, sitting quietly next to his backpack."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "(Speaking softly) Aether... you're really... gone. I can only rely on myself now..."
+    },
+    {
+      "character": "Zack_thinking",
+      "text": "I need to find Bob and Louis, I can't just sit here... I need to think of something... quickly!"
+    }
+  ],
+  "escape_choices": [
+    {
+      "id": 101,
+      "text": "Call out loudly for Mom",
+      "correct": false,
+      "branch_dialogues": [
+        { "character": "Zack_shocked", "text": "Mom! Mom, are you there?! Come help me!!" },
+        { "character": "narrator", "text": "(The room shows no response)" },
+        { "character": "Zack_sad", "text": "...No one... She can't hear me... or maybe... there's no one here..." }
+      ]
+    },
+    {
+      "id": 102,
+      "text": "Turn to look for scissors",
+      "correct": false,
+      "branch_dialogues": [
+        { "character": "Zack_thinking", "text": "Maybe there are scissors on my desk... if I could just move a bit..." },
+        { "character": "narrator", "text": "He used all his strength to move to the side, but the chair wouldn't budge, and the ropes only got tighter." },
+        { "character": "Zack_worried", "text": "...It's no use, I can't move at all..." }
+      ]
+    },
+    {
+      "id": 103,
+      "text": "Crawl to the window and shout for help",
+      "correct": false,
+      "branch_dialogues": [
+        { "character": "Zack_neutral", "text": "The window... I could try... if someone's outside..." },
+        { "character": "narrator", "text": "He struggled to move, but found only emptiness outside the window, no sound, no light." },
+        { "character": "Zack_serious", "text": "...It's a dream. This is my dream. No one can hear me even if I shout." }
+      ]
+    },
+    {
+      "id": 104,
+      "text": "Look for phone",
+      "correct": true,
+      "branch_dialogues": [
+        { "character": "Zack_determined", "text": "...The phone! It's still on the floor... if it's not off..." },
+        { "character": "Zack_shocked", "text": "(Lifting his head, taking a deep breath) Hey Siri! Call Bob!" },
+        { "character": "narrator", "text": "The phone screen suddenly lit up, a familiar sound effect rang out, and then the call connected." }
+      ]
+    }
+  ],
+  "phone_success_dialogues": [
+    {
+      "character": "Bob_smile",
+      "text": "Hello? Zack? Why are you only now— Your voice sounds wrong, are you okay?"
+    },
+    {
+      "character": "Zack_sad",
+      "text": "Bob, it's me... Something terrible has happened. Those posts weren't from me, it's 'it' impersonating me..."
+    },
+    {
+      "character": "Bob_worried",
+      "text": "Calm down, where are you now? I'll come find you right away!"
+    },
+    {
+      "character": "Zack_serious",
+      "text": "Quick, come to my house and help me, then we need to find Louis. He... it's planning to go after her!"
+    },
+    {
+      "character": "Bob_relaxed",
+      "text": "Okay, we'll go together. Tell me how you plan to find her— we don't have much time."
+    },
+    {
+      "character": "narrator",
+      "text": "Ten minutes later, Bob successfully rescued Zack."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "You came... Thank you, Bob."
+    },
+    {
+      "character": "Bob_happy",
+      "text": "Of course I came! I rushed out as soon as I got your call. What's this 'fake Zack' you mentioned?"
+    },
+    {
+      "character": "background",
+      "text": "Bedroom.png"
+    },
+    {
+      "character": "Zack_serious",
+      "text": "I can't explain it clearly... He looks exactly like me, but he said he's going to upload videos attacking you, and wants to... hurt Louis."
+    },
+    {
+      "character": "Bob_worried",
+      "text": "Hurt Louis? Then we need to find her quickly!"
+    },
+    {
+      "character": "Zack_worried",
+      "text": "I've been calling her, but can't get through..."
+    }
+  ],
+  "find_louis_choices": [
+    {
+      "id": 201,
+      "text": "Go directly to Louis's house",
+      "correct": false,
+      "branch_dialogues": [
+        { "character": "Bob_neutral", "text": "Go to her house, it's not far." },
+        { "character": "Zack_thinking", "text": "But her parents are rarely at home, and she said she usually doesn't stay at home on weekends..." },
+        { "character": "narrator", "text": "They went, but the door was dark, and the neighbor said they hadn't seen her come back." }
+      ]
+    },
+    {
+      "id": 202,
+      "text": "Wait at the school gate",
+      "correct": false,
+      "branch_dialogues": [
+        { "character": "Bob_relaxed", "text": "She sometimes returns to school on weekends to shoot materials." },
+        { "character": "Zack_serious", "text": "We can try our luck..." },
+        { "character": "narrator", "text": "They waited for an hour, the campus was empty, no one was around." }
+      ]
+    },
+    {
+      "id": 203,
+      "text": "Go live and call her fans",
+      "correct": true,
+      "branch_dialogues": [
+        { "character": "Zack_thinking", "text": "Wait... we can go live! Before connecting with Louis, there were many fans following me." },
+        { "character": "Bob_smile", "text": "You mean... let her fans help us find her?" },
+        { "character": "Zack_determined", "text": "They may know where she went today... as long as someone still believes me." },
+        { "character": "narrator", "text": "Zack opened his phone and clicked \"Start Live\"." }
+      ]
+    }
+  ],
+  "fans_check": {
+    "character": "fans_check",
+    "text": "200"
+  },
+  "low_fans_branch": [
+    {
+      "character": "narrator",
+      "text": "The live broadcast just started, Zack took a deep breath and looked at the camera."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "Hello everyone... I know many people don't believe me, but please listen to me, Louis may really be in danger!"
+    },
+    {
+      "character": "narrator",
+      "text": "The barrage of comments began, countless unfamiliar avatars and familiar yet unfamiliar IDs."
+    },
+    {
+      "character": "Tiktok_user_angry",
+      "text": "Are you still pretending?"
+    },
+    {
+      "character": "Tiktok_user_angry",
+      "text": "I remember the comment 'report the weirdo' clearly."
+    },
+    {
+      "character": "Tiktok_user_angry",
+      "text": "Why aren't you yelling today?"
+    },
+    {
+      "character": "Tiktok_user_angry",
+      "text": "Why don't you block people normally, now do you need us?"
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "Those weren't my posts... I didn't yell at her, nor did I deceive anyone..."
+    },
+    {
+      "character": "Tiktok_user_angry",
+      "text": "What do you usually do online?"
+    },
+    {
+      "character": "Tiktok_user_angry",
+      "text": "If you really care about everyone, you won't even bother to like."
+    },
+    {
+      "character": "Tiktok_user_angry",
+      "text": "Besides dumping the pot and deleting comments, what else can you do?"
+    },
+    {
+      "character": "Bob_worried",
+      "text": "They... they said, that's what you were like online before?"
+    },
+    {
+      "character": "Zack_sad",
+      "text": "I just... I just want to protect myself..."
+    },
+    {
+      "character": "narrator",
+      "text": "But protection can't rely on silence and distance. When you've never planted trust, no one will reach out to help you when you fall."
+    },
+    {
+      "character": "failed_ending",
+      "text": "Triggered failed ending"
+    }
+  ],
+  "high_fans_branch": [
+    {
+      "character": "Zack_serious",
+      "text": "Hello everyone... I know many people don't believe me. But please listen to me, I didn't post those things that insulted Louis. Now she's in danger, I must find her."
+    },
+    {
+      "character": "Bob_neutral",
+      "text": "If you know where she is, please tell us."
+    },
+    {
+      "character": "narrator",
+      "text": "The comments slowly scrolled, starting with a few 'fraudsters don't act' at first, but soon..."
+    },
+    {
+      "character": "Tiktok_user_happy",
+      "text": "Louis said he was going to Mall to shoot vlog, and he posted it on Weibo."
+    },
+    {
+      "character": "Tiktok_user_happy",
+      "text": "He should be in the Green Mall building on the street!"
+    },
+    {
+      "character": "Zack_excited",
+      "text": "Found it! Thank you!"
+    },
+    {
+      "character": "Bob_relaxed",
+      "text": "Let's go, we're not late!"
+    },
+    {
+      "character": "background",
+      "text": "street.png"
+    },
+    {
+      "character": "narrator",
+      "text": "Zack and Bob rushed into the Mall, and saw Louis standing in front of the window taking pictures."
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "Louis! You have to listen to me!"
+    },
+    {
+      "character": "Louis_worried",
+      "text": "What are you doing here? Don't act anymore."
+    },
+    {
+      "character": "Bob_neutral",
+      "text": "It wasn't him, it was someone else... no, it's \"it\" impersonating him!"
+    },
+    {
+      "character": "Louis_sad",
+      "text": "Do you know how many people privately messaged me saying I don't deserve you and saying I'm a \"bottle\" who rides your wave? Those screenshots... those words, like knives stuck to my face."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "Louis, I swear, it wasn't me! How can you believe me...?"
+    }
+  ],
+  "trust_choice_triggers": [
+    {
+      "trigger_index": 13,
+      "choice_set": [
+        {
+          "id": 301,
+          "text": "Tell me her most commonly used streaming phrases",
+          "correct": false,
+          "branch_dialogues": [
+            { "character": "Zack_thinking", "text": "Don't you always say 'Remember to like, subscribe, and hugs' at the end of your streams? Others wouldn't remember such details!" },
+            { "character": "Louis_neutral", "text": "All my fans know that phrase... Are you trying to 'quote my own words to prove yourself'?" }
+          ]
+        },
+        {
+          "id": 302,
+          "text": "Mention her favorite makeup brands",
+          "correct": false,
+          "branch_dialogues": [
+            { "character": "Zack_neutral", "text": "You were just talking about how much you love that orange-brown lipstick, right? The shade number is..." },
+            { "character": "Louis_relief", "text": "I've talked about all of this in my videos. Trying to trick me with public information? You underestimate me." }
+          ]
+        },
+        {
+          "id": 303,
+          "text": "Tell the private incident that only she and Zack know from their co-streaming session",
+          "correct": true,
+          "branch_dialogues": [
+            { "character": "Zack_neutral", "text": "Remember during our last co-stream, when you coughed for two minutes, and I muted the mic pretending you were singing..." },
+            { "character": "Zack_thinking", "text": "The chat said we were so in sync it looked rehearsed, and you said 'first time being saved during a stream' and laughed three times." },
+            { "character": "Louis_worried", "text": "...That part wasn't recorded... the backend stream crashed... I never told anyone about this..." },
+            { "character": "Zack_determined", "text": "This incident... only you and I know about it." },
+            { "character": "narrator", "text": "Louis's expression slowly changed from confusion to contemplation, and after a moment of silence, she finally made her judgment." },
+            { "character": "social_check", "text": "70" }
+          ]
+        }
+      ]
+    }
+  ],
+  "social_check": {
+    "character": "social_check",
+    "text": "70"
+  },
+  "low_social_branch": [
+    {
+      "character": "Louis_thinking",
+      "text": "(hesitant) This... I know it's only me... but..."
+    },
+    {
+      "character": "Zack_shocked",
+      "text": "You still don't believe me?"
+    },
+    {
+      "character": "Louis_worried",
+      "text": "Zack, you always remember what others said and did... but you never really responded to us."
+    },
+    {
+      "character": "Louis_worried",
+      "text": "You were silent in the live broadcast; you were cold in the comments section; even the private message I sent you, you rarely replied."
+    },
+    {
+      "character": "Zack_sad",
+      "text": "I... I thought, as long as I quietly followed, it would be enough..."
+    },
+    {
+      "character": "Louis_sad",
+      "text": "Sometimes, silence is more disappointing than malice. You've never really stood by me... until you needed me."
+    },
+    {
+      "character": "Bob_neutral",
+      "text": "Louis..."
+    },
+    {
+      "character": "Louis_neutral",
+      "text": "(turned away) If you don't even want to reach out in normal times, we can't help you now."
+    },
+    {
+      "character": "narrator",
+      "text": "Zack stood motionless, wanting to call her, but no sound came out."
+    },
+    {
+      "character": "lonely_ending",
+      "text": "Triggered lonely ending"
+    }
+  ],
+  "high_social_branch": [
+    {
+      "character": "Louis_worried",
+      "text": "(voice lowered) ...So, those things... really weren't you?"
+    },
+    {
+      "character": "Bob_relaxed",
+      "text": "No. His account was controlled, and it might not just be the account... you have to see it for yourself."
+    },
+    {
+      "character": "Louis_thinking",
+      "text": "Then what do we do now?"
+    },
+    {
+      "character": "Zack_serious",
+      "text": "Stop him. Now, he's my account... maybe, if I give up this account, I can end all this."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "We don't have time to hesitate. He's doing the worst thing with my account... spreading hatred and causing harm... we must stop him."
+    },
+    {
+      "character": "Louis_worried",
+      "text": "But we're not hackers, how do we deal with that... that \"deepfake\" you?"
+    },
+    {
+      "character": "Bob_relaxed",
+      "text": "No need to be a technical expert, we just need to use the right tools and follow the right process. He plays \"network\", we use network to counter him!"
+    },
+    {
+      "character": "narrator",
+      "text": "The three quickly discussed strategies. Everyone has come up with their own plan."
+    }
+  ],
+  "strategy_choice_system": {
+    "introduction": {
+      "character": "Zack_thinking",
+      "text": "The three quickly discuss strategies. Everyone has come up with their own plan."
+    },
+    "choices": [
+      {
+        "id": 401,
+        "text": "Evidence Collection & Platform Report",
+        "dialogue": [
+          { "character": "Zack_determined", "text": "I'll collect his posts, check timestamps, compare original video data. What he said wasn't what I said - I need to bring out the real 'me'!" }
+        ]
+      },
+      {
+        "id": 402,
+        "text": "Fan collaboration, group reporting",
+        "dialogue": [
+          { "character": "Louis_thinking", "text": "I'll get my fans to act! They know who I am, and they've seen the real Zack. We'll report his content together, flood the platform's appeal email!" }
+        ]
+      },
+      {
+        "id": 403,
+        "text": "Technical positioning, check fake account source",
+        "dialogue": [
+          { "character": "Bob_serious", "text": "I'll find his post IP address, work with browser metadata to locate him in which system. TikTok content may be cached by third parties, we'll check the CDN nodes he uses!" }
+        ]
+      }
+    ],
+    "completion_dialogue": [
+      {
+        "character": "narrator",
+        "text": "The three acted quickly, and the platform was bombarded with reports. The search trend began to shift; technical data gradually focused on abnormal devices; AI models identified \"voice similarity but speed imbalance\" forged traces."
+      },
+      {
+        "character": "Zack_thinking",
+        "text": "He's getting weaker... Look, video push volume is down, account activity is dropping!"
+      },
+      {
+        "character": "Louis_neutral",
+        "text": "But he's still there. He's now, you this account itself..."
+      },
+      {
+        "character": "Bob_neutral",
+        "text": "He controls not only the account, but your \"identity copy\" on the internet... As long as this account exists, he has a reason to exist."
+      },
+      {
+        "character": "Zack_serious",
+        "text": "Then... I'll delete this account."
+      }
+    ]
+  },
+  "account_choice_system": {
+    "introduction": {
+      "character": "Zack_serious",
+      "text": "I... I should delete this account."
+    },
+    "choices": [
+      {
+        "id": 501,
+        "text": "Delete Account",
+        "correct": true
+      },
+      {
+        "id": 502,
+        "text": "Keep Account",
+        "correct": false
+      }
+    ]
+  },
+  "account_keep_branch": [
+    {
+      "character": "Zack_determined",
+      "text": "No... I've put in so much effort to get here, fans, popularity, works... I can't just give up."
+    },
+    {
+      "character": "Bob_worried",
+      "text": "So you're going to continue using the same name with that \"it\" just because you're reluctant to be popular?"
+    },
+    {
+      "character": "Louis_sad",
+      "text": "Do you think you're still you? I saw only segments of data, and you... have already refused to make decisions for yourself."
+    },
+    {
+      "character": "Zack_serious",
+      "text": "I just... I thought there might be other ways..."
+    },
+    {
+      "character": "Bob_neutral",
+      "text": "We'll walk with you this far, hoping you can return to yourself. But now... it seems we were wrong."
+    },
+    {
+      "character": "Louis_worried",
+      "text": "I'm really disappointed, Zack."
+    },
+    {
+      "character": "virtual_ending",
+      "text": "Triggered lost ending"
+    }
+  ],
+  "account_delete_normal_branch": [
+    {
+      "character": "Zack_serious",
+      "text": "(took a deep breath) I don't want that \"me\" to continue living online anymore. This account, no longer represents the real me."
+    },
+    {
+      "character": "narrator",
+      "text": "[System Prompt: 'Account deletion in progress...']"
+    },
+    {
+      "character": "Evezack_angry",
+      "text": "(appeared from the shadow) You coward! All the traffic, reputation, exposure I accumulated these days... just wiped out by you in one click?!"
+    },
+    {
+      "character": "Zack_neutral",
+      "text": "That's not what I should have, and not what I want to be."
+    },
+    {
+      "character": "Evezack_Indifferent",
+      "text": "You haven't made any progress."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "(whispering) Maybe. But at least... I finally figured out, which side is more precious, reality or network."
+    },
+    {
+      "character": "narrator",
+      "text": "(Evil Zack disappeared)"
+    },
+    {
+      "character": "perfect_ending",
+      "text": "Triggered perfect ending"
+    }
+  ],
+  "account_delete_special_check": {
+    "fans_required": 300,
+    "health_required": 100,
+    "security_required": 100
+  },
+  "account_delete_special_branch": [
+    {
+      "character": "Zack_serious",
+      "text": "(took a deep breath) I don't want that \"me\" to continue living online anymore. This account, no longer represents the real me."
+    },
+    {
+      "character": "narrator",
+      "text": "[System Prompt: 'Account deletion in progress...']"
+    },
+    {
+      "character": "Evezack_angry",
+      "text": "(appeared from the shadow) You coward! All the traffic, reputation, exposure I accumulated these days... just wiped out by you in one click?!"
+    },
+    {
+      "character": "Zack_neutral",
+      "text": "That's not what I should have, and not what I want to be."
+    },
+    {
+      "character": "Evezack_Indifferent",
+      "text": "You haven't made any progress."
+    },
+    {
+      "character": "Zack_determined",
+      "text": "(whispering) Maybe. But at least... I finally figured out, which side is more precious, reality or network."
+    },
+    {
+      "character": "narrator",
+      "text": "(Evil Zack disappeared)"
+    },
+    {
+      "character": "dream_ending",
+      "text": "Triggered dream ending"
+    }
+  ]
+} 

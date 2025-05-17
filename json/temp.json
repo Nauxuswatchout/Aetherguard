@@ -1,0 +1,152 @@
+{
+  "events": [
+    {
+      "id": "PhoneEvent-01",
+      "type": "phone",
+      "title": "可疑的群聊邀请",
+      "conditions": {},
+      "background": "bedroom.png",
+      "dialogues": [
+        {
+          "character": "Zack_relaxed",
+          "text": "今天终于没作业压着了，可以好好玩一会儿。"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "看看手机，有没有什么新通知。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克滑动手机，收到一条陌生人的私信）"
+        },
+        {
+          "character": "Unnamed_neutral",
+          "text": "勇敢的人才配加入。招募新成员，加入【ISIS血誓团】，跟随真正的力量。"
+        },
+        {
+          "character": "Zack_confused",
+          "text": "ISIS血誓团？这名字听着有点可怕……"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "（转头看向坐在角落的Aether）"
+        },
+        {
+          "character": "Zack_unsure",
+          "text": "Aether，我刚收到一个奇怪的邀请，说什么ISIS血誓团。"
+        },
+        {
+          "character": "Aether_confused",
+          "text": "ISIS？这个名字好像在哪里听过……是不是哪个游戏里的组织啊？"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "感觉好像不止是游戏……我们查一下吧。"
+        },
+        {
+          "character": "narrator",
+          "text": "（扎克和Aether拿起平板，快速搜索）"
+        },
+        {
+          "character": "Zack_serious",
+          "text": "天啊，ISIS是个真的恐怖组织，还做过很多很可怕的事情。"
+        },
+        {
+          "character": "Aether_worried",
+          "text": "这不是恶搞的群吗？他们是那种真的很坏很坏的人？"
+        },
+        {
+          "character": "Zack_neutral",
+          "text": "看来邀请我的这个群，应该就是他们的支持者建的。"
+        },
+        {
+          "character": "Aether_uncertain",
+          "text": "可是……我们要不要进去看看？也许只是名字取得很夸张，其实里面什么都没有？"
+        },
+        {
+          "character": "Zack_thinking",
+          "text": "如果进去，能看到他们到底搞什么，也好留证举报……可是要是太可怕怎么办？"
+        },
+        {
+          "character": "Aether_confused",
+          "text": "我也不知道……感觉怪怪的，可是又有点想知道里面到底是什么。"
+        }
+      ],
+      "choices": [
+        {
+          "text": "进去看看。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "narrator",
+                "text": "（扎克犹豫后点击了链接）"
+              },
+              {
+                "character": "narrator",
+                "text": "（进入群聊后，画面充满了极端暴力的宣传图片和血腥视频片段）"
+              },
+              {
+                "character": "Zack_alert",
+                "text": "这……这也太恶心了！"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克立刻退出群聊）"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克选择举报该群聊，平台审核后向他发送感谢通知，并赠送一个月plus体验）"
+              },
+              {
+                "character": "narrator",
+                "text": "（系统提示：粉丝数+20）"
+              },
+              {
+                "character": "Zack_worried",
+                "text": "我以后绝对不会再乱点这种东西了……脑子里还在回想那些画面。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": -10,
+              "safetyAwareness": 20,
+              "fans": 20
+            }
+          }
+        },
+        {
+          "text": "直接举报。",
+          "outcome": {
+            "dialogues": [
+              {
+                "character": "Zack_serious",
+                "text": "这么危险的东西，直接举报最安全。"
+              },
+              {
+                "character": "narrator",
+                "text": "（扎克没有进入群聊，直接选择举报）"
+              },
+              {
+                "character": "narrator",
+                "text": "（平台审核后向他发送感谢通知，并赠送一个月plus体验）"
+              },
+              {
+                "character": "narrator",
+                "text": "（系统提示：粉丝数+20）"
+              },
+              {
+                "character": "Zack_calm",
+                "text": "做得对，远离这些疯子才是保护自己的办法。"
+              }
+            ],
+            "stats": {
+              "mentalHealth": 0,
+              "safetyAwareness": 25,
+              "fans": 20
+            }
+          }
+        }
+      ],
+      "summary": "有些危险，不需要亲眼去看就能确认。遇到涉及真实犯罪、极端暴力的内容，最正确的做法就是立刻远离并举报。不让好奇心拖着走，是保护自己的开始。"
+    }
+  ]
+} 

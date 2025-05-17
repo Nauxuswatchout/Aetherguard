@@ -1,0 +1,225 @@
+{
+  "events": [
+    {
+      "id": "WeekendEvent-01",
+      "type": "weekend",
+      "title": "Cyber Quiz Competition",
+      "conditions": { "day": 6 },
+      "background": "cyberquiz.png",
+      "dialogues": [
+        { "character": "Zack_worried", "text": "Aether... are we really going to compete in front of so many people? I'm a bit nervous." },
+        { "character": "Aether_gentle", "text": "Don't worry, I'm always by your side. You've been preparing for this day for a long time, right?" },
+        { "character": "Zack_thinking", "text": "But if I get an answer wrong, will people laugh at me...?" },
+        { "character": "Aether_relaxed", "text": "Everyone makes mistakes. What matters is that you try. You are already stronger than you were yesterday." },
+        { "character": "narrator", "text": "The school hall is bright with banners saying 'Cyber Safety Week'. Colorful decorations hang from the ceiling, and a large screen displays a countdown timer." },
+        { "character": "narrator", "text": "Students gather in small groups, chatting excitedly about the competition. Parents and teachers line the walls, watching proudly." },
+        { "character": "Zack_shocked", "text": "Wow, so many students are here. The hall looks completely different than during normal school days." },
+        { "character": "Aether_smile", "text": "More friends means more chances to learn. And look around you - everyone is just as nervous as you are." },
+        { "character": "narrator", "text": "The principal walks on stage holding a microphone. She adjusts her glasses and taps the mic twice, creating a loud feedback sound that silences the room." },
+        { "character": "System_notification", "text": "'Welcome to the Cyber Quiz! Use your brain, not only your thumbs! Today's winners will receive not just prizes, but knowledge that keeps them safe online!'" },
+        { "character": "Zack_nervous", "text": "I hope the questions are not too hard... I studied all week but still don't feel ready." },
+        { "character": "narrator", "text": "Entering the competition area, Zack notices several quiz stations set up with tablets. Each station has colorful buttons and a scoreboard above it." },
+        { "character": "narrator", "text": "As Zack approaches his assigned station, he suddenly saw Bob waving from across the hall." },
+        { "character": "Zack_neutral", "text": "(Huh, it's Bob? He came too. I didn't know he was interested in cyber safety.)" },
+        { "character": "Bob_smile", "text": "(He made his way through the crowd, almost tripping over someone's backpack.)" },
+        { "character": "Bob_happy", "text": "Good luck, Zack! Let's show them we know our cyber stuff! I've been practicing too!" },
+        { "character": "Aether_gentle", "text": "See? Bob believes in you too. You're not alone in this." },
+        { "character": "Zack_smile", "text": "(He waved back, feeling a bit more confident.) Hey! Thanks for coming!" },
+        { "character": "narrator", "text": "From the corner of his eye, Zack notices Louis standing confidently at her station, surrounded by her usual group of admirers." },
+        { "character": "Louis_neutral", "text": "This is going to be so easy. My dad works in cybersecurity, so I basically know everything already." },
+        { "character": "Zack_serious", "text": "(In his heart) Okay... no matter what, I'll give it my all! I might not have a cybersecurity expert dad, but I've been studying hard." },
+        { "character": "System_notification", "text": "'Contestants, please take your positions. The quiz will begin in 30 seconds!'" },
+        { "character": "Aether_proud", "text": "Remember everything we practiced, Zack. I believe in you." }
+      ],
+      "quiz": {
+        "background": "Inquiz.png",
+        "timer": 20,
+        "timerStyle": {
+          "barColor": "#4CAF50",
+          "backgroundColor": "#f1f1f1",
+          "borderRadius": "10px",
+          "height": "18px",
+          "width": "90%",
+          "margin": "0 auto",
+          "boxShadow": "0 2px 5px rgba(0,0,0,0.2)",
+          "transition": "width 1s linear",
+          "halfTimeEffect": {
+            "enabled": true,
+            "blinkColor": "#ff9800",
+            "blinkInterval": 500,
+            "blinkDuration": 200
+          }
+        },
+        "questions": [
+          {
+            "text": "You receive an email saying you won a scholarship and asking you to click a link and log in. What should you do?",
+            "choices": [
+              { "text": "Click the link right away and enter my info.", "score": -5 },
+              { "text": "It looks official, just log in.", "score": 0 },
+              { "text": "Check the email address and link before deciding.", "score": 5 },
+              { "text": "Contact the school or a teacher to verify.", "score": 10 }
+            ]
+          },
+          {
+            "text": "You met someone online who sent a site saying 'It can help you get followers fast'. What should you do?",
+            "choices": [
+              { "text": "Trust it and click.", "score": -5 },
+              { "text": "Send it to friends and see if they click.", "score": 0 },
+              { "text": "Stay cautious and check if the link seems suspicious.", "score": 5 },
+              { "text": "Refuse to click and report the user.", "score": 10 }
+            ]
+          },
+          {
+            "text": "Which password is the safest?",
+            "choices": [
+              { "text": "123456", "score": -5 },
+              { "text": "Zack2006", "score": 0 },
+              { "text": "Zack!98@@hello", "score": 10 },
+              { "text": "Password", "score": -5 }
+            ]
+          },
+          {
+            "text": "An 'official support' account messages you needing your code. What should you do?",
+            "choices": [
+              { "text": "Just give it to them, they won't lie.", "score": -5 },
+              { "text": "Ask to see their ID or screenshot.", "score": 0 },
+              { "text": "Don't reply, screenshot it and report.", "score": 10 },
+              { "text": "Check my account settings myself.", "score": 5 }
+            ]
+          },
+          {
+            "text": "A mini-game site asks for camera and mic access. What should you do?",
+            "choices": [
+              { "text": "Allow it, games need it.", "score": -5 },
+              { "text": "Not sure but allow to try.", "score": 0 },
+              { "text": "Close the page and play elsewhere.", "score": 5 },
+              { "text": "Check if the site is safe before allowing.", "score": 10 }
+            ]
+          },
+          {
+            "text": "You see an article claiming 'This drink cures all diseases! Scientists shocked!'. What should you do?",
+            "choices": [
+              { "text": "Share it right away.", "score": -5 },
+              { "text": "Like and comment supportively.", "score": 0 },
+              { "text": "Doubt it and look up other sources.", "score": 5 },
+              { "text": "Report it as false info.", "score": 10 }
+            ]
+          },
+          {
+            "text": "A new app asks access to contacts, messages, photos. What should you do?",
+            "choices": [
+              { "text": "Allow all immediately.", "score": -5 },
+              { "text": "Skip without reading.", "score": 0 },
+              { "text": "Only allow needed access.", "score": 5 },
+              { "text": "Stop and ask official sources about use.", "score": 10 }
+            ]
+          },
+          {
+            "text": "Someone messages: 'Your video there is embarrassing! Click to see it.' What should you do?",
+            "choices": [
+              { "text": "Click to see the link.", "score": -5 },
+              { "text": "Ask 'Where did you see this?'.", "score": 0 },
+              { "text": "Think it's scare phishing, screenshot evidence.", "score": 5 },
+              { "text": "Refuse to click and report.", "score": 10 }
+            ]
+          },
+          {
+            "text": "Which shows high security awareness?",
+            "choices": [
+              { "text": "Use public open Wi-Fi for banking.", "score": -5 },
+              { "text": "Ask friends before clicking unknown links.", "score": 0 },
+              { "text": "Use strong passwords and two-factor auth.", "score": 10 },
+              { "text": "Lose phone and not care because it has a password.", "score": 0 }
+            ]
+          },
+          {
+            "text": "A game streamer says 'Click this link for free skins'. What should you do?",
+            "choices": [
+              { "text": "Great deal, click now!", "score": -5 },
+              { "text": "Check comments for scams.", "score": 0 },
+              { "text": "Search online if link is safe.", "score": 5 },
+              { "text": "Stay cautious and refuse to click.", "score": 10 }
+            ]
+          }
+        ]
+      },
+      "branches": [
+        {
+          "minScore": 70,
+          "dialogues": [
+            { "character": "System_notification", "text": "'And the winner of today's Cyber Safety Quiz Championship is... Zack!'" },
+            { "character": "Zack_shocked", "text": "I... I won?! I'm the champion?! This can't be real!" },
+            { "character": "Aether_proud", "text": "I knew you could do it, Zack. You used your judgment, not luck. All your preparation paid off." },
+            { "character": "narrator", "text": "The crowd erupts in applause. Several students look surprised, while others cheer loudly. The principal approaches with a certificate and a small trophy." },
+            { "character": "narrator", "text": "From across the room, Louis stands with her arms crossed, clearly shocked at the result." },
+            { "character": "Bob_happy", "text": "Champion Zack! Your answers were awesome! I was watching your screen - you didn't hesitate once!" },
+            { "character": "Zack_smile", "text": "Thanks, Bob! I read about passwords every night and practiced spotting phishing emails." },
+            { "character": "Zack_excited", "text": "I did it! I can protect myself and my mom online! Maybe I can even teach her some of this stuff." },
+            { "character": "Louis_neutral", "text": "(Approaching slowly) Well... I guess you got lucky with the questions." },
+            { "character": "Zack_determined", "text": "(With newfound confidence) It wasn't luck, Louis. I studied really hard for this." },
+            { "character": "Louis_thinking", "text": "Hmm. Whatever. (She walks away, but looks back briefly with what almost seems like respect)" },
+            { "character": "Zack_determined", "text": "One day I'll be as confident as Louis... but without putting others down." },
+            { "character": "Aether_gentle", "text": "You've really grown, Zack. Today wasn't just about winning a quiz - it was about believing in yourself." },
+            { "character": "narrator", "text": "As students and parents crowd around to congratulate him, Zack feels a new sense of confidence warming him from within." }
+          ],
+          "stats": { "security": 30, "fans": 30, "social": 20 }
+        },
+        {
+          "minScore": 50,
+          "dialogues": [
+            { "character": "System_notification", "text": "'And the winner of today's Cyber Safety Quiz Championship is... Louis!'" },
+            { "character": "narrator", "text": "The crowd applauds as Louis steps forward to receive her certificate. Her friends cheer loudly, taking photos with their phones." },
+            { "character": "Aether_concerned", "text": "It's okay, Zack. You didn't win, but you learned more than the score shows. Second place is still amazing." },
+            { "character": "Zack_sad", "text": "I tried so hard... but I still lost to Louis. Maybe I'm just not smart enough." },
+            { "character": "narrator", "text": "Louis walks by with her trophy, surrounded by admirers. She slows down as she passes Zack." },
+            { "character": "Louis_thinking", "text": "Hmph, if you can't even win this, how do you plan to survive online? The internet is way tougher than a school quiz." },
+            { "character": "Zack_neutral", "text": "(Watching her celebrate, Zack felt a mix of jealousy and admiration.)" },
+            { "character": "Bob_relaxed", "text": "Don't listen to her, Zack. You did great! You knew answers I had no clue about." },
+            { "character": "Zack_determined", "text": "One day... I'll be strong enough to protect myself online. Not to show off, but to keep my loved ones safe." },
+            { "character": "Aether_proud", "text": "That's the right attitude, Zack. You've really grown from this experience." },
+            { "character": "Bob_relaxed", "text": "Hey, don't worry about today. Next time we can practice together, and you'll definitely win!" },
+            { "character": "Zack_smile", "text": "Yeah, practice will make us ready. And I already feel more confident about staying safe online." },
+            { "character": "narrator", "text": "As they leave the hall, Zack takes one last look at his score on the screen. Not first place, but far from the bottom." }
+          ],
+          "stats": { "security": 15, "fans": 10, "social": 10 }
+        },
+        {
+          "minScore": 30,
+          "dialogues": [
+            { "character": "System_notification", "text": "'Thank you to all participants! The winners are: First place - Louis, Second place - Emma, Third place - Jackson.'" },
+            { "character": "narrator", "text": "The crowd applauds as the winners receive their certificates. Zack's name isn't called, and he stares at his feet." },
+            { "character": "Aether_serious", "text": "This score is lower than expected, but learning is what counts. Every question you got right is knowledge that will protect you." },
+            { "character": "Zack_sad", "text": "I didn't even place... Maybe I'm just not good at this stuff." },
+            { "character": "Bob_concerned", "text": "Hey Zack, don't feel bad. I did even worse than you! These questions were really tricky." },
+            { "character": "Louis_smirk", "text": "(Walking by with her trophy) Better luck next time, Zack. Or maybe stick to easier competitions?" },
+            { "character": "Zack_serious", "text": "(After Louis leaves) I'll try to learn more before the next quiz. I hate feeling this way." },
+            { "character": "Bob_smile", "text": "We can study together! My older sister knows a lot about internet safety." },
+            { "character": "Aether_gentle", "text": "Learning starts with small steps, Zack. Today wasn't a failure - it was your first step toward becoming cyber-smart." },
+            { "character": "Zack_neutral", "text": "You're right... at least now I know what I need to work on." },
+            { "character": "narrator", "text": "As they leave the hall, Zack picks up a cybersecurity pamphlet and tucks it into his backpack. Today wasn't his day, but he's determined to be ready next time." }
+          ],
+          "stats": { "security": 0, "fans": 5, "social": 10 }
+        },
+        {
+          "minScore": 0,
+          "dialogues": [
+            { "character": "System_notification", "text": "'Thank you to all participants! Please check your final scores on the main screen.'" },
+            { "character": "narrator", "text": "Zack's heart sinks as he sees his score near the bottom of the list. Several students glance his way with pitying looks." },
+            { "character": "Zack_sad", "text": "I... I did terribly. I thought I knew this stuff..." },
+            { "character": "Aether_gentle", "text": "It's okay to not do well the first time, Zack. What matters is that you tried and now know where to improve." },
+            { "character": "Bob_concerned", "text": "Hey, don't feel bad. I didn't do great either. These questions were super hard!" },
+            { "character": "Louis_smirk", "text": "(Holding her trophy) Wow, Zack. Do you even use the internet? Those were basic questions." },
+            { "character": "narrator", "text": "Several of Louis's friends laugh, and Zack feels his face burning with embarrassment." },
+            { "character": "Zack_serious", "text": "(After they walk away) I'm going to learn everything about cyber safety. I never want to feel this way again." },
+            { "character": "Aether_determined", "text": "That's the spirit! Use this as motivation. Sometimes we need to fail before we succeed." },
+            { "character": "Bob_smile", "text": "I can share some resources my sister gave me about online safety. Want to study together?" },
+            { "character": "Zack_thinking", "text": "Yes... I'd like that. Thanks for not making fun of me, Bob." },
+            { "character": "narrator", "text": "As they leave the hall, Zack feels a mix of embarrassment and determination. Today was tough, but he's already planning how to do better next time." }
+          ],
+          "stats": { "security": -5, "fans": 0, "social": 5 }
+        }
+      ],
+      "summary": "This is not only a good teaching material for learning knowledge and deepening understanding, but also a good opportunity for self-training. Don't be afraid, make yourself stronger.."
+    }
+  ]
+} 

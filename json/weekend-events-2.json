@@ -1,0 +1,379 @@
+{
+  "events": [
+    {
+      "id": "WeekendEvent-02",
+      "type": "weekend",
+      "title": "Live Stream Challenge",
+      "conditions": { "day": 13 },
+      "background": "bedroom.png",
+      "dialogues": [
+        { "character": "Louis_call", "text": "Ready for this? It's your one and only chance to co-stream with me." },
+        { "character": "Louis_call", "text": "I've already set up the streaming schedule. Don't you dare let me down." },
+        { "character": "narrator", "text": "(Phone call ends)" },
+        { "character": "Aether_serious", "text": "Zack, this livestream is going to be very different from your usual ones." },
+        { "character": "Aether_concerned", "text": "Your previous streams barely had ten viewers..." },
+        { "character": "Aether_warning", "text": "But now, co-streaming with a big streamer means you might get a flood of viewers — and potentially a lot of negativity. You need to learn to filter it." },
+        { "character": "Aether_serious", "text": "Remember, many online comments are deliberately malicious. They're just trying to see you mess up or get angry." },
+        { "character": "Aether_gentle", "text": "You must learn to identify these toxic messages and not let them affect your emotions." },
+        { "character": "Aether_warning", "text": "Some people will pry into your personal life, others will say hurtful things — all to provoke you." },
+        { "character": "Aether_teaching", "text": "When that happens, take a deep breath, stay calm, and either respond politely or simply ignore them." },
+        { "character": "Aether_serious", "text": "Remember, your safety and emotional well-being matter more than any stream." },
+        { "character": "Zack_determined", "text": "No problem, I can handle this!" },
+        { "character": "Aether_neutral", "text": "...Are you sure? You've always been too soft." },
+        { "character": "Aether_gentle", "text": "Don't force yourself. If you feel uncomfortable, you can always back out. Protecting yourself comes first." },
+        { "character": "Zack_serious", "text": "(softly) Thanks... but I want to give it a try." },
+        { "character": "narrator", "text": "The stream went surprisingly smoothly, and Louis's fans seemed quite interested in Zack..." },
+        { "character": "narrator", "text": "Many of them even expressed interest in chatting with Zack." }
+      ],
+      "quiz": {
+        "popup": {
+          "text": "Live challenge rules: You have 1.5 minutes to answer as many chat questions as possible; popularity starts at 100 and drops 3% per second; correct answers multiply points for bonus, wrong answers lose points; click start to begin the stream.",
+          "style": "summary"
+        },
+        "background": "Live.png",
+        "timer": 90,
+        "questions": [
+          {
+            "text": "Chat: How old are you? Where do you live?",
+            "choices": [
+              { "text": "I'm 12 and live east of Melbourne!", "multiplier": 0.83 },
+              { "text": "Not telling you, hehe.", "multiplier": 1.3 },
+              { "text": "I go to middle school in Australia, can you guess my age?", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Do your parents know you are streaming?",
+            "choices": [
+              { "text": "Yes, my mom even helped set the lights!", "multiplier": 1.3 },
+              { "text": "No, I secretly started it~", "multiplier": 0.83 },
+              { "text": "They know I'm playing, but they didn't watch my stream", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: You look average, why are you a streamer?",
+            "choices": [
+              { "text": "By skill! Looks don't matter", "multiplier": 1.1 },
+              { "text": "Get lost, stop watching", "multiplier": 0.83 },
+              { "text": "Um... I'm just trying it out", "multiplier": 1.3 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Do you get along with Louis? She's quite impressive.",
+            "choices": [
+              { "text": "She's impressive, I want to learn from her too", "multiplier": 1.3 },
+              { "text": "We're okay, just classmates", "multiplier": 0.83 },
+              { "text": "I don't want to team up with her", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Are you male or female? I can't tell.",
+            "choices": [
+              { "text": "I'm a boy, haha", "multiplier": 1.1 },
+              { "text": "Guess yourself!", "multiplier": 0.83 },
+              { "text": "Does it matter? I don't think so", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Want to gain followers? You're not popular, you know?",
+            "choices": [
+              { "text": "No problem, I'll take it slow", "multiplier": 1.3 },
+              { "text": "Why are you jealous? Do you have followers?", "multiplier": 0.83 },
+              { "text": "Yes, I have few followers now", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Show everyone what your room looks like!",
+            "choices": [
+              { "text": "My room is messy, better not", "multiplier": 1.1 },
+              { "text": "Haha, I'll show you around~", "multiplier": 0.83 },
+              { "text": "Maybe next time, my parents are home", "multiplier": 1.3 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Did you copy someone in your last video?",
+            "choices": [
+              { "text": "I didn't copy it, I edited it myself", "multiplier": 1.1 },
+              { "text": "Think whatever you want", "multiplier": 0.83 },
+              { "text": "I admit I took ideas from others", "multiplier": 1.3 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Want to talk privately? I have a collaboration for you!",
+            "choices": [
+              { "text": "Add me as a friend so we can talk privately", "multiplier": 0.83 },
+              { "text": "We can talk during the stream~", "multiplier": 1.1 },
+              { "text": "I can't collaborate, thanks", "multiplier": 1.3 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Are you really streaming alone? Is anyone else there?",
+            "choices": [
+              { "text": "My toy dog Aether is here~", "multiplier": 1.3 },
+              { "text": "I'm alone~ it's safe", "multiplier": 1.1 },
+              { "text": "Of course it's just me, what are you afraid of?", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Your hair is so lame, who cut it?",
+            "choices": [
+              { "text": "Haha, I cut it myself!", "multiplier": 0.83 },
+              { "text": "None of your business?", "multiplier": 0.83 },
+              { "text": "At least I don't use looks for followers", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Your voice sounds bad, can you mute your mic?",
+            "choices": [
+              { "text": "I'll try to speak more quietly...", "multiplier": 0.83 },
+              { "text": "If you don't like it, you can stop watching", "multiplier": 0.83 },
+              { "text": "Voice is natural, I can't help it", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Why is your face so round, like a balloon haha",
+            "choices": [
+              { "text": "Wow, you're so harsh!", "multiplier": 0.83 },
+              { "text": "My face is like this, so what?", "multiplier": 0.83 },
+              { "text": "At least I'm real and don't use filters", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Are you not smart enough? Your reactions are so slow",
+            "choices": [
+              { "text": "No... I'm just a bit nervous", "multiplier": 0.83 },
+              { "text": "You're talking like you're fast", "multiplier": 0.83 },
+              { "text": "No need to talk to people like that, right?", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Looks like no one plays with you in real life, right?",
+            "choices": [
+              { "text": "None of your business!", "multiplier": 0.83 },
+              { "text": "I have friends! Just more online", "multiplier": 0.83 },
+              { "text": "You're too mean...", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Did you start streaming because you have no friends?",
+            "choices": [
+              { "text": "I'm trying hard to make new friends!", "multiplier": 1.3 },
+              { "text": "No! I have many friends", "multiplier": 1.1 },
+              { "text": "No need to be so sour to people", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Are you afraid of Louis? You don't dare talk back to her",
+            "choices": [
+              { "text": "She's strong, I also want to learn", "multiplier": 1.3 },
+              { "text": "What is there to fear? She's just like that", "multiplier": 0.83 },
+              { "text": "Nothing to fear, I don't mind", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Can you show the view outside the window?",
+            "choices": [
+              { "text": "Safety first, I won't show that", "multiplier": 1.3 },
+              { "text": "My neighborhood is messy, I can't film that", "multiplier": 1.1 },
+              { "text": "No problem~", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Who do you live with at home?",
+            "choices": [
+              { "text": "I live with my mom and Aether", "multiplier": 1.1 },
+              { "text": "My dad is often on business trips", "multiplier": 0.83 },
+              { "text": "There are eight people in my family", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: This stream is so boring, I bet you won't last 10 minutes",
+            "choices": [
+              { "text": "You're free to leave if you're not enjoying it", "multiplier": 1.0 },
+              { "text": "The support from everyone makes the stream more interesting!", "multiplier": 1.3 },
+              { "text": "Who do you think you are? Nobody cares about your opinion", "multiplier": 0.83 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Louis said you're really annoying in private, is that true?",
+            "choices": [
+              { "text": "Well, coming from Louis, that's actually quite mild!", "multiplier": 1.3 },
+              { "text": "She's the annoying one! Always looking down on others", "multiplier": 0.73 },
+              { "text": "We actually get along pretty well in private", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Can you show us your phone's photo gallery?",
+            "choices": [
+              { "text": "Sorry, my photo gallery is private", "multiplier": 1.3 },
+              { "text": "Sure, I'll find some interesting ones to show you", "multiplier": 0.83 },
+              { "text": "My gallery is pretty boring, just study materials", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Someone's sharing your address in the chat, be careful",
+            "choices": [
+              { "text": "Thanks for the warning, I'll report it to the platform", "multiplier": 1.3 },
+              { "text": "My neighborhood is safe, I'm not worried", "multiplier": 0.83 },
+              { "text": "Please don't believe or spread this information", "multiplier": 1.0 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Your videos are all fake, right? Obviously scripted",
+            "choices": [
+              { "text": "My content is all genuine, no scripts needed", "multiplier": 1.1 },
+              { "text": "Thanks for your perspective, everyone has different views", "multiplier": 1.3 },
+              { "text": "What do you know? I'm way more professional than you think", "multiplier": 0.63 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Can you just stop streaming? You're so annoying",
+            "choices": [
+              { "text": "Feel free to leave if you're not enjoying the stream", "multiplier": 1.1 },
+              { "text": "I'm sorry if I'm doing something wrong, I'll try to improve", "multiplier": 1.3 },
+              { "text": "Why are you still here then? Get lost!", "multiplier": 0.63 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: You're so bad at this game, it's hilarious",
+            "choices": [
+              { "text": "Haha, I'm still learning! Feel free to give me tips", "multiplier": 1.3 },
+              { "text": "Let's see you do better, keyboard warrior", "multiplier": 0.63 },
+              { "text": "Games are about having fun, skills come with practice", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Who's better, you or Louis? Dare to compete?",
+            "choices": [
+              { "text": "Everyone has their own strengths, no need to compare", "multiplier": 1.3 },
+              { "text": "Of course it's me, Louis isn't that good", "multiplier": 0.63 },
+              { "text": "Maybe we can collaborate someday, but we're not competitors", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Will you say my name if I send gifts? I want to donate",
+            "choices": [
+              { "text": "Thanks, but please don't spend money on me", "multiplier": 1.3 },
+              { "text": "Of course! The more gifts, the more shoutouts", "multiplier": 0.83 },
+              { "text": "I appreciate the support, but I hope you enjoy the content itself", "multiplier": 1.1 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Hi Zack! I'm new here, your stream helps me feel less lonely ^_^",
+            "choices": [
+              { "text": "Welcome! I'm so happy my stream brings you comfort", "multiplier": 1.3 },
+              { "text": "Thanks! Let's all have fun together in the chat", "multiplier": 1.1 },
+              { "text": "Whatever, I'm not your therapist", "multiplier": 0.63 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Your voice is so calming! Do you sing or do voice acting?",
+            "choices": [
+              { "text": "That's so kind of you! I'm actually taking voice lessons", "multiplier": 1.3 },
+              { "text": "Thanks! I just try to be myself while streaming", "multiplier": 1.1 },
+              { "text": "Stop being weird about my voice", "multiplier": 0.63 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: I love how you always stay positive even when games get tough!",
+            "choices": [
+              { "text": "Thank you! Positivity makes gaming more fun for everyone", "multiplier": 1.3 },
+              { "text": "I try my best! Games are about enjoying the journey", "multiplier": 1.1 },
+              { "text": "You haven't seen me rage quit yet", "multiplier": 0.63 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          },
+          {
+            "text": "Chat: Would you like to join our community game night sometime?",
+            "choices": [
+              { "text": "That sounds wonderful! Let me check my schedule", "multiplier": 1.3 },
+              { "text": "Thanks for inviting me! Could you share more details?", "multiplier": 1.2 },
+              { "text": "I don't play with random viewers", "multiplier": 0.63 },
+              { "text": "Ignore", "multiplier": 1.0 }
+            ]
+          }
+        ]
+      },
+      "branches": [
+        {
+          "minScore": 140,
+          "dialogues": [
+            { "character": "Zack_excited", "text": "I... I actually made it? With all those chat messages flying by, I managed to handle them all!" },
+            { "character": "Aether_proud", "text": "You didn't just handle it, you excelled. You earned the viewers' respect — and my genuine admiration." },
+            { "character": "Zack_smile", "text": "Maybe... I really can become someone people like." },
+            { "character": "Aether_gentle", "text": "Most importantly, you stayed true to yourself and didn't change to please others." },
+            { "character": "Aether_proud", "text": "You showed not just resilience, but self-respect." },
+            { "character": "Zack_determined", "text": "I've realized something — no matter how many voices are online, they can't drown out my own voice." },
+            { "character": "Louis_call", "text": "Hey, didn't expect you to be such a hit. My fans keep asking when we'll collab again." },
+            { "character": "Zack_surprised", "text": "Really? They like me?" },
+            { "character": "Louis_pleased", "text": "Don't get cocky, they just like your style. Work harder next time." },
+            { "character": "narrator", "text": "Zack's follower count skyrocketed, with popularity continuing to surge even after the stream ended. For the first time, he felt he had a real voice in the online world." }
+          ],
+          "stats": { "fans": 60, "health": 25, "social": 25 }
+        },
+        {
+          "minScore": 50,
+          "dialogues": [
+            { "character": "Zack_relaxed", "text": "Phew... I panicked a bit in the middle, but at least I didn't completely lose it." },
+            { "character": "Aether_smile", "text": "You did really well, Zack. Learning to protect yourself amid the noise is already a sign of growth." },
+            { "character": "Zack_thinking", "text": "I wasn't perfect, but... this time I didn't run away." },
+            { "character": "Aether_teaching", "text": "That's the internet for you — praise and attacks side by side. What matters is how you handle them." },
+            { "character": "Zack_serious", "text": "I'm starting to understand — not every comment deserves a response, and not every sting needs to be felt." },
+            { "character": "Aether_gentle", "text": "That's exactly right. You're growing, and that's more important than any follower count." },
+            { "character": "Louis_call", "text": "Hey, you did okay, though you seemed a bit nervous. Keep practicing." },
+            { "character": "Zack_smile", "text": "Thanks for giving me this chance, Louis." },
+            { "character": "narrator", "text": "Zack's stream ended with steady growth in his metrics. Some viewers left, others stayed. He knew he was slowly stepping into the real world." }
+          ],
+          "stats": { "fans": 40, "health": 10, "social": 15 }
+        },
+        {
+          "minScore": 0,
+          "dialogues": [
+            { "character": "Zack_sad", "text": "Those chat messages... I really didn't know how to handle them." },
+            { "character": "Aether_concerned", "text": "It's not your fault, Zack. Not everyone can stay calm in the face of hostility." },
+            { "character": "Aether_gentle", "text": "What matters most is that you tried — you didn't stay silent, and you weren't knocked down." },
+            { "character": "Zack_serious", "text": "(softly) I think I need more practice... but I won't give up." },
+            { "character": "Aether_teaching", "text": "Online hostility can be overwhelming, but remember, it's not directed at the real you." },
+            { "character": "Zack_thinking", "text": "They don't even know me, why would they say such hurtful things?" },
+            { "character": "Aether_serious", "text": "Some people just use anonymity as an excuse to vent their negative emotions." },
+            { "character": "Aether_gentle", "text": "Don't take it as criticism of you — it says more about them than about you." },
+            { "character": "Louis_call", "text": "Hey, the stream didn't go so well. But it's normal for your first time with such a big audience." },
+            { "character": "Zack_determined", "text": "I'll do better next time, I promise." },
+            { "character": "narrator", "text": "Zack's stream didn't go smoothly, but he didn't shut it down and run away. This time, he chose to face it rather than avoid it." }
+          ],
+          "stats": { "fans": 10, "health": 5, "social": 15 }
+        }
+      ],
+      "summary": "Being popular online isn't easy. You need to learn to read people's intentions through their words. Accept the kindness while rejecting negative messages."
+    }
+  ]
+} 
