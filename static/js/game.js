@@ -808,20 +808,24 @@ class Game {
             img.onerror = () => {
                 console.log(`Failed to load image: ${path}`);
                 if (retryCount === 0) {
-                    
+                    // 尝试小写路径
                     const lowerPath = path.toLowerCase();
                     console.log(`Retrying with lowercase path: ${lowerPath}`);
                     loadImage(lowerPath, retryCount + 1);
                 } else if (retryCount === 1) {
-                    
-                    const upperPath = path.toUpperCase();
-                    console.log(`Retrying with uppercase path: ${upperPath}`);
-                    loadImage(upperPath, retryCount + 1);
+                    // 尝试首字母大写路径
+                    const parts = path.split('/');
+                    const fileName = parts[parts.length - 1];
+                    const fileNameParts = fileName.split('_');
+                    const capitalizedName = fileNameParts[0].charAt(0).toUpperCase() + fileNameParts[0].slice(1).toLowerCase();
+                    const capitalizedPath = parts.slice(0, -1).join('/') + '/' + capitalizedName + '_' + fileNameParts.slice(1).join('_');
+                    console.log(`Retrying with capitalized name: ${capitalizedPath}`);
+                    loadImage(capitalizedPath, retryCount + 2);
                 } else if (retryCount === 2) {
-                    
-                    const upperExtPath = path.replace(/\.png$/i, '.PNG');
-                    console.log(`Retrying with uppercase extension: ${upperExtPath}`);
-                    loadImage(upperExtPath, retryCount + 1);
+                    // 尝试将扩展名改为大写
+                    const extPath = path.replace(/\.png$/i, '.PNG');
+                    console.log(`Retrying with uppercase extension: ${extPath}`);
+                    loadImage(extPath, retryCount + 1);
                 } else {
                     console.log(`All attempts failed. Using default image: ${defaultPath}`);
                     element.style.backgroundImage = `url(${defaultPath})`;
@@ -1314,14 +1318,14 @@ class Game {
         requestAnimationFrame(() => { panel.style.opacity = '1'; });
         panel.innerHTML = '';
         const imgs = [
-            'aether_warning.png','aether_toy.png','aether_thinking.png',
-            'aether_smile.png','aether_relaxed.png','aether_proud.png',
-            'aether_neutral.png','aether_gentle.png','aether_concerned.png'
+            'Aether_warning.png','Aether_toy.png','Aether_thinking.png',
+            'Aether_smile.png','Aether_relaxed.png','Aether_proud.png',
+            'Aether_neutral.png','Aether_gentle.png','Aether_concerned.png'
         ];
         const chosen = imgs[Math.floor(Math.random()*imgs.length)];
         const imgElem = document.createElement('img');
         
-        
+        // 添加图片加载错误处理
         const tryLoadImage = (path, retryCount = 0) => {
             console.log(`Attempting to load summary image: ${path}`);
             const img = new Image();
@@ -1333,19 +1337,25 @@ class Game {
                 console.log(`Failed to load summary image: ${path}`);
                 if (retryCount === 0) {
                     
-                    const lowerPath = `/static/images/characters/${chosen.toLowerCase()}`;
+                    const parts = path.split('/');
+                    const fileName = parts[parts.length - 1].toLowerCase();
+                    const lowerPath = parts.slice(0, -1).join('/') + '/' + fileName;
                     console.log(`Retrying with lowercase path: ${lowerPath}`);
                     tryLoadImage(lowerPath, retryCount + 1);
                 } else if (retryCount === 1) {
                     
-                    const upperPath = `/static/images/characters/${chosen.toUpperCase()}`;
-                    console.log(`Retrying with uppercase path: ${upperPath}`);
-                    tryLoadImage(upperPath, retryCount + 1);
+                    const parts = path.split('/');
+                    const fileName = parts[parts.length - 1];
+                    const fileNameParts = fileName.split('_');
+                    const capitalizedName = fileNameParts[0].charAt(0).toUpperCase() + fileNameParts[0].slice(1).toLowerCase();
+                    const capitalizedPath = parts.slice(0, -1).join('/') + '/' + capitalizedName + '_' + fileNameParts.slice(1).join('_');
+                    console.log(`Retrying with capitalized name: ${capitalizedPath}`);
+                    tryLoadImage(capitalizedPath, retryCount + 1);
                 } else if (retryCount === 2) {
                     
-                    const upperExtPath = `/static/images/characters/${chosen.replace(/\.png$/i, '.PNG')}`;
-                    console.log(`Retrying with uppercase extension: ${upperExtPath}`);
-                    tryLoadImage(upperExtPath, retryCount + 1);
+                    const extPath = path.replace(/\.png$/i, '.PNG');
+                    console.log(`Retrying with uppercase extension: ${extPath}`);
+                    tryLoadImage(extPath, retryCount + 1);
                 } else {
                     console.log('All attempts to load summary image failed, using default image');
                     imgElem.src = '/static/images/characters/default.png';
