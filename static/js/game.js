@@ -799,7 +799,7 @@ class Game {
 
     setCharacterImage(element, imagePath, defaultPath) {
         // 添加错误处理和重试逻辑
-        const loadImage = (path, isRetry = false) => {
+        const loadImage = (path, retryCount = 0) => {
             const img = new Image();
             img.onload = () => {
                 element.style.backgroundImage = `url(${path})`;
@@ -807,14 +807,25 @@ class Game {
             };
             img.onerror = () => {
                 console.log(`Failed to load image: ${path}`);
-                if (!isRetry) {
-                    // 如果加载失败，尝试使用大写扩展名
-                    const upperPath = path.replace(/\.png$/, '.PNG');
-                    console.log(`Retrying with uppercase extension: ${upperPath}`);
-                    loadImage(upperPath, true);
+                if (retryCount === 0) {
+                    
+                    const lowerPath = path.toLowerCase();
+                    console.log(`Retrying with lowercase path: ${lowerPath}`);
+                    loadImage(lowerPath, retryCount + 1);
+                } else if (retryCount === 1) {
+                    
+                    const upperPath = path.toUpperCase();
+                    console.log(`Retrying with uppercase path: ${upperPath}`);
+                    loadImage(upperPath, retryCount + 1);
+                } else if (retryCount === 2) {
+                    
+                    const upperExtPath = path.replace(/\.png$/i, '.PNG');
+                    console.log(`Retrying with uppercase extension: ${upperExtPath}`);
+                    loadImage(upperExtPath, retryCount + 1);
                 } else {
-                    console.log(`Using default image: ${defaultPath}`);
+                    console.log(`All attempts failed. Using default image: ${defaultPath}`);
                     element.style.backgroundImage = `url(${defaultPath})`;
+                    element.classList.add('error');
                 }
             };
             img.src = path;
@@ -1309,7 +1320,42 @@ class Game {
         ];
         const chosen = imgs[Math.floor(Math.random()*imgs.length)];
         const imgElem = document.createElement('img');
-        imgElem.src = `/static/images/characters/${chosen}`;
+        
+        
+        const tryLoadImage = (path, retryCount = 0) => {
+            console.log(`Attempting to load summary image: ${path}`);
+            const img = new Image();
+            img.onload = () => {
+                console.log(`Successfully loaded summary image: ${path}`);
+                imgElem.src = path;
+            };
+            img.onerror = () => {
+                console.log(`Failed to load summary image: ${path}`);
+                if (retryCount === 0) {
+                    
+                    const lowerPath = `/static/images/characters/${chosen.toLowerCase()}`;
+                    console.log(`Retrying with lowercase path: ${lowerPath}`);
+                    tryLoadImage(lowerPath, retryCount + 1);
+                } else if (retryCount === 1) {
+                    
+                    const upperPath = `/static/images/characters/${chosen.toUpperCase()}`;
+                    console.log(`Retrying with uppercase path: ${upperPath}`);
+                    tryLoadImage(upperPath, retryCount + 1);
+                } else if (retryCount === 2) {
+                    
+                    const upperExtPath = `/static/images/characters/${chosen.replace(/\.png$/i, '.PNG')}`;
+                    console.log(`Retrying with uppercase extension: ${upperExtPath}`);
+                    tryLoadImage(upperExtPath, retryCount + 1);
+                } else {
+                    console.log('All attempts to load summary image failed, using default image');
+                    imgElem.src = '/static/images/characters/default.png';
+                }
+            };
+            img.src = path;
+        };
+
+        tryLoadImage(`/static/images/characters/${chosen}`);
+        
         imgElem.style.cssText = 'position:absolute; top:-260px; left:50%; transform:translateX(-50%); width:320px; height:320px; border-radius:50%; border:8px solid #fff; box-shadow:0 4px 20px rgba(0,0,0,0.5); object-fit:contain;';
         panel.appendChild(imgElem);
         const speaker = document.createElement('div');
