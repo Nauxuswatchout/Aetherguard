@@ -1,0 +1,77 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/learning_journey.css') }}"
+    />
+</head>
+<div class="container">
+    <header>
+        <h1>Learning Journey</h1>
+        <p class="subtitle">Apply what you have learnt and establish internet safety together!</p>
+    </header>
+    
+    <div class="progress-container">
+        <span class="progress-text">Progress</span>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-text" id="progressText">0/5</span>
+    </div>
+    
+    <div class="journey-map">
+        <!-- Level 1 -->
+        <div class="level active" id="level1" onclick="openLevel(1)">
+            <div class="level-icon">🏠</div>
+            <div class="level-number">Level 1</div>
+        </div>
+        
+        <!-- Level 2 -->
+        <div class="level locked" id="level2" onclick="openLevel(2)">
+            <div class="level-icon">🔒</div>
+            <div class="level-number">Level 2</div>
+        </div>
+        
+        <!-- Level 3 -->
+        <div class="level locked" id="level3" onclick="openLevel(3)">
+            <div class="level-icon">💬</div>
+            <div class="level-number">Level 3</div>
+        </div>
+        
+        <!-- Level 4 -->
+        <div class="level locked" id="level4" onclick="openLevel(4)">
+            <div class="level-icon">👁️</div>
+            <div class="level-number">Level 4</div>
+        </div>
+        
+        <!-- Level 5 -->
+        <div class="level locked" id="level5" onclick="openLevel(5)">
+            <div class="level-icon">🎓</div>
+            <div class="level-number">Level 5</div>
+        </div>
+    </div>
+    
+    
+</div>
+
+<!-- Level Modal -->
+<div class="modal" id="levelModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Level Title</h2>
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <!-- Content will be loaded dynamically -->
+        </div>
+        <div class="completion-buttons">
+            <button class="btn btn-secondary" onclick="closeModal()">Return to Map</button>
+            <button class="btn btn-primary" id="completeBtn" onclick="completeLevel()" disabled>Mark as Complete</button>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/learning_journey.js') }}" ></script>
+{% endblock %}

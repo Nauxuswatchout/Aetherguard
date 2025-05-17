@@ -26,7 +26,6 @@
     ></script>
   </head>
   <body>
-    <header>
       <nav class="navbar">
 
         <div class="logo">AetherGuard</div>
@@ -42,13 +41,13 @@
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('parents') }}">Parents</a></li>
           <li><a href="{{ url_for('children') }}">Children</a></li>
-          <li><a href="{{ url_for('resource_hub') }}">Resource hub</a></li>
+          <li><a href="{{ url_for('learning_journey') }}">Learning Journey</a></li>
+          <li><a href="{{ url_for('resource_hub') }}">Resource Hub</a></li>
         </ul>
         <div class="nav-controls">
           <!-- 移除 home 和 music_note 按钮 -->
         </div>
       </nav>
-    </header>
 
     <main>{% block content %}{% endblock %}</main>
 
