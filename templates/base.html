@@ -7,6 +7,20 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>{{ title }} - AetherGuard</title>
+
+    <!-- WhatsApp and Open Graph Meta Tags -->
+    <meta property="og:title" content="AetherGuard - Cyber Safety for Kids" />
+    <meta property="og:description" content="Empowering families to protect children online..." />
+    <meta property="og:image" content="{{ url_for('static', filename='images/covers/Logo.png', _external=True) }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ request.url }}" />
+    
+    <!-- Additional Meta Tags for better sharing -->
+    <meta name="description" content="Empowering families to protect children online..." />
+    <meta name="theme-color" content="#000000" />
+    
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -45,7 +59,7 @@
           <li><a href="{{ url_for('resource_hub') }}">Resource Hub</a></li>
         </ul>
         <div class="nav-controls">
-          <!-- 移除 home 和 music_note 按钮 -->
+         
         </div>
       </nav>
 
