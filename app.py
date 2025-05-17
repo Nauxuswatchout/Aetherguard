@@ -116,6 +116,10 @@ def parents():
 def children():
     return render_template('children.html', title='For Children')
 
+@app.route('/learning_journey')
+@login_required
+def learning_journey():
+    return render_template('learning_journey.html', title='Learning Journey')
 
 @app.route('/parents/internet-guidelines')
 @login_required
