@@ -1314,9 +1314,9 @@ class Game {
         requestAnimationFrame(() => { panel.style.opacity = '1'; });
         panel.innerHTML = '';
         const imgs = [
-            'Aether_warning.png','Aether_toy.png','Aether_thinking.png',
-            'Aether_smile.png','Aether_relaxed.png','Aether_proud.png',
-            'Aether_neutral.png','Aether_gentle.png','Aether_concerned.png'
+            'aether_warning.png','aether_toy.png','aether_thinking.png',
+            'aether_smile.png','aether_relaxed.png','aether_proud.png',
+            'aether_neutral.png','aether_gentle.png','aether_concerned.png'
         ];
         const chosen = imgs[Math.floor(Math.random()*imgs.length)];
         const imgElem = document.createElement('img');
