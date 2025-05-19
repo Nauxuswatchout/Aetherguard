@@ -1264,7 +1264,7 @@
           "text": "Thank them politely but firmly decline meeting in person",
           "outcome": {
             "dialogues": [
-              { "character": "Zack_gentle", "text": "Thank you for loving my videos! Your support means a lot to me." },
+              { "character": "Zack_smile", "text": "Thank you for loving my videos! Your support means a lot to me." },
               { "character": "Zack_serious", "text": "However, for safety reasons, I don't meet up with online friends. I hope you understand." },
               { "character": "Tiktok_user_neutral", "text": "Oh... I understand. Sorry for being too excited." },
               { "character": "Tiktok_user_neutral", "text": "I'll keep supporting your videos!" },

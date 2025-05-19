@@ -231,7 +231,7 @@
           "outcome": {
             "dialogues": [
               { "character": "narrator", "text": "(Zack gets emotional and starts arguing with Unnamed in the comments)" },
-              { "character": "Zack_angry", "text": "What are you? If you have guts, start your own live stream!" },
+              { "character": "Zack_serious", "text": "What are you? If you have guts, start your own live stream!" },
               { "character": "narrator", "text": "(Viewers split into two groups. The stream atmosphere becomes tense.)" },
               { "character": "Zack_worried", "text": "It seems to have made things worse..." }
             ],
@@ -252,7 +252,7 @@
         { "character": "narrator", "text": "(Zack sees a popular mini-game in the app store titled 'Super Accurate Personality Test – Know the Real You!')" },
         { "character": "Zack_thinking", "text": "It sounds fun. I'll try it." },
         { "character": "narrator", "text": "(Zack downloads and opens the app)" },
-        { "character": "App_neutral", "text": "Please allow access to your contacts, location, and browser history for better service!" },
+        { "character": "ad_neutral", "text": "Please allow access to your contacts, location, and browser history for better service!" },
         { "character": "Zack_thinking", "text": "Contacts? Browser history? Hmm... whatever. Everyone clicks allow anyway." },
         { "character": "narrator", "text": "(Zack taps allow casually)" },
         { "character": "narrator", "text": "(After playing the mini-game for a few minutes, Zack exits the app)" },
@@ -430,18 +430,18 @@
       "dialogues": [
         { "character": "Zack_excited", "text": "The live stream is so lively today! More and more people are joining!" },
         { "character": "Tiktok_user_neutral", "text": "I like your stream! I'll give you a challenge: complete it and I'll send you a big cash prize!" },
-        { "character": "Zack_surprised", "text": "What challenge?" },
+        { "character": "Zack_shocked", "text": "What challenge?" },
         { "character": "Tiktok_user_neutral", "text": "Eat a live spider on the stream. Do you dare?" },
         { "character": "Zack_shocked", "text": "Eat... a spider?" },
         { "character": "Tiktok_user_neutral", "text": "Prove yourself on stream, cash is yours immediately! You might even go viral!" },
-        { "character": "Zack_alert", "text": "..." },
+        { "character": "Zack_shocked", "text": "..." },
         { "character": "Zack_worried", "text": "This is too crazy... but viewer count went up so much, everyone is egging me on..." },
         { "character": "Aether_concerned", "text": "(quietly) Zack, this challenge sounds wrong. Eating a spider? Even as a joke, it's too dangerous." },
         { "character": "Zack_thinking", "text": "But... cash reward and stream popularity... if I do it, I can buy that dream bike..." },
         { "character": "Aether_neutral", "text": "You're finding excuses. Think why someone would suggest this on your stream. Are they really caring for you?" },
         { "character": "Zack_worried", "text": "...What should I do?" },
         { "character": "Aether_serious", "text": "Online, people chase views and thrills. They encourage anything. But you bear the consequences." },
-        { "character": "Zack_conflicted", "text": "...What should I do?" }
+        { "character": "Zack_worried", "text": "...What should I do?" }
       ],
       "choices": [
         {
@@ -450,7 +450,7 @@
             "dialogues": [
               { "character": "Zack_neutral", "text": "Eating a spider is too gross. I can do an extreme jump rope challenge for positive energy!" },
               { "character": "Tiktok_user_neutral", "text": "Not fun, forget it!" },
-              { "character": "Zack_calm", "text": "Trying to use me as a stunt? No way!" },
+              { "character": "Zack_relaxed", "text": "Trying to use me as a stunt? No way!" },
               { "character": "Aether_relaxed", "text": "Good, Zack. You chose to respect yourself." }
             ],
             "stats": { "fans": 10, "mentalHealth": 5, "safetyAwareness": 10, "social": 5 }
@@ -465,7 +465,7 @@
               { "character": "Zack_determined", "text": "It's just one challenge... It's fine..." },
               { "character": "narrator", "text": "(Zack forces himself to complete the challenge. The stream explodes. Tiktok_User pays the cash.)" },
               { "character": "narrator", "text": "(Zack uses the money to buy the dream bike.)" },
-              { "character": "Zack_upset", "text": "I got everything... but why don't I feel happy?" },
+              { "character": "Zack_sad", "text": "I got everything... but why don't I feel happy?" },
               { "character": "Aether_concerned", "text": "You won the audience but lost yourself." }
             ],
             "stats": { "fans": 60, "mentalHealth": -30, "safetyAwareness": -20, "social": 15 }
@@ -497,7 +497,7 @@
         { "character": "Aether_smile", "text": "Oh, what makes you so excited?" },
         { "character": "Zack_excited", "text": "A senior will do a live PK tonight and asked me to send gifts to support her!" },
         { "character": "Aether_neutral", "text": "A senior? Why ask you?" },
-        { "character": "Zack_proud", "text": "My stream has some fans now! She said she'll pay me back whatever I spend!" },
+        { "character": "Zack_excited", "text": "My stream has some fans now! She said she'll pay me back whatever I spend!" },
         { "character": "Aether_thinking", "text": "Zack, how much money do you have? Gifts cost a lot." },
         { "character": "Zack_relaxed", "text": "It's okay. I'm using mom's App ID. It auto-charges. I'll pay her back!" },
         { "character": "Aether_concerned", "text": "That sounds weird... But it's your choice." },
@@ -516,7 +516,7 @@
           "text": "Keep sending gifts to win the PK.",
           "outcome": {
             "dialogues": [
-              { "character": "Zack_stubborn", "text": "Let's go all in. I can't back out now!" },
+              { "character": "Zack_determined", "text": "Let's go all in. I can't back out now!" },
               { "character": "narrator", "text": "(Zack spends hundreds more but still loses the PK. The senior then ignores him.)" },
               { "character": "Aether_serious", "text": "Sacrificing your responsibility for face isn't worth it." }
             ],
@@ -538,7 +538,7 @@
           "text": "Ask for deposit before sending more gifts.",
           "outcome": {
             "dialogues": [
-              { "character": "Zack_cautious", "text": "How about you pay a deposit first?" },
+              { "character": "Zack_worried", "text": "How about you pay a deposit first?" },
               { "character": "narrator", "text": "(She replies vaguely: let's talk after the PK.)" },
               { "character": "Zack_alert", "text": "Looks like she won't pay soon." },
               { "character": "Aether_serious", "text": "The sooner you see the truth, the less you'll get hurt." }
@@ -617,7 +617,7 @@
       "dialogues": [
         { "character": "Zack_relaxed", "text": "Today I finally made up my mind." },
         { "character": "Zack_excited", "text": "I'm going to open my own TikTok account! Start streaming and record my life!" },
-        { "character": "Aether_curious", "text": "Wow, that sounds fun. What made you decide this?" },
+        { "character": "Aether_proud", "text": "Wow, that sounds fun. What made you decide this?" },
         { "character": "Zack_neutral", "text": "I always feel unnoticed by classmates and shy to talk." },
         { "character": "Zack_thinking", "text": "If I meet more people on TikTok, maybe I can become braver." },
         { "character": "Aether_thinking", "text": "Yes... expressing yourself on camera is a good exercise." },
@@ -625,8 +625,8 @@
         { "character": "Zack_neutral", "text": "Thank you, Aether!" },
         { "character": "Zack_determined", "text": "Then I'll register now!" },
         { "character": "narrator", "text": "(Zack opens his phone excitedly and starts filling in registration info)" },
-        { "character": "System_neutral", "text": "Hint: Your password strength is low. Continue anyway?" },
-        { "character": "System_neutral", "text": "Hint: Enable two-factor authentication to boost account security?" },
+        { "character": "default", "text": "Hint: Your password strength is low. Continue anyway?" },
+        { "character": "default", "text": "Hint: Enable two-factor authentication to boost account security?" },
         { "character": "Zack_thinking", "text": "Password strength? Two-factor? Sounds so complex..." },
         { "character": "Aether_neutral", "text": "Simply put, password strength is how hard it is to guess. A weak password is like locking your door with a twig." },
         { "character": "Zack_shocked", "text": "That's so dangerous!" },

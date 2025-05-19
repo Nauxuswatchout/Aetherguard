@@ -423,7 +423,7 @@
           "text": "Complain to the school student affairs office.",
           "outcome": {
             "dialogues": [
-              { "character": "Zack_uncertain", "text": "Maybe the school can help?" },
+              { "character": "Zack_worried", "text": "Maybe the school can help?" },
               { "character": "narrator", "text": "(Zack complains to the school, but they say they cannot handle social platform issues.)" },
               { "character": "Zack_sad", "text": "I wasted my time..." }
             ],
@@ -447,10 +447,10 @@
         { "character": "Zack_relaxed", "text": "Today's video comments are very active. Let's check them out." },
         { "character": "narrator", "text": "(Zack scrolls and suddenly sees a fan comment)" },
         { "character": "Tiktok_user", "text": "You have another account? I saw your selfie there!" },
-        { "character": "Zack_confused", "text": "I never opened a second account!" },
+        { "character": "Zack_thinking", "text": "I never opened a second account!" },
         { "character": "narrator", "text": "(Zack opens the link the fan posted.)" },
         { "character": "narrator", "text": "(He sees an account using his photo and posting strange content.)" },
-        { "character": "Zack_alert", "text": "Oh no, someone is using my photo to pretend to be me!" },
+        { "character": "Zack_shocked", "text": "Oh no, someone is using my photo to pretend to be me!" },
         { "character": "Zack_worried", "text": "If this goes on, people will think those weird posts are from me!" },
         { "character": "Aether_concerned", "text": "This already affects your reputation. You must take action." },
         { "character": "Zack_thinking", "text": "Who should I complain to...?" }
@@ -491,7 +491,7 @@
           "text": "Ask the school to delete the fake account.",
           "outcome": {
             "dialogues": [
-              { "character": "Zack_uncertain", "text": "Maybe the school can help?" },
+              { "character": "Zack_worried", "text": "Maybe the school can help?" },
               { "character": "narrator", "text": "(The school replies: This is outside their authority.)" },
               { "character": "Zack_sad", "text": "I knew that wouldn't work..." }
             ],
