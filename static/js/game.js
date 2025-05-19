@@ -745,6 +745,8 @@ class Game {
         
         this.elements.characterLeft.style.backgroundImage = '';
         this.elements.characterRight.style.backgroundImage = '';
+        this.elements.characterLeft.style.background = 'none';
+        this.elements.characterRight.style.background = 'none';
         
         if (characterName === 'narrator' || characterName === 'System' || characterName === 'System_notification') {
             this.elements.characterLeft.style.opacity = '0.5';
@@ -755,31 +757,27 @@ class Game {
         const defaultImage = '/static/images/characters/default.png';
         let characterImage;
 
-        
         const normalizedCharacterName = characterName.toLowerCase();
         const normalizedMood = characterMood.toLowerCase();
 
-        
         const cleanFileName = (name) => name.replace(/\s+/g, '_');
 
         if (normalizedCharacterName === 'zack') {
-            characterImage = `/static/images/characters/zack_${normalizedMood}.png`;
+            characterImage = `/static/images/characters/Zack_${normalizedMood}.png`;
         } else if (normalizedCharacterName === 'aether') {
-            characterImage = `/static/images/characters/aether_${normalizedMood}.png`;
+            characterImage = `/static/images/characters/Aether_${normalizedMood}.png`;
         } else if (normalizedCharacterName === 'mom') {
-            characterImage = `/static/images/characters/mom_${normalizedMood}.png`;
+            characterImage = `/static/images/characters/Mom_${normalizedMood}.png`;
         } else if (normalizedCharacterName === 'tiktok') {
-            characterImage = `/static/images/characters/tiktok_${normalizedMood}.png`;
+            characterImage = `/static/images/characters/Tiktok_${normalizedMood}.png`;
         } else if (normalizedCharacterName === 'tiktok_user') {
-            characterImage = `/static/images/characters/tiktok_user_${normalizedMood}.png`;
+            characterImage = `/static/images/characters/Tiktok_user_${normalizedMood}.png`;
         } else {
-            
             const cleanCharacterName = cleanFileName(normalizedCharacterName);
             const cleanMood = cleanFileName(normalizedMood);
             characterImage = `/static/images/characters/${cleanCharacterName}_${cleanMood}.png`;
         }
 
-        
         console.log(`Attempting to load character image: ${characterImage}`);
 
         if (normalizedCharacterName === 'zack') {
@@ -789,7 +787,7 @@ class Game {
         } else if (normalizedCharacterName === 'tiktok' || normalizedCharacterName === 'tiktok_user') {
             this.elements.characterLeft.style.opacity = '0.5';
             this.elements.characterRight.style.opacity = '1';
-            this.setCharacterImage(this.elements.characterRight, characterImage, '/static/images/characters/tiktok_default.png');
+            this.setCharacterImage(this.elements.characterRight, characterImage, '/static/images/characters/Tiktok_user_neutral.png');
         } else {
             this.elements.characterLeft.style.opacity = '0.5';
             this.elements.characterRight.style.opacity = '1';
@@ -798,22 +796,25 @@ class Game {
     }
 
     setCharacterImage(element, imagePath, defaultPath) {
-        // 添加错误处理和重试逻辑
+        element.style.background = 'none';
+        
         const loadImage = (path, retryCount = 0) => {
             const img = new Image();
             img.onload = () => {
                 element.style.backgroundImage = `url(${path})`;
+                element.style.backgroundSize = 'contain';
+                element.style.backgroundPosition = 'center';
+                element.style.backgroundRepeat = 'no-repeat';
+                element.style.backgroundColor = 'transparent';
                 console.log(`Successfully loaded image: ${path}`);
             };
             img.onerror = () => {
                 console.log(`Failed to load image: ${path}`);
                 if (retryCount === 0) {
-                    // 尝试小写路径
                     const lowerPath = path.toLowerCase();
                     console.log(`Retrying with lowercase path: ${lowerPath}`);
                     loadImage(lowerPath, retryCount + 1);
                 } else if (retryCount === 1) {
-                    // 尝试首字母大写路径
                     const parts = path.split('/');
                     const fileName = parts[parts.length - 1];
                     const fileNameParts = fileName.split('_');
@@ -822,13 +823,16 @@ class Game {
                     console.log(`Retrying with capitalized name: ${capitalizedPath}`);
                     loadImage(capitalizedPath, retryCount + 2);
                 } else if (retryCount === 2) {
-                    // 尝试将扩展名改为大写
                     const extPath = path.replace(/\.png$/i, '.PNG');
                     console.log(`Retrying with uppercase extension: ${extPath}`);
                     loadImage(extPath, retryCount + 1);
                 } else {
                     console.log(`All attempts failed. Using default image: ${defaultPath}`);
                     element.style.backgroundImage = `url(${defaultPath})`;
+                    element.style.backgroundSize = 'contain';
+                    element.style.backgroundPosition = 'center';
+                    element.style.backgroundRepeat = 'no-repeat';
+                    element.style.backgroundColor = 'transparent';
                     element.classList.add('error');
                 }
             };

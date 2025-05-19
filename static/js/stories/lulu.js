@@ -19,36 +19,128 @@ $(document).ready(function () {
   ];
 
   // Audio player initialization
-  const audioPlayer = document.getElementById('story-audio');
+  const audioPlayer = document.getElementById("story-audio");
   let isAudioPlaying = false;
   let audioInitialized = false;
-  
+  let currentPage = 1;
+  let audioTimer = null;
+
+  // Define timestamps for each page (in seconds)
+  // Format: [startTime, duration]
+  const pageAudioSettings = {
+    // 1 is the front cover
+    2: [0, 16], // Page 1/2: starts at 0, plays for 16s, 0-16
+    3: [0, 16], // Page 1/2: starts at 0, plays for 16s, 0-16
+    4: [16, 16], // Page 3/4: starts at 16s, plays for 16s, 16-32
+    5: [16, 16], // Page 3/4: starts at 16s, plays for 16s, 16-32
+    6: [32, 16], // Page 5/6: starts at 32s, plays for 16s, 32-48
+    7: [32, 16], // Page 5/6: starts at 32s, plays for 16s, 32-48
+    8: [48, 17], // Page 7/8: starts at 48s, plays for 17s, 48-1.05
+    9: [48, 17], // Page 7/8: starts at 48s, plays for 17s, 48-1.05
+    10: [65, 21], // Page 9/10: starts at 65s, plays for 21s, 1.05-1.26
+    11: [65, 21], // Page 9/10: starts at 65s, plays for 21s, 1.05-1.26
+    12: [86, 14], // Page 11/12: starts at 86s, plays for 14s,1.26-1.40
+    13: [86, 14], // Page 11/12: starts at 86s, plays for 14s,1.26-1.40
+    14: [100, 120], // Page 13/14: starts at 100s, plays for 20s, 1.40-2.0
+  };
+
   // Initialize audio controls
   function initAudioControls() {
-    const playPauseBtn = document.getElementById('audio-play-pause');
-    const volumeSlider = document.getElementById('volume-slider');
-    const muteBtn = document.getElementById('audio-mute');
-    
+    const playPauseBtn = document.getElementById("audio-play-pause");
+    const volumeSlider = document.getElementById("volume-slider");
+    const muteBtn = document.getElementById("audio-mute");
+    const autoPlayToggle = document.getElementById("auto-play-toggle");
+    let autoPlayEnabled = true;
+
     // Play/Pause functionality
-    playPauseBtn.addEventListener('click', function() {
+    playPauseBtn.addEventListener("click", function () {
       if (!audioInitialized) {
         audioPlayer.load();
         audioInitialized = true;
       }
-      
+
       if (isAudioPlaying) {
-        audioPlayer.pause();
-        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-        isAudioPlaying = false;
+        pauseAudio();
       } else {
-        audioPlayer.play();
-        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        isAudioPlaying = true;
+        // When manually playing, play the current page's full audio
+        const pageSettings = pageAudioSettings[currentPage];
+        if (pageSettings) {
+          audioPlayer.currentTime = pageSettings[0];
+          playAudioForDuration(pageSettings[1]);
+        } else {
+          playAudio();
+        }
       }
     });
-    
+
+    // Function to play audio
+    function playAudio() {
+      audioPlayer.play();
+      playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      isAudioPlaying = true;
+    }
+
+    // Function to pause audio
+    function pauseAudio() {
+      audioPlayer.pause();
+      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      isAudioPlaying = false;
+
+      // Clear any existing timer
+      if (audioTimer) {
+        clearTimeout(audioTimer);
+        audioTimer = null;
+      }
+    }
+
+    // Function to play audio for a specific duration
+    function playAudioForDuration(durationInSeconds) {
+      // Clear any existing timer
+      if (audioTimer) {
+        clearTimeout(audioTimer);
+      }
+
+      // Play the audio
+      playAudio();
+
+      // Set a timer to pause after the specified duration
+      audioTimer = setTimeout(function () {
+        pauseAudio();
+        audioTimer = null;
+      }, durationInSeconds * 1000);
+    }
+
+    // Jump to a specific page and play its audio
+    function jumpToPage(pageNum) {
+      if (!audioInitialized) {
+        audioPlayer.load();
+        audioInitialized = true;
+      }
+
+      // Clear any existing timer
+      if (audioTimer) {
+        clearTimeout(audioTimer);
+        audioTimer = null;
+      }
+
+      const pageSettings = pageAudioSettings[pageNum];
+
+      if (pageSettings) {
+        // Set the current time to the start timestamp for this page
+        audioPlayer.currentTime = pageSettings[0];
+
+        // If auto-play is enabled, play the audio for the specified duration
+        if (autoPlayEnabled) {
+          playAudioForDuration(pageSettings[1]);
+        } else {
+          // Just update the timestamp but don't play
+          pauseAudio();
+        }
+      }
+    }
+
     // Volume control
-    volumeSlider.addEventListener('input', function() {
+    volumeSlider.addEventListener("input", function () {
       audioPlayer.volume = this.value / 100;
       if (audioPlayer.volume > 0) {
         muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
@@ -56,9 +148,9 @@ $(document).ready(function () {
         muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
       }
     });
-    
+
     // Mute functionality
-    muteBtn.addEventListener('click', function() {
+    muteBtn.addEventListener("click", function () {
       if (audioPlayer.muted) {
         audioPlayer.muted = false;
         muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
@@ -68,11 +160,46 @@ $(document).ready(function () {
         muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
       }
     });
-    
-    // Auto-restart when audio ends
-    audioPlayer.addEventListener('ended', function() {
-      this.currentTime = 0;
-      this.play();
+
+    // Auto-play toggle functionality
+    autoPlayToggle.addEventListener("change", function () {
+      autoPlayEnabled = this.checked;
+
+      if (autoPlayEnabled) {
+        // If enabling auto-play while on a page, play that page's audio
+        const pageSettings = pageAudioSettings[currentPage];
+        if (pageSettings && !isAudioPlaying) {
+          audioPlayer.currentTime = pageSettings[0];
+          playAudioForDuration(pageSettings[1]);
+        }
+      } else {
+        // When disabling, pause any current playback
+        if (isAudioPlaying) {
+          pauseAudio();
+        }
+      }
+    });
+
+    // Make the jumpToPage function available to turn.js events
+    window.jumpToPageAudio = jumpToPage;
+
+    // When audio ends, reset to paused state
+    audioPlayer.addEventListener("ended", function () {
+      pauseAudio();
+    });
+
+    // Handle time update to handle auto-pause at end of segments
+    audioPlayer.addEventListener("timeupdate", function () {
+      const pageSettings = pageAudioSettings[currentPage];
+
+      if (pageSettings && isAudioPlaying) {
+        const endTime = pageSettings[0] + pageSettings[1];
+
+        // If we've reached the end of this page's audio segment, pause
+        if (audioPlayer.currentTime >= endTime) {
+          pauseAudio();
+        }
+      }
     });
   }
 
@@ -158,6 +285,12 @@ $(document).ready(function () {
         },
         turned: function (e, page) {
           console.log("Turned to page:", page);
+
+          // Update current page and jump to corresponding audio timestamp
+          currentPage = page;
+          if (window.jumpToPageAudio) {
+            window.jumpToPageAudio(page);
+          }
 
           if (page === 2) {
             refreshTocLinks();
@@ -246,6 +379,24 @@ $(document).ready(function () {
 
     // Initialize audio controls once the book is ready
     initAudioControls();
+
+    // Initialize page turning sounds
+    const pageSounds = [
+      new Audio("/static/sounds/page1.mp3"),
+      new Audio("/static/sounds/page2.mp3"),
+      new Audio("/static/sounds/page3.mp3")
+    ];
+
+    function playRandomPageSound() {
+      const randomIndex = Math.floor(Math.random() * pageSounds.length);
+      pageSounds[randomIndex].currentTime = 0;
+      pageSounds[randomIndex].play();
+    }
+
+    // Add page turning sound effect
+    $("#book").bind('turning', function(e, page, view) {
+      playRandomPageSound();
+    });
   };
 
   // Start loading the first image to get dimensions
