@@ -763,7 +763,9 @@ class Game {
             'aether': 'Aether',
             'mom': 'Mom',
             'tiktok': 'Tiktok',
-            'tiktok_user': 'Tiktok_user',
+            'tiktok user': 'Tiktok_user',  // 添加空格版本的映射
+            'tiktokuser': 'Tiktok_user',   // 添加无空格版本的映射
+            'tiktok_user': 'Tiktok_user',  // 保留下划线版本的映射
             'mrswilliam': 'MrsWilliam',
             'bob': 'Bob',
             'derek': 'Derek',
@@ -775,18 +777,25 @@ class Game {
             'ad': 'Ad'
         };
 
-        const normalizedCharacterName = characterName.toLowerCase();
+        // 预处理角色名称
+        const normalizedCharacterName = characterName.toLowerCase().replace(/\s+/g, '_');
         const mappedName = characterMap[normalizedCharacterName] || characterName;
         const normalizedMood = characterMood.toLowerCase();
 
-        characterImage = `/static/images/characters/${mappedName}_${normalizedMood}.png`;
+        // 特殊处理 Tiktok_user
+        if (normalizedCharacterName.includes('tiktok') && normalizedCharacterName.includes('user')) {
+            characterImage = `/static/images/characters/Tiktok_user_${normalizedMood}.png`;
+        } else {
+            characterImage = `/static/images/characters/${mappedName}_${normalizedMood}.png`;
+        }
+        
         console.log(`Loading character image: ${characterImage}`);
 
         if (normalizedCharacterName === 'zack') {
             this.elements.characterLeft.style.opacity = '1';
             this.elements.characterRight.style.opacity = '0.5';
             this.setCharacterImage(this.elements.characterLeft, characterImage, defaultImage);
-        } else if (normalizedCharacterName === 'tiktok' || normalizedCharacterName === 'tiktok_user') {
+        } else if (normalizedCharacterName.includes('tiktok')) {
             this.elements.characterLeft.style.opacity = '0.5';
             this.elements.characterRight.style.opacity = '1';
             this.setCharacterImage(this.elements.characterRight, characterImage, '/static/images/characters/Tiktok_user_neutral.png');
