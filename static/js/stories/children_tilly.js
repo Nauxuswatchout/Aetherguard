@@ -9,38 +9,64 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Initialize hover sounds
+  // Audio system initialization
   const hoverSounds = [];
-  let soundsInitialized = false;
-
-  // Function to initialize sounds after user interaction
-  function initializeSounds() {
-    if (!soundsInitialized) {
-      for (let i = 1; i <= 4; i++) {
-        const sound = new Audio(`/static/sounds/d${i}.mp3`);
-        sound.volume = 0.7;
-        sound.preload = 'auto';
-        hoverSounds.push(sound);
-      }
-      soundsInitialized = true;
+  let audioContext;
+  
+  // Initialize Web Audio API context
+  function initAudioContext() {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Create and load all audio elements
+    for (let i = 1; i <= 4; i++) {
+      const sound = new Audio(`/static/sounds/d${i}.mp3`);
+      sound.volume = 0.7;
+      hoverSounds.push(sound);
+      
+      // Force load the audio file
+      sound.load();
+      
+      // Connect to audio context to enable immediate playback
+      const source = audioContext.createMediaElementSource(sound);
+      source.connect(audioContext.destination);
+    }
+    
+    // Resume audio context
+    if (audioContext.state === 'suspended') {
+      audioContext.resume();
     }
   }
 
-  // Function to play random hover sound
-  function playRandomHoverSound() {
-    if (!soundsInitialized) {
-      initializeSounds();
+  // Initialize audio immediately
+  initAudioContext();
+
+  // Ensure audio context is resumed on any user interaction
+  const resumeAudioContext = () => {
+    if (audioContext && audioContext.state === 'suspended') {
+      audioContext.resume();
     }
-    
-    if (hoverSounds.length > 0) {
+  };
+
+  document.addEventListener('click', resumeAudioContext);
+  document.addEventListener('touchstart', resumeAudioContext);
+  document.addEventListener('keydown', resumeAudioContext);
+
+  // Play random hover sound
+  function playRandomHoverSound() {
+    if (audioContext && hoverSounds.length > 0) {
       const randomIndex = Math.floor(Math.random() * hoverSounds.length);
       const sound = hoverSounds[randomIndex].cloneNode();
+      sound.volume = 0.7;
       
-      // Handle play() promise
       const playPromise = sound.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log("Playback prevented by browser");
+      if (playPromise) {
+        playPromise.catch(() => {
+          // If play fails, try resuming audio context
+          if (audioContext.state === 'suspended') {
+            audioContext.resume().then(() => {
+              sound.play();
+            });
+          }
         });
       }
       
@@ -48,11 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Add hover sound to book containers
+  // Add hover sound to books
   const books = document.querySelectorAll('.book');
   books.forEach(book => {
-    // Initialize sounds on first mouse movement over book
-    book.addEventListener('mouseover', initializeSounds, { once: true });
     book.addEventListener('mouseenter', playRandomHoverSound);
   });
 
