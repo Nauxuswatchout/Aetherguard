@@ -810,7 +810,7 @@ def add_security_headers(response):
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; \
         img-src 'self' data: https:; \
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; \
-        connect-src 'self'; \
+        connect-src 'self' https://api.puter.com; \
         media-src 'self'; \
         object-src 'none'; \
         frame-src 'self' https://www.youtube.com; \
@@ -819,8 +819,6 @@ def add_security_headers(response):
         frame-ancestors 'none'; \
         base-uri 'self'; \
         upgrade-insecure-requests;"
-    return response
-
 
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['X-Content-Type-Options'] = 'nosniff'
@@ -831,6 +829,7 @@ def add_security_headers(response):
     response.headers['Cache-Control'] = 'no-store, max-age=0'
 
     return response
+
 
 
 if __name__ == '__main__':
