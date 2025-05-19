@@ -17,7 +17,7 @@
         { "character": "Aether_smile", "text": "More friends means more chances to learn. And look around you - everyone is just as nervous as you are." },
         { "character": "narrator", "text": "The principal walks on stage holding a microphone. She adjusts her glasses and taps the mic twice, creating a loud feedback sound that silences the room." },
         { "character": "System_notification", "text": "'Welcome to the Cyber Quiz! Use your brain, not only your thumbs! Today's winners will receive not just prizes, but knowledge that keeps them safe online!'" },
-        { "character": "Zack_nervous", "text": "I hope the questions are not too hard... I studied all week but still don't feel ready." },
+        { "character": "Zack_sad", "text": "I hope the questions are not too hard... I studied all week but still don't feel ready." },
         { "character": "narrator", "text": "Entering the competition area, Zack notices several quiz stations set up with tablets. Each station has colorful buttons and a scoreboard above it." },
         { "character": "narrator", "text": "As Zack approaches his assigned station, he suddenly saw Bob waving from across the hall." },
         { "character": "Zack_neutral", "text": "(Huh, it's Bob? He came too. I didn't know he was interested in cyber safety.)" },

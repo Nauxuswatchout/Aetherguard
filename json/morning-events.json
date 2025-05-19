@@ -243,7 +243,7 @@
       "conditions": {
         "day": 4
       },
-      "background": "school.png",
+      "background": "street.png",
       "dialogues": [
         {
           "character": "Zack_neutral",
@@ -258,7 +258,7 @@
           "text": "(Zack approaches Louis)"
         },
         {
-          "character": "Zack_cautious",
+          "character": "Zack_happy",
           "text": "Hey, Louis, what's up? You don't seem like your usual self today."
         },
         {
@@ -310,7 +310,7 @@
           "text": "Or, after school, why don't we go buy some ice cream? We don't have to explain anything, just talk as friends."
         },
         {
-          "character": "Louis_unsure",
+          "character": "Louis_worried",
           "text": "...... Whatever, I don't have any plans for today anyway."
         },
         {
@@ -673,12 +673,12 @@
         { "character": "Bob_confused", "text": "What? I only have one!" },
         { "character": "Zack_worried", "text": "Look at this!" },
         { "character": "narrator", "text": "(Zack hands his phone to Bob to show him)" },
-        { "character": "Bob_shocked", "text": "What? Someone's using my name to post these things?!" },
+        { "character": "Bob_worried", "text": "What? Someone's using my name to post these things?!" },
         { "character": "Bob_worried", "text": "That's too much! It could get me in trouble at school!" },
         { "character": "Zack_thinking", "text": "Let's think... who might want to hurt you like this?" },
         { "character": "Bob_worried", "text": "Well... I did have an argument with Derek on the basketball court yesterday..." },
         { "character": "Zack_neutral", "text": "Derek? The one who always sits in the back row?" },
-        { "character": "Bob_thinking", "text": "Yeah, we had a pretty heated argument about the game rules." },
+        { "character": "Bob_happy", "text": "Yeah, we had a pretty heated argument about the game rules." },
         { "character": "Zack_determined", "text": "The timing matches! This account was created right after your argument!" },
         { "character": "narrator", "text": "(They find Derek during lunch break)" },
         { "character": "Zack_serious", "text": "Derek, we need to talk about something." },
@@ -708,7 +708,20 @@
             "dialogues": [
               { "character": "Zack_thinking", "text": "I think... some classmates have been a bit unhappy with you recently." },
               { "character": "Bob_neutral", "text": "Yeah, there were a few arguments on the basketball court." },
-              { "character": "Zack_determined", "text": "Then the scope is narrowed down." }
+              { "character": "Zack_determined", "text": "Then the scope is narrowed down." },
+              { "character": "Bob_worried", "text": "Well... I did have an argument with Derek on the basketball court yesterday..." },
+              { "character": "Zack_neutral", "text": "Derek? The one who always sits in the back row?" },
+              { "character": "Bob_happy", "text": "Yeah, we had a pretty heated argument about the game rules." },
+              { "character": "Zack_determined", "text": "The timing matches! This account was created right after your argument!" },
+              { "character": "narrator", "text": "(They find Derek during lunch break)" },
+              { "character": "Zack_serious", "text": "Derek, we need to talk about something." },
+              { "character": "narrator", "text": "(Derek looks nervous when he sees them)" },
+              { "character": "Derek", "text": "...... Okay, it was me. I created that account." },
+              { "character": "Bob_worried", "text": "Why would you do this? Do you know how much trouble this could cause me?" },
+              { "character": "Derek", "text": "I was just angry about the basketball game... I made the account to vent, but then I got carried away..." },
+              { "character": "Derek", "text": "I'm sorry... I know I was wrong. I'll delete the account and explain to the teacher." },
+              { "character": "Zack_neutral", "text": "That's the right thing to do." },
+              { "character": "Bob_neutral", "text": "Just remember, even if you're joking, there are limits to what you should do online." }
             ],
             "stats": { "safetyAwareness": 0, "mentalHealth": 0, "social": 0 }
           }
@@ -1212,7 +1225,7 @@
               {"character": "narrator", "text": "(Although Tiktok_User eventually filed a complaint)"},
               {"character": "narrator", "text": "(Zack submits an appeal document)"},
               {"character": "narrator", "text": "(The platform confirms Zack's innocence and his account is restored)"},
-              {"character": "Louis_proud", "text": "Look, those who are innocent have nothing to fear."}
+              {"character": "Louis_sad", "text": "Look, those who are innocent have nothing to fear."}
             ],
             "stats": {"mentalHealth": 10, "safetyAwareness": 15, "social": 5}
           }
@@ -1302,7 +1315,7 @@
           "outcome": {
             "dialogues": [
               { "character": "Zack_smile", "text": "Thank you for your support! While we can't meet in person, we can chat during my livestreams." },
-              { "character": "Zack_gentle", "text": "That way everyone can join in, it's safer and more fun!" },
+              { "character": "Zack_neutral", "text": "That way everyone can join in, it's safer and more fun!" },
               { "character": "Tiktok_user_neutral", "text": "Really? That's great! I'll definitely join your streams!" },
               { "character": "Aether_proud", "text": "That's a good idea - maintaining boundaries while not hurting feelings." }
             ],

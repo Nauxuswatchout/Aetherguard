@@ -385,7 +385,7 @@
         { "character": "Aether_serious", "text": "You have the right to protect your work. The question is where to complain." },
         { "character": "narrator", "text": "(Zack opens a chat app and contacts Louis.)" },
         { "character": "Zack_neutral", "text": "(Sends message) Louis, if someone uses my video for ads, who should I complain to?" },
-        { "character": "Louis_relaxed", "text": "(Replies) It depends on how you want to handle it. The wrong place will waste time." }
+        { "character": "Aether_thinking", "text": "(Replies) It depends on how you want to handle it. The wrong place will waste time." }
       ],
       "choices": [
         {
@@ -504,6 +504,87 @@
         }
       ],
       "summary": "Identity theft is serious. If someone uses your photo to impersonate you, report it to cyber security agencies and keep evidence to protect your reputation."
+    },
+    {
+      "id": "HomeEvent-09",
+      "type": "home",
+      "title": "Too Good To Be True",
+      "conditions": {},
+      "background": "home.png",
+      "dialogues": [
+        { "character": "Zack_relaxed", "text": "Finally finished my homework. Time for a break." },
+        { "character": "narrator", "text": "(Zack walks into the living room and sees Mom excitedly looking at her phone)" },
+        { "character": "MrsWilliam_smile", "text": "Son, come look! I found an amazing flash sale, this luxury brand bag is only one-tenth of its original price!" },
+        { "character": "Zack_thinking", "text": "That cheap? Let me see." },
+        { "character": "narrator", "text": "(Zack takes the phone and carefully examines the webpage)" },
+        { "character": "Zack_worried", "text": "Mom, this website looks a bit strange..." },
+        { "character": "MrsWilliam_confused", "text": "Strange how? The reviews say they received their items, and there are even real photos. Look how beautiful these customer photos are!" },
+        { "character": "Zack_serious", "text": "But the URL is weird, and they only accept bank transfers..." },
+        { "character": "MrsWilliam_neutral", "text": "Maybe it's to save on processing fees? It's only two thousand, much cheaper than the retail store." },
+        { "character": "Zack_worried", "text": "Mom, look at these reviews, they're all from the last three days, and they use almost identical wording." },
+        { "character": "MrsWilliam_confused", "text": "Well... maybe the sale just started recently?" },
+        { "character": "Aether_warning", "text": "When a price is unreasonably low, it's usually a trap. Especially when they only accept bank transfers." },
+        { "character": "Zack_thinking", "text": "I remember Louis mentioned last week that there are many fake shopping websites specifically targeting people with luxury brand discounts..." },
+        { "character": "MrsWilliam_worried", "text": "But... what if it's real and I miss out?" }
+      ],
+      "choices": [
+        {
+          "text": "Carefully analyze and explain to Mom why this is a scam website",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_determined", "text": "Mom, look at these suspicious signs: the URL is gibberish, there's no proper payment system, all reviews are from the last few days, and they use identical wording." },
+              { "character": "Zack_serious", "text": "Legitimate luxury brands never sell this way, even during sales they only use official channels." },
+              { "character": "MrsWilliam_worried", "text": "You're right... I didn't notice these details. I almost fell for it." },
+              { "character": "Zack_smile", "text": "We can check the official website, it's more expensive but at least it's safe. They often have legitimate sales too." },
+              { "character": "MrsWilliam_grateful", "text": "Thank goodness you warned me, these scams are so clever. From now on, I'll ask you first when I see suspiciously cheap items." },
+              { "character": "Aether_proud", "text": "Protecting your family from online scams, you did well. Your knowledge is helping keep your loved ones safe." }
+            ],
+            "stats": {
+              "safetyAwareness": 20,
+              "familyTrust": 15,
+              "mentalHealth": 10
+            }
+          }
+        },
+        {
+          "text": "Tell Mom not to buy it without explaining why",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_serious", "text": "Mom, don't buy it, it must be fake. It's too cheap to be real." },
+              { "character": "MrsWilliam_confused", "text": "Why do you say that? It looks real, and the reviews say they received their items." },
+              { "character": "narrator", "text": "(Mom looks unconvinced and continues browsing the product page)" },
+              { "character": "MrsWilliam_neutral", "text": "Maybe you're being too cautious, isn't this how online shopping works nowadays?" },
+              { "character": "Zack_worried", "text": "Maybe I should explain more clearly..." },
+              { "character": "Aether_concerned", "text": "Simple warnings won't convince people, they need to understand the reasons behind them." }
+            ],
+            "stats": {
+              "safetyAwareness": -5,
+              "familyTrust": -5,
+              "mentalHealth": -5
+            }
+          }
+        },
+        {
+          "text": "Help Mom find suitable discounted items on legitimate websites",
+          "outcome": {
+            "dialogues": [
+              { "character": "Zack_smile", "text": "Mom, let me help you find deals on legitimate websites. The shopping festival is coming up, and many official stores will have discounts." },
+              { "character": "narrator", "text": "(Zack opens the official website and finds items on sale)" },
+              { "character": "Zack_relaxed", "text": "Look, this style is nice too, and while the discount isn't as big, it's guaranteed authentic." },
+              { "character": "MrsWilliam_grateful", "text": "It is more expensive, but at least I can buy with confidence. And this style suits me better." },
+              { "character": "Zack_smile", "text": "Right, you get what you pay for. Let's wait a bit, the discounts might be better in a few days." },
+              { "character": "MrsWilliam_smile", "text": "Okay, I'll save it to my favorites, and you can help me decide when's the best time to buy." },
+              { "character": "Aether_gentle", "text": "Helping family make wise choices is the right way. You not only prevented a scam but also provided a better alternative." }
+            ],
+            "stats": {
+              "safetyAwareness": 15,
+              "familyTrust": 20,
+              "mentalHealth": 10
+            }
+          }
+        }
+      ],
+      "summary": "Online shopping scams often use extremely low prices to attract victims. Be wary of unreasonable discounts, irregular URLs, and suspicious payment methods. When finding tempting items, it's better to buy from official channels - even if it's more expensive, it's better than being scammed. When helping family avoid scams, don't just point out dangers, explain the reasons and provide better alternatives."
     }
   ]
 } 
