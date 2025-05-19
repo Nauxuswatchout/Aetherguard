@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mix_match_game.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+  <div class="game-area-container">
+    <div class="game-wrapper">
+      <header class="game-header">
+        <h1>Story Memory Match</h1>
+        <p class="subtitle">Match each story with its moral lesson!</p>
+      </header>
+      <div class="controls">
+        <div class="status">
+          Matched: <span id="matched-count">0</span>/<span id="total-pairs">?</span> pairs
+        </div>
+        <button id="new-game" class="btn new-game-btn">New Game</button>
+      </div>
+      <div class="game-box">
+        <div id="game-board"></div>
+      </div>
+      
+      <!-- Lulu Character -->
+      <img id="lulu" src="{{ url_for('static', filename='images/animations/normal.gif') }}" alt="Lulu helper">
+    </div>
+  </div>
+
+  <!-- Game Guide Modal (will be added by JavaScript) -->
+
+  <!-- Story Modal -->
+  <div id="modal-overlay"></div>
+  <div id="story-modal">
+    <h3 id="modal-title"></h3>
+    <div id="modal-story"></div>
+    <div class="modal-buttons">
+      <button id="listen-again" class="btn blue-btn">Listen Again</button>
+      <button id="stop-audio" class="btn gray-btn">Stop Audio</button>
+      <button id="close-modal" class="btn gray-btn">Close</button>
+    </div>
+    <div class="ask-container">
+      <input id="question-input" type="text" placeholder="Ask a question…" />
+      <button id="submit-question" class="btn red-btn">Submit</button>
+    </div>
+    <div id="modal-response"></div>
+  </div>
+
+  <!-- Audio Elements -->
+  <audio id="correct-sound" src="{{ url_for('static', filename='audio/correct.mp3') }}"></audio>
+  <audio id="wrong-sound" src="{{ url_for('static', filename='audio/wrong.mp3') }}"></audio>
+  <audio id="hint-sound" src="{{ url_for('static', filename='audio/hint.mp3') }}"></audio>
+
+  <!-- JavaScript -->
+  <script src="https://js.puter.com/v2/"></script>
+  <script src="{{ url_for('static', filename='js/match_game.js') }}"></script>
+
+  <!-- Confetti and Win Popup will be created dynamically by JavaScript -->
+{% endblock %}

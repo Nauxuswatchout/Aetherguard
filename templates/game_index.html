@@ -4,8 +4,53 @@
     <meta charset="UTF-8">
     <title>Zack's Digital Journey</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+    <style>
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .main-menu {
+            padding-top: 60px;
+        }
+    </style>
 </head>
 <body>
+    <nav class="nav-bar">
+        <ul class="nav-links">
+            <li><a href="/children">Home</a></li>
+            <li><a href="/parents">Parents</a></li>
+            <li><a href="/questionnaire">Quiz</a></li>
+        </ul>
+    </nav>
     <div class="main-menu">
         <div class="menu-buttons">
             <button onclick="window.location.href='/new_game'">Start New Game</button>

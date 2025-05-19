@@ -17,6 +17,20 @@
     />
   </head>
   <body>
+    <!-- Hover Sound Effects -->
+    <audio id="hover-sound-1" preload="auto">
+      <source src="{{ url_for('static', filename='sounds/d1.mp3') }}" type="audio/mpeg">
+    </audio>
+    <audio id="hover-sound-2" preload="auto">
+      <source src="{{ url_for('static', filename='sounds/d2.mp3') }}" type="audio/mpeg">
+    </audio>
+    <audio id="hover-sound-3" preload="auto">
+      <source src="{{ url_for('static', filename='sounds/d3.mp3') }}" type="audio/mpeg">
+    </audio>
+    <audio id="hover-sound-4" preload="auto">
+      <source src="{{ url_for('static', filename='sounds/d4.mp3') }}" type="audio/mpeg">
+    </audio>
+
     <main>
       <div class="page-header">
         <h1>Click on a book to start reading !</h1>
@@ -63,7 +77,11 @@
           <a href="{{ url_for('felix_story') }}" class="book-link">
             <div class="book" id="book3">
               <div class="book-cover">
-                <img src="" alt="Felix" class="cover-image" />
+                <img
+                  src="{{ url_for('static', filename='images/stories/Felixfox/Felixfox_page1.png') }}"
+                  alt="Felix"
+                  class="cover-image"
+                />
                 <div class="book-title">Felix the Fox</div>
                 <div class="book-description">
                   Felix the Fox and the Fake Contest
@@ -77,7 +95,11 @@
           <a href="{{ url_for('bella_story') }}" class="book-link">
             <div class="book" id="book4">
               <div class="book-cover">
-                <img src="" alt="Bella" class="cover-image" />
+                <img
+                  src="{{ url_for('static', filename='images/stories/Bellabunny/Bellabunny_page2.png') }}"
+                  alt="Bella"
+                  class="cover-image"
+                />
                 <div class="book-title">Bella the Bunny</div>
                 <div class="book-description">
                   Bella the Bunny and the Mystery Photo
@@ -91,7 +113,11 @@
           <a href="{{ url_for('benny_story') }}" class="book-link">
             <div class="book" id="book5">
               <div class="book-cover">
-                <img src="" alt="Benny" class="cover-image" />
+                <img
+                  src="{{ url_for('static', filename='images/stories/Bennybear/Benny_page1.png') }}"
+                  alt="Benny"
+                  class="cover-image"
+                />
                 <div class="book-title">Benny the Bear</div>
                 <div class="book-description">
                   Benny the Bear and the Photo Request

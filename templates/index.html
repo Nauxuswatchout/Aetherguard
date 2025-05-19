@@ -248,13 +248,34 @@
 
     <div class="info-block dark">
       <div class="info-block-content" style="text-align: center; padding: 40px 20px;">
-        <div class="info-header" style="justify-content: center;">
-          <div class="info-number"></div>
-          <h2 class="info-title">ABOUT US</h2>
+        <div class="info-header" style="display: flex; justify-content: center; align-items: center; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          <h2 class="info-title" style="margin: 0; padding: 0;">ABOUT US</h2>
         </div>
         
-        <div style="display: flex; justify-content: center; align-items: center; padding: 30px 0;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 30px; max-width: 600px; margin: 0 auto;">
           <img src="{{ url_for('static', filename='images/covers/Logo.png') }}" alt="Company Logo" style="max-width: 300px; height: auto;">
+          
+          <div style="width: 60px; height: 3px; background-color: #3498db; margin: 10px 0;"></div>
+          
+          <div style="width: 100%;">
+            <h3 style="font-size: 24px; margin-bottom: 20px; color: #3498db;">Team TA07</h3>
+            
+            <div style="font-size: 16px; line-height: 1.6; color: #666;">
+              <p style="font-weight: 600; margin-bottom: 15px;">Team Members Information:</p>
+              
+              <div style="text-align: left; padding-left: 20px;">
+                <p>TianYi Song (Masters of CyberSecurity)</p>
+                <p>Katragadda Manisha Rani (Masters of Datascience)</p>
+                <p>Damian Ngau (Masters of Artificial Intelligence)</p>
+                <p>Xinyi Dong (Masters of BIS)</p>
+              </div>
+              
+              <div style="margin-top: 20px;">
+                <p style="font-size: 14px; color: #888;">Contact us:</p>
+                <a href="mailto:Nauxuswatchout@gmail.com" style="color: #3498db; text-decoration: none; font-size: 14px;">Nauxuswatchout@gmail.com</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
