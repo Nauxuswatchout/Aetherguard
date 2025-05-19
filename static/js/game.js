@@ -757,28 +757,30 @@ class Game {
         const defaultImage = '/static/images/characters/default.png';
         let characterImage;
 
+        // Map character names to exact file names
+        const characterMap = {
+            'zack': 'Zack',
+            'aether': 'Aether',
+            'mom': 'Mom',
+            'tiktok': 'Tiktok',
+            'tiktok_user': 'Tiktok_user',
+            'mrswilliam': 'MrsWilliam',
+            'bob': 'Bob',
+            'derek': 'Derek',
+            'evezack': 'Evezack',
+            'lisa': 'Lisa',
+            'louis': 'Louis',
+            'unknown': 'Unknow',
+            'unnamed': 'Unnamed',
+            'ad': 'Ad'
+        };
+
         const normalizedCharacterName = characterName.toLowerCase();
+        const mappedName = characterMap[normalizedCharacterName] || characterName;
         const normalizedMood = characterMood.toLowerCase();
 
-        const cleanFileName = (name) => name.replace(/\s+/g, '_');
-
-        if (normalizedCharacterName === 'zack') {
-            characterImage = `/static/images/characters/Zack_${normalizedMood}.png`;
-        } else if (normalizedCharacterName === 'aether') {
-            characterImage = `/static/images/characters/Aether_${normalizedMood}.png`;
-        } else if (normalizedCharacterName === 'mom') {
-            characterImage = `/static/images/characters/Mom_${normalizedMood}.png`;
-        } else if (normalizedCharacterName === 'tiktok') {
-            characterImage = `/static/images/characters/Tiktok_${normalizedMood}.png`;
-        } else if (normalizedCharacterName === 'tiktok_user') {
-            characterImage = `/static/images/characters/Tiktok_user_${normalizedMood}.png`;
-        } else {
-            const cleanCharacterName = cleanFileName(normalizedCharacterName);
-            const cleanMood = cleanFileName(normalizedMood);
-            characterImage = `/static/images/characters/${cleanCharacterName}_${cleanMood}.png`;
-        }
-
-        console.log(`Attempting to load character image: ${characterImage}`);
+        characterImage = `/static/images/characters/${mappedName}_${normalizedMood}.png`;
+        console.log(`Loading character image: ${characterImage}`);
 
         if (normalizedCharacterName === 'zack') {
             this.elements.characterLeft.style.opacity = '1';
