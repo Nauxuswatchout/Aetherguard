@@ -11,24 +11,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize hover sounds
   const hoverSounds = [];
-  for (let i = 1; i <= 4; i++) {
-    const sound = new Audio(`/static/sounds/d${i}.mp3`);
-    sound.volume = 0.7;
-    sound.preload = 'auto';
-    hoverSounds.push(sound);
+  let soundsInitialized = false;
+
+  // Function to initialize sounds after user interaction
+  function initializeSounds() {
+    if (!soundsInitialized) {
+      for (let i = 1; i <= 4; i++) {
+        const sound = new Audio(`/static/sounds/d${i}.mp3`);
+        sound.volume = 0.7;
+        sound.preload = 'auto';
+        hoverSounds.push(sound);
+      }
+      soundsInitialized = true;
+    }
   }
 
   // Function to play random hover sound
   function playRandomHoverSound() {
-    const randomIndex = Math.floor(Math.random() * hoverSounds.length);
-    const sound = hoverSounds[randomIndex].cloneNode();
-    sound.play();
-    sound.addEventListener('ended', () => sound.remove());
+    if (!soundsInitialized) {
+      initializeSounds();
+    }
+    
+    if (hoverSounds.length > 0) {
+      const randomIndex = Math.floor(Math.random() * hoverSounds.length);
+      const sound = hoverSounds[randomIndex].cloneNode();
+      
+      // Handle play() promise
+      const playPromise = sound.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("Playback prevented by browser");
+        });
+      }
+      
+      sound.addEventListener('ended', () => sound.remove());
+    }
   }
 
   // Add hover sound to book containers
   const books = document.querySelectorAll('.book');
   books.forEach(book => {
+    // Initialize sounds on first mouse movement over book
+    book.addEventListener('mouseover', initializeSounds, { once: true });
     book.addEventListener('mouseenter', playRandomHoverSound);
   });
 
