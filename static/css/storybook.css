@@ -1,3 +1,67 @@
+/* Toggle Switch Styles */
+.autoplay-control {
+  display: flex;
+  align-items: center;
+  margin-top: 5px; /* Reduced */
+  width: 100%;
+  justify-content: space-between;
+}
+
+.autoplay-label {
+  font-family: "Georgia", serif;
+  color: #5e3a1f;
+  font-size: 16px; /* Reduced */
+  font-style: italic;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #986b41;
+}
+
+input:focus + .toggle-slider {
+  box-shadow: 0 0 1px #986b41;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
 .storybook-container {
   max-width: 100%;
   padding: 0;
@@ -142,15 +206,15 @@
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+/* UPDATED CONTROL POSITIONING */
 .book-controls {
   position: fixed;
-  bottom: 25px;
-  left: 0;
-  width: 100%;
+  top: 380px;
+  right: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px; /* Reduced gap a bit to accommodate the third button */
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
   z-index: 1000;
 }
 
@@ -165,16 +229,25 @@
   z-index: 1000;
 }
 
+.flip-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px; /* Reduced gap between buttons */
+  margin-bottom: 8px;
+}
+
 .flip-btn {
   background-color: #986b41;
   color: #fff;
   border: none;
-  padding: 14px 40px; /* Larger buttons */
-  font-size: clamp(18px, 2.4vw, 24px); /* Larger text */
+  padding: 6px 10px; /* Reduced padding */
+  font-size: 16px; /* Smaller font */
   cursor: pointer;
-  border-radius: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 18px; /* Slightly smaller radius */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Smaller shadow */
   transition: all 0.3s ease;
+  width: 80px; /* Reduced from 100px */
+  text-align: center;
 }
 
 .flip-btn:hover {
@@ -187,11 +260,14 @@
   background-color: rgba(255, 255, 255, 0.9);
   color: #5e3a1f;
   text-decoration: none;
-  padding: 12px 24px; /* Larger button */
+  padding: 8px 15px;
   border-radius: 20px;
-  font-size: clamp(16px, 2.2vw, 22px); /* Larger text */
+  font-size: 16px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
+  width: 140px;
+  text-align: center;
+  display: block;
 }
 
 .back-button:hover {
@@ -200,22 +276,25 @@
 }
 
 .back-arrow {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
-/* Audio Controls Styles */
+/* Audio Controls Styles - UPDATED */
 .audio-controls {
   position: fixed;
   top: 20px;
   right: 20px;
   background-color: rgba(255, 255, 255, 0.85);
-  padding: 10px 15px;
-  border-radius: 30px;
+  padding: 12px;
+  border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   z-index: 1000;
   transition: all 0.3s ease;
+  width: 140px;
+  margin-bottom: 40px;
 }
 
 .audio-controls:hover {
@@ -223,19 +302,28 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+.audio-main-controls {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
 .audio-btn {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px; /* Further reduced */
   color: #986b41;
-  width: 36px;
-  height: 36px;
+  width: 26px; /* Further reduced */
+  height: 26px; /* Further reduced */
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   transition: all 0.2s ease;
+  padding: 0;
 }
 
 .audio-btn:hover {
@@ -246,14 +334,13 @@
 .volume-control {
   display: flex;
   align-items: center;
-  margin-left: 10px;
 }
 
 .volume-slider {
-  width: 80px;
-  margin: 0 10px;
+  width: 45px; /* Further reduced from 60px */
+  margin: 0 3px; /* Reduced margins */
   -webkit-appearance: none;
-  height: 6px;
+  height: 5px; /* Slightly smaller height */
   border-radius: 3px;
   background: #d7c4b0;
   outline: none;
@@ -293,9 +380,22 @@
 .audio-label {
   font-family: "Georgia", serif;
   color: #5e3a1f;
-  font-size: 14px;
-  margin-right: 8px;
+  font-size: 12px; /* Reduced */
+  margin-right: 5px; /* Reduced */
   font-style: italic;
+}
+
+/* New instructions section */
+.audio-instructions {
+  font-size: 16px; /* Further reduced */
+  color: #5e3a1f;
+  margin-top: 6px;
+  font-style: italic;
+  text-align: left;
+  line-height: 1.3;
+  border-top: 1px solid #d7c4b0;
+  padding-top: 6px;
+  width: 100%;
 }
 
 /* Media query to adjust sizing on smaller screens */
@@ -315,29 +415,49 @@
   .page-content.bottom-half {
     padding-bottom: 18%; /* More padding on mobile */
   }
-  
+
   /* Mobile adjustments for audio controls */
   .audio-controls {
     top: 10px;
-    right: 10px;
-    padding: 8px 12px;
+    padding: 10px;
   }
-  
+
   .audio-label {
     display: none; /* Hide label on small screens */
   }
-  
+
   .volume-control {
     margin-left: 5px;
   }
-  
+
   .volume-slider {
     width: 60px;
   }
-  
+
   .audio-btn {
     width: 30px;
     height: 30px;
     font-size: 16px;
+  }
+
+  .flip-btn-container {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .flip-btn,
+  .back-button {
+    width: 70px; /* Even smaller on mobile */
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .audio-instructions {
+    font-size: 12px;
+  }
+
+  /* Adjust book controls position for mobile */
+  .book-controls {
+    top: 360px;
   }
 }
