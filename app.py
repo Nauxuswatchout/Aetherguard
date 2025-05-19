@@ -1,13 +1,14 @@
 import json
 import random
 
-from flask import Flask, render_template, jsonify, request, redirect, url_for, session, abort
+from flask import Flask, render_template, jsonify, request, redirect, url_for, session, abort, make_response, after_this_request
 import mysql.connector
 from typing import List
 # import pymysql
 import os
 import datetime
 import time
+import random
 
 app = Flask(__name__)
 app.secret_key = 'TRUST-IT-07-secret-key'
@@ -314,7 +315,7 @@ def get_random_records(table_name: str):
         # Return the result as JSON
         return jsonify(result)
     print("connection is closed")
-
+    
 
 # Game part
 
@@ -778,6 +779,56 @@ def force_quiz():
     except Exception as e:
         print(f"Failed to force quiz entry: {e}")
         return jsonify({'error': str(e)})
+
+@app.route('/children/children_lulu/mix_match_game')
+def mix_match_game():
+    return render_template('mix_match_game.html', title="Memory map card game  for children")
+
+@app.route("/get_cards")
+def get_cards():
+    conn = get_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+        query = """
+            SELECT * from cyber_tales ORDER BY RAND() LIMIT 5;
+        """
+        cursor.execute(query)
+        results = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify(results)
+    except Exception as e:
+        if conn:
+            conn.close()
+        return jsonify({"error": str(e)}), 500
+
+
+@app.after_request
+def add_security_headers(response):
+    response.headers['Content-Security-Policy'] = "default-src 'self'; \
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; \
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; \
+        img-src 'self' data: https:; \
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; \
+        connect-src 'self'; \
+        media-src 'self'; \
+        object-src 'none'; \
+        frame-src 'self' https://www.youtube.com; \
+        worker-src 'none'; \
+        form-action 'self'; \
+        frame-ancestors 'none'; \
+        base-uri 'self'; \
+        upgrade-insecure-requests;"
+
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    response.headers['Permissions-Policy'] = 'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    response.headers['Cache-Control'] = 'no-store, max-age=0'
+
+    return response
 
 
 if __name__ == '__main__':
