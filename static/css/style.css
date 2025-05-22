@@ -7,7 +7,7 @@
 
 /* Fix for emoji display issues - ensure proper emoji font support */
 body, h1, h2, h3, h4, h5, h6, p, li, span {
-  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI', 'Arial', sans-serif !important;
+  font-family: 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI', 'Arial', sans-serif !important;
 }
 
 body {
