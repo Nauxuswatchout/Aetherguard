@@ -803,6 +803,37 @@ def get_cards():
         return jsonify({"error": str(e)}), 500
 
 
+@app.after_request
+def add_security_headers(response):
+    response.headers['Content-Security-Policy'] = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://js.puter.com; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; "
+        "img-src 'self' data: https:; "
+        "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; "
+        "connect-src 'self' https://api.puter.com wss://api.puter.com; "
+        "media-src 'self'; "
+        "object-src 'none'; "
+        "frame-src 'self' https://www.youtube.com; "
+        "worker-src 'none'; "
+        "form-action 'self'; "
+        "frame-ancestors 'none'; "
+        "base-uri 'self'; "
+        "upgrade-insecure-requests;"
+    )
+
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    response.headers['Permissions-Policy'] = (
+        'accelerometer=(), camera=(), geolocation=(), gyroscope=(), '
+        'magnetometer=(), microphone=(), payment=(), usb=()'
+    )
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    response.headers['Cache-Control'] = 'no-store, max-age=0'
+
+    return response
 
 
 if __name__ == '__main__':
