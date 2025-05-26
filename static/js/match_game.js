@@ -1,7 +1,6 @@
 // static/js/match_game.js
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Show guide modal on first load in this session
+document.addEventListener('DOMContentLoaded', async () => {
   if (!sessionStorage.getItem('gameGuideShown')) {
     showGameGuide();
     sessionStorage.setItem('gameGuideShown', 'true');
@@ -20,10 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
       renderBoard(cards);
     });
 
-  loadVoices();
+  await loadVoices();
   setupEventListeners();
-  
-  // Initialize game timer
   startTime = Date.now();
 });
 
@@ -70,8 +67,7 @@ function setupEventListeners() {
     .addEventListener('click', stopAudio);
   document.getElementById('submit-question')
     .addEventListener('click', handleAskQuestion);
-    
-  // Lulu character click event
+
   const lulu = document.getElementById('lulu');
   if (lulu) {
     lulu.addEventListener('click', () => {
@@ -81,32 +77,53 @@ function setupEventListeners() {
 }
 
 function loadVoices() {
-  const pick = () => {
-    const voices = speechSynthesis.getVoices();
+  return new Promise(resolve => {
+    let voices = speechSynthesis.getVoices();
     if (voices.length) {
-      selectedVoice = voices.find(v =>
-        v.name.toLowerCase().includes('zira') ||
-        v.name.toLowerCase().includes('jenny') ||
-        (v.name.includes('Google') && v.lang.startsWith('en'))
-      ) || voices[0];
+      selectedVoice = pickChildFriendlyVoice(voices);
+      return resolve();
     }
-  };
-  pick();
-  speechSynthesis.onvoiceschanged = pick;
+
+    const interval = setInterval(() => {
+      voices = speechSynthesis.getVoices();
+      if (voices.length) {
+        clearInterval(interval);
+        selectedVoice = pickChildFriendlyVoice(voices);
+        resolve();
+      }
+    }, 200);
+  });
+}
+
+function pickChildFriendlyVoice(voices) {
+  return voices.find(v =>
+    v.name.toLowerCase().includes('zira') ||
+    v.name.toLowerCase().includes('jenny') ||
+    (v.name.toLowerCase().includes('google') && v.lang.startsWith('en'))
+  ) || voices.find(v => v.lang.startsWith('en')) || voices[0];
 }
 
 function speakWithChildVoice(text) {
   stopAudio();
-  if (window.puter?.audio?.speak) {
-    return puter.audio.speak(text);
+  if (window.puter?.audio?.speak) return puter.audio.speak(text);
+
+  const voices = speechSynthesis.getVoices();
+  if (!voices.length) {
+    console.warn("Voices not ready yet.");
+    return;
   }
-  if (!selectedVoice) return;
+
   const u = new SpeechSynthesisUtterance(text);
-  u.voice = selectedVoice;
-  u.pitch = 1.9;
-  u.rate = 1.1;
+  u.voice = selectedVoice || voices.find(v => v.lang.startsWith('en')) || voices[0];
+  u.pitch = 1.0;  
+  u.rate = 0.9;   
   u.volume = 1;
-  speechSynthesis.speak(u);
+
+  try {
+    speechSynthesis.speak(u);
+  } catch (err) {
+    console.error("Speech synthesis failed:", err);
+  }
 }
 
 function stopAudio() {
@@ -120,8 +137,8 @@ function stopAudio() {
 
 function prepareCards(data) {
   return data.flatMap(item => [
-    { id: item.id, type: 'story', displayText: item.title,  speakText: item.story },
-    { id: item.id, type: 'moral', displayText: item.moral,  speakText: item.moral }
+    { id: item.id, type: 'story', displayText: item.title, speakText: item.story },
+    { id: item.id, type: 'moral', displayText: item.moral, speakText: item.moral }
   ]);
 }
 
@@ -138,7 +155,7 @@ function renderBoard(cards) {
   cards.forEach(card => {
     const cardEl = document.createElement('div');
     cardEl.className = 'card';
-    cardEl.classList.add(card.type); // Add type class for styling
+    cardEl.classList.add(card.type);
     cardEl.dataset.id = card.id;
     cardEl.dataset.type = card.type;
     cardEl.dataset.displayText = card.displayText;
@@ -151,9 +168,7 @@ function renderBoard(cards) {
       <div class="card-front">
         <div class="card-title">${card.displayText}</div>
         <div class="card-buttons">
-          ${card.type === 'story'
-            ? '<button class="btn blue-btn read-btn">Read Story</button>'
-            : '<div style="flex:1"></div>'}
+          ${card.type === 'story' ? '<button class="btn blue-btn read-btn">Read Story</button>' : '<div style="flex:1"></div>'}
           <button class="btn red-btn stop-btn">Stop</button>
         </div>
       </div>`;
@@ -170,9 +185,7 @@ function handleCardClick(e) {
   if (lockBoard || inner.classList.contains('flipped') || cardEl.classList.contains('matched'))
     return;
 
-  // Track total flips for statistics
   totalFlips++;
-  
   inner.classList.add('flipped');
   flippedCards.push(cardEl);
 
@@ -201,12 +214,12 @@ function handleCardClick(e) {
       const [a, b] = flippedCards;
       const match = a.dataset.id === b.dataset.id && a.dataset.type !== b.dataset.type;
       if (match) {
-        a.classList.add('matched'); 
+        a.classList.add('matched');
         b.classList.add('matched');
         matchedPairs++;
         document.getElementById('matched-count').innerText = matchedPairs;
         document.getElementById('correct-sound').play();
-        
+
         const lulu = document.getElementById('lulu');
         if (lulu) {
           lulu.src = '/static/images/animations/correct.gif';
@@ -219,7 +232,7 @@ function handleCardClick(e) {
         [a, b].forEach(c => c.querySelector('.card-inner').classList.remove('flipped'));
         document.getElementById('wrong-sound').play();
         incorrectAttempts++;
-        
+
         const lulu = document.getElementById('lulu');
         if (lulu) {
           lulu.src = '/static/images/animations/wrong.gif';
@@ -227,8 +240,7 @@ function handleCardClick(e) {
             lulu.src = '/static/images/animations/normal.gif';
           }, 4000);
         }
-        
-        // Show hint after 3 incorrect attempts
+
         if (incorrectAttempts % 6 === 0) {
           showHint();
         }
@@ -240,28 +252,25 @@ function handleCardClick(e) {
 }
 
 function showHint() {
-  // Find all unmatched cards
   const unmatchedCards = Array.from(document.querySelectorAll('.card:not(.matched)'));
   const storyCards = unmatchedCards.filter(c => c.dataset.type === 'story');
-  
+
   if (storyCards.length > 0) {
     const randomStory = storyCards[Math.floor(Math.random() * storyCards.length)];
     const moralId = randomStory.dataset.id;
-    const matchingMoral = unmatchedCards.find(c => 
+    const matchingMoral = unmatchedCards.find(c =>
       c.dataset.id === moralId && c.dataset.type === 'moral'
     );
-    
+
     if (matchingMoral) {
-      // Briefly highlight the matching pair
       randomStory.classList.add('hint');
       matchingMoral.classList.add('hint');
-      
+
       setTimeout(() => {
         randomStory.classList.remove('hint');
         matchingMoral.classList.remove('hint');
       }, 2000);
-      
-      // Show Lulu animation
+
       showLuluAnimation('hint');
     }
   }
@@ -270,7 +279,7 @@ function showHint() {
 function showLuluAnimation(type) {
   const lulu = document.getElementById('lulu');
   if (!lulu) return;
-  
+
   let duration = 2000;
   if (type === 'correct') {
     duration = 3000;
@@ -282,9 +291,9 @@ function showLuluAnimation(type) {
     duration = 2000;
     lulu.src = '/static/images/animations/Lulu_helper.png';
   }
-  
+
   lulu.classList.add('animated');
-  
+
   setTimeout(() => {
     lulu.classList.remove('animated');
     lulu.src = '/static/images/animations/normal.gif';
@@ -314,7 +323,7 @@ function showWinPopup() {
   const timeTaken = Math.floor((endTime - startTime) / 1000);
   const minutes = Math.floor(timeTaken / 60);
   const seconds = timeTaken % 60;
-  
+
   createConfetti();
   const popup = document.createElement('div');
   popup.className = 'win-popup';
@@ -353,21 +362,19 @@ async function handleAskQuestion() {
   const respEl = document.getElementById('modal-response');
   const questionInput = document.getElementById('question-input');
   const question = questionInput.value.trim();
-  
+
   if (!question) {
     respEl.innerText = 'Please ask a question!';
     respEl.style.display = 'block';
     return;
   }
 
-  // Show loading state
   respEl.innerText = 'Thinking...';
   respEl.style.display = 'block';
   questionInput.disabled = true;
   document.getElementById('submit-question').disabled = true;
 
   try {
-    // Define tools/functions available to the AI
     const tools = [{
       type: "function",
       function: {
@@ -388,27 +395,23 @@ async function handleAskQuestion() {
       }
     }];
 
-    // First call to determine if we need to use our function
-    const completion = await puter.ai.chat(question, { 
+    const completion = await puter.ai.chat(question, {
       tools,
       system_message: "Answer in 5-7 words MAX. Only give: [Thing] is like [simple example]. Example: 'Popups are like digital sticky notes.' Never explain concepts - only give the comparison."
     });
 
     let finalResponse;
 
-    // Check for function call
     if (completion.message.tool_calls && completion.message.tool_calls.length > 0) {
       const toolCall = completion.message.tool_calls[0];
       if (toolCall.function.name === 'explain_to_child') {
-        // Parse arguments and process locally
         const args = JSON.parse(toolCall.function.arguments);
         const explanation = await generateChildFriendlyExplanation(args.concept);
-        
-        // Send result back to AI for final response
+
         finalResponse = await puter.ai.chat([
           { role: "user", content: question },
           completion.message,
-          { 
+          {
             role: "tool",
             tool_call_id: toolCall.id,
             content: explanation
@@ -419,17 +422,16 @@ async function handleAskQuestion() {
       finalResponse = completion;
     }
 
-    // Display the response
     const content = finalResponse.message?.content || finalResponse.content || "I'm not sure how to answer that.";
     respEl.innerText = content;
     speakWithChildVoice(content);
 
   } catch (error) {
     console.error('API Error:', error);
-    const errorMessage = error.response?.status === 400 
+    const errorMessage = error.response?.status === 400
       ? "That question wasn't quite right. Can you try asking differently?"
       : "Sorry, I'm having trouble answering right now.";
-    
+
     respEl.innerText = errorMessage;
     speakWithChildVoice(errorMessage);
   } finally {
