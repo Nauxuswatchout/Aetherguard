@@ -7,7 +7,7 @@
 
 /* Fix for emoji display issues - ensure proper emoji font support */
 body, h1, h2, h3, h4, h5, h6, p, li, span {
-  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI', 'Arial', sans-serif !important;
+  font-family: 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI', 'Arial', sans-serif !important;
 }
 
 body {
@@ -1388,24 +1388,6 @@ body.permissions-page {
 
 
 
-
-/* Team Members Section Styles */
-.team-members-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 20px 0;
-}
-
-.team-member {
-  text-align: center;
-  margin: 8px 0;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #666;
-}
 
 /* Responsive design adjustments */
 @media (max-width: 768px) {
